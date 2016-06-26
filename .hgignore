@@ -30,3 +30,4 @@ _ReSharper*
 ._*
 src/AvenueClothing.sln.ide/*.*
 src/AvenueClothing/node_modules/*
+src/packages/*
