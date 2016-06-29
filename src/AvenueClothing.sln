@@ -5,6 +5,12 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.B2C", "AvenueClothing.B2C\AvenueClothing.B2C.csproj", "{F18EC679-469A-4BC0-B845-F6A6698A8344}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".deploy", ".deploy", "{1797BCCD-EA91-46AF-8EEE-9E4920FCB81C}"
+	ProjectSection(SolutionItems) = preProject
+		gruntfile.js = gruntfile.js
+		package.json = package.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

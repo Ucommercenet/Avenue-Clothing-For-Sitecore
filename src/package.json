@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "name": "Avenue-Clothing-for-Sitecore",
+  "private": true,
+  "devDependencies": {
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}
