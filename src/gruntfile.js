@@ -5,7 +5,7 @@ module.exports = function(grunt) {
         src: {
             b2cRoot: "AvenueClothing.B2C/",
             directories: ["bin/*.dll", "app_config/include/*.config", "views/**"],
-            destination: "c:/inetpub/scdev/website"
+            destination: "c:/inetpub/sc8/website"
         } ,
         
         copy: {
