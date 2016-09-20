@@ -4,7 +4,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON("package.json"),
         src: {
             b2cRoot: "AvenueClothing.B2C/",
-            directories: ["bin/*.dll", "app_config/include/*.config", "views/**"],
+            directories: ["bin/*.dll", "app_config/include/*.config", "views/**", "content/**"],
             destination: "c:/inetpub/sc8/website"
         } ,
         

@@ -11,7 +11,7 @@ namespace AvenueClothing.B2C.Controllers
         // GET: Home
         public ActionResult Index()
         {
-			return View("/views/frontpage.cshtml");
+			return View("/views/Frontpage.cshtml");
         }
     }
 }

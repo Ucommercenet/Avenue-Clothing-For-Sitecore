@@ -1,17 +1,19 @@
 ﻿@{
-    Layout = null;
+	Layout = null;
 }
 
 <!DOCTYPE html>
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
+	<meta name="viewport" content="width=device-width" />
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<title></title>
 </head>
 <body>
-    <div>
+	<div>
+		@{ Html.RenderAction("CategoryNavigation", "CategoryNavigation"); }
 		@RenderBody()
-    </div>
+	</div>
 </body>
 </html>
