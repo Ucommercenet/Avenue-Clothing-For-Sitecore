@@ -1,7 +1,17 @@
+[CmdletBinding()]
+Param(
+    
+    [Parameter(Mandatory=$True)]
+    [string]$url, 
+    [Parameter(Mandatory=$True)]
+    [string]$secret
+)
+
 $ErrorActionPreference = 'Stop'
 $ScriptPath = Split-Path $MyInvocation.MyCommand.Path
 $MicroCHAP = $ScriptPath + '\MicroCHAP.dll'
 Add-Type -Path $MicroCHAP
+
 
 Function Sync-Unicorn {
 	Param(
@@ -58,4 +68,4 @@ Function Get-Challenge {
 	$result.Content
 }
 
-Sync-Unicorn -ControlPanelUrl 'http://sc8/unicorn.aspx' -SharedSecret 'kl3KGocnbp3L9ncCZYRPwFwiW7jW2UhE02T3GZU6sL5rTCKZzsRyRYLtGzuh8Li'
+Sync-Unicorn -ControlPanelUrl $url -SharedSecret $secret

@@ -31,9 +31,10 @@ module.exports = function (callback, options) {
   var url = options.siteHostName + "/unicorn.aspx";
 
   var dirname = __dirname + '/Unicorn/';
-  var script = "./Sync.ps1 -secret " + "\"" + secret + "\"" + " -url " + url;
+  var script = "./Sync.ps1 -url "  + url + " -secret " +  secret;
   var options = { cwd: __dirname + "/Unicorn/", maxBuffer: 1024 * 500 };
   var command = "Powershell.exe -executionpolicy unrestricted -File \"" + dirname + "\"" + script;
+  console.log(command);
   return exec("Powershell.exe -executionpolicy unrestricted -File \"" + dirname + "\"" + script, options, function (err, stdout, stderr) {
     if (err !== null) throw err;
     console.log(stdout);
