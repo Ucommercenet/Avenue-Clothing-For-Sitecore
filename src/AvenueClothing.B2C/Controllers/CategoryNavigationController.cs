@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using AvenueClothing.B2C.ViewModels;
+using AvenueClothing.Project.Website.ViewModels;
 using UCommerce.Extensions;
 
-namespace AvenueClothing.B2C.Controllers
+namespace AvenueClothing.Project.Website.Controllers
 {
     public class CategoryNavigationController : Controller
     {

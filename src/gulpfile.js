@@ -22,6 +22,7 @@ gulp.task("default", function (callback) {
 	return runSequence(
 	  //"01-Copy-Sitecore-Lib",
 	  //"02-Nuget-Restore",
+	  "02-Copy-Serialization-Configuration",
 	  "03-Publish-Solution",
 	  //"04-Apply-Xml-Transform",
 	  "05-Sync-Unicorn",
@@ -50,6 +51,15 @@ gulp.task("02-Nuget-Restore", function (callback) {
 	return gulp.src(solution).pipe(nugetRestore());
 });
 
+gulp.task("02-Copy-Serialization-Configuration", function (callback) {
+	console.log("Copying configuration for serialization to website");
+	
+	var files = "scripts/Serialization/**/*";
+	var libs = gulp.src(files, { base: './scripts/Serialization' }).pipe(gulp.dest(config.websiteRoot));
+
+	return merge(libs);
+
+});
 
 gulp.task("03-Publish-Solution", function (callback) {
 	return runSequence(

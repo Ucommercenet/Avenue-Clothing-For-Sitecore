@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UCommerce.Api;
 
-namespace AvenueClothing.B2C.ViewModels
+namespace AvenueClothing.Project.Website.ViewModels
 {
 	public class ProductViewModel
 	{

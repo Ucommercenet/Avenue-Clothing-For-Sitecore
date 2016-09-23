@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AvenueClothing.B2C.ViewModels
+namespace AvenueClothing.Project.Website.ViewModels
 {
 	public class CategoryNavigationViewModel
 	{
