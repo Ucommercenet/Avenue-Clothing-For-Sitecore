@@ -1,0 +1,21 @@
+﻿---
+ID: "2a2bfa8b-a976-4636-826d-62011070edf1"
+Parent: "0de95ae4-41ab-4d01-9eb0-67441b7c2450"
+Template: "9e886dc3-7d54-480b-8b64-b4207972533e"
+Path: /sitecore/content/AvenueClothing
+DB: master
+SharedFields:
+- ID: "4c9312a5-2e4e-42f8-ab6f-b8db8b82bf22"
+  Hint: __Controller
+  Value: Home
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20160923T085351Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: sitecore\admin
