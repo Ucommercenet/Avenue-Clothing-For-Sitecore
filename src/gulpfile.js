@@ -20,13 +20,10 @@ module.exports.config = config;
 gulp.task("default", function (callback) {
 	config.runCleanBuilds = true;
 	return runSequence(
-	  //"01-Copy-Sitecore-Lib",
-	  //"02-Nuget-Restore",
+	  "01-Nuget-Restore",
 	  "02-Copy-Serialization-Configuration",
 	  "03-Publish-Solution",
-	  //"04-Apply-Xml-Transform",
-	  "05-Sync-Unicorn",
-	  //"06-Deploy-Transforms",
+	  "04-Sync-Unicorn",
 	  callback);
 });
 
@@ -46,7 +43,7 @@ gulp.task("01-Copy-Sitecore-Lib", function () {
 	return merge(libs, license);
 });
 
-gulp.task("02-Nuget-Restore", function (callback) {
+gulp.task("01-Nuget-Restore", function (callback) {
 	var solution = "./" + config.solutionName + ".sln";
 	return gulp.src(solution).pipe(nugetRestore());
 });
@@ -92,7 +89,7 @@ gulp.task("04-Apply-Xml-Transform", function () {
 	  }));
 });
 
-gulp.task("05-Sync-Unicorn", function (callback) {
+gulp.task("04-Sync-Unicorn", function (callback) {
 	var options = {};
 	options.siteHostName = habitat.getSiteUrl();
 	options.authenticationConfigFile = config.websiteRoot + "/App_config/Include/Unicorn/Unicorn.UI.config";

@@ -13,6 +13,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deploy", "deploy", "{1797BC
 		publishsettings.targets = publishsettings.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Feature.Transaction.Module", "AvenueClothing.Feature.Transaction.Module\AvenueClothing.Feature.Transaction.Module.csproj", "{267EA69C-3F72-4F2C-B46E-CA229D71546F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Feature.Catalog.Module", "AvenueClothing.Feature.Catalog.Module\AvenueClothing.Feature.Catalog.Module.csproj", "{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +27,14 @@ Global
 		{F18EC679-469A-4BC0-B845-F6A6698A8344}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F18EC679-469A-4BC0-B845-F6A6698A8344}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F18EC679-469A-4BC0-B845-F6A6698A8344}.Release|Any CPU.Build.0 = Release|Any CPU
+		{267EA69C-3F72-4F2C-B46E-CA229D71546F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{267EA69C-3F72-4F2C-B46E-CA229D71546F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{267EA69C-3F72-4F2C-B46E-CA229D71546F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{267EA69C-3F72-4F2C-B46E-CA229D71546F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
