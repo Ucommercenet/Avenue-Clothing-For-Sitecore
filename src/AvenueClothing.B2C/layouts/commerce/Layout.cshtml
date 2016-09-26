@@ -1,0 +1,25 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+@using Sitecore.Mvc; 
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<title></title>
+</head>
+<body>
+	<div>
+		<header>
+			@Html.Sitecore().Placeholder("header")
+		</header>
+		<section>
+			@Html.Sitecore().Placeholder("main")
+		</section>
+		<footer>
+			@Html.Sitecore().Placeholder("footer")
+		</footer>
+	</div>
+</body>
+</html>

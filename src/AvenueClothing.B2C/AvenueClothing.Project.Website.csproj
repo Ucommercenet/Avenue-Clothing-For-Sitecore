@@ -147,6 +147,7 @@
     <Content Include="App_Config\Include\AvenueClothing.B2C.Serialization.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="layouts\commerce\Layout.cshtml" />
     <None Include="Scripts\jquery-3.0.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -154,12 +155,8 @@
     <Content Include="Scripts\jquery-3.0.0.min.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\Layout.cshtml" />
-    <Content Include="Views\Frontpage.cshtml" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
-    <Content Include="Views\Website\Layouts\Default.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />

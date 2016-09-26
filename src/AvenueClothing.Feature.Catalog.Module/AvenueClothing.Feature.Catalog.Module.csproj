@@ -110,16 +110,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CategoryNavigationController.cs" />
+    <Compile Include="layouts\commerce\catalog\Category Navigation.ascx.cs">
+      <DependentUpon>Category Navigation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="layouts\commerce\catalog\Category Navigation.ascx.designer.cs">
+      <DependentUpon>Category Navigation.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CategoryNavigationViewModel.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="layouts\commerce\catalog\Category Navigation.ascx" />
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\PartialViews\CategoryNavigation.cshtml" />
+    <Content Include="Views\CategoryNavigation.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

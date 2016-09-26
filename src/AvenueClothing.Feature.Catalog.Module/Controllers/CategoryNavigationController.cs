@@ -13,7 +13,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 
 			categoryNavigation.Categories = MapCategories(UCommerce.Api.CatalogLibrary.GetRootCategories());
 
-			return View("/views/PartialViews/CategoryNavigation.cshtml", categoryNavigation);
+			return View("/views/CategoryNavigation.cshtml", categoryNavigation);
 		}
 
 		private IList<CategoryViewModel> MapCategories(ICollection<UCommerce.EntitiesV2.Category> categoriesToMap)
