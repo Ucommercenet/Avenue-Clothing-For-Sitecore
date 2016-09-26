@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using AvenueClothing.Project.Website.ViewModels;
+using AvenueClothing.Feature.Catalog.Module.ViewModels;
 using UCommerce.Extensions;
 
-namespace AvenueClothing.Project.Website.Controllers
+namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
     public class CategoryNavigationController : Controller
     {

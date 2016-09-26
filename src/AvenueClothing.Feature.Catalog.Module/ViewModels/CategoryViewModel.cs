@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AvenueClothing.Project.Website.ViewModels
+namespace AvenueClothing.Feature.Catalog.Module.ViewModels
 {
 	public class CategoryViewModel
 	{

@@ -130,30 +130,6 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="UCommerce">
-      <HintPath>..\packages\uCommerce.Core.7.2.0.16251\lib\net400\UCommerce.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Admin">
-      <HintPath>..\packages\uCommerce.Core.7.2.0.16251\lib\net400\UCommerce.Admin.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Infrastructure">
-      <HintPath>..\packages\uCommerce.Core.7.2.0.16251\lib\net400\UCommerce.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Installer">
-      <HintPath>..\packages\uCommerce.Core.7.2.0.16251\lib\net400\UCommerce.Installer.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Pipelines">
-      <HintPath>..\packages\uCommerce.Core.7.2.0.16251\lib\net400\UCommerce.Pipelines.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Presentation">
-      <HintPath>..\packages\uCommerce.Core.7.2.0.16251\lib\net400\UCommerce.Presentation.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Transactions.Payments">
-      <HintPath>..\packages\uCommerce.Core.7.2.0.16251\lib\net400\UCommerce.Transactions.Payments.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Web.Api">
-      <HintPath>..\packages\uCommerce.Core.7.2.0.16251\lib\net400\UCommerce.Web.Api.dll</HintPath>
-    </Reference>
     <Reference Include="Unicorn">
       <HintPath>..\packages\Unicorn.Core.3.2.0\lib\net45\Unicorn.dll</HintPath>
     </Reference>
@@ -181,24 +157,16 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Layout.cshtml" />
     <Content Include="Views\Frontpage.cshtml" />
-    <Content Include="Views\PartialViews\CategoryNavigation.cshtml" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Views\Website\Layouts\Default.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\CategoryNavigationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\CategoryNavigationViewModel.cs" />
-    <Compile Include="ViewModels\CategoryViewModel.cs" />
-    <Compile Include="ViewModels\ProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Feature\" />
-    <Folder Include="Foundation\" />
-    <Folder Include="Project\" />
-    <Folder Include="Views\CategoryNavigation\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
