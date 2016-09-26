@@ -1,0 +1,39 @@
+﻿---
+ID: "2a2bfa8b-a976-4636-826d-62011070edf1"
+Parent: "0de95ae4-41ab-4d01-9eb0-67441b7c2450"
+Template: "9e886dc3-7d54-480b-8b64-b4207972533e"
+Path: /sitecore/content/AvenueClothing
+DB: master
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{55AD3180-3D79-461F-AC6F-D679AB58A849}">
+        <p
+          uid="{1D13B6AB-DAEF-483D-9D01-670432E54057}"
+          key="main"
+          md="/sitecore/layout/Placeholder Settings/Commerce/Catalog/Category Navigation" />
+        <r
+          id="{878E2B49-315C-4EFE-8D26-52605F78C3D6}"
+          ph="header"
+          uid="{AFE975A1-FA0A-4D90-B601-874081BEA5E5}" />
+      </d>
+      <d
+        id="{46D2F427-4CE5-4E1F-BA10-EF3636F43534}"
+        l="{970BBD5E-8D0F-4052-9A84-7F596840EB1C}" />
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20160923T085351Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: sitecore\admin
