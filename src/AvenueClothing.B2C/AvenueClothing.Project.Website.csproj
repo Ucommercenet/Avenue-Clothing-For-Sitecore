@@ -141,7 +141,7 @@
     <Content Include="App_Config\Include\AvenueClothing.B2C.Sites.config" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="App_Config\Include\z.Habitat.DevSettings.config">
+    <Content Include="App_Config\Include\z.AvenueClothing.DevSettings.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Config\Include\AvenueClothing.B2C.Serialization.config">
