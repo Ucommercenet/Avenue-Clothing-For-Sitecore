@@ -6,11 +6,14 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width" />
-	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />	@if (!Sitecore.Context.PageMode.IsPageEditor)
+	{
+		@Html.Sitecore().Placeholder("head")
+	}
 	<title></title>
 </head>
-<body>
-	<div>
+<body class="header-static @(Sitecore.Context.PageMode.IsNormal ? "" : (Sitecore.Context.PageMode.IsPageEditor ? "pagemode-edit" : "pagemode-preview"))">
+	<div id="main-container">
 		<header>
 			@Html.Sitecore().Placeholder("header")
 		</header>

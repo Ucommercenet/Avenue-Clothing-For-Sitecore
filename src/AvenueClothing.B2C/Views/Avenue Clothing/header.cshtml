@@ -1,16 +1,20 @@
-﻿@using System.Web.Mvc.Html
+﻿@using System.Web.Mvc.Html 
+@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@model Sitecore.Mvc.Presentation.RenderingModel
 @{
 	Layout = null;
 }
 
-<div class="navbar navbar-fixed-top">
+<div class="navbar">
 	<div class="navbar-inner">
 		<div class="container-fluid">
 			<div class="row-fluid">
 				<div class="nav-collapse">
 					<ul class="nav">
 						<li>
-							<a class="home" href="/">Home</a>
+							<h1>@Html.Sitecore().Field("Title")</h1>
+							<p>@Html.Sitecore().Field("Body")</p>
 						</li>
 					</ul>
 				</div>
