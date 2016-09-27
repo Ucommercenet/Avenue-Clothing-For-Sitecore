@@ -6,7 +6,7 @@ namespace AvenueClothing.Project.Website.Controllers
     {
 		public ActionResult Header()
 		{
-			return View("/views/Avenue Clothing/header.cshtml");
+			return View("/views/Avenue Clothing/Header.cshtml");
 		}
     }
 }

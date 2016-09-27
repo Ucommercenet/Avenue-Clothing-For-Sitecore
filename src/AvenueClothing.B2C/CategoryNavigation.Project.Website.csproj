@@ -157,7 +157,7 @@
     <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
-    <Content Include="Views\Avenue Clothing\header.cshtml" />
+    <Content Include="Views\Avenue Clothing\Header.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HeaderController.cs" />
