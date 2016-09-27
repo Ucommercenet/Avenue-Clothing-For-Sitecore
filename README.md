@@ -16,4 +16,4 @@ How To Install AvenueClothing For Sitecore
 	
 	2.4 Now run the command "gulp". This will publish all items to the running website including all items for Sitecore.
 
-*headline*
+#headline
