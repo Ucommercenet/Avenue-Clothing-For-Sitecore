@@ -19,8 +19,8 @@ SharedFields:
           md="/sitecore/layout/Placeholder Settings/Commerce/Catalog/Category Navigation" />
         <r
           id="{878E2B49-315C-4EFE-8D26-52605F78C3D6}"
-          ph="header"
-          uid="{AFE975A1-FA0A-4D90-B601-874081BEA5E5}" />
+          ph="Header"
+          uid="{C7042F00-2FAF-4BD5-9B16-8F56686B8AF1}" />
       </d>
       <d
         id="{46D2F427-4CE5-4E1F-BA10-EF3636F43534}"
