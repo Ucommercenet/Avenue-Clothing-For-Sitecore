@@ -1,5 +1,7 @@
 How To Install AvenueClothing For Sitecore
 ===========================================
+0. Clone this repo to your favorite location on your computer.
+
 1. Getting your deploy site up and running
 	1.1 You need a clean Sitecore 8.x website with uCommerce installed.
 	
@@ -13,3 +15,5 @@ How To Install AvenueClothing For Sitecore
 	2.3 You need gulp installed globally so you can access the "gulp" command line. To do so, run the following command: "npm install -g gulp"
 	
 	2.4 Now run the command "gulp". This will publish all items to the running website including all items for Sitecore.
+
+*headline*
