@@ -1,8 +1,8 @@
 ﻿---
-ID: "06bd5da6-923a-419e-a774-fa0500ad5977"
-Parent: "2304f70d-727b-4545-b018-542877301724"
+ID: "16efe389-3012-4244-bd53-87fe3f75c0a3"
+Parent: "bde02538-463c-4018-848a-859ec83925dd"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Common/Avenue Clothing/Catalog/Welcome/Welcome/Body
+Path: /sitecore/templates/Common/Avenue Clothing/AvenueClothing/Frontpage/Decsription
 DB: master
 SharedFields:
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
@@ -18,4 +18,4 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20160927T080428Z
+      Value: 20160927T103139Z

@@ -1,5 +1,5 @@
 ﻿---
-ID: "2a2bfa8b-a976-4636-826d-62011070edf1"
+ID: "7919567a-faa2-4504-9c31-63a2cf67b551"
 Parent: "0de95ae4-41ab-4d01-9eb0-67441b7c2450"
 Template: "9e886dc3-7d54-480b-8b64-b4207972533e"
 Path: /sitecore/content/AvenueClothing
@@ -14,26 +14,29 @@ SharedFields:
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
         l="{55AD3180-3D79-461F-AC6F-D679AB58A849}">
         <p
-          uid="{1D13B6AB-DAEF-483D-9D01-670432E54057}"
+          uid="{91238ACD-2ADD-4AD0-A25F-C9EE21799B4F}"
           key="main"
           md="/sitecore/layout/Placeholder Settings/Commerce/Catalog/Category Navigation" />
         <r
           id="{878E2B49-315C-4EFE-8D26-52605F78C3D6}"
-          ph="Header"
-          uid="{C7042F00-2FAF-4BD5-9B16-8F56686B8AF1}" />
+          ph="header"
+          uid="{4C175686-6D09-43F6-9D02-D8608A09469A}" />
       </d>
-      <d
-        id="{46D2F427-4CE5-4E1F-BA10-EF3636F43534}"
-        l="{970BBD5E-8D0F-4052-9A84-7F596840EB1C}" />
     </r>
 Languages:
 - Language: en
   Versions:
   - Version: 1
     Fields:
+    - ID: "16efe389-3012-4244-bd53-87fe3f75c0a3"
+      Hint: Decsription
+      Value: "This is an example store which runs on uCommerce. It is designed to demonstrate some of the functionality that comes out-of-the-box and help developers get started with the awesome feature rich e-commerce package for Sitecore."
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20160923T085351Z
+      Value: 20160927T103226Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: sitecore\admin
+    - ID: "ed7ce68d-170d-4857-ba66-911025f349e2"
+      Hint: Title
+      Value: Welcome to Avenue Clothing

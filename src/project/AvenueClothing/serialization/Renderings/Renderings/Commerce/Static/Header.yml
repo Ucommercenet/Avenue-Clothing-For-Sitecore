@@ -7,13 +7,13 @@ DB: master
 SharedFields:
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
-  Value: /sitecore/templates/Common/Avenue Clothing/Catalog/Welcome
+  Value: /sitecore/templates/Common/Avenue Clothing/AvenueClothing
 - ID: "5a14936f-2100-4541-b700-2f122e88f3f8"
   Hint: Data source
-  Value: /sitecore/content/AvenueClothing/Data/Welcome
+  Value: /sitecore/content/AvenueClothing
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: /sitecore/content/AvenueClothing/Data/Welcome
+  Value: /sitecore/content/AvenueClothing
 - ID: "ded9e431-3604-4921-a4b3-a6ec7636a5b6"
   Hint: Controller Action
   Value: Header
