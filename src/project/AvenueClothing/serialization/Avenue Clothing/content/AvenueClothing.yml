@@ -13,14 +13,14 @@ SharedFields:
       <d
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
         l="{55AD3180-3D79-461F-AC6F-D679AB58A849}">
-        <p
-          uid="{91238ACD-2ADD-4AD0-A25F-C9EE21799B4F}"
-          key="main"
-          md="/sitecore/layout/Placeholder Settings/Commerce/Catalog/Category Navigation" />
         <r
           id="{878E2B49-315C-4EFE-8D26-52605F78C3D6}"
           ph="header"
           uid="{4C175686-6D09-43F6-9D02-D8608A09469A}" />
+        <r
+          id="{749D4A8D-990A-4FFE-BE3A-C74591EBD862}"
+          ph="main"
+          uid="{14E0474C-A7D6-4E58-BA5E-F16667157526}" />
       </d>
     </r>
 Languages:
