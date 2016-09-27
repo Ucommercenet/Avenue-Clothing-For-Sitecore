@@ -31,3 +31,4 @@ _ReSharper*
 src/AvenueClothing.sln.ide/*.*
 src/node_modules/*
 src/packages/*
+src/npm-debug.log
