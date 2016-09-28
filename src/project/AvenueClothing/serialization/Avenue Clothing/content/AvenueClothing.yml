@@ -18,13 +18,13 @@ SharedFields:
           ph="header"
           uid="{4C175686-6D09-43F6-9D02-D8608A09469A}" />
         <r
-          id="{878E2B49-315C-4EFE-8D26-52605F78C3D6}"
-          ph="main"
-          uid="{5D624C1B-B44E-4A87-B107-F3FFF4A0FD6F}" />
-        <r
           id="{749D4A8D-990A-4FFE-BE3A-C74591EBD862}"
           ph="main"
           uid="{14E0474C-A7D6-4E58-BA5E-F16667157526}" />
+        <r
+          id="{DFCC28D2-F51F-46BC-9FF4-B4945FE2B05E}"
+          ph="main"
+          uid="{488D87DD-F566-4C06-AF19-0A052F93340F}" />
       </d>
     </r>
 Languages:
@@ -37,7 +37,18 @@ Languages:
       Type: Layout
       Value: |
         <r xmlns:p="p" xmlns:s="s"
-          p:p="1" />
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{5D624C1B-B44E-4A87-B107-F3FFF4A0FD6F}">
+              <p:d />
+            </r>
+            <r
+              uid="{14E0474C-A7D6-4E58-BA5E-F16667157526}"
+              p:before="*[1=2]" />
+          </d>
+        </r>
     - ID: "16efe389-3012-4244-bd53-87fe3f75c0a3"
       Hint: Decsription
       Value: "This is an example store which runs on uCommerce. It is designed to demonstrate some of the functionality that comes out-of-the-box and help developers get started with the awesome feature rich e-commerce package for Sitecore."
@@ -47,6 +58,12 @@ Languages:
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: sitecore\admin
+    - ID: "b9baaa2b-d947-4cae-97cf-4e413b57c511"
+      Hint: Images
+      Type: Multilist
+      Value: |
+        {1B0CDD3C-E5DD-4BB8-95A7-3CAAC820E201}
+        {8E3609EE-7C0B-4D09-B9AD-88B0C1DF359F}
     - ID: "ed7ce68d-170d-4857-ba66-911025f349e2"
       Hint: Title
       Value: Welcome to Avenue

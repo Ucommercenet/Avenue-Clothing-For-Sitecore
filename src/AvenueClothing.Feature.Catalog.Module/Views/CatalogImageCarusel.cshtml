@@ -1,0 +1,14 @@
+﻿@model AvenueClothing.Feature.Catalog.Module.ViewModels.CarouselViewModel
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+	<div class="carousel-inner" role="listbox">
+		@foreach (var url in Model.ImageUrls)
+		{
+			<div class="carousel-item">
+				<img src="@url" />
+			</div>
+		}
+	</div>
+	<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="icon-prev" aria-hidden="true"></span></a>
+	<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="icon-next" aria-hidden="true"></span></a>
+</div>

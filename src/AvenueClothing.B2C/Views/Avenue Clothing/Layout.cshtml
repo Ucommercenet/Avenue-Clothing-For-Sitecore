@@ -1,5 +1,5 @@
 ﻿@inherits System.Web.Mvc.WebViewPage
-@using Sitecore.Mvc; 
+@using Sitecore.Mvc;
 
 <!DOCTYPE html>
 
@@ -13,16 +13,18 @@
 	<title></title>
 </head>
 <body class="header-static @(Sitecore.Context.PageMode.IsNormal ? "" : (Sitecore.Context.PageMode.IsPageEditor ? "pagemode-edit" : "pagemode-preview"))">
-	<div id="main-container">
-		<header>
-			@Html.Sitecore().Placeholder("header")
-		</header>
-		<section>
-			@Html.Sitecore().Placeholder("main")
-		</section>
-		<footer>
-			@Html.Sitecore().Placeholder("footer")
-		</footer>
-	</div>
+<div id="main-container">
+	<header>
+		@Html.Sitecore().Placeholder("header")
+	</header>
+	<section>
+		@Html.Sitecore().Placeholder("main")
+	</section>
+	<footer>
+		@Html.Sitecore().Placeholder("footer")
+	</footer>
+</div>
+
+	<script src="Scripts/bootstrap.min.js" />
 </body>
 </html>
