@@ -18,6 +18,10 @@ SharedFields:
           ph="header"
           uid="{4C175686-6D09-43F6-9D02-D8608A09469A}" />
         <r
+          id="{878E2B49-315C-4EFE-8D26-52605F78C3D6}"
+          ph="main"
+          uid="{5D624C1B-B44E-4A87-B107-F3FFF4A0FD6F}" />
+        <r
           id="{749D4A8D-990A-4FFE-BE3A-C74591EBD862}"
           ph="main"
           uid="{14E0474C-A7D6-4E58-BA5E-F16667157526}" />
@@ -28,6 +32,12 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1" />
     - ID: "16efe389-3012-4244-bd53-87fe3f75c0a3"
       Hint: Decsription
       Value: "This is an example store which runs on uCommerce. It is designed to demonstrate some of the functionality that comes out-of-the-box and help developers get started with the awesome feature rich e-commerce package for Sitecore."
@@ -39,4 +49,4 @@ Languages:
       Value: sitecore\admin
     - ID: "ed7ce68d-170d-4857-ba66-911025f349e2"
       Hint: Title
-      Value: Welcome to Avenue Clothing
+      Value: Welcome to Avenue
