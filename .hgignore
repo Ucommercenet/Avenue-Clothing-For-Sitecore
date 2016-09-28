@@ -32,3 +32,6 @@ src/AvenueClothing.sln.ide/*.*
 src/node_modules/*
 src/packages/*
 src/npm-debug.log
+src/scripts/Serialization/App_Config/Include/z.AvenueClothing.DevSettings.config
+src/gulp-config.js
+src/publishsettings.targets
