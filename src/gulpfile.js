@@ -20,6 +20,7 @@ module.exports.config = config;
 gulp.task("default", function (callback) {
 	config.runCleanBuilds = true;
 	return runSequence(
+	  "00-Copy-Sitecore-Lib",
 	  "01-Nuget-Restore",
 	  "02-Copy-Serialization-Configuration",
 	  "03-Publish-Solution",
@@ -30,6 +31,18 @@ gulp.task("default", function (callback) {
 /*****************************
   Initial setup
 *****************************/
+gulp.task("00-Copy-Sitecore-Lib", function () {
+	console.log("Copying Sitecore Libraries");
+
+	fs.statSync(config.sitecoreLibraries);
+
+	var files = config.sitecoreLibraries + "/**/*";
+
+	var libs = gulp.src(files).pipe(gulp.dest("./../lib/Sitecore"));
+
+	return merge(libs);
+});
+
 gulp.task("01-Copy-Sitecore-Lib", function () {
 	console.log("Copying Sitecore Libraries and License file");
 
