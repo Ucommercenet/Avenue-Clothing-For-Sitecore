@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Web.Mvc;
 using UCommerceSync;
 using UCommerceSync.Logging;
@@ -21,7 +22,7 @@ namespace AvenueClothing.Foundation.UCommerceSync.Controllers
 					ImportMarketingFoundation = false, // you might not want to import marketing foundation settins either
 					PerformCleanUp = true // set to false if you don't want to delete stuff
 				};
-				var importer = new Importer(settings, @"C:\full\path\to\export\xml\directory", logger);
+				var importer = new Importer(settings, @"C:\Projects\Avenue Clothing for Sitecore\src\project\AvenueClothing\uCommerceSync", logger);
 				importer.Import();
 			}
 			catch (Exception ex)
