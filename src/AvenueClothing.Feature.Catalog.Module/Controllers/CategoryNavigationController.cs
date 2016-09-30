@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Catalog.Module.ViewModels;
+using UCommerce.Api;
 using UCommerce.Extensions;
 
 namespace AvenueClothing.Feature.Catalog.Module.Controllers
@@ -25,7 +26,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 				var categoryToAdd = new CategoryViewModel();
 
 				categoryToAdd.Name = category.DisplayName();
-				categoryToAdd.Url = "/store/category?category=" + category.CategoryId;
+				categoryToAdd.Url = CatalogLibrary.GetNiceUrlForCategory(category);
 
 				categoriesToReturn.Add(categoryToAdd);
 
