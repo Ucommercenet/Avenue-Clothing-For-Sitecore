@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Currency version="7.2.0.16251" timestamp="2016-09-30T10:56:08.2990835Z">
+  <Entity>
+    <Property name="Id">
+      <Value isNull="false">5</Value>
+    </Property>
+    <Property name="CurrencyId">
+      <Value isNull="false">5</Value>
+    </Property>
+    <Property name="ISOCode">
+      <Value isNull="false">EUR</Value>
+    </Property>
+    <Property name="ExchangeRate">
+      <Value isNull="false">100</Value>
+    </Property>
+    <Property name="Deleted">
+      <Value isNull="false">false</Value>
+    </Property>
+    <Property name="Guid">
+      <Value isNull="false">84d1bf96-875e-489f-8776-eb5cca219a3c</Value>
+    </Property>
+    <Property name="Name">
+      <Value isNull="false">EUR</Value>
+    </Property>
+  </Entity>
+  <Entity>
+    <Property name="Id">
+      <Value isNull="false">6</Value>
+    </Property>
+    <Property name="CurrencyId">
+      <Value isNull="false">6</Value>
+    </Property>
+    <Property name="ISOCode">
+      <Value isNull="false">GBP</Value>
+    </Property>
+    <Property name="ExchangeRate">
+      <Value isNull="false">88</Value>
+    </Property>
+    <Property name="Deleted">
+      <Value isNull="false">false</Value>
+    </Property>
+    <Property name="Guid">
+      <Value isNull="false">7203898b-2aad-46b1-926c-bef73b2b271c</Value>
+    </Property>
+    <Property name="Name">
+      <Value isNull="false">GBP</Value>
+    </Property>
+  </Entity>
+  <Entity>
+    <Property name="Id">
+      <Value isNull="false">7</Value>
+    </Property>
+    <Property name="CurrencyId">
+      <Value isNull="false">7</Value>
+    </Property>
+    <Property name="ISOCode">
+      <Value isNull="false">USD</Value>
+    </Property>
+    <Property name="ExchangeRate">
+      <Value isNull="false">143</Value>
+    </Property>
+    <Property name="Deleted">
+      <Value isNull="false">false</Value>
+    </Property>
+    <Property name="Guid">
+      <Value isNull="false">0af61aa9-0b9b-45eb-b466-e228b60f5bf1</Value>
+    </Property>
+    <Property name="Name">
+      <Value isNull="false">USD</Value>
+    </Property>
+  </Entity>
+  <Entity>
+    <Property name="Id">
+      <Value isNull="false">8</Value>
+    </Property>
+    <Property name="CurrencyId">
+      <Value isNull="false">8</Value>
+    </Property>
+    <Property name="ISOCode">
+      <Value isNull="false">DKK</Value>
+    </Property>
+    <Property name="ExchangeRate">
+      <Value isNull="false">744</Value>
+    </Property>
+    <Property name="Deleted">
+      <Value isNull="false">false</Value>
+    </Property>
+    <Property name="Guid">
+      <Value isNull="false">f5a4c681-8507-4eb7-8512-668e3a3cb551</Value>
+    </Property>
+    <Property name="Name">
+      <Value isNull="false">DKK</Value>
+    </Property>
+  </Entity>
+</Currency>

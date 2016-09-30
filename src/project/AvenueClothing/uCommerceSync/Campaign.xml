@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Campaign version="7.2.0.16251" timestamp="2016-09-30T10:56:08.2990835Z">
+  <Entity>
+    <Property name="Id">
+      <Value isNull="false">2</Value>
+    </Property>
+    <Property name="CampaignId">
+      <Value isNull="false">2</Value>
+    </Property>
+    <Property name="Name">
+      <Value isNull="false">Default Campaign</Value>
+    </Property>
+    <Property name="StartsOn">
+      <Value isNull="false">2016-09-28T15:02:09</Value>
+    </Property>
+    <Property name="EndsOn">
+      <Value isNull="false">2016-10-29T15:02:09</Value>
+    </Property>
+    <Property name="Enabled">
+      <Value isNull="false">true</Value>
+    </Property>
+    <Property name="Priority">
+      <Value isNull="false">1</Value>
+    </Property>
+    <Property name="Deleted">
+      <Value isNull="false">false</Value>
+    </Property>
+    <Property name="CreatedBy">
+      <Value isNull="true" />
+    </Property>
+    <Property name="ModifiedBy">
+      <Value isNull="true" />
+    </Property>
+    <Property name="CreatedOn">
+      <Value isNull="false">2016-09-28T15:02:09</Value>
+    </Property>
+    <Property name="ModifiedOn">
+      <Value isNull="false">2016-09-28T15:02:09</Value>
+    </Property>
+    <Property name="ProductCatalogGroups" />
+    <Property name="CampaignItems">
+      <Entity>
+        <Property name="Id">
+          <Value isNull="false">3</Value>
+        </Property>
+        <Property name="CampaignItemId">
+          <Value isNull="false">3</Value>
+        </Property>
+        <Property name="Name">
+          <Value isNull="false">Discounted unit price</Value>
+        </Property>
+        <Property name="Enabled">
+          <Value isNull="false">true</Value>
+        </Property>
+        <Property name="Priority">
+          <Value isNull="false">1</Value>
+        </Property>
+        <Property name="AllowNextCampaignItems">
+          <Value isNull="false">true</Value>
+        </Property>
+        <Property name="CreatedBy">
+          <Value isNull="false">admin</Value>
+        </Property>
+        <Property name="ModifiedBy">
+          <Value isNull="false">admin</Value>
+        </Property>
+        <Property name="CreatedOn">
+          <Value isNull="false">2016-09-29T15:02:09</Value>
+        </Property>
+        <Property name="ModifiedOn">
+          <Value isNull="false">2016-09-29T15:02:09</Value>
+        </Property>
+        <Property name="Deleted">
+          <Value isNull="false">false</Value>
+        </Property>
+        <Property name="AnyTargetAppliesAwards">
+          <Value isNull="false">false</Value>
+        </Property>
+        <Property name="AnyTargetAdvertises">
+          <Value isNull="false">true</Value>
+        </Property>
+        <Property name="Campaign">
+          <EntityRef id="Default Campaign" />
+        </Property>
+        <Property name="Definition">
+          <EntityRef id="Default Campaign Item" />
+        </Property>
+        <Property name="CampaignItemProperties" />
+        <Property name="SortOrder">
+          <Value isNull="false">1</Value>
+        </Property>
+      </Entity>
+      <Entity>
+        <Property name="Id">
+          <Value isNull="false">4</Value>
+        </Property>
+        <Property name="CampaignItemId">
+          <Value isNull="false">4</Value>
+        </Property>
+        <Property name="Name">
+          <Value isNull="false">Bundle discount</Value>
+        </Property>
+        <Property name="Enabled">
+          <Value isNull="false">true</Value>
+        </Property>
+        <Property name="Priority">
+          <Value isNull="false">2</Value>
+        </Property>
+        <Property name="AllowNextCampaignItems">
+          <Value isNull="false">true</Value>
+        </Property>
+        <Property name="CreatedBy">
+          <Value isNull="false">admin</Value>
+        </Property>
+        <Property name="ModifiedBy">
+          <Value isNull="false">admin</Value>
+        </Property>
+        <Property name="CreatedOn">
+          <Value isNull="false">2016-09-29T15:02:09</Value>
+        </Property>
+        <Property name="ModifiedOn">
+          <Value isNull="false">2016-09-29T15:02:09</Value>
+        </Property>
+        <Property name="Deleted">
+          <Value isNull="false">false</Value>
+        </Property>
+        <Property name="AnyTargetAppliesAwards">
+          <Value isNull="false">false</Value>
+        </Property>
+        <Property name="AnyTargetAdvertises">
+          <Value isNull="false">true</Value>
+        </Property>
+        <Property name="Campaign">
+          <EntityRef id="Default Campaign" />
+        </Property>
+        <Property name="Definition">
+          <EntityRef id="Default Campaign Item" />
+        </Property>
+        <Property name="CampaignItemProperties" />
+        <Property name="SortOrder">
+          <Value isNull="false">2</Value>
+        </Property>
+      </Entity>
+      <Entity>
+        <Property name="Id">
+          <Value isNull="false">5</Value>
+        </Property>
+        <Property name="CampaignItemId">
+          <Value isNull="false">5</Value>
+        </Property>
+        <Property name="Name">
+          <Value isNull="false">100€ voucher</Value>
+        </Property>
+        <Property name="Enabled">
+          <Value isNull="false">true</Value>
+        </Property>
+        <Property name="Priority">
+          <Value isNull="false">3</Value>
+        </Property>
+        <Property name="AllowNextCampaignItems">
+          <Value isNull="false">true</Value>
+        </Property>
+        <Property name="CreatedBy">
+          <Value isNull="false">admin</Value>
+        </Property>
+        <Property name="ModifiedBy">
+          <Value isNull="false">admin</Value>
+        </Property>
+        <Property name="CreatedOn">
+          <Value isNull="false">2016-09-29T15:02:09</Value>
+        </Property>
+        <Property name="ModifiedOn">
+          <Value isNull="false">2016-09-29T15:02:09</Value>
+        </Property>
+        <Property name="Deleted">
+          <Value isNull="false">false</Value>
+        </Property>
+        <Property name="AnyTargetAppliesAwards">
+          <Value isNull="false">false</Value>
+        </Property>
+        <Property name="AnyTargetAdvertises">
+          <Value isNull="false">true</Value>
+        </Property>
+        <Property name="Campaign">
+          <EntityRef id="Default Campaign" />
+        </Property>
+        <Property name="Definition">
+          <EntityRef id="Default Campaign Item" />
+        </Property>
+        <Property name="CampaignItemProperties" />
+        <Property name="SortOrder">
+          <Value isNull="false">3</Value>
+        </Property>
+      </Entity>
+      <Entity>
+        <Property name="Id">
+          <Value isNull="false">6</Value>
+        </Property>
+        <Property name="CampaignItemId">
+          <Value isNull="false">6</Value>
+        </Property>
+        <Property name="Name">
+          <Value isNull="false">100€ voucher for specific product</Value>
+        </Property>
+        <Property name="Enabled">
+          <Value isNull="false">true</Value>
+        </Property>
+        <Property name="Priority">
+          <Value isNull="false">4</Value>
+        </Property>
+        <Property name="AllowNextCampaignItems">
+          <Value isNull="false">true</Value>
+        </Property>
+        <Property name="CreatedBy">
+          <Value isNull="false">admin</Value>
+        </Property>
+        <Property name="ModifiedBy">
+          <Value isNull="false">admin</Value>
+        </Property>
+        <Property name="CreatedOn">
+          <Value isNull="false">2016-09-29T15:02:09</Value>
+        </Property>
+        <Property name="ModifiedOn">
+          <Value isNull="false">2016-09-29T15:02:09</Value>
+        </Property>
+        <Property name="Deleted">
+          <Value isNull="false">false</Value>
+        </Property>
+        <Property name="AnyTargetAppliesAwards">
+          <Value isNull="false">false</Value>
+        </Property>
+        <Property name="AnyTargetAdvertises">
+          <Value isNull="false">true</Value>
+        </Property>
+        <Property name="Campaign">
+          <EntityRef id="Default Campaign" />
+        </Property>
+        <Property name="Definition">
+          <EntityRef id="Default Campaign Item" />
+        </Property>
+        <Property name="CampaignItemProperties" />
+        <Property name="SortOrder">
+          <Value isNull="false">4</Value>
+        </Property>
+      </Entity>
+      <Entity>
+        <Property name="Id">
+          <Value isNull="false">7</Value>
+        </Property>
+        <Property name="CampaignItemId">
+          <Value isNull="false">7</Value>
+        </Property>
+        <Property name="Name">
+          <Value isNull="false">Free shipping for orders over 400€</Value>
+        </Property>
+        <Property name="Enabled">
+          <Value isNull="false">true</Value>
+        </Property>
+        <Property name="Priority">
+          <Value isNull="false">5</Value>
+        </Property>
+        <Property name="AllowNextCampaignItems">
+          <Value isNull="false">true</Value>
+        </Property>
+        <Property name="CreatedBy">
+          <Value isNull="false">admin</Value>
+        </Property>
+        <Property name="ModifiedBy">
+          <Value isNull="false">admin</Value>
+        </Property>
+        <Property name="CreatedOn">
+          <Value isNull="false">2016-09-29T15:02:09</Value>
+        </Property>
+        <Property name="ModifiedOn">
+          <Value isNull="false">2016-09-29T15:02:09</Value>
+        </Property>
+        <Property name="Deleted">
+          <Value isNull="false">false</Value>
+        </Property>
+        <Property name="AnyTargetAppliesAwards">
+          <Value isNull="false">false</Value>
+        </Property>
+        <Property name="AnyTargetAdvertises">
+          <Value isNull="false">true</Value>
+        </Property>
+        <Property name="Campaign">
+          <EntityRef id="Default Campaign" />
+        </Property>
+        <Property name="Definition">
+          <EntityRef id="Default Campaign Item" />
+        </Property>
+        <Property name="CampaignItemProperties" />
+        <Property name="SortOrder">
+          <Value isNull="false">5</Value>
+        </Property>
+      </Entity>
+    </Property>
+    <Property name="SortOrder">
+      <Value isNull="false">1</Value>
+    </Property>
+  </Entity>
+</Campaign>

@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Feature.Tran
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Feature.Catalog.Module", "AvenueClothing.Feature.Catalog.Module\AvenueClothing.Feature.Catalog.Module.csproj", "{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Foundation.UCommerceSync", "AvenueClothing.Foundation.UCommerceSync\AvenueClothing.Foundation.UCommerceSync.csproj", "{49A26E36-1D5F-4500-A657-1F4774DC3529}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49A26E36-1D5F-4500-A657-1F4774DC3529}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49A26E36-1D5F-4500-A657-1F4774DC3529}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49A26E36-1D5F-4500-A657-1F4774DC3529}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49A26E36-1D5F-4500-A657-1F4774DC3529}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

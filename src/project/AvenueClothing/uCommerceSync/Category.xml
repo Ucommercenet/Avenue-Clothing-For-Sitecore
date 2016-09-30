@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Category version="7.2.0.16251" timestamp="2016-09-30T10:56:08.2990835Z">
+  <Entity>
+    <Property name="Id">
+      <Value isNull="false">67</Value>
+    </Property>
+    <Property name="CategoryId">
+      <Value isNull="false">67</Value>
+    </Property>
+    <Property name="Name">
+      <Value isNull="false">Software</Value>
+    </Property>
+    <Property name="ImageMediaId">
+      <Value isNull="true" />
+    </Property>
+    <Property name="DisplayOnSite">
+      <Value isNull="false">true</Value>
+    </Property>
+    <Property name="CreatedOn">
+      <Value isNull="false">2009-08-30T14:49:15</Value>
+    </Property>
+    <Property name="ModifiedOn">
+      <Value isNull="false">2016-09-30T11:06:23</Value>
+    </Property>
+    <Property name="ModifiedBy">
+      <Value isNull="false">admin</Value>
+    </Property>
+    <Property name="Deleted">
+      <Value isNull="false">false</Value>
+    </Property>
+    <Property name="SortOrder">
+      <Value isNull="false">0</Value>
+    </Property>
+    <Property name="CreatedBy">
+      <Value isNull="true" />
+    </Property>
+    <Property name="Guid">
+      <Value isNull="false">180f5976-a2bb-4e9a-be3e-56f2c00274be</Value>
+    </Property>
+    <Property name="CategoryProperties" />
+    <Property name="Products" />
+    <Property name="Categories" />
+    <Property name="CategoryDescriptions">
+      <Entity>
+        <Property name="Id">
+          <Value isNull="false">86</Value>
+        </Property>
+        <Property name="CategoryDescriptionId">
+          <Value isNull="false">86</Value>
+        </Property>
+        <Property name="DisplayName">
+          <Value isNull="false">Software</Value>
+        </Property>
+        <Property name="Description">
+          <Value isNull="false"></Value>
+        </Property>
+        <Property name="CultureCode">
+          <Value isNull="false">en-US</Value>
+        </Property>
+        <Property name="ContentId">
+          <Value isNull="true" />
+        </Property>
+        <Property name="RenderAsContent">
+          <Value isNull="false">false</Value>
+        </Property>
+        <Property name="Category">
+          <EntityRef id="Software" />
+        </Property>
+      </Entity>
+      <Entity>
+        <Property name="Id">
+          <Value isNull="false">87</Value>
+        </Property>
+        <Property name="CategoryDescriptionId">
+          <Value isNull="false">87</Value>
+        </Property>
+        <Property name="DisplayName">
+          <Value isNull="false">Software</Value>
+        </Property>
+        <Property name="Description">
+          <Value isNull="false"></Value>
+        </Property>
+        <Property name="CultureCode">
+          <Value isNull="false">da-DK</Value>
+        </Property>
+        <Property name="ContentId">
+          <Value isNull="true" />
+        </Property>
+        <Property name="RenderAsContent">
+          <Value isNull="false">false</Value>
+        </Property>
+        <Property name="Category">
+          <EntityRef id="Software" />
+        </Property>
+      </Entity>
+    </Property>
+    <Property name="Definition">
+      <EntityRef id="Default Category Definition" />
+    </Property>
+    <Property name="ParentCategory" />
+    <Property name="ProductCatalog">
+      <EntityRef id="uCommerce" />
+    </Property>
+  </Entity>
+  <Entity>
+    <Property name="Id">
+      <Value isNull="false">68</Value>
+    </Property>
+    <Property name="CategoryId">
+      <Value isNull="false">68</Value>
+    </Property>
+    <Property name="Name">
+      <Value isNull="false">Support</Value>
+    </Property>
+    <Property name="ImageMediaId">
+      <Value isNull="true" />
+    </Property>
+    <Property name="DisplayOnSite">
+      <Value isNull="false">true</Value>
+    </Property>
+    <Property name="CreatedOn">
+      <Value isNull="false">2009-08-30T14:49:41</Value>
+    </Property>
+    <Property name="ModifiedOn">
+      <Value isNull="false">2016-09-30T11:06:26</Value>
+    </Property>
+    <Property name="ModifiedBy">
+      <Value isNull="false">admin</Value>
+    </Property>
+    <Property name="Deleted">
+      <Value isNull="false">false</Value>
+    </Property>
+    <Property name="SortOrder">
+      <Value isNull="false">0</Value>
+    </Property>
+    <Property name="CreatedBy">
+      <Value isNull="true" />
+    </Property>
+    <Property name="Guid">
+      <Value isNull="false">d3174fd3-3e4b-413a-9641-ff8941cfab83</Value>
+    </Property>
+    <Property name="CategoryProperties" />
+    <Property name="Products" />
+    <Property name="Categories" />
+    <Property name="CategoryDescriptions">
+      <Entity>
+        <Property name="Id">
+          <Value isNull="false">88</Value>
+        </Property>
+        <Property name="CategoryDescriptionId">
+          <Value isNull="false">88</Value>
+        </Property>
+        <Property name="DisplayName">
+          <Value isNull="false">Support</Value>
+        </Property>
+        <Property name="Description">
+          <Value isNull="false"></Value>
+        </Property>
+        <Property name="CultureCode">
+          <Value isNull="false">en-US</Value>
+        </Property>
+        <Property name="ContentId">
+          <Value isNull="true" />
+        </Property>
+        <Property name="RenderAsContent">
+          <Value isNull="false">false</Value>
+        </Property>
+        <Property name="Category">
+          <EntityRef id="Support" />
+        </Property>
+      </Entity>
+      <Entity>
+        <Property name="Id">
+          <Value isNull="false">89</Value>
+        </Property>
+        <Property name="CategoryDescriptionId">
+          <Value isNull="false">89</Value>
+        </Property>
+        <Property name="DisplayName">
+          <Value isNull="false">Support</Value>
+        </Property>
+        <Property name="Description">
+          <Value isNull="false"></Value>
+        </Property>
+        <Property name="CultureCode">
+          <Value isNull="false">da-DK</Value>
+        </Property>
+        <Property name="ContentId">
+          <Value isNull="true" />
+        </Property>
+        <Property name="RenderAsContent">
+          <Value isNull="false">false</Value>
+        </Property>
+        <Property name="Category">
+          <EntityRef id="Support" />
+        </Property>
+      </Entity>
+    </Property>
+    <Property name="Definition">
+      <EntityRef id="Default Category Definition" />
+    </Property>
+    <Property name="ParentCategory" />
+    <Property name="ProductCatalog">
+      <EntityRef id="uCommerce" />
+    </Property>
+  </Entity>
+</Category>

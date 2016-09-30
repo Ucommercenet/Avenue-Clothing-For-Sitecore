@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EmailProfile version="7.2.0.16251" timestamp="2016-09-30T10:56:08.2990835Z">
+  <Entity>
+    <Property name="Id">
+      <Value isNull="false">5</Value>
+    </Property>
+    <Property name="EmailProfileId">
+      <Value isNull="false">5</Value>
+    </Property>
+    <Property name="Name">
+      <Value isNull="false">Default</Value>
+    </Property>
+    <Property name="ModifiedOn">
+      <Value isNull="false">2009-08-30T13:30:32</Value>
+    </Property>
+    <Property name="ModifiedBy">
+      <Value isNull="false">uCommerce</Value>
+    </Property>
+    <Property name="CreatedOn">
+      <Value isNull="false">2009-08-30T13:30:32</Value>
+    </Property>
+    <Property name="CreatedBy">
+      <Value isNull="false">uCommerce</Value>
+    </Property>
+    <Property name="Deleted">
+      <Value isNull="false">false</Value>
+    </Property>
+    <Property name="Guid">
+      <Value isNull="false">8c18825a-8777-4469-a883-aadd5ddda02e</Value>
+    </Property>
+    <Property name="EmailContents">
+      <Entity>
+        <Property name="Id">
+          <Value isNull="false">7</Value>
+        </Property>
+        <Property name="EmailContentId">
+          <Value isNull="false">7</Value>
+        </Property>
+        <Property name="CultureCode">
+          <Value isNull="false">en-US</Value>
+        </Property>
+        <Property name="Subject">
+          <Value isNull="false">Order Confirmation</Value>
+        </Property>
+        <Property name="ContentId">
+          <Value isNull="false">1130</Value>
+        </Property>
+        <Property name="EmailProfile">
+          <EntityRef id="Default" />
+        </Property>
+        <Property name="EmailType">
+          <EntityRef id="OrderConfirmation" />
+        </Property>
+      </Entity>
+      <Entity>
+        <Property name="Id">
+          <Value isNull="false">8</Value>
+        </Property>
+        <Property name="EmailContentId">
+          <Value isNull="false">8</Value>
+        </Property>
+        <Property name="CultureCode">
+          <Value isNull="false">da-DK</Value>
+        </Property>
+        <Property name="Subject">
+          <Value isNull="false">Ordrebekræftelse</Value>
+        </Property>
+        <Property name="ContentId">
+          <Value isNull="false">1130</Value>
+        </Property>
+        <Property name="EmailProfile">
+          <EntityRef id="Default" />
+        </Property>
+        <Property name="EmailType">
+          <EntityRef id="OrderConfirmation" />
+        </Property>
+      </Entity>
+    </Property>
+    <Property name="EmailProfileInformations">
+      <Entity>
+        <Property name="Id">
+          <Value isNull="false">1</Value>
+        </Property>
+        <Property name="EmailProfileInformationId">
+          <Value isNull="false">1</Value>
+        </Property>
+        <Property name="FromName">
+          <Value isNull="false">uCommerce Demo Shop</Value>
+        </Property>
+        <Property name="FromAddress">
+          <Value isNull="false">demo@uCommerce.dk</Value>
+        </Property>
+        <Property name="CcAddress">
+          <Value isNull="false"></Value>
+        </Property>
+        <Property name="BccAddress">
+          <Value isNull="false"></Value>
+        </Property>
+        <Property name="EmailProfile">
+          <EntityRef id="Default" />
+        </Property>
+        <Property name="EmailType">
+          <EntityRef id="OrderConfirmation" />
+        </Property>
+      </Entity>
+    </Property>
+  </Entity>
+</EmailProfile>

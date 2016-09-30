@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PriceGroup version="7.2.0.16251" timestamp="2016-09-30T10:56:08.2990835Z">
+  <Entity>
+    <Property name="Id">
+      <Value isNull="false">6</Value>
+    </Property>
+    <Property name="PriceGroupId">
+      <Value isNull="false">6</Value>
+    </Property>
+    <Property name="Name">
+      <Value isNull="false">EUR 15 pct</Value>
+    </Property>
+    <Property name="VATRate">
+      <Value isNull="false">0.1500</Value>
+    </Property>
+    <Property name="Description">
+      <Value isNull="false">Default VAT</Value>
+    </Property>
+    <Property name="CreatedOn">
+      <Value isNull="false">2009-08-30T13:50:01</Value>
+    </Property>
+    <Property name="CreatedBy">
+      <Value isNull="false">uCommerce</Value>
+    </Property>
+    <Property name="ModifiedOn">
+      <Value isNull="false">2009-08-30T13:50:53</Value>
+    </Property>
+    <Property name="ModifiedBy">
+      <Value isNull="false">uCommerce</Value>
+    </Property>
+    <Property name="Deleted">
+      <Value isNull="false">false</Value>
+    </Property>
+    <Property name="Guid">
+      <Value isNull="false">d1a15875-e30b-46cf-987d-5fe7a02a5087</Value>
+    </Property>
+    <Property name="Currency">
+      <EntityRef id="EUR" />
+    </Property>
+  </Entity>
+</PriceGroup>

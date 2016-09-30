@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProductCatalogGroupTarget version="7.2.0.16251" timestamp="2016-09-30T10:56:08.2990835Z">
+  <Entity>
+    <Property name="Id">
+      <Value isNull="false">6</Value>
+    </Property>
+    <Property name="ProductCatalogGroupTargetId">
+      <Value isNull="false">6</Value>
+    </Property>
+    <Property name="Name">
+      <Value isNull="false">uCommerce.dk</Value>
+    </Property>
+    <Property name="TargetId">
+      <Value isNull="false">6</Value>
+    </Property>
+    <Property name="EnabledForDisplay">
+      <Value isNull="false">true</Value>
+    </Property>
+    <Property name="EnabledForApply">
+      <Value isNull="false">false</Value>
+    </Property>
+    <Property name="CampaignItem">
+      <EntityRef id="Bundle discount" />
+    </Property>
+  </Entity>
+  <Entity>
+    <Property name="Id">
+      <Value isNull="false">13</Value>
+    </Property>
+    <Property name="ProductCatalogGroupTargetId">
+      <Value isNull="false">13</Value>
+    </Property>
+    <Property name="Name">
+      <Value isNull="false">uCommerce.dk</Value>
+    </Property>
+    <Property name="TargetId">
+      <Value isNull="false">13</Value>
+    </Property>
+    <Property name="EnabledForDisplay">
+      <Value isNull="false">true</Value>
+    </Property>
+    <Property name="EnabledForApply">
+      <Value isNull="false">false</Value>
+    </Property>
+    <Property name="CampaignItem">
+      <EntityRef id="Free shipping for orders over 400€" />
+    </Property>
+  </Entity>
+</ProductCatalogGroupTarget>

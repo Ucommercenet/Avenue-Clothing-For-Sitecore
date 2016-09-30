@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProductCatalogGroup version="7.2.0.16251" timestamp="2016-09-30T10:56:08.2990835Z">
+  <Entity>
+    <Property name="Id">
+      <Value isNull="false">13</Value>
+    </Property>
+    <Property name="ProductCatalogGroupId">
+      <Value isNull="false">13</Value>
+    </Property>
+    <Property name="Name">
+      <Value isNull="false">uCommerce.dk</Value>
+    </Property>
+    <Property name="Description">
+      <Value isNull="false"></Value>
+    </Property>
+    <Property name="DomainId">
+      <Value isNull="true" />
+    </Property>
+    <Property name="Deleted">
+      <Value isNull="false">false</Value>
+    </Property>
+    <Property name="CreateCustomersAsMembers">
+      <Value isNull="false">false</Value>
+    </Property>
+    <Property name="MemberGroupId">
+      <Value isNull="false">0</Value>
+    </Property>
+    <Property name="MemberTypeId">
+      <Value isNull="false">0</Value>
+    </Property>
+    <Property name="ProductReviewsRequireApproval">
+      <Value isNull="false">false</Value>
+    </Property>
+    <Property name="Guid">
+      <Value isNull="false">f1545220-4851-48e1-9eb0-7902aa461871</Value>
+    </Property>
+    <Property name="CreatedOn">
+      <Value isNull="false">2016-09-29T15:02:10</Value>
+    </Property>
+    <Property name="CreatedBy">
+      <Value isNull="false"></Value>
+    </Property>
+    <Property name="ModifiedOn">
+      <Value isNull="false">2016-09-29T15:02:10</Value>
+    </Property>
+    <Property name="ModifiedBy">
+      <Value isNull="false"></Value>
+    </Property>
+    <Property name="Currency">
+      <EntityRef id="EUR" />
+    </Property>
+    <Property name="EmailProfile">
+      <EntityRef id="Default" />
+    </Property>
+    <Property name="OrderNumberSerie">
+      <EntityRef id="Default" />
+    </Property>
+    <Property name="ProductCatalogs">
+      <EntityRef id="uCommerce" />
+    </Property>
+    <Property name="PaymentMethods">
+      <EntityRef id="Account" />
+      <EntityRef id="Invoice" />
+    </Property>
+    <Property name="ShippingMethods">
+      <EntityRef id="Download" />
+    </Property>
+  </Entity>
+</ProductCatalogGroup>

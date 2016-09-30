@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AmountOffOrderTotalAward version="7.2.0.16251" timestamp="2016-09-30T10:56:08.2990835Z">
+  <Entity>
+    <Property name="Id">
+      <Value isNull="false">3</Value>
+    </Property>
+    <Property name="AmountOffOrderTotalAwardId">
+      <Value isNull="false">3</Value>
+    </Property>
+    <Property name="AmountOff">
+      <Value isNull="false">200.00</Value>
+    </Property>
+    <Property name="AwardId">
+      <Value isNull="false">3</Value>
+    </Property>
+    <Property name="Name">
+      <Value isNull="false"></Value>
+    </Property>
+    <Property name="CampaignItem">
+      <EntityRef id="Bundle discount" />
+    </Property>
+  </Entity>
+  <Entity>
+    <Property name="Id">
+      <Value isNull="false">4</Value>
+    </Property>
+    <Property name="AmountOffOrderTotalAwardId">
+      <Value isNull="false">4</Value>
+    </Property>
+    <Property name="AmountOff">
+      <Value isNull="false">100.00</Value>
+    </Property>
+    <Property name="AwardId">
+      <Value isNull="false">4</Value>
+    </Property>
+    <Property name="Name">
+      <Value isNull="false"></Value>
+    </Property>
+    <Property name="CampaignItem">
+      <EntityRef id="100€ voucher" />
+    </Property>
+  </Entity>
+</AmountOffOrderTotalAward>

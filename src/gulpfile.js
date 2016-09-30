@@ -24,7 +24,8 @@ gulp.task("default", function (callback) {
 	  "01-Nuget-Restore",
 	  "02-Copy-Serialization-Configuration",
 	  "03-Publish-Solution",
-	  "04-Sync-Unicorn",
+	  //"04-Apply-Xml-Transform",
+	  "05-Sync-Unicorn",
 	  callback);
 });
 
@@ -68,7 +69,6 @@ gulp.task("02-Copy-Serialization-Configuration", function (callback) {
 	var libs = gulp.src(files, { base: './scripts/Serialization' }).pipe(gulp.dest(config.websiteRoot));
 
 	return merge(libs);
-
 });
 
 gulp.task("03-Publish-Solution", function (callback) {
@@ -78,31 +78,32 @@ gulp.task("03-Publish-Solution", function (callback) {
 });
 
 gulp.task("04-Apply-Xml-Transform", function () {
-	var layerPathFilters = ["./src/Foundation/**/*.transform", "./src/Feature/**/*.transform", "./src/Project/**/*.transform", "!./src/**/obj/**/*.transform", "!./src/**/bin/**/*.transform"];
+	var layerPathFilters = ["./AvenueClothing.B2C/**/*.transform", "!./**/obj/**/*.transform", "!./**/bin/**/*.transform"];
 	return gulp.src(layerPathFilters)
-	  .pipe(foreach(function (stream, file) {
-	    var fileToTransform = file.path.replace(/.+code\\(.+)\.transform/, "$1");
-	    util.log("Applying configuration transform: " + file.path);
-	    return gulp.src("./applytransform.targets")
-	      .pipe(msbuild({
-	        targets: ["ApplyTransform"],
-	        configuration: config.buildConfiguration,
-	        logCommand: false,
-	        verbosity: "minimal",
-	        stdout: true,
-	        errorOnFail: true,
-	        maxcpucount: 0,
-	        toolsVersion: 14.0,
-	        properties: {
-	          WebConfigToTransform: config.websiteRoot,
-	          TransformFile: file.path,
-	          FileToTransform: fileToTransform
-	        }
-	      }));
+   .pipe(foreach(function (stream, file) {
+   	var fileToTransform = file.path.replace(/.+AvenueClothing.B2C\\(.+)\.transform/, "$1");
+   	util.log("Applying configuration transform: " + file.path);
+   	util.log("fileToTransform: " + fileToTransform);
+   	return gulp.src("./applytransform.targets")
+	  .pipe(msbuild({
+	  	targets: ["ApplyTransform"],
+	  	configuration: config.buildConfiguration,
+	  	logCommand: false,
+	  	verbosity: "minimal",
+	  	stdout: true,
+	  	errorOnFail: true,
+	  	maxcpucount: 0,
+	  	toolsVersion: 14.0,
+	  	properties: {
+	  		WebConfigToTransform: config.websiteRoot,
+	  		TransformFile: file.path,
+	  		FileToTransform: fileToTransform
+	  	}
 	  }));
+   }));
 });
 
-gulp.task("04-Sync-Unicorn", function (callback) {
+gulp.task("05-Sync-Unicorn", function (callback) {
 	var options = {};
 	options.siteHostName = habitat.getSiteUrl();
 	options.authenticationConfigFile = config.websiteRoot + "/App_config/Include/Unicorn/Unicorn.UI.config";
