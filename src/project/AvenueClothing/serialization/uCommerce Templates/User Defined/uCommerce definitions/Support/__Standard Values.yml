@@ -1,7 +1,7 @@
 ﻿---
-ID: "ba7f80eb-a6b4-1508-3df3-e70173c868b9"
-Parent: "d5ce2cdf-6cc8-4f74-97c7-5712a41ddcc7"
-Template: "d5ce2cdf-6cc8-4f74-97c7-5712a41ddcc7"
+ID: "5a475579-3df0-6010-35cb-3e6639ac8882"
+Parent: "912e140a-7453-4701-af1e-3058c0fde755"
+Template: "912e140a-7453-4701-af1e-3058c0fde755"
 Path: /sitecore/templates/User Defined/uCommerce definitions/Support/__Standard Values
 DB: master
 SharedFields:

@@ -1,22 +1,13 @@
 ﻿---
-ID: "2f28060c-ea18-013a-38c0-90de80c7a7d2"
-Parent: "795b7b59-5e84-4a60-a4b0-88e1abd2b720"
-Template: "795b7b59-5e84-4a60-a4b0-88e1abd2b720"
+ID: "5fb11936-e1b9-5eb8-38ef-5a4de3dadb9d"
+Parent: "d82be246-dc8f-4a3f-8b7a-1b82b6aef81a"
+Template: "d82be246-dc8f-4a3f-8b7a-1b82b6aef81a"
 Path: /sitecore/templates/User Defined/uCommerce definitions/Default Category Definition/__Standard Values
 DB: master
 SharedFields:
 - ID: "d3ae7222-425d-4b77-95d8-ee33ac2b6730"
   Hint: __Context Menu
   Value: "{D09D126F-A9A0-4744-BE3C-A97143D8CFEF}"
-- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
-  Hint: __Renderings
-  Type: layout
-  Value: |
-    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-      <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-        l="{55AD3180-3D79-461F-AC6F-D679AB58A849}" />
-    </r>
 Languages:
 - Language: en
   Versions:

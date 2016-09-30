@@ -1,13 +1,13 @@
 ﻿---
-ID: "97b2ee0a-38c7-4829-bddd-9a61a7af4767"
-Parent: "b8c77bca-a074-12cd-19f6-b8cb167e810f"
+ID: "77d28ce5-ea8c-4ebf-bbc5-9816d82b9d6a"
+Parent: "1f3be3a6-5539-16e4-1dd5-e1054d099dec"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
 Path: /sitecore/templates/User Defined/uCommerce definitions/Software Variant/Dynamic Fields/License
 DB: master
 SharedFields:
 - ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
   Hint: Source
-  Value: "DataSource={0412126E-B5A0-4659-A827-A1E6B5FF1D92}"
+  Value: "DataSource={8D5707D9-1A3D-409A-80B1-DE43CD72CE64}"
 - ID: "39847666-389d-409b-95bd-f2016f11eed5"
   Hint: Unversioned
   Type: Checkbox

@@ -1,5 +1,5 @@
 ﻿---
-ID: "a75ebe91-a6b4-2018-2afa-b73b73d078dc"
+ID: "47666b03-3df0-5500-22c2-6e5c39b498e7"
 Parent: "a3585578-10f9-48f3-afe4-b568ab275a6f"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
 Path: /sitecore/templates/User Defined/uCommerce definitions/Support Variant
@@ -17,7 +17,7 @@ SharedFields:
   Value: "{D09D126F-A9A0-4744-BE3C-A97143D8CFEF}"
 - ID: "f7d48a55-2158-4f02-9356-756654404f73"
   Hint: __Standard values
-  Value: "{2AEDCEF0-DAC6-79C2-524E-DAE15A1FA51D}"
+  Value: "{12385CCB-9E26-6159-2746-E2383D55C1FD}"
 Languages:
 - Language: en
   Versions:

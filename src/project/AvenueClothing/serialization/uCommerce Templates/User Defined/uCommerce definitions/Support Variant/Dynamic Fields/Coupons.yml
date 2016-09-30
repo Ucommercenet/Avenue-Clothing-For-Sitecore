@@ -1,13 +1,13 @@
 ﻿---
-ID: "03cc83ec-7b14-426c-9061-8411cdbdd95a"
-Parent: "a14f9299-ab86-1d2e-1bf5-be4a0fa21cf6"
+ID: "ad6cb2c1-e1c6-43fb-af59-ae63cabd85a2"
+Parent: "4177470b-30c2-6836-13cd-672d45c6fccd"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
 Path: /sitecore/templates/User Defined/uCommerce definitions/Support Variant/Dynamic Fields/Coupons
 DB: master
 SharedFields:
 - ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
   Hint: Source
-  Value: "DataSource={E711CD54-08FC-4D48-B151-3F9F809FA7ED}"
+  Value: "DataSource={69C72DDA-5DC3-4080-AF25-A9B643993757}"
 - ID: "39847666-389d-409b-95bd-f2016f11eed5"
   Hint: Unversioned
   Type: Checkbox
