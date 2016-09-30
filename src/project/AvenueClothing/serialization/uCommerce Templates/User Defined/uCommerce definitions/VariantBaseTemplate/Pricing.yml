@@ -1,0 +1,17 @@
+﻿---
+ID: "dd8fbeef-b6ec-4174-831e-66cda4686710"
+Parent: "5ccde49d-c18f-4dd7-9aa1-948241088a9d"
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: /sitecore/templates/User Defined/uCommerce definitions/VariantBaseTemplate/Pricing
+DB: master
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
+- ID: "d3ae7222-425d-4b77-95d8-ee33ac2b6730"
+  Hint: __Context Menu
+  Value: "{D09D126F-A9A0-4744-BE3C-A97143D8CFEF}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1

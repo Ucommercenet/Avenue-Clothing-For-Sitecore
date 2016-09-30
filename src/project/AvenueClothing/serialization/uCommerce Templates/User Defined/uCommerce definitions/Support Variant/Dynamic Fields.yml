@@ -1,0 +1,17 @@
+﻿---
+ID: "a14f9299-ab86-1d2e-1bf5-be4a0fa21cf6"
+Parent: "a75ebe91-a6b4-2018-2afa-b73b73d078dc"
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: /sitecore/templates/User Defined/uCommerce definitions/Support Variant/Dynamic Fields
+DB: master
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 150
+- ID: "d3ae7222-425d-4b77-95d8-ee33ac2b6730"
+  Hint: __Context Menu
+  Value: "{D09D126F-A9A0-4744-BE3C-A97143D8CFEF}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
