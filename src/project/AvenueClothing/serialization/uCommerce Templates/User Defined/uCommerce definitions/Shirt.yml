@@ -1,0 +1,24 @@
+﻿---
+ID: "deb91d42-0972-4dc6-9732-9c1576ee3875"
+Parent: "a3585578-10f9-48f3-afe4-b568ab275a6f"
+Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
+Path: /sitecore/templates/User Defined/uCommerce definitions/Shirt
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: /sitecore%20modules/Shell/ucommerce/images/ui/map.png
+- ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
+  Hint: __Base template
+  Type: tree list
+  Value: "{86FA3A87-B0A3-4A4B-BBE1-E75398D267D5}"
+- ID: "d3ae7222-425d-4b77-95d8-ee33ac2b6730"
+  Hint: __Context Menu
+  Value: "{D09D126F-A9A0-4744-BE3C-A97143D8CFEF}"
+- ID: "f7d48a55-2158-4f02-9356-756654404f73"
+  Hint: __Standard values
+  Value: "{CD4E1D59-1CBF-A76D-3FF3-12CA741A9B5D}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1

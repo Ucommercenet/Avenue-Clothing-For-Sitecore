@@ -1,0 +1,17 @@
+﻿---
+ID: "a0a3fa6c-2aad-7aab-15ff-d669761c1e1d"
+Parent: "a6b2d664-279f-479d-24f0-df180a6e7a37"
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: /sitecore/templates/User Defined/uCommerce definitions/Shoe Variant/Dynamic Fields
+DB: master
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 150
+- ID: "d3ae7222-425d-4b77-95d8-ee33ac2b6730"
+  Hint: __Context Menu
+  Value: "{D09D126F-A9A0-4744-BE3C-A97143D8CFEF}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1

@@ -1,0 +1,14 @@
+﻿---
+ID: "2f2ef789-859e-d74a-3bc3-892e208b8b39"
+Parent: "ff5b7da8-2eeb-49b6-a7a9-7841e7fe5ca5"
+Template: "ff5b7da8-2eeb-49b6-a7a9-7841e7fe5ca5"
+Path: /sitecore/templates/User Defined/uCommerce definitions/Accessory/__Standard Values
+DB: master
+SharedFields:
+- ID: "d3ae7222-425d-4b77-95d8-ee33ac2b6730"
+  Hint: __Context Menu
+  Value: "{D09D126F-A9A0-4744-BE3C-A97143D8CFEF}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
