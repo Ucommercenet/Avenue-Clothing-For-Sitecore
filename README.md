@@ -3,9 +3,11 @@ How To Install AvenueClothing For Sitecore
 0. Clone this repo to your favorite location on your computer.
 
 1. Getting your deploy site up and running
+
 	1.1 You need a clean Sitecore 8.x website with uCommerce installed.
 	
-2. Getting your development environment up and running	
+2. Getting your development environment up and running
+	
 	2.1 You need to install NPM. You can download it here if you haven't installed it already: https://www.npmjs.com/
 	
 	2.2 Now open a command prompt (in admin mode.) Navigate to the solution so your command prompt is in the right directory next to where your package.json is located.
