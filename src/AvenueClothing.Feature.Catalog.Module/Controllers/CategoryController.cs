@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using AvenueClothing.Feature.Catalog.Module.Extensions;
 using AvenueClothing.Feature.Catalog.Module.ViewModels;
 using UCommerce.Api;
 using UCommerce.Content;
@@ -18,22 +19,24 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 			var categoryViewModel = new CategoryViewModel();
 			var currentCategory = SiteContext.Current.CatalogContext.CurrentCategory;
 
-			categoryViewModel.Products = MapProducts(CatalogLibrary.GetProducts(currentCategory));
+			var facets = System.Web.HttpContext.Current.Request.QueryString.ToFacets();
+
+			categoryViewModel.Products = MapProducts(SearchLibrary.GetProductsFor(currentCategory, facets));
 
 			return View("/views/Category.cshtml", categoryViewModel);
 		}
 
-		private IList<ProductViewModel> MapProducts(ICollection<UCommerce.EntitiesV2.Product> productsInCategory)
+		private IList<ProductViewModel> MapProducts(ICollection<UCommerce.Documents.Product> productsInCategory)
 		{
 			IList<ProductViewModel> productViews = new List<ProductViewModel>();
 
-			foreach (UCommerce.EntitiesV2.Product product in productsInCategory)
+			foreach (UCommerce.Documents.Product product in productsInCategory)
 			{
 				var productViewModel = new ProductViewModel();
 
 				productViewModel.Sku = product.Sku;
 				productViewModel.Name = product.Name;
-				productViewModel.Url = CatalogLibrary.GetNiceUrlForProduct(product);
+				productViewModel.ThumbnailImageUrl = product.ThumbnailImageUrl;
 
 				productViews.Add(productViewModel);
 			}
