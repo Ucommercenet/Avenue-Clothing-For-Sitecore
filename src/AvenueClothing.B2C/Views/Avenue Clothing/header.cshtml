@@ -5,18 +5,21 @@
 @{
 	Layout = null;
 }
-
 <div class="navbar">
-	<div class="navbar-inner">
-		<div class="container-fluid">
-			<div class="row-fluid">
-				<div class="nav-collapse">
-					<ul class="nav">
-						<li>
-							<h1>@Html.Sitecore().Field("Title")</h1>
-							<p>@Html.Sitecore().Field("Decsription")</p>
-						</li>
-					</ul>
+	<a class="col-md-3 navbar-brand" href="/">Avenue Clothing</a>
+
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="nav-collapse">
+						<ul class="nav">
+							<li>
+								<h1>@Html.Sitecore().Field("Title")</h1>
+								<p>@Html.Sitecore().Field("Decsription")</p>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -163,6 +163,12 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Css\font-awesome.min.css" />
+    <Content Include="Css\glyphicons-28-search.png" />
+    <Content Include="Css\tether.min.css" />
+    <Content Include="Css\uCommerce.bootstrap-responsive.css" />
+    <Content Include="Css\uCommerce.bootstrap.css" />
+    <Content Include="Css\uCommerce.demostore.css" />
     <Content Include="packages.config" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
