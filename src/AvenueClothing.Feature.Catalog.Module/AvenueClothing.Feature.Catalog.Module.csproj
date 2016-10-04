@@ -141,6 +141,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\uCommerce.facets.js" />
     <Content Include="Views\CategoryNavigation.cshtml" />
   </ItemGroup>
   <ItemGroup>
