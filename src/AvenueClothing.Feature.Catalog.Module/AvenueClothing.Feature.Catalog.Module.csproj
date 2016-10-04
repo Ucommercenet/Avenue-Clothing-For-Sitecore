@@ -127,10 +127,14 @@
     <Compile Include="Controllers\FacetsController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CategoryNavigationController.cs" />
+    <Compile Include="Extensions\FacetedQueryStringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CarouselViewModel.cs" />
     <Compile Include="ViewModels\CategoryNavigationViewModel.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\FacetsDisplayedViewModel.cs" />
+    <Compile Include="ViewModels\FacetValueViewModel.cs" />
+    <Compile Include="ViewModels\FacetViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

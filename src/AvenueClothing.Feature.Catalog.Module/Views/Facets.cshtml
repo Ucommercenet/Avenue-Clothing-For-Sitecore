@@ -1,8 +1,18 @@
-﻿@{
-    Layout = null;
+﻿@model AvenueClothing.Feature.Catalog.Module.ViewModels.FacetsDisplayedViewModel
+@{
+	Layout = null;
 }
+@foreach (var facet in @Model.Facets)
+{
+	<div class="well">
+		<legend>@facet.DisplayName</legend>
+		@foreach (var value in facet.FacetValues)
+		{
+			<label>
+				<input type="checkbox" id="filter-@facet.Name-@value.FacetValueName" key="@facet.Name" class="filter" value="@value.FacetValueName">
+				@value.FacetValueName (@value.FacetValueHits)
+			</label>
+		}
 
-
-<div class="sidebar-nav" id="facets-nav">
-	Facets(TODO)
-</div>
+	</div>
+}
