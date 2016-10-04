@@ -23,6 +23,11 @@
 @if (Model.Categories.Any())
 {
 	<div class="well sidebar-nav" id="main-nav">
-		@DisplayCategories(Model.Categories)
+		<div class="well sidebar-nav" id="main-nav">
+			@DisplayCategories(Model.Categories)
+		</div>
+	</div>
+	<div class="sidebar-nav" id="facets-nav">
+		Facets(TODO)
 	</div>
 }

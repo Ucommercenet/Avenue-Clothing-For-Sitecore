@@ -5,43 +5,39 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />	@if (!Sitecore.Context.PageMode.IsPageEditor)
-    {
-        @Html.Sitecore().Placeholder("head")
-    }
-    <title></title>
+	<meta name="viewport" content="width=device-width" />
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Css/uCommerce.demostore.css" rel="stylesheet" />
+	@if (!Sitecore.Context.PageMode.IsExperienceEditor)
+	{
+		@Html.Sitecore().Placeholder("head")
+	}
+	<title></title>
 </head>
-<body class="header-static @(Sitecore.Context.PageMode.IsNormal ? "" : (Sitecore.Context.PageMode.IsPageEditor ? "pagemode-edit" : "pagemode-preview"))">
-    <div id="main-container">
-        <header>
-            <div class="navbar navbar-fixed-top">
-                <a class="col-md-3 navbar-brand" href="/">Avenue Clothing</a>
-                @Html.Sitecore().Placeholder("header")
-            </div>
+<body class="header-static @(Sitecore.Context.PageMode.IsNormal ? "" : (Sitecore.Context.PageMode.IsExperienceEditor ? "pagemode-edit" : "pagemode-preview"))">
+	<div id="main-container">
+		<header>
 
-        </header>
-        <section>
-            <div class="container">
-                <div class="col-sm-3 col-md-3">
-                    <div class="well sidebar-nav" id="main-nav">
-                        @Html.Sitecore().Placeholder("sidebar")
-                    </div>
-                    <div class="sidebar-nav" id="facets-nav">
-                        Facets(TODO)
-                    </div>
-                </div>
-                <div class="col-sm-9 col-md-9">
-                    @Html.Sitecore().Placeholder("main")
-                </div>
+			@Html.Sitecore().Placeholder("header")
 
-            </div>
-        </section>
-        <footer>
-            @Html.Sitecore().Placeholder("footer")
-        </footer>
-    </div>
-    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+		</header>
+		<section>
+			<div class="container">
+				<div class="col-sm-3 col-md-3">
+					@Html.Sitecore().Placeholder("sidebar")
+
+				</div>
+				<div class="col-sm-9 col-md-9">
+					@Html.Sitecore().Placeholder("main")
+				</div>
+
+			</div>
+		</section>
+		<footer>
+			@Html.Sitecore().Placeholder("footer")
+		</footer>
+	</div>
+	<script src="~/Scripts/jquery-3.0.0.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>
