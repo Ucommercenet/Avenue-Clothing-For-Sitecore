@@ -23,6 +23,14 @@ namespace AvenueClothing.Project.Website.Controllers
             catalogueInstaller.Configure();
             return View("/views/Avenue Clothing/CreateStore.cshtml");
         }
+
+        public ActionResult CreateBigTiesCategory()
+		{
+			CatalogueInstaller catalogueInstaller = new CatalogueInstaller("Avenue-Clothing.com", "Demo catalog");
+			catalogueInstaller.CreateBigTiesCategory();
+            return View("/views/Avenue Clothing/CreateStore.cshtml");
+        }
+
     }
 
     public class Settings
@@ -754,6 +762,16 @@ namespace AvenueClothing.Project.Website.Controllers
 
             return product;
         }
+
+	    public void CreateBigTiesCategory()
+	    {
+			var accessoryDefinition = ProductDefinition.FirstOrDefault(x => x.Name == "Accessory");
+			var ties = Category.FirstOrDefault(x => x.Name == "Ties");
+			for (int i = 0; i < 75; i++)
+			{
+				CreateProductOnCategory(ties, accessoryDefinition, "19849-"+i, "Paul Smith Accessories Classic Blue with Brown & Pink Stripe Silk Woven Tie", 69.50M, Guid.NewGuid().ToString(), "", "<ul><li>Classic Stripe Tie</li><li>Tie length : 140cm</li><li>Blade width : 9cm </li><li>Blue with brown and pink stripes</li><li>100% silk (Made in Italy)</li><li>Style Number : AGXA/764L/R38/VP</li></ul><p>As featured on <a href=\"http://www.pritchards.co.uk/accessories-14/ties-25/paul-smith-accessories-classic-blue-with-19849.htm\">Pritchards.co.uk</a></p>");
+			}
+	    }
     }
 
     public class GenericHelpers
