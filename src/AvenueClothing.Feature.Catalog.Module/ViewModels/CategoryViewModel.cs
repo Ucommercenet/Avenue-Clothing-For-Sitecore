@@ -7,7 +7,6 @@ namespace AvenueClothing.Feature.Catalog.Module.ViewModels
 		public CategoryViewModel()
 		{
 			Categories = new List<CategoryViewModel>();
-			Products = new List<ProductViewModel>();
 		}
 		public string Url { get; set; }
 
@@ -16,7 +15,6 @@ namespace AvenueClothing.Feature.Catalog.Module.ViewModels
 		public string Description { get; set; }
 
 		public IList<CategoryViewModel> Categories { get; set; }
-
-		public IList<ProductViewModel> Products { get; set; } 
+		public List<int> ProductIds { get; set; }
 	}
 }

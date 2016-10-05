@@ -9,6 +9,8 @@ namespace AvenueClothing.Feature.Catalog.Module.ViewModels
 		{
 			Variants = new List<ProductViewModel>();
 		}
+
+		public int Id { get; set; }
 		public bool IsVariant { get; set; }
 
 		public string Name { get; set; }

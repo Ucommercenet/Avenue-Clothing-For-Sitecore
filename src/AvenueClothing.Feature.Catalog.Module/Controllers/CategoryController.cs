@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Catalog.Module.Extensions;
 using AvenueClothing.Feature.Catalog.Module.ViewModels;
@@ -21,28 +22,9 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 
 			var facets = System.Web.HttpContext.Current.Request.QueryString.ToFacets();
 
-			categoryViewModel.Products = MapProducts(SearchLibrary.GetProductsFor(currentCategory, facets));
+			categoryViewModel.ProductIds = SearchLibrary.GetProductsFor(currentCategory, facets).Select(x => x.Id).ToList();
 
 			return View("/views/Category.cshtml", categoryViewModel);
 		}
-
-		private IList<ProductViewModel> MapProducts(ICollection<UCommerce.Documents.Product> productsInCategory)
-		{
-			IList<ProductViewModel> productViews = new List<ProductViewModel>();
-
-			foreach (UCommerce.Documents.Product product in productsInCategory)
-			{
-				var productViewModel = new ProductViewModel();
-
-				productViewModel.Sku = product.Sku;
-				productViewModel.Name = product.Name;
-				productViewModel.ThumbnailImageUrl = product.ThumbnailImageUrl;
-
-				productViews.Add(productViewModel);
-			}
-
-			return productViews;
-		}
 	}
-
 }
