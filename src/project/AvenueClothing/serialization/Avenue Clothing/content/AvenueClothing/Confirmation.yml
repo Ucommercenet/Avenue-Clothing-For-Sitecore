@@ -4,6 +4,16 @@ Parent: "7919567a-faa2-4504-9c31-63a2cf67b551"
 Template: "3870177d-3bc6-46dc-9594-13860b542060"
 Path: /sitecore/content/AvenueClothing/Confirmation
 DB: master
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{55AD3180-3D79-461F-AC6F-D679AB58A849}" />
+    </r>
 Languages:
 - Language: en
   Versions:
