@@ -1,0 +1,17 @@
+﻿---
+ID: "5f8c462c-a4ca-4bbf-8061-e99a83fdb48e"
+Parent: "7919567a-faa2-4504-9c31-63a2cf67b551"
+Template: "3870177d-3bc6-46dc-9594-13860b542060"
+Path: /sitecore/content/AvenueClothing/Payment
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20161006T125328Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: sitecore\admin
