@@ -1,0 +1,32 @@
+﻿@using System.Web.Mvc.Html
+@using AvenueClothing.Feature.Transaction.Module.ViewModels
+@using Sitecore.Mvc
+
+@model AvenueClothing.Feature.Transaction.Module.ViewModels.MiniBasketViewModel
+@{
+	Layout = null;
+}
+
+@if (Model.IsEmpty)
+{
+	<div class="pull-xs-right navbar-collapse">
+		<ul class="nav navbar-nav">
+			<li>
+				<div>Your basket is empty</div>
+			</li>
+		</ul>
+	</div>
+}
+else
+{
+
+	<div class="pull-xs-right navbar-collapse">
+		<ul class="nav navbar-nav">
+			<li>
+				<div>@Model.NumberOfItems item(s) in basket, total: @Model.Total</div>
+			</li>
+		</ul>
+	</div>
+}
+
+
