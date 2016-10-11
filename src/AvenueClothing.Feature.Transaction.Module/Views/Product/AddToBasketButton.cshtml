@@ -4,4 +4,8 @@
     Layout = null;
 }
 
-<button class="js-add-to-basket-button" data-product-sku="" data-variant-sku="" data-quantity="" data-add-to-basket-url="@Model.AddToBasketUrl" data-validate-product-exists-url="@Model.ValidateProductExistsUrl">Add To Basket</button>
+<button disabled="disabled" class="js-add-to-basket-button" data-confirmation-message-id="@Model.ConfirmationMessageClientId" data-product-sku="" data-variant-sku="" data-quantity="" data-add-to-basket-url="@Model.AddToBasketUrl" data-validate-product-exists-url="@Model.ValidateProductExistsUrl">Add To Basket</button>
+
+<div id="@Model.ConfirmationMessageClientId" class="js-add-to-basket-button-confirmation-message alert alert-success hidden-xl-down" role="alert" data-confirmation-message-timeout-in-millisecs="@Model.ConfirmationMessageTimeoutInMillisecs">
+    Thanks, this item has been added to your cart. <a href="@Model.BasketUrl">Click here to view your cart.</a>
+</div>

@@ -1,19 +1,36 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Transaction.Module.ViewModels;
 using UCommerce.Api;
+using UCommerce.EntitiesV2;
+using UCommerce.Infrastructure.Logging;
+using UCommerce.Pipelines;
+using UCommerce.Pipelines.GetProduct;
 
 namespace AvenueClothing.Feature.Transaction.Module.Controllers
 {
     public class ProductController : Controller
     {
+        private readonly IPipelineTask<IPipelineArgs<GetProductRequest, GetProductResponse>> _getProductPipeline;
+        private readonly ILoggingService _loggingService;
+
+        public ProductController(IPipelineTask<IPipelineArgs<GetProductRequest, GetProductResponse>> getProductPipeline, ILoggingService loggingService)
+        {
+            _getProductPipeline = getProductPipeline;
+            _loggingService = loggingService;
+        }
+
         [HttpGet]
         public ActionResult AddToBasketButton()
         {
             var viewModel = new AddToBasketButtonViewModel
             {
                 AddToBasketUrl = Url.Action("AddToBasket"),
-                ValidateProductExistsUrl = Url.Action("ValidateProductExists")
+                ValidateProductExistsUrl = Url.Action("ValidateProductExists"),
+                BasketUrl = "",//TODO: Get the url from sitecore?
+                ConfirmationMessageTimeoutInMillisecs = (int)TimeSpan.FromSeconds(5).TotalMilliseconds,
+                ConfirmationMessageClientId = "js-add-to-basket-button-confirmation-message-" + Guid.NewGuid()
             };
             return View(viewModel);
         }
@@ -25,7 +42,20 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
         [HttpGet]
         public ActionResult ValidateProductExists(ValidateProductExistsViewModel viewModel)
         {
-            //TODO: Check if product exists
+            var productIdentifier = new ProductIdentifier(viewModel.ProductSku, viewModel.VariantSku);
+            var getProductResponse = new GetProductResponse();
+
+            try
+            {
+                _getProductPipeline.Execute(new GetProductPipelineArgs(new GetProductRequest(productIdentifier), getProductResponse));
+            }
+            catch (ArgumentException ex)
+            {
+                _loggingService.Log<ProductController>(ex);
+
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
 

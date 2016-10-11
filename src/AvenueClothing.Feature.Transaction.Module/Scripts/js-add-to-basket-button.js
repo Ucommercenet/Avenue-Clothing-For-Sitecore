@@ -1,7 +1,24 @@
 ﻿var AddToBasketButton = (function () {
 
     // declared with `var`, must be "private"
-    var privateMethod = function () { };
+
+    var confirmationMessageTimer;
+
+    var showConfirmationMessage = function ($button) {
+
+        var confirmationMessageId = $button.data("confirmation-message-id");
+        var confirmationMessageTimeoutInMillisecs = $button.data("confirmation-message-timeout-in-millisecs");
+
+        var $message = $("#" + confirmationMessageId);
+
+        $message.slideDown();
+
+        clearTimeout(confirmationMessageTimer);
+
+        confirmationMessageTimer = setTimeout(function () {
+            $message.slideUp();
+        }, confirmationMessageTimeoutInMillisecs);
+    };
 
     var publicScope = {
         init: function (rootSelector) {
@@ -10,6 +27,7 @@
                 var productSku = $(this).data("product-sku");
                 var variantSku = $(this).data("variant-sku");
                 var addToBasketUrl = $(this).data("add-to-basket-url");
+                var $button = $(this);
 
                 $.ajax({
                     type: "POST",
@@ -24,7 +42,8 @@
                 }
                 .done(function () {
                     MiniBasket.basketChanged();
-                    alert('TODO: Success confirmation');
+
+                    showConfirmationMessage($button);
                 })
                 .fail(function () {
                     alert("Whoops...");
@@ -57,7 +76,7 @@
                         $button.prop("disabled", false);
                     })
                     .fail(function () {
-                        alert("Whoops...");
+                        //No-op
                     })
                     .always(function () {
                         //No-op
