@@ -377,7 +377,7 @@ namespace AvenueClothing.Project.Website.Controllers
 
         private void DeleteOldStore()
         {  
-            var groups = ProductCatalogGroup.All().Where(g => g.Name == "uCommerce.dk" || g.Name == "Avenue-Clothing.com" || g.Name == "Avenue-Clothing1.com");
+            var groups = ProductCatalogGroup.All().Where(g => g.Name == "uCommerce.dk" || g.Name == "Avenue-Clothing.com");
             foreach (var group in groups)
             {
                 if (group != null)
