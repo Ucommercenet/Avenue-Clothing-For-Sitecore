@@ -1,16 +1,16 @@
 ﻿---
-ID: "b9baaa2b-d947-4cae-97cf-4e413b57c511"
-Parent: "4564fc85-d270-4644-9400-e7f8a34a842d"
+ID: "9336b4dd-e895-4a97-a252-5ebf3776b8a1"
+Parent: "b349d3bd-8626-4e03-9850-4dae6533e6fa"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Common/Avenue Clothing/AvenueClothing/Image Carousel/Images
+Path: /sitecore/templates/Common/Avenue Clothing/AvenueClothing/Highlighted Products/Products
 DB: master
 SharedFields:
 - ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
   Hint: Source
-  Value: "DataSource={F3289CDA-AF12-4450-BD33-8D51DDD7E3F3}"
+  Value: DataSource=/sitecore/uCommerce/Products&ExcludeTemplatesForSelection=Bucket
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
-  Value: TreelistEx
+  Value: Treelist
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 100
@@ -21,4 +21,4 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20160928T110953Z
+      Value: 20161012T080410Z

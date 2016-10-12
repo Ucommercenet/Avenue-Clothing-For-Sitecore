@@ -1,11 +1,15 @@
 ﻿@using Sitecore.Mvc
-@model AvenueClothing.Feature.Catalog.Module.ViewModels.HomepageCatalogViewModel
-
 @{
     Layout = null;
 }
 
-@foreach (var p in Model.Products)
-{
-    @Html.Sitecore().Rendering("9851F13D-1DC8-4D36-8C99-6C2E42D115B8", new { productId = p.Id});
+@{
+    var productItems = Html.Sitecore().Field("Products").ToHtmlString().Split('|').ToList();
 }
+
+@foreach (var p in productItems)
+{
+    <p>@p</p>
+    @*@Html.Sitecore().Rendering("9851F13D-1DC8-4D36-8C99-6C2E42D115B8", new { productId =  p});*@
+}
+
