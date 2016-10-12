@@ -163,10 +163,10 @@
   <ItemGroup>
     <Content Include="Views\ProductCard.cshtml" />
   </ItemGroup>
-  <ItemGroup />
-    <ItemGroup>
-    <Content Include="Views\VariantPicker\Index.cshtml" />
-    <ItemGroup>
+  <ItemGroup>
+  <Content Include="Views\VariantPicker\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Views\HomepageCatalog.cshtml" />
   </ItemGroup>
   <PropertyGroup>
