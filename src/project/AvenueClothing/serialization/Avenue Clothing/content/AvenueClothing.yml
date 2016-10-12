@@ -18,6 +18,10 @@ SharedFields:
           ph="header"
           uid="{4C175686-6D09-43F6-9D02-D8608A09469A}" />
         <r
+          id="{EBBE7524-3356-47AC-852A-8EE1DD93CAD6}"
+          ph="header content"
+          uid="{181FAF15-0FD0-418F-BD42-C0DDC263F082}" />
+        <r
           ds=""
           id="{749D4A8D-990A-4FFE-BE3A-C74591EBD862}"
           par=""
