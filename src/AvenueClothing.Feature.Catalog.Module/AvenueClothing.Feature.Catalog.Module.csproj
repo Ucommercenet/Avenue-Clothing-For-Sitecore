@@ -125,6 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CatalogImageCaruselController.cs" />
+    <Compile Include="Controllers\HomepageCatalogController.cs" />
     <Compile Include="Controllers\ProductCardController.cs" />
     <Compile Include="Controllers\FacetsController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="ViewModels\FacetsDisplayedViewModel.cs" />
     <Compile Include="ViewModels\FacetValueViewModel.cs" />
     <Compile Include="ViewModels\FacetViewModel.cs" />
+    <Compile Include="ViewModels\HomepageCatalogViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\VariantPickerViewModel.cs" />
   </ItemGroup>
@@ -161,8 +163,11 @@
   <ItemGroup>
     <Content Include="Views\ProductCard.cshtml" />
   </ItemGroup>
-  <ItemGroup>
+  <ItemGroup />
+    <ItemGroup>
     <Content Include="Views\VariantPicker\Index.cshtml" />
+    <ItemGroup>
+    <Content Include="Views\HomepageCatalog.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
