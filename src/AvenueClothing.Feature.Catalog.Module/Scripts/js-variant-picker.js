@@ -39,7 +39,7 @@
         init: function (rootSelector) {
             $(rootSelector).find(classSelector)
                 .on("product-variant-changed", productVariantChanged)//TODO: Avoid Event Storm create a latch?
-                .changed(function () {
+                .change(function () {
                     var $picker = $(this);
                     var productSku = $picker.data("product-sku");
                     var variantExistsUrl = $picker.data("variant-exists-url");
