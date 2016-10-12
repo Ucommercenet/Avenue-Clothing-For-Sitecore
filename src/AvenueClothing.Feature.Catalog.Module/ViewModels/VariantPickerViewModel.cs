@@ -6,6 +6,7 @@ namespace AvenueClothing.Feature.Catalog.Module.ViewModels
     {
         public List<Variant> Variants { get; set; }
         public string ProductSku { get; set; }
+        public string VariantExistsUrl { get; set; }
 
         public class Variant
         {

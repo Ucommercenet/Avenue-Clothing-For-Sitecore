@@ -19,7 +19,8 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 
             var viewModel = new VariantPickerViewModel
             {
-                ProductSku = currentProduct.Sku
+                ProductSku = currentProduct.Sku,
+                VariantExistsUrl = Url.Action("VariantExists")
             };
 
             foreach (var variant in uniqueVariants)
@@ -43,6 +44,36 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 
             
             return View(viewModel);
+        }
+
+        /// <summary>
+        /// POST /api/Sitecore/VariantPicker/VariantExists/
+        /// </summary>
+        [HttpPost]
+        public ActionResult VariantExists(VariantExistsViewModel viewModel)
+        {
+            var product = SiteContext.Current.CatalogContext.CurrentProduct;
+
+            if (!product.IsVariant)
+            {
+                return Json(new { ProductVariantSku = "" });
+            }
+            if (!viewModel.VariantNameValueDictionary.Any())
+            {
+                return Json(new { ProductVariantSku = "" });
+            }
+
+            var variant = product.Variants.FirstOrDefault(v => v.ProductProperties
+                      .Where(pp => pp.ProductDefinitionField.DisplayOnSite)
+                      .Where(pp => pp.ProductDefinitionField.IsVariantProperty)
+                      .Where(pp => !pp.ProductDefinitionField.Deleted)
+                      .All(p => viewModel.VariantNameValueDictionary
+                            .Any(kv => kv.Key.Equals(p.ProductDefinitionField.Name, StringComparison.InvariantCultureIgnoreCase) && kv.Value.Equals(p.Value, StringComparison.InvariantCultureIgnoreCase)))
+                      );
+            var variantSku = variant != null ? variant.VariantSku : "";
+
+
+            return Json(new { ProductVariantSku = variantSku });
         }
     }
 }

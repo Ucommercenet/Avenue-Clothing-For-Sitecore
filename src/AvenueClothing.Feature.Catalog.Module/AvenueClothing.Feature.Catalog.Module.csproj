@@ -141,6 +141,7 @@
     <Compile Include="ViewModels\FacetViewModel.cs" />
     <Compile Include="ViewModels\HomepageCatalogViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
+    <Compile Include="ViewModels\VariantExistsViewModel.cs" />
     <Compile Include="ViewModels\VariantPickerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -164,7 +165,7 @@
     <Content Include="Views\ProductCard.cshtml" />
   </ItemGroup>
   <ItemGroup>
-  <Content Include="Views\VariantPicker\Index.cshtml" />
+    <Content Include="Views\VariantPicker\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\HomepageCatalog.cshtml" />

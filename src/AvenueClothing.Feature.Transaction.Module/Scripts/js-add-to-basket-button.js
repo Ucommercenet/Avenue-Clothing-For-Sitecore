@@ -57,7 +57,7 @@
     var publicScope = {
         init: function (rootSelector) {
             $(rootSelector).find(classSelector)
-                .on("product-varaint-changed", productVariantChanged)
+                .on("product-variant-changed", productVariantChanged)
                 .on("product-quantity-changed", productQuantityChanged)
                 .click(function () {
                     var $button = $(this);
@@ -80,8 +80,7 @@
                     }
                     .done(function () {
 
-                        var event = $.Event("basket-changed");
-                        $(document).trigger(event);
+                        $(document).trigger("basket-changed");
 
                         showConfirmationMessage($button);
                     })
