@@ -1,16 +1,13 @@
 ﻿---
-ID: "c2c719ba-28fc-423b-9d66-f5e413d5e0f2"
+ID: "74d43cb5-4d7a-470f-a042-8954f2b5a75b"
 Parent: "ea28baf4-62fa-4fa9-80f9-07c39608e5e7"
-Template: "2a3e91a0-7987-44b5-ab34-35c2d9de83b9"
+Template: "99f8905d-4a87-4eb8-9f8b-a9bebfb3add6"
 Path: /sitecore/layout/Renderings/Commerce/Catalog/Homepage Catalog
 DB: master
 SharedFields:
-- ID: "ded9e431-3604-4921-a4b3-a6ec7636a5b6"
-  Hint: Controller Action
-  Value: HomepageCatalog
-- ID: "e64ad073-dfcc-4d20-8c0b-fe5aa6226cd7"
-  Hint: Controller
-  Value: HomepageCatalog
+- ID: "51b435bc-f7b9-478a-9c51-52916af96ff5"
+  Hint: Path
+  Value: ~/Views/HomepageCatalog.cshtml
 Languages:
 - Language: en
   Versions:
@@ -18,4 +15,4 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20161007T142743Z
+      Value: 20161012T085136Z
