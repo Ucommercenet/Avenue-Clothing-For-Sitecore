@@ -38,7 +38,9 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 				Sku = product.Sku,
 				Name = product.Name,
 				Id = product.Id,
-			};
+                Url = CatalogLibrary.GetNiceUrlForProduct(product),
+                ThumbnailImageUrl = ObjectFactory.Instance.Resolve<IImageService>().GetImage(product.PrimaryImageMediaId).Url
+            };
 		}
 	}
 }
