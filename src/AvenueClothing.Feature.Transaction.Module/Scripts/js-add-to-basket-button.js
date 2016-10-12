@@ -31,6 +31,11 @@
     var productVariantChanged = function (event, data) {
         var $button = $(this);
 
+        var productSku = $button.data("product-sku");
+        if (productSku !== data.productSku) {
+            return;
+        }
+
         $button.data("product-variant-sku", data.productVariantSku);
 
         toogleButton($button);
@@ -38,6 +43,11 @@
 
     var productQuantityChanged = function (event, data) {
         var $button = $(this);
+
+        var productSku = $button.data("product-sku");
+        if (productSku !== data.productSku) {
+            return;
+        }
 
         $button.data("product-quantity", data.productQuantity);
 
