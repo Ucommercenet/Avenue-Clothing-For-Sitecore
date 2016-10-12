@@ -1,0 +1,17 @@
+﻿@model AvenueClothing.Feature.Catalog.Module.ViewModels.VariantPickerViewModel
+
+@{
+    Layout = null;
+}
+
+@foreach (var variant in Model.Variants)
+{
+    <div>variant.DisplayName</div>
+    <select class="variant-picker" data-variant-name="@variant.Name" data-product-sku="">
+        <option value="">-- Please Select --</option>
+        @foreach (var variantItem in variant.VaraintItems)
+        {
+            <option value="@variantItem.Name">@variantItem.DisplayName</option>
+        }
+    </select>
+}

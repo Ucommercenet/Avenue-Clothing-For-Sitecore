@@ -130,6 +130,7 @@
     <Compile Include="Controllers\FacetsController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CategoryNavigationController.cs" />
+    <Compile Include="Controllers\VariantPickerController.cs" />
     <Compile Include="Extensions\FacetedQueryStringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CarouselViewModel.cs" />
@@ -140,11 +141,13 @@
     <Compile Include="ViewModels\FacetViewModel.cs" />
     <Compile Include="ViewModels\HomepageCatalogViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
+    <Compile Include="ViewModels\VariantPickerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\js-variant-picker.js" />
     <Content Include="Scripts\uCommerce.facets.js" />
     <Content Include="Views\CategoryNavigation.cshtml" />
   </ItemGroup>
@@ -160,7 +163,9 @@
   <ItemGroup>
     <Content Include="Views\ProductCard.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+  <Content Include="Views\VariantPicker\Index.cshtml" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Views\HomepageCatalog.cshtml" />
   </ItemGroup>
