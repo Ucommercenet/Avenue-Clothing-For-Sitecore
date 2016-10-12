@@ -1,7 +1,7 @@
 ﻿var AddToBasketButton = (function () {
 
     // declared with `var`, must be "private"
-
+    var classSelector = ".js-add-to-basket-button";
     var confirmationMessageTimer;
 
     var showConfirmationMessage = function ($button) {
@@ -20,68 +20,68 @@
         }, confirmationMessageTimeoutInMillisecs);
     };
 
+    var toogleButton = function ($button) {
+        var productVariantSku = $button.data("product-variant-sku");
+        var productQuantity = $button.data("product-quantity");
+        var productIsVariant = $button.data("product-is-variant");
+        var disableButton = (productIsVariant === 'true' && !productVariantSku) || productQuantity <= 0;
+        $button.prop("disabled", disableButton);
+    };
+
+    var productVariantChanged = function (event, data) {
+        var $button = $(this);
+
+        $button.data("product-variant-sku", data.productVariantSku);
+
+        toogleButton($button);
+    };
+
+    var productQuantityChanged = function (event, data) {
+        var $button = $(this);
+
+        $button.data("product-quantity", data.productQuantity);
+
+        toogleButton($button);
+    };
+
     var publicScope = {
         init: function (rootSelector) {
-            $(rootSelector).find(".js-add-to-basket-button").click(function () {
-                var quantity = $(this).data("quantity");
-                var productSku = $(this).data("product-sku");
-                var variantSku = $(this).data("variant-sku");
-                var addToBasketUrl = $(this).data("add-to-basket-url");
-                var $button = $(this);
-
-                $.ajax({
-                    type: "POST",
-                    url: addToBasketUrl,
-                    data:
-                    {
-                        Quantity: quantity,
-                        ProductSku: productSku,
-                        VariantSku: variantSku
-                    },
-                    dataType: "json"
-                }
-                .done(function () {
-                    MiniBasket.basketChanged();
-
-                    showConfirmationMessage($button);
-                })
-                .fail(function () {
-                    alert("Whoops...");
-                })
-                .always(function () {
-                    //No-op
-                }));
-            });
-        },
-        selectProduct: function (rootSelector, product) {
-            $(rootSelector).find(".js-add-to-basket-button")
-                .data("quantity", product.quantity)
-                .data("product-sku", product.productSku)
-                .data("variant-sku", product.variantSku)
-                .prop("disabled", true)
-                .each(function () {
+            $(rootSelector).find(classSelector)
+                .on("product-varaint-changed", productVariantChanged)
+                .on("product-quantity-changed", productQuantityChanged)
+                .click(function () {
                     var $button = $(this);
-                    var validateProductExistsUrl = $(this).data("validate-product-exists-url");
+
+                    var productSku = $button.data("product-sku");
+                    var addToBasketUrl = $button.data("add-to-basket-url");
+                    var productVariantSku = $button.data("product-variant-sku");
+                    var productQuantity = $button.data("product-quantity");
+                
                     $.ajax({
-                        type: "GET",
-                        url: validateProductExistsUrl,
+                        type: "POST",
+                        url: addToBasketUrl,
                         data:
                         {
-                            ProductSku: product.productSku,
-                            VariantSku: product.variantSku
+                            Quantity: productQuantity,
+                            ProductSku: productSku,
+                            VariantSku: productVariantSku
                         },
                         dataType: "json"
                     }
                     .done(function () {
-                        $button.prop("disabled", false);
+
+                        var event = $.Event("basket-changed");
+                        $(document).trigger(event);
+
+                        showConfirmationMessage($button);
                     })
                     .fail(function () {
-                        //No-op
+                        alert("Whoops...");
                     })
                     .always(function () {
                         //No-op
                     }));
-                });
+            });
         }
     };
 
