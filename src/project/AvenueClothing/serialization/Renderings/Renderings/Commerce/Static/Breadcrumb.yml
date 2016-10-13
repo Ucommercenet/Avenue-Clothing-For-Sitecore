@@ -1,0 +1,21 @@
+﻿---
+ID: "5306834f-210d-4f5a-8c10-d2b2439693bc"
+Parent: "aed5414e-7f03-469e-9c91-b3c4b3d2a1c0"
+Template: "99f8905d-4a87-4eb8-9f8b-a9bebfb3add6"
+Path: /sitecore/layout/Renderings/Commerce/Static/Breadcrumb
+DB: master
+SharedFields:
+- ID: "51b435bc-f7b9-478a-9c51-52916af96ff5"
+  Hint: Path
+  Value: /Views/Breadcrumb.cshtml
+- ID: "ddab263e-b42e-419a-aa6f-081b7393ca38"
+  Hint: Model
+  Value: /sitecore/layout/Models/Commerce/BreadcrumbItemList
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20161012T114252Z

@@ -1,0 +1,16 @@
+﻿@model AvenueClothing.Feature.General.Module.ViewModels.BreadcrumbViewModelList
+<ol class="breadcrumb">
+    @foreach (var item in Model.Breadcrumbs)
+    {
+        <li class="breadcrumb-item">
+            @if (@item.IsActive)
+            { @item.BreadcrumbName }
+            else
+            {
+                <a href="@item.BreadcrumbUrl">
+                    @item.BreadcrumbUrl
+                </a>
+            }
+        </li>
+    }
+</ol>
