@@ -17,28 +17,9 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
 	public class ProductCardController : Controller
 	{
-		public ActionResult ProductCard()
+		public ActionResult ProductCard(ProductViewModel product)
 		{
-			var product = RenderingContext.CurrentOrNull.Rendering.Properties["productId"];
-
-			var productRepository = ObjectFactory.Instance.Resolve<IRepository<Product>>();
-			int productId;
-			if (int.TryParse(product, out productId))
-			{
-				var viewProduct = MapProduct(productRepository.Get(productId));
-				return View("/views/ProductCard.cshtml", viewProduct);
-			}
-			return null;
-		}
-
-		private ProductViewModel MapProduct(Product product)
-		{
-			return new ProductViewModel()
-			{
-				Sku = product.Sku,
-				Name = product.Name,
-				Id = product.Id,
-			};
+			return View("/views/ProductCard.cshtml", product);
 		}
 	}
 }
