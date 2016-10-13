@@ -18,6 +18,10 @@ SharedFields:
           ph="header"
           uid="{4C175686-6D09-43F6-9D02-D8608A09469A}" />
         <r
+          id="{EBBE7524-3356-47AC-852A-8EE1DD93CAD6}"
+          ph="header content"
+          uid="{181FAF15-0FD0-418F-BD42-C0DDC263F082}" />
+        <r
           ds=""
           id="{749D4A8D-990A-4FFE-BE3A-C74591EBD862}"
           par=""
@@ -27,6 +31,10 @@ SharedFields:
           id="{DFCC28D2-F51F-46BC-9FF4-B4945FE2B05E}"
           ph="main"
           uid="{488D87DD-F566-4C06-AF19-0A052F93340F}" />
+        <r
+          id="{74D43CB5-4D7A-470F-A042-8954F2B5A75B}"
+          ph="main"
+          uid="{24471DBA-9114-46FD-9406-0A671E698CE4}" />
       </d>
     </r>
 Languages:
@@ -43,7 +51,7 @@ Languages:
           <d
             id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
             <r
-              uid="{5D624C1B-B44E-4A87-B107-F3FFF4A0FD6F}">
+              uid="{8023DBAC-7935-41FB-92AB-F64659757E9C}">
               <p:d />
             </r>
             <r
@@ -60,12 +68,20 @@ Languages:
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: sitecore\admin
+    - ID: "9336b4dd-e895-4a97-a252-5ebf3776b8a1"
+      Hint: Products
+      Type: Treelist
+      Value: |
+        {32BA0386-A3AF-43F5-9AB7-43AE41F8480B}
+        {C4EE838A-6101-47B0-90D5-30278181AB0B}
+        {4B001349-BDAB-4E9F-8E15-47DBC0F4970A}
     - ID: "b9baaa2b-d947-4cae-97cf-4e413b57c511"
       Hint: Images
       Type: Multilist
       Value: |
         {1B0CDD3C-E5DD-4BB8-95A7-3CAAC820E201}
         {8E3609EE-7C0B-4D09-B9AD-88B0C1DF359F}
+        {00470A0E-9DE1-47D2-8A5C-D42F7021CCEB}
     - ID: "ed7ce68d-170d-4857-ba66-911025f349e2"
       Hint: Title
       Value: Welcome to Avenue

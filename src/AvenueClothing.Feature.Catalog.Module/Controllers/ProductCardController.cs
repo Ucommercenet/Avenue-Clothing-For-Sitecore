@@ -20,6 +20,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 		public ActionResult ProductCard(ProductViewModel product)
 		{
 			return View("/views/ProductCard.cshtml", product);
+           
 		}
 	}
 }
