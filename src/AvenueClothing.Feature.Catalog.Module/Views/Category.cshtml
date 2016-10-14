@@ -4,17 +4,10 @@
 
 @model AvenueClothing.Feature.Catalog.Module.ViewModels.CategoryViewModel
 @{
-    Layout = null;
+	Layout = null;
 }
 
 <h1>@Html.Sitecore().Field("Name")</h1>
 
-<div class="row">
-	<div class="product-list col-sm-12 col-md-12">
-		@foreach (var productId in Model.ProductIds)
-        {
-			@*@Html.Sitecore().ControllerRendering("ProductCard", "ProductCard", new { productId = productId });*@
-            @Html.Sitecore().Rendering("9851F13D-1DC8-4D36-8C99-6C2E42D115B8", new {productId = productId});     
-		}
-	</div>
-</div>
+
+@Html.Sitecore().Rendering("FEBEE42A-F312-47E7-BA47-0AEDECBFB9D5")

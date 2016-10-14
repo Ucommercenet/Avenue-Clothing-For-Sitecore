@@ -1,15 +1,12 @@
-﻿@using System.Web.Mvc.Html
-@using AvenueClothing.Feature.Transaction.Module.ViewModels
-
-@model AvenueClothing.Feature.Transaction.Module.ViewModels.MiniBasketViewModel
+﻿@model AvenueClothing.Feature.Transaction.Module.ViewModels.MiniBasketViewModel
 @{
-	Layout = null;
-	var emptyClass = Model.IsEmpty ? "" : "hidden-xl-down";
-	var notEmptyClass = !Model.IsEmpty ? "" : "hidden-xl-down";
+    Layout = null;
+    var emptyClass = Model.IsEmpty ? "display:none;" : null;
+    var notEmptyClass = !Model.IsEmpty ? null : "display:none;";
 }
 
 <div class="js-mini-basket" data-refresh-url="@Model.RefreshUrl" data-mini-basket-empty-selector=".js-mini-basket-empty" data-mini-basket-not-empty-selector=".js-mini-basket-not-empty" data-mini-basket-number-of-items-selector=".js-mini-basket-number-of-items" data-mini-basket-total-selector=".js-mini-basket-total">
-	<div class="js-mini-basket-empty @emptyClass">
+	<div style="@emptyClass" class="js-mini-basket-empty @emptyClass">
 		<div class="pull-xs-right navbar-collapse">
 			<ul class="nav navbar-nav">
 				<li>
@@ -19,7 +16,7 @@
 		</div>
 	</div>
 
-	<div class="js-mini-basket-not-empty @notEmptyClass">
+	<div style="@notEmptyClass" class="js-mini-basket-not-empty @notEmptyClass">
 		<div class="pull-xs-right navbar-collapse">
 			<ul class="nav navbar-nav">
 				<li>

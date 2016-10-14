@@ -1,0 +1,12 @@
+﻿@model AvenueClothing.Feature.Catalog.Module.ViewModels.QuantityPickerViewModel
+
+@{
+    Layout = null;
+}
+
+<select class="js-quantity-picker" data-product-sku="@Model.ProductSku">
+    @for (int number = 1; number <= Model.MaxNumberOfItems; number++)
+    {
+        <option value="@number">@(number)</option>
+    }
+</select>

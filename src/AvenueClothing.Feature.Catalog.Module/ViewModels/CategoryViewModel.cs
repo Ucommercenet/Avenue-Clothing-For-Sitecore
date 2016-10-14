@@ -15,6 +15,6 @@ namespace AvenueClothing.Feature.Catalog.Module.ViewModels
 		public string Description { get; set; }
 
 		public IList<CategoryViewModel> Categories { get; set; }
-		public List<int> ProductIds { get; set; }
+		public IList<ProductViewModel> Products { get; set; }
 	}
 }

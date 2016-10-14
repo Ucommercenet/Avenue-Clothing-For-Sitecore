@@ -2,26 +2,35 @@
 using System.Net;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Transaction.Module.ViewModels;
-using UCommerce.Api;
 using UCommerce.Runtime;
+using UCommerce.Transactions;
 
 namespace AvenueClothing.Feature.Transaction.Module.Controllers
 {
     public class AddToBasketController : Controller
     {
+        private readonly TransactionLibraryInternal _transactionLibraryInternal;
+        private readonly ICatalogContext _catalogContext;
+
+        public AddToBasketController(TransactionLibraryInternal transactionLibraryInternal, ICatalogContext catalogContext)
+        {
+            _transactionLibraryInternal = transactionLibraryInternal;
+            _catalogContext = catalogContext;
+        }
+
         [HttpGet]
         public ActionResult Index()
         {
-            var product = SiteContext.Current.CatalogContext.CurrentProduct;
+            var product = _catalogContext.CurrentProduct;
 
             var viewModel = new AddToBasketIndexViewModel
             {
                 AddToBasketUrl = Url.Action("AddToBasket"),
-                BasketUrl = "???",//TODO: Get the url from sitecore?
+                BasketUrl = "/cart",
                 ConfirmationMessageTimeoutInMillisecs = (int)TimeSpan.FromSeconds(5).TotalMilliseconds,
                 ConfirmationMessageClientId = "js-add-to-basket-button-confirmation-message-" + Guid.NewGuid(),
                 ProductSku = product.Sku,
-                ProductIsVariant = product.IsVariant
+                IsProductFamily = product.ProductDefinition.IsProductFamily()
             };
             return View(viewModel);
         }
@@ -43,7 +52,7 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            TransactionLibrary.AddToBasket(viewModel.Quantity, viewModel.ProductSku, viewModel.VariantSku);
+            _transactionLibraryInternal.AddToBasket(viewModel.Quantity, viewModel.ProductSku, viewModel.VariantSku);
 
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }

@@ -23,8 +23,8 @@
     var toogleButton = function ($button) {
         var productVariantSku = $button.data("product-variant-sku");
         var productQuantity = $button.data("product-quantity");
-        var productIsVariant = $button.data("product-is-variant");
-        var disableButton = (productIsVariant === 'true' && !productVariantSku) || productQuantity <= 0;
+        var isProductFamily = $button.data("is-product-family");
+        var disableButton = (isProductFamily === 'True' && !productVariantSku) || productQuantity <= 0;
         $button.prop("disabled", disableButton);
     };
 
@@ -55,8 +55,8 @@
     };
 
     var publicScope = {
-        init: function (rootSelector) {
-            $(rootSelector).find(classSelector)
+        init: function ($rootSelector, $triggerEventSelector) {
+            $rootSelector.find(classSelector)
                 .on("product-variant-changed", productVariantChanged)
                 .on("product-quantity-changed", productQuantityChanged)
                 .click(function () {
@@ -80,7 +80,7 @@
                     }
                     .done(function () {
 
-                        $(document).trigger("basket-changed");
+                        $triggerEventSelector.trigger("basket-changed");
 
                         showConfirmationMessage($button);
                     })

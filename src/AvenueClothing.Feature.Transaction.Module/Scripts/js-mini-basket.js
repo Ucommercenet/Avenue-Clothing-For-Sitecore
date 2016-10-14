@@ -10,23 +10,23 @@
 		var notEmptySelector = $miniBasket.data("basket-not-empty-selector");
 		var numberOfItemsSelector = $miniBasket.data("mini-basket-number-of-items-selector");
 		var totalSelector = $miniBasket.data("mini-basket-total-selector");
+        var refreshUrl = $(this).data("refresh-url");
 
-		var refreshUrl = $(this).data("refresh-url");
-		$.ajax({
+        $.ajax({
 			type: "GET",
 			url: refreshUrl,
 			dataType: "json"
 		}
 			.done(function (data) {
 				if (data.IsEmpty) {
-					$miniBasket.find(notEmptySelector).addClass("hidden-xl-down");
-					$miniBasket.find(emptySelector).removeClass("hidden-xl-down");
+					$miniBasket.find(notEmptySelector).hide();
+					$miniBasket.find(emptySelector).show();
 				} else {
 					$miniBasket.find(numberOfItemsSelector).text(data.NumberOfItems);
 					$miniBasket.find(totalSelector).text(data.Total);
 
-					$miniBasket.find(notEmptySelector).removeClass("hidden-xl-down");
-					$miniBasket.find(emptySelector).addClass("hidden-xl-down");
+					$miniBasket.find(notEmptySelector).show();
+					$miniBasket.find(emptySelector).hide();
 				}
 			})
 			.fail(function () {
@@ -39,8 +39,8 @@
 
 
 	var publicScope = {
-		init: function (rootSelector) {
-			$(rootSelector).find(".js-mini-basket").on("basket-changed", basketChanged);
+	    init: function ($rootSelector, $triggerEventSelector) {
+	        $rootSelector.find(classSelector).on("basket-changed", basketChanged);
 		}
 	};
 

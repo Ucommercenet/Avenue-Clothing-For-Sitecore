@@ -7,9 +7,10 @@
     var productItems = Html.Sitecore().Field("Products").ToHtmlString().Split('|').ToList();
 }
 
-@foreach (var p in productItems)
+@*@foreach (var p in productItems)
 {
     <p>@p</p>
-    @*@Html.Sitecore().Rendering("9851F13D-1DC8-4D36-8C99-6C2E42D115B8", new { productId =  p});*@
-}
+    @Html.Sitecore().Rendering("9851F13D-1DC8-4D36-8C99-6C2E42D115B8", new { productId =  p});
+}*@
 
+@*@Html.Sitecore().Rendering("{FEBEE42A-F312-47E7-BA47-0AEDECBFB9D5}")*@    

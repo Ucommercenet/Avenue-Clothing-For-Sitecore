@@ -1,19 +1,24 @@
 ﻿---
-ID: "b82b3313-82e1-4d4d-9c3c-2935e1e6e0c0"
+ID: "89a3dfae-e473-4520-aaea-6eea540352bb"
 Parent: "ea28baf4-62fa-4fa9-80f9-07c39608e5e7"
 Template: "2a3e91a0-7987-44b5-ab34-35c2d9de83b9"
-Path: /sitecore/layout/Renderings/Commerce/Catalog/Product Card
+Path: /sitecore/layout/Renderings/Commerce/Catalog/Variant Picker
 DB: master
 SharedFields:
+- ID: "308e88f5-cd6e-4f8f-bafe-95a47dedefdc"
+  Hint: Editable
+  Type: Checkbox
+  Value: 0
 - ID: "ded9e431-3604-4921-a4b3-a6ec7636a5b6"
   Hint: Controller Action
-  Value: ProductCard
-- ID: "e144d9d4-b135-42d4-a5a0-53c09704671c"
-  Hint: Parameters
-  Value: Product
+  Value: Index
 - ID: "e64ad073-dfcc-4d20-8c0b-fe5aa6226cd7"
   Hint: Controller
-  Value: ProductCard
+  Value: VariantPicker
+- ID: "f172b787-7b88-4bd5-ae4d-6308e102ef11"
+  Hint: Enable Datasource Query
+  Type: Checkbox
+  Value: 0
 Languages:
 - Language: en
   Versions:
@@ -21,4 +26,4 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20161006T104615Z
+      Value: 20161014T070812Z

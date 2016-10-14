@@ -1,16 +1,21 @@
-﻿@model AvenueClothing.Feature.Catalog.Module.ViewModels.ProductViewModel
+﻿@using Sitecore.Data
+@using Sitecore.Mvc
+@using Sitecore.Web.UI.WebControls.Presentation
+@using Item = Sitecore.Data.Items.Item
+@model AvenueClothing.Feature.Catalog.Module.ViewModels.ProductViewModel
 @{
-    Layout = null;
+	Layout = null;
 }
+
 <div class="product col-sm-4 col-md-4 col-xs-2" id="@Model.Sku">
 	<div class="product-image">
-		@if (!string.IsNullOrEmpty(Model.ThumbnailImageUrl))
-		{
-			<a href="@Model.Url"><img src="@Model.ThumbnailImageUrl"></a>
-		}
+		@*@if (!string.IsNullOrEmpty(@thumbnailImageUrl))
+	{
+		<a href="@Model.Url"><img src="@thumbnailImageUrl"></a>
+	}*@
 	</div>
 
-	<p class="item-name"><a href="@Model.Url">@Model.Name</a></p>
+	<p class="item-name"><a href="@Url">@Model.Name</a></p>
 	<p class="item-price" data-productsku="@Model.Sku"></p>
 	<p class="btn-group view-details">
 		<a href="@Model.Url" class="btn btn-default">

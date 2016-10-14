@@ -4,6 +4,10 @@ namespace AvenueClothing.Feature.Catalog.Module.ViewModels
 {
     public class VariantPickerViewModel
     {
+        public VariantPickerViewModel()
+        {
+            Variants = new List<Variant>();
+        }
         public List<Variant> Variants { get; set; }
         public string ProductSku { get; set; }
         public string VariantExistsUrl { get; set; }
