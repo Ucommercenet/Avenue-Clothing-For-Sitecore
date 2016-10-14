@@ -4,13 +4,14 @@
     var classSelector = ".js-quantity-picker";
 
     var publicScope = {
-        init: function (rootSelector) {
-            $(rootSelector).find(classSelector)
-                .changed(function () {
+        init: function ($rootSelector, $triggerEventSelector) {
+            $rootSelector.find(classSelector)
+                .change(function () {
                     var $picker = $(this);
                     var productSku = $picker.data("product-sku");
+                    var productQuantity = $picker.val();
 
-                    $(document).trigger("quantity-changed", { productSku: productSku });
+                    $triggerEventSelector.trigger("product-quantity-changed", { productSku: productSku, productQuantity: productQuantity });
                 });
         }
     };

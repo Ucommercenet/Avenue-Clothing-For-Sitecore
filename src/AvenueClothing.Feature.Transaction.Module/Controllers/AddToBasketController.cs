@@ -30,7 +30,7 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
                 ConfirmationMessageTimeoutInMillisecs = (int)TimeSpan.FromSeconds(5).TotalMilliseconds,
                 ConfirmationMessageClientId = "js-add-to-basket-button-confirmation-message-" + Guid.NewGuid(),
                 ProductSku = product.Sku,
-                ProductIsVariant = product.IsVariant
+                IsProductFamily = product.ProductDefinition.IsProductFamily()
             };
             return View(viewModel);
         }

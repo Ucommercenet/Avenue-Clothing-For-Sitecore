@@ -7,6 +7,6 @@
         public int ConfirmationMessageTimeoutInMillisecs { get; set; }
         public string ConfirmationMessageClientId { get; set; }
         public string ProductSku { get; set; }
-        public bool ProductIsVariant { get; set; }
+        public bool IsProductFamily { get; set; }
     }
 }

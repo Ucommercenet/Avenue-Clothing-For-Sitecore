@@ -3,7 +3,7 @@
     // declared with `var`, must be "private"
     var classSelector = ".js-variant-picker";
 
-    var getVariantNameValueDictionary = function () {
+    var getVariantNameValueDictionary = function (currentProductSku) {
         var data = {};
 
         $(classSelector)
@@ -36,15 +36,15 @@
     };
 
     var publicScope = {
-        init: function (rootSelector) {
-            $(rootSelector).find(classSelector)
+        init: function ($rootSelector, $triggerEventSelector) {
+            $rootSelector.find(classSelector)
                 .on("product-variant-changed", productVariantChanged)//TODO: Avoid Event Storm create a latch?
                 .change(function () {
                     var $picker = $(this);
                     var productSku = $picker.data("product-sku");
                     var variantExistsUrl = $picker.data("variant-exists-url");
 
-                    var variantNameValueDictionary = getVariantNameValueDictionary();
+                    var variantNameValueDictionary = getVariantNameValueDictionary(productSku);
 
                     $.ajax({
                         type: "POST",
@@ -54,23 +54,24 @@
                             ProductSku: productSku,
                             VariantNameValueDictionary: variantNameValueDictionary
                         },
-                        dataType: "json"
-                    }
-                    .done(function (data) {
-                        var productVariantSku = data.ProductVariantSku;
+                        dataType: "json",
+                        success: function (data) {
+                            var productVariantSku = data.ProductVariantSku;
 
-                        $(document).trigger("product-variant-changed",
-                        {
-                            productSku: productSku,
-                            productVariantSku: productVariantSku
-                        });
-                    })
-                    .fail(function () {
-                        alert("Whoops...");
-                    })
-                    .always(function () {
-                        //No-op
-                    }));
+                            $triggerEventSelector.trigger("product-variant-changed",
+                            {
+                                productSku: productSku,
+                                productVariantSku: productVariantSku
+                            });
+                        }
+                    });
+                    //.done()
+                    //.fail(function () {
+                    //    alert("Whoops...");
+                    //})
+                    //.always(function () {
+                    //    //No-op
+                    //})
                 });
         }
     };

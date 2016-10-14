@@ -39,8 +39,8 @@
 
 
 	var publicScope = {
-		init: function (rootSelector) {
-		    $(rootSelector).find(classSelector).on("basket-changed", basketChanged);
+	    init: function ($rootSelector, $triggerEventSelector) {
+	        $rootSelector.find(classSelector).on("basket-changed", basketChanged);
 		}
 	};
 
