@@ -12,16 +12,21 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
         {
             var currentProduct = SiteContext.Current.CatalogContext.CurrentProduct;
 
-            var uniqueVariants = currentProduct.Variants.SelectMany(p => p.ProductProperties)
-                    .Where(v => v.ProductDefinitionField.DisplayOnSite)
-                    .GroupBy(v => v.ProductDefinitionField)
-                    .Select(g => g);
-
             var viewModel = new VariantPickerViewModel
             {
                 ProductSku = currentProduct.Sku,
                 VariantExistsUrl = Url.Action("VariantExists")
             };
+
+            if (!currentProduct.ProductDefinition.IsProductFamily())
+            {
+                return View(viewModel);
+            }
+
+            var uniqueVariants = currentProduct.Variants.SelectMany(p => p.ProductProperties)
+                .Where(v => v.ProductDefinitionField.DisplayOnSite)
+                .GroupBy(v => v.ProductDefinitionField)
+                .Select(g => g);
 
             foreach (var variant in uniqueVariants)
             {
@@ -54,7 +59,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
         {
             var product = SiteContext.Current.CatalogContext.CurrentProduct;
 
-            if (!product.IsVariant)
+            if (!product.ProductDefinition.IsProductFamily())
             {
                 return Json(new { ProductVariantSku = "" });
             }
