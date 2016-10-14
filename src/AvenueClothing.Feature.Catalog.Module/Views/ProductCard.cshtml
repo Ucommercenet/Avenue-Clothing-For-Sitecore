@@ -2,30 +2,23 @@
 @using Sitecore.Mvc
 @using Sitecore.Web.UI.WebControls.Presentation
 @using Item = Sitecore.Data.Items.Item
+@model AvenueClothing.Feature.Catalog.Module.ViewModels.ProductViewModel
 @{
 	Layout = null;
-
-	Database database = Sitecore.Context.Database;
-	Item productItem = database.GetItem(Model.Rendering.Properties["productItem"]);
-
-	var displayName = productItem.DisplayName;
-	var sku = productItem.Fields["SKU"];
-	var thumbnailImageUrl = productItem.Fields["Thumbnail image"];
-	var url = "";
 }
 
-<div class="product col-sm-4 col-md-4 col-xs-2" id="@sku">
+<div class="product col-sm-4 col-md-4 col-xs-2" id="@Model.Sku">
 	<div class="product-image">
 		@*@if (!string.IsNullOrEmpty(@thumbnailImageUrl))
-		{
-			<a href="@url"><img src="@thumbnailImageUrl"></a>
-		}*@
+	{
+		<a href="@Model.Url"><img src="@thumbnailImageUrl"></a>
+	}*@
 	</div>
 
-	<p class="item-name"><a href="@Url">@displayName</a></p>
-	<p class="item-price" data-productsku="@sku"></p>
+	<p class="item-name"><a href="@Url">@Model.Name</a></p>
+	<p class="item-price" data-productsku="@Model.Sku"></p>
 	<p class="btn-group view-details">
-		<a href="@url" class="btn btn-default">
+		<a href="@Model.Url" class="btn btn-default">
 			View more <span>
 				<i class="fa fa-shopping-cart icon-white" aria-hidden="true"></i>
 			</span>

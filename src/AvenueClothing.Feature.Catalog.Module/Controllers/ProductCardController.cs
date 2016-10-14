@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Catalog.Module.Extensions;
 using AvenueClothing.Feature.Catalog.Module.ViewModels;
+using Sitecore.Data;
+using Sitecore.Data.Items;
 using Sitecore.Mvc.Presentation;
 using UCommerce.Api;
 using UCommerce.Content;
@@ -17,9 +20,24 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
 	public class ProductCardController : Controller
 	{
-		public ActionResult ProductCard(ProductViewModel product)
+		public ActionResult ProductCard()
 		{
-			return View("/views/ProductCard.cshtml", product);
+			var productView = new ProductViewModel();
+			
+			Database database = Sitecore.Context.Database;
+			Item productItem = database.GetItem(RenderingContext.Current.Rendering.Properties["productItem"]);
+
+			productView.Name = productItem.DisplayName;
+			productView.Sku = productItem.Fields["SKU"].ToString();
+
+			var productRepository = ObjectFactory.Instance.Resolve<IRepository<Product>>();
+			var currentProduct = productRepository.SingleOrDefault(x => x.Guid == productItem.ID.Guid);
+			productView.Url = CatalogLibrary.GetNiceUrlForProduct(currentProduct);
+
+			//Get it the Sitecore way
+			//productView.ThumbnailImageUrl = (string)productItem.Fields["Thumbnail image"];
+
+			return View("/views/ProductCard.cshtml", productView);
            
 		}
 	}
