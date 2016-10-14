@@ -24,7 +24,9 @@ namespace AvenueClothing.Feature.General.Module.ViewModels
         { get { return Sitecore.Context.Item.ID == InnerItem.ID; } }
 
         public string BreadcrumbUrl
-        { get { return LinkManager.GetItemUrl(InnerItem); } }
+        {  get { return LinkManager.GetItemUrl(InnerItem); } }
+
+        public string UcommerceBreadcrumbUrl { get; set; }
     }
 }
 

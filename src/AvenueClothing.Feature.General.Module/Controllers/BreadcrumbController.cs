@@ -10,33 +10,40 @@ using System.Web;
 using Sitecore.Data.Items;
 using Sitecore.Data.Managers;
 using Sitecore.Data.Templates;
+using UCommerce.Api;
 
 namespace AvenueClothing.Project.Website.Controllers
 {
-    public class BreadcrumbController: Controller
+    public class BreadcrumbController : Controller
     {
         public ActionResult Index()
         {
             IList<BreadcrumbViewModel> Breadcrumbs = new List<BreadcrumbViewModel>();
-            IList<Item> items = GetBreadcrumbItems();
+            Product product = SiteContext.Current.CatalogContext.CurrentProduct;
 
-            foreach (Item item in items)
+            IList<Item> items = GetBreadcrumbItems();
+            foreach (var category in SiteContext.Current.CatalogContext.CurrentCategories)
             {
-                BreadcrumbViewModel crumb = new BreadcrumbViewModel(item);
-                if (!string.IsNullOrEmpty(crumb.BreadcrumbName))
+                foreach (Item item in items)
                 {
-                    Breadcrumbs.Add(crumb);
+                    BreadcrumbViewModel crumb = new BreadcrumbViewModel(item);
+                    if (!string.IsNullOrEmpty(crumb.BreadcrumbName))
+                    {
+                        GetUcommerceUrlForItem(crumb, category);
+                        Breadcrumbs.Add(crumb);
+                    }
                 }
             }
             Breadcrumbs.Add(new BreadcrumbViewModel(Sitecore.Context.Item));
 
-            return View("Viewvs/BreadCrumb", Breadcrumbs);
+            return View("/Views/Breadcrumb.cshtml", Breadcrumbs);
         }
 
         private IList<Item> GetBreadcrumbItems()
         {
             string homePath = Sitecore.Context.Site.StartPath;
             Item homeItem = Sitecore.Context.Database.GetItem(homePath);
+            //but what if we have a mixture of these?
 
             List<Item> items = Sitecore.Context.Item.Axes.GetAncestors()
               .SkipWhile(item => item.ID != homeItem.ID)
@@ -105,3 +112,8 @@ namespace AvenueClothing.Project.Website.Controllers
             //    }
             //}
         }
+
+        private void GetUcommerceUrlForItem(BreadcrumbViewModel crumb, Category category) {
+            crumb.UcommerceBreadcrumbUrl = CatalogLibrary.GetNiceUrlForCategory(category);
+        }
+    } }
