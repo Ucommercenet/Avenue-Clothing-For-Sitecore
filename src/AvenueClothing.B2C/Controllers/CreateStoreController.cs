@@ -393,6 +393,7 @@ namespace AvenueClothing.Project.Website.Controllers
                         var product = relation.Product;
                         category.RemoveProduct(product);
                         product.Delete();
+                        category.Delete();
                     }
 
                     // Delete catalogs

@@ -7,7 +7,8 @@
 	<div class="product-list col-sm-12 col-md-12">
 		@foreach (var productItem in productItems)
 		{
-			@Html.Sitecore().ControllerRendering("ProductCard", "ProductCard", new { productItem })
+			@*@Html.Sitecore().ControllerRendering("ProductCard", "ProductCard", new { productItem })*@
+            @Html.Sitecore().Rendering("{B82B3313-82E1-4D4D-9C3C-2935E1E6E0C0}", new {productItem})
 		}
 	</div>
 </div>
