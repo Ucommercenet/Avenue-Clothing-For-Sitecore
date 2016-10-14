@@ -1,7 +1,8 @@
 ﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
 @{
 	Layout = null;
-	var productItems = Html.Sitecore().Field("Products").ToHtmlString().Split('|').ToList();
+	var productItems = RenderingContext.Current.Rendering.Properties["productItemGuids"];
 }
 <div class="row">
 	<div class="product-list col-sm-12 col-md-12">
