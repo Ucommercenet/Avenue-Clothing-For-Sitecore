@@ -2,12 +2,23 @@
 using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Catalog.Module.ViewModels;
+using UCommerce.Api;
+using UCommerce.EntitiesV2;
+using UCommerce.Pipelines;
+using UCommerce.Pipelines.GetProduct;
 using UCommerce.Runtime;
 
 namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
     public class VariantPickerController : Controller
     {
+        private readonly IPipeline<IPipelineArgs<GetProductRequest, GetProductResponse>> _getProductPipeline;
+
+        public VariantPickerController(IPipeline<IPipelineArgs<GetProductRequest, GetProductResponse>> getProductPipeline)
+        {
+            _getProductPipeline = getProductPipeline;
+        }
+
         public ActionResult Index()
         {
             var currentProduct = SiteContext.Current.CatalogContext.CurrentProduct;
@@ -57,7 +68,13 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
         [HttpPost]
         public ActionResult VariantExists(VariantExistsViewModel viewModel)
         {
-            var product = SiteContext.Current.CatalogContext.CurrentProduct;
+            var getProductResponse = new GetProductResponse();
+            if (_getProductPipeline.Execute(new GetProductPipelineArgs(new GetProductRequest(new ProductIdentifier(viewModel.ProductSku, null)), getProductResponse)) == PipelineExecutionResult.Error)
+            {
+                return Json(new { ProductVariantSku = "" });
+            }
+
+            var product = getProductResponse.Product;
 
             if (!product.ProductDefinition.IsProductFamily())
             {
