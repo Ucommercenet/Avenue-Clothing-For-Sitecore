@@ -2,7 +2,6 @@
 using System.Net;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Transaction.Module.ViewModels;
-using UCommerce.Api;
 using UCommerce.Runtime;
 using UCommerce.Transactions;
 
@@ -27,7 +26,7 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
             var viewModel = new AddToBasketIndexViewModel
             {
                 AddToBasketUrl = Url.Action("AddToBasket"),
-                BasketUrl = "???",//TODO: Get the url from sitecore?
+                BasketUrl = "/cart",
                 ConfirmationMessageTimeoutInMillisecs = (int)TimeSpan.FromSeconds(5).TotalMilliseconds,
                 ConfirmationMessageClientId = "js-add-to-basket-button-confirmation-message-" + Guid.NewGuid(),
                 ProductSku = product.Sku,
