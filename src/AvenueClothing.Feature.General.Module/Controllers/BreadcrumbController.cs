@@ -18,29 +18,35 @@ namespace AvenueClothing.Project.Website.Controllers
     {
         public ActionResult Index()
         {
-            IList<BreadcrumbViewModel> Breadcrumbs = new List<BreadcrumbViewModel>();
-            Product product = SiteContext.Current.CatalogContext.CurrentProduct;
-            var categories = SiteContext.Current.CatalogContext.CurrentCategories;
-
+            BreadcrumbWrapper breadcrumbs = new BreadcrumbWrapper();
             IList<Item> items = GetBreadcrumbItems();
-            //foreach (var category in SiteContext.Current.CatalogContext.CurrentCategories)
-            //{
                 foreach (Item item in items)
                 {
                     if (!IsTemplateBlacklisted(item.TemplateName))
                     {                         
                         BreadcrumbViewModel crumb = new BreadcrumbViewModel(item);
-                        //if (!string.IsNullOrEmpty(crumb.BreadcrumbName))
-                       
-                            //GetUcommerceUrlForItem(crumb, category);
-                            Breadcrumbs.Add(crumb);
-                        
+                            breadcrumbs.SitecoreBreadcrumbs.Add(crumb); 
                     }
                 }
-            
-            Breadcrumbs.Add(new BreadcrumbViewModel(Sitecore.Context.Item));
 
-            return View("/Views/Breadcrumb.cshtml", Breadcrumbs);
+            Product product = SiteContext.Current.CatalogContext.CurrentProduct;
+            var categories = SiteContext.Current.CatalogContext.CurrentCategories;
+            IList<Item> uCommerceItems = GetUcommerceBreadcrumbItems();
+
+            foreach (var category in SiteContext.Current.CatalogContext.CurrentCategories)
+            {
+                BreadcrumbViewModelUcommerce crumb = new BreadcrumbViewModelUcommerce()
+                {
+                    BreadcrumbNameUcommerce = category.DisplayName(),
+                    BreadcrumbUrlUcommerce = CatalogLibrary.GetNiceUrlForCategory(category)
+                };
+               
+                breadcrumbs.UcommerceBreadcrumbs.Add(crumb);
+            }
+
+            breadcrumbs.SitecoreBreadcrumbs.Add(new BreadcrumbViewModel(Sitecore.Context.Item));
+
+            return View("/Views/Breadcrumb.cshtml", breadcrumbs);
         }
 
         private bool IsTemplateBlacklisted(string templateName) {
@@ -60,37 +66,23 @@ namespace AvenueClothing.Project.Website.Controllers
             string homePath = Sitecore.Context.Site.StartPath;
             Item homeItem = Sitecore.Context.Database.GetItem(homePath);
             //but what if we have a mixture of these?
-
             List<Item> items = Sitecore.Context.Item.Axes.GetAncestors()
               .SkipWhile(item => item.ID != homeItem.ID)
               .ToList();
-            //If the content tree is empty, it has a uCommerce products
-            if (items.Count <= 0)
-            {
-                Item item = RenderingContext.Current.Rendering.Item;
-                string url = Sitecore.Links.LinkManager.GetItemUrl(item);
-                foreach (var crumb in item.Axes.GetAncestors())
-                {
-                    items.Add(crumb);
-                }
-            }
             items.Add(homeItem);
+
             return items;
         }
         private IList<Item> GetUcommerceBreadcrumbItems()
         {
-            string homePath = Sitecore.Context.Site.StartPath;
-            Item homeItem = Sitecore.Context.Database.GetItem(homePath);
-            List<Item> items = new List<Item>();
-
-            Item item = RenderingContext.Current.Rendering.Item;
-            string url = Sitecore.Links.LinkManager.GetItemUrl(item);
-            foreach (var crumb in item.Axes.GetAncestors())
-            {
-                items.Add(crumb);
-            }
-
-            return items;
+            IList<Item> uCommerceItems = new List<Item>();
+                Item item = RenderingContext.Current.Rendering.Item;
+                string url = Sitecore.Links.LinkManager.GetItemUrl(item);
+                foreach (var crumb in item.Axes.GetAncestors())
+                {
+                uCommerceItems.Add(crumb);
+                }
+            return uCommerceItems;
         }
 
         private void GetUcommerceUrlForItem(BreadcrumbViewModel crumb, Category category) {

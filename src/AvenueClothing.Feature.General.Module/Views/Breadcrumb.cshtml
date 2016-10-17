@@ -1,6 +1,6 @@
-﻿@model IList<AvenueClothing.Feature.General.Module.ViewModels.BreadcrumbViewModel>
+﻿@model AvenueClothing.Feature.General.Module.ViewModels.BreadcrumbWrapper
 <ol class="breadcrumb">
-    @foreach (var item in Model)
+    @foreach (var item in Model.SitecoreBreadcrumbs)
     {
         <li class="breadcrumb-item">
             @if (@item.IsActive)
@@ -13,4 +13,15 @@
             }
         </li>
         }
+
+    @foreach (var item in Model.UcommerceBreadcrumbs)
+    {
+        <li class="breadcrumb-item">
+                <a href="@item.BreadcrumbUrlUcommerce">
+                    @item.BreadcrumbNameUcommerce
+                </a>
+            
+        </li>
+    }
+
 </ol>

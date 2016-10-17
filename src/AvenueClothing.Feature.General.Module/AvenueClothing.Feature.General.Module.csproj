@@ -159,6 +159,7 @@
     <Compile Include="ViewModels\BreadcrumbViewModel.cs" />
     <Compile Include="ViewModels\BreadcrumbViewModelList.cs" />
     <Compile Include="ViewModels\BreadcrumbViewModelUcommerce.cs" />
+    <Compile Include="ViewModels\BreadcrumbWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
