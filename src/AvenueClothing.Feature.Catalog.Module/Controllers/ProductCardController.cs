@@ -27,7 +27,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 			Database database = Sitecore.Context.Database;
 			Item productItem = database.GetItem(RenderingContext.Current.Rendering.Properties["productItem"]);
 
-			productView.Name = productItem.DisplayName;
+			//productView.Name = productItem.DisplayName;
 			productView.Sku = productItem.Fields["SKU"].ToString();
 
 			var productRepository = ObjectFactory.Instance.Resolve<IRepository<Product>>();

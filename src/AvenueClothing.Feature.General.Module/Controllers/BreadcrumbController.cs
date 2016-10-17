@@ -20,23 +20,35 @@ namespace AvenueClothing.Project.Website.Controllers
         {
             IList<BreadcrumbViewModel> Breadcrumbs = new List<BreadcrumbViewModel>();
             Product product = SiteContext.Current.CatalogContext.CurrentProduct;
+            var categories = SiteContext.Current.CatalogContext.CurrentCategories;
 
             IList<Item> items = GetBreadcrumbItems();
-            foreach (var category in SiteContext.Current.CatalogContext.CurrentCategories)
-            {
+            //foreach (var category in SiteContext.Current.CatalogContext.CurrentCategories)
+            //{
                 foreach (Item item in items)
                 {
-                    BreadcrumbViewModel crumb = new BreadcrumbViewModel(item);
-                    if (!string.IsNullOrEmpty(crumb.BreadcrumbName))
-                    {
-                        GetUcommerceUrlForItem(crumb, category);
-                        Breadcrumbs.Add(crumb);
+                    if (!IsTemplateBlacklisted(item.TemplateName))
+                    {                         
+                        BreadcrumbViewModel crumb = new BreadcrumbViewModel(item);
+                        if (!string.IsNullOrEmpty(crumb.BreadcrumbName))
+                        {
+                            //GetUcommerceUrlForItem(crumb, category);
+                            Breadcrumbs.Add(crumb);
+                        }
                     }
                 }
-            }
+            
             Breadcrumbs.Add(new BreadcrumbViewModel(Sitecore.Context.Item));
 
             return View("/Views/Breadcrumb.cshtml", Breadcrumbs);
+        }
+
+        private bool IsTemplateBlacklisted(string templateName) {
+            if (templateName.Equals("ProductCatalogTemplate") || 
+                templateName.Equals("ProductCatalogGroupBaseTemplate")) {
+                return true;
+            }
+                return false;
         }
 
         private IList<Item> GetBreadcrumbItems()
@@ -59,58 +71,21 @@ namespace AvenueClothing.Project.Website.Controllers
                 }
             }
             return items;
+        }
+        private IList<Item> GetUcommerceBreadcrumbItems()
+        {
+            string homePath = Sitecore.Context.Site.StartPath;
+            Item homeItem = Sitecore.Context.Database.GetItem(homePath);
+            List<Item> items = new List<Item>();
 
+            Item item = RenderingContext.Current.Rendering.Item;
+            string url = Sitecore.Links.LinkManager.GetItemUrl(item);
+            foreach (var crumb in item.Axes.GetAncestors())
+            {
+                items.Add(crumb);
+            }
 
-            //    public ActionResult Index()
-            //    {
-            //        IList<BreadcrumbViewModel> breadcrumbs = new List<BreadcrumbViewModel>();
-            //        Category lastCategory = null;
-            //        Product product = SiteContext.Current.CatalogContext.CurrentProduct;
-
-            //        foreach (var category in SiteContext.Current.CatalogContext.CurrentCategories)
-            //        {
-            //            var breadcrumb = new BreadcrumbViewModel()
-            //            {
-            //                BreadcrumbName = category.DisplayName(),
-            //                BreadcrumbUrl = CatalogLibrary.GetNiceUrlForCategory(category)
-            //            };
-            //            lastCategory = category;
-            //            breadcrumbs.Add(breadcrumb);
-            //        }
-
-            //        if (product != null)
-            //        {
-            //            var breadcrumb = new BreadcrumbsViewModel()
-            //            {
-            //                BreadcrumbName = product.DisplayName(),
-            //                BreadcrumbUrl = UCommerce.Api.CatalogLibrary.GetNiceUrlForProduct(product, lastCategory)
-            //            };
-            //            breadcrumbs.Add(breadcrumb);
-            //        }
-
-            //        if (product == null && lastCategory == null)
-            //        {
-            //            var currentNode = UmbracoContext.Current.PublishedContentRequest.PublishedContent;
-            //            foreach (var level in currentNode.Ancestors().Where("Visible"))
-            //            {
-            //                var breadcrumb = new BreadcrumbViewModel()
-            //                {
-            //                    BreadcrumbName = level.Name,
-            //                    BreadcrumbUrl = level.Url
-            //                };
-            //                breadcrumbs.Add(breadcrumb);
-            //            }
-            //            var currentBreadcrumb = new BreadcrumbViewModel()
-            //            {
-            //                BreadcrumbName = currentNode.Name,
-            //                BreadcrumbUrl = currentNode.Url
-            //            };
-            //            breadcrumbs.Add(currentBreadcrumb);
-            //        }
-
-            //        return View("/Views/PartialView/Breadcrumbs.cshtml", breadcrumbs);
-            //    }
-            //}
+            return items;
         }
 
         private void GetUcommerceUrlForItem(BreadcrumbViewModel crumb, Category category) {
