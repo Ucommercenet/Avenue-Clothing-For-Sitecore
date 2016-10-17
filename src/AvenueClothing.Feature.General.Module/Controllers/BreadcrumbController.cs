@@ -30,11 +30,11 @@ namespace AvenueClothing.Project.Website.Controllers
                     if (!IsTemplateBlacklisted(item.TemplateName))
                     {                         
                         BreadcrumbViewModel crumb = new BreadcrumbViewModel(item);
-                        if (!string.IsNullOrEmpty(crumb.BreadcrumbName))
-                        {
+                        //if (!string.IsNullOrEmpty(crumb.BreadcrumbName))
+                       
                             //GetUcommerceUrlForItem(crumb, category);
                             Breadcrumbs.Add(crumb);
-                        }
+                        
                     }
                 }
             
@@ -45,7 +45,11 @@ namespace AvenueClothing.Project.Website.Controllers
 
         private bool IsTemplateBlacklisted(string templateName) {
             if (templateName.Equals("ProductCatalogTemplate") || 
-                templateName.Equals("ProductCatalogGroupBaseTemplate")) {
+                templateName.Equals("ProductCatalogGroupBaseTemplate") ||
+                templateName.Equals("uCommerce stores Template") ||
+                templateName.Equals("Root") ||
+                templateName.Equals("uCommerceTemplate")
+                ) {
                 return true;
             }
                 return false;
@@ -60,7 +64,7 @@ namespace AvenueClothing.Project.Website.Controllers
             List<Item> items = Sitecore.Context.Item.Axes.GetAncestors()
               .SkipWhile(item => item.ID != homeItem.ID)
               .ToList();
-            //If the content tree is empty, it is a uCommerce products
+            //If the content tree is empty, it has a uCommerce products
             if (items.Count <= 0)
             {
                 Item item = RenderingContext.Current.Rendering.Item;
@@ -70,6 +74,7 @@ namespace AvenueClothing.Project.Website.Controllers
                     items.Add(crumb);
                 }
             }
+            items.Add(homeItem);
             return items;
         }
         private IList<Item> GetUcommerceBreadcrumbItems()
