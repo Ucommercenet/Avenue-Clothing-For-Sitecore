@@ -131,6 +131,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CategoryNavigationController.cs" />
     <Compile Include="Controllers\QuantityPickerController.cs" />
+    <Compile Include="Controllers\ReviewFormController.cs" />
     <Compile Include="Controllers\VariantPickerController.cs" />
     <Compile Include="Extensions\FacetedQueryStringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -141,6 +142,7 @@
     <Compile Include="ViewModels\FacetValueViewModel.cs" />
     <Compile Include="ViewModels\FacetViewModel.cs" />
     <Compile Include="ViewModels\HomepageCatalogViewModel.cs" />
+    <Compile Include="ViewModels\ProductReviewViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\QuantityPickerViewModel.cs" />
     <Compile Include="ViewModels\VariantExistsViewModel.cs" />
@@ -152,6 +154,7 @@
   <ItemGroup>
     <Content Include="Scripts\js-quantity-picker.js" />
     <Content Include="Scripts\js-variant-picker.js" />
+    <Content Include="Scripts\uCommerce.demostore.productpage.js" />
     <Content Include="Scripts\uCommerce.facets.js" />
     <Content Include="Views\CategoryNavigation.cshtml" />
   </ItemGroup>
@@ -188,6 +191,9 @@
   <ItemGroup>
     <Content Include="Views\ProductDetails.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ReviewForm.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -199,7 +205,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>16680</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

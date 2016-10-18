@@ -1,0 +1,67 @@
+﻿@model Guid
+@using System.Web.Mvc
+@using System.Web.Mvc.Html
+@{
+    Layout = null;
+}
+
+@using(Html.BeginForm("PostReview", "ReviewForm", FormMethod.Post)) { 
+<h5>Send Us Your Review</h5>
+<div class="control-group">
+    <label class="control-label" for="review-rating">Rating</label>
+    <div class="controls rating">
+        <label><input type="radio" name="Rating" value="1" /><i class="fa fa-star"></i></label>
+        <label><input type="radio" name="Rating" value="2" /><i class="fa fa-star"></i></label>
+        <label><input type="radio" name="Rating" value="3" /><i class="fa fa-star"></i></label>
+        <label><input type="radio" name="Rating" value="4" /><i class="fa fa-star"></i></label>
+        <label><input type="radio" name="Rating" value="5" /><i class="fa fa-star"></i></label>
+    </div>
+</div>
+
+    <div id="review-form" class="">
+        <div class="control-group margin-top">
+            <br/>
+            <tag tag-default="tag-default" class="control-tag tag-default" for="review-name">
+                Your Name
+                <div class="controls">
+                    <input type="text" id="review-name" name="Name" placeholder=""
+                           class="required span12 form-control"/>
+                </div>
+            </tag>
+        </div>
+        <div class="control-group margin-top">
+            <tag tag-default="tag-default" class="control-tag tag-default" for="review-email">
+                Your Email
+                <div class="controls">
+                    <input type="text" id="review-email" name="Email" placeholder=""
+                           class="required span12 form-control"/>
+                </div>
+            </tag>
+        </div>
+        <div class="control-group margin-top">
+            <tag tag-default="tag-default" class="control-tag tag-default" for="review-headline">
+                Review Title
+                <div class="controls">
+                    <input type="text" id="review-headline" name="Title" placeholder=""
+                           class="required span12 form-control"/>
+                </div>
+            </tag>
+        </div>
+        <div class="control-group margin-top">
+            <tag tag-default="tag-default" class="control-tag tag-default" for="review-text">
+                Comments
+                <div class="controls">
+                    <textarea rows="3" id="review-text" name="Comments" placeholder="Describe your experience with the product"
+                              class="required span12 form-control"></textarea>
+                </div>
+            </tag>
+        </div>
+        <div class="control-group margin-top">
+            <div class="controls">
+                <button type="submit" class="btn btn-primary" name="review-product">Save</button>
+                <input type="hidden" name="reviewed-product-sku"/>
+            </div>
+        </div>
+        <input type="hidden" name="ProductGuid" value="@Model">
+    </div>
+}

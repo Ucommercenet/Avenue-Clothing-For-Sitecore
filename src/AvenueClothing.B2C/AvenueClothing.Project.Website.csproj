@@ -176,7 +176,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Css\font-awesome.min.css" />
+    <Content Include="Css\fontawesome-webfont.svg" />
     <Content Include="Css\glyphicons-28-search.png" />
+    <Content Include="Css\glyphicons-halflings-regular.svg" />
     <Content Include="Css\tether.min.css" />
     <Content Include="Css\uCommerce.bootstrap-responsive.css" />
     <Content Include="Css\uCommerce.bootstrap.css" />
@@ -186,6 +188,14 @@
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Views\Avenue Clothing\Layout.cshtml" />
+    <Content Include="Css\fontawesome-webfont.eot" />
+    <Content Include="Css\fontawesome-webfont.ttf" />
+    <Content Include="Css\fontawesome-webfont.woff" />
+    <Content Include="Css\fontawesome-webfont.woff2" />
+    <Content Include="Css\FontAwesome.otf" />
+    <Content Include="Css\glyphicons-halflings-regular.eot" />
+    <Content Include="Css\glyphicons-halflings-regular.ttf" />
+    <Content Include="Css\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-3.0.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
