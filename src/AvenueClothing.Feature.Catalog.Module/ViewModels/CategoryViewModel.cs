@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace AvenueClothing.Feature.Catalog.Module.ViewModels
 {
@@ -7,7 +8,9 @@ namespace AvenueClothing.Feature.Catalog.Module.ViewModels
 		public CategoryViewModel()
 		{
 			Categories = new List<CategoryViewModel>();
+			ProductItemGuids = new List<Guid>();
 		}
+		public IList<Guid> ProductItemGuids { get; set; }
 		public string Url { get; set; }
 
 		public string Name { get; set; }
