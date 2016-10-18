@@ -22,32 +22,33 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 		{
 			var categoryViewModel = new CategoryViewModel();
 			var currentCategory = SiteContext.Current.CatalogContext.CurrentCategory;
-			var productGuidsFromUCommerce = MapProductsInCategories(currentCategory);
+			var productGuidsFromFacets = GetProductGuidsInFacets(currentCategory);
 
-			categoryViewModel.ProductItemGuids = RemoveUnselectedSitecoreItems(productGuidsFromUCommerce, RenderingContext.Current.ContextItem);
+			categoryViewModel.ProductItemGuids = RemoveUnselectedSitecoreItems(productGuidsFromFacets, RenderingContext.Current.ContextItem);
 
 			return View("/views/Category.cshtml", categoryViewModel);
 		}
 
-		private IList<Guid> RemoveUnselectedSitecoreItems(IList<Guid> productGuidsFromUCommerce, Item contextItem)
+		private IList<Guid> RemoveUnselectedSitecoreItems(IList<Guid> productGuidsFromFacets, Item contextItem)
 		{
 			IList<Guid> selectedProductItems = contextItem.Fields["Products"].ToString().Split('|').Select(x => new Guid(x)).ToList();
-			return productGuidsFromUCommerce.Where(x => selectedProductItems.Contains(x)).ToList();
+			return productGuidsFromFacets.Where(x => selectedProductItems.Contains(x)).ToList();
 		}
 
-		private IList<Guid> MapProductsInCategories(Category category)
+		private IList<Guid> GetProductGuidsInFacets(Category category)
 		{
 			IList<Facet> facetsForQuerying = System.Web.HttpContext.Current.Request.QueryString.ToFacets();
 			var productGuidsInCategory = new List<Guid>();
 
 			foreach (var subcategory in category.Categories)
 			{
-				productGuidsInCategory.AddRange(MapProductsInCategories(subcategory));
+				productGuidsInCategory.AddRange(GetProductGuidsInFacets(subcategory));
 			}
 
-			var productIds = SearchLibrary.GetProductsFor(category, facetsForQuerying).Select(x => x.Id);
-			var productRepository = ObjectFactory.Instance.Resolve<IRepository<Product>>();
-			productGuidsInCategory.AddRange(productRepository.Select(x => productIds.Contains(x.Id)).Select(x => x.Guid).ToList());
+			IEnumerable<int> productIds = SearchLibrary.GetProductsFor(category, facetsForQuerying).Select(x => x.Id);
+		
+			var productGuids =CatalogLibrary.GetProducts(category).Where(x => productIds.Contains(x.ProductId)).Select(x => x.Guid).ToList();
+			productGuidsInCategory.AddRange(productGuids);
 
 			return productGuidsInCategory;
 		}
