@@ -7,6 +7,8 @@
 
 @if(productItems != null && productItems[0] != "") {
     <div class="row">
+    @if (!string.IsNullOrEmpty(productItems[0]))
+    {
         <div class="product-list col-sm-12 col-md-12">
             @foreach (var productItem in productItems)
             {
