@@ -186,9 +186,6 @@
     <Content Include="Views\CategoryImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\ProductList.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\ProductDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
