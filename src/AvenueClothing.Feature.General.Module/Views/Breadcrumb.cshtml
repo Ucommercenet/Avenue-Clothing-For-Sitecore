@@ -1,0 +1,27 @@
+﻿@model AvenueClothing.Feature.General.Module.ViewModels.BreadcrumbWrapper
+<ol class="breadcrumb">
+    @foreach (var item in Model.SitecoreBreadcrumbs)
+    {
+        <li class="breadcrumb-item">
+            @if (@item.IsActive)
+            { @item.DisplayName}
+            else
+            {
+                <a href="@item.BreadcrumbUrl">
+                    @item.DisplayName
+                </a>
+            }
+        </li>
+        }
+
+    @foreach (var item in Model.UcommerceBreadcrumbs)
+    {
+        <li class="breadcrumb-item">
+                <a href="@item.BreadcrumbUrlUcommerce">
+                    @item.BreadcrumbNameUcommerce
+                </a>
+            
+        </li>
+    }
+
+</ol>
