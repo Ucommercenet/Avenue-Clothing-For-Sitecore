@@ -17,8 +17,12 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
             CategoryProductGuid guids = new CategoryProductGuid()
             {
                 ProductGuid = RenderingContext.Current.ContextItem.ID.Guid,
-                CategoryGuid = SiteContext.Current.CatalogContext.CurrentCategory.Guid
             };
+            if (SiteContext.Current.CatalogContext.CurrentCategory != null)
+            {
+                guids.CategoryGuid = SiteContext.Current.CatalogContext.CurrentCategory.Guid;
+            }
+          
             return View("~/Views/ReviewForm.cshtml", guids);
         }
 
@@ -80,8 +84,14 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 
             PipelineFactory.Create<ProductReview>("ProductReview").Execute(review);
 
-            return Redirect(CatalogLibrary.GetNiceUrlForProduct(product, category));
-            
+            if (category != null)
+            {
+                return Redirect(CatalogLibrary.GetNiceUrlForProduct(product, category));
+            }
+            else
+            {
+                return Redirect(CatalogLibrary.GetNiceUrlForProduct(product));
+            }
         }
     }
 }
