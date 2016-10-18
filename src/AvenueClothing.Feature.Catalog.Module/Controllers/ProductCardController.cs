@@ -27,18 +27,13 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 			Database database = Sitecore.Context.Database;
 			Item productItem = database.GetItem(RenderingContext.Current.Rendering.Properties["productItem"]);
 			
-			productView.Name = productItem.DisplayName;
-			productView.Sku = productItem.Fields["SKU"].ToString();
-
 			var productRepository = ObjectFactory.Instance.Resolve<IRepository<Product>>();
 			var currentProduct = productRepository.SingleOrDefault(x => x.Guid == productItem.ID.Guid);
 			productView.Url = CatalogLibrary.GetNiceUrlForProduct(currentProduct);
 
-			//Get it the Sitecore way
-			//productView.ThumbnailImageUrl = (string)productItem.Fields["Thumbnail image"];
-
+			productView.PriceCalculation = CatalogLibrary.CalculatePrice(currentProduct);
+			
 			return View("/views/ProductCard.cshtml", productView);
-           
 		}
 	}
 }
