@@ -32,7 +32,8 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 
 			var productRepository = ObjectFactory.Instance.Resolve<IRepository<Product>>();
 			var currentProduct = productRepository.SingleOrDefault(x => x.Guid == productItem.ID.Guid);
-			productView.Url = CatalogLibrary.GetNiceUrlForProduct(currentProduct);
+            var category = SiteContext.Current.CatalogContext.CurrentCategory;
+			productView.Url = CatalogLibrary.GetNiceUrlForProduct(currentProduct,category);
 
 			//Get it the Sitecore way
 			//productView.ThumbnailImageUrl = (string)productItem.Fields["Thumbnail image"];
