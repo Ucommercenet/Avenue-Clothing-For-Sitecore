@@ -72,9 +72,9 @@ Languages:
       Hint: Products
       Type: Treelist
       Value: |
-        {15DBB90F-73EA-4EB1-AF8C-84D6F630889C}
-        {4337FA20-BB01-4917-9D67-7BED4424CF83}
-        {D55972D0-CA70-425F-9B57-8A28D2FC5586}
+        {071E0E45-CDFF-4908-A7DA-E33280617CF9}
+        {3C98DDFA-0898-4BD3-8914-3BD6077B7564}
+        {3E0EDA78-EC93-48E3-A339-59F1CC5ADF60}
     - ID: "b9baaa2b-d947-4cae-97cf-4e413b57c511"
       Hint: Images
       Type: Multilist

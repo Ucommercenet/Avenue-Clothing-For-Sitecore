@@ -11,7 +11,7 @@
 	RenderingContext.Current.ContextItem = productItem;
 }
 
-<div class="product col-sm-4 col-md-4 col-xs-2" id="@Html.Sitecore().Field("sku")">
+<div class="product col-sm-4 col-md-4 col-xs-2" id="@productItem.Fields["sku"]">
 	<div class="product-image">
 		@if (!string.IsNullOrEmpty(@Html.Sitecore().Field("Thumbnail image").ToString()))
 		{
@@ -19,7 +19,9 @@
 		}
 	</div>
 
-	<p class="item-name"><a href="@Model.Url">@Html.Sitecore().Field("Display Name")</a></p>
+	<p class="item-name"><a href="@Model.Url">@Html.Sitecore().Field("Display Name")</a>
+	</p>
+	
 	<p class="item-price">@Model.PriceCalculation.YourPrice.Amount</p>
 	<p class="btn-group view-details">
 		<a href="@Model.Url" class="btn btn-default">
