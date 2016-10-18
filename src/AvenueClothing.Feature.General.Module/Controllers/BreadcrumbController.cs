@@ -44,7 +44,7 @@ namespace AvenueClothing.Project.Website.Controllers
                 breadcrumbs.UcommerceBreadcrumbs.Add(crumb);
             }
 
-            breadcrumbs.SitecoreBreadcrumbs.Add(new BreadcrumbViewModel(Sitecore.Context.Item));
+            //breadcrumbs.SitecoreBreadcrumbs.Add(new BreadcrumbViewModel(Sitecore.Context.Item));
 
             return View("/Views/Breadcrumb.cshtml", breadcrumbs);
         }
@@ -70,7 +70,6 @@ namespace AvenueClothing.Project.Website.Controllers
               .SkipWhile(item => item.ID != homeItem.ID)
               .ToList();
             items.Add(homeItem);
-
             return items;
         }
         private IList<Item> GetUcommerceBreadcrumbItems()

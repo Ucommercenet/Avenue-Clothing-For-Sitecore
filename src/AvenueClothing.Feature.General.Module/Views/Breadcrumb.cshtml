@@ -4,11 +4,11 @@
     {
         <li class="breadcrumb-item">
             @if (@item.IsActive)
-            { @item.BreadcrumbName}
+            { @item.DisplayName}
             else
             {
                 <a href="@item.BreadcrumbUrl">
-                    @item.Name
+                    @item.DisplayName
                 </a>
             }
         </li>
