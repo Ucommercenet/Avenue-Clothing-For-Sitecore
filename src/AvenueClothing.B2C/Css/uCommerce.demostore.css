@@ -435,16 +435,13 @@ div.product.col-sm-4.col-md-4 {
         color: #606060;
     }
 
-    #product-details .rating {
-    }
+
 
         #product-details .rating label {
             cursor: pointer;
             float: left;
         }
 
-            #product-details .rating label i {
-            }
 
     #product-details .review {
         border-bottom: 1px solid #ddd;
@@ -480,6 +477,11 @@ div.product.col-sm-4.col-md-4 {
 
             #product-details .review .review-comment header {
                 font-size: 0.85em;
+            }
+
+            #customer-reviews section.review {
+                    border-bottom: 1px solid #ddd;
+                    margin-bottom: 10px;
             }
 
 .page-header {

@@ -1,16 +1,17 @@
 ﻿@using Sitecore.Mvc
 @{
-    Layout = null;
+	Layout = null;
 }
 
 @{
-    var productItems = Html.Sitecore().Field("Products").ToHtmlString().Split('|').ToList();
+	var productItems = Html.Sitecore().Field("Products").ToHtmlString().Split('|').ToList();
 }
 
-@*@foreach (var p in productItems)
-{
-    <p>@p</p>
-    @Html.Sitecore().Rendering("9851F13D-1DC8-4D36-8C99-6C2E42D115B8", new { productId =  p});
-}*@
-
-@*@Html.Sitecore().Rendering("{FEBEE42A-F312-47E7-BA47-0AEDECBFB9D5}")*@    
+<div class="row">
+	<div class="product-list col-sm-12 col-md-12">
+		@foreach (var productItem in productItems)
+		{
+			@Html.Sitecore().Rendering("B82B3313-82E1-4D4D-9C3C-2935E1E6E0C0", new { productItem });
+		}
+	</div>
+</div>
