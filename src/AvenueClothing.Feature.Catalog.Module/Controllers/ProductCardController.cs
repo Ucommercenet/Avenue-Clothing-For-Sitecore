@@ -1,46 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-using AvenueClothing.Feature.Catalog.Module.Extensions;
+﻿using System.Web.Mvc;
 using AvenueClothing.Feature.Catalog.Module.ViewModels;
-using Sitecore.Data;
-using Sitecore.Data.Items;
 using Sitecore.Mvc.Presentation;
 using UCommerce.Api;
-using UCommerce.Content;
 using UCommerce.EntitiesV2;
-using UCommerce.Extensions;
-using UCommerce.Infrastructure;
 using UCommerce.Runtime;
-using UCommerce.Search.Facets;
-using UCommerce.Search;
 
 namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
 	public class ProductCardController : Controller
 	{
 		private readonly IRepository<Product> _productRepository;
+		private readonly ICatalogContext _catalogContext;
 
-		public ProductCardController(IRepository<Product> productRepository)
+		public ProductCardController(IRepository<Product> productRepository, ICatalogContext catalogContext)
 		{
 			_productRepository = productRepository;
+			_catalogContext = catalogContext;
 		}
 
 		public ActionResult ProductCard()
 		{
 			var productView = new ProductViewModel();
 			
-			Database database = Sitecore.Context.Database;
-			Item productItem = database.GetItem(RenderingContext.Current.Rendering.Properties["productItem"]);
+			var database = Sitecore.Context.Database;
+			var productItem = database.GetItem(RenderingContext.Current.Rendering.Properties["productItem"]);
+			RenderingContext.Current.ContextItem = productItem;
 
 			var currentProduct = _productRepository.SingleOrDefault(x => x.Guid == productItem.ID.Guid);
-            var category = SiteContext.Current.CatalogContext.CurrentCategory;
-			productView.Url = CatalogLibrary.GetNiceUrlForProduct(currentProduct,category);
+			var category = _catalogContext.CurrentCategory;
 
-			productView.PriceCalculation = CatalogLibrary.CalculatePrice(currentProduct);
+			productView.Url = CatalogLibrary.GetNiceUrlForProduct(currentProduct, category);
+			productView.Amount = CatalogLibrary.CalculatePrice(currentProduct).YourPrice.Amount.ToString();
 			
-			return View("/views/ProductCard.cshtml", productView);
+			return View(productView);
 		}
 	}
 }

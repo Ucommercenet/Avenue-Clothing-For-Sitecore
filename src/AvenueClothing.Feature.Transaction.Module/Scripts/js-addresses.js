@@ -3,7 +3,7 @@
 
 
 	var toggleShippingAddress = function () {
-		var shippingAddressElement = $(classSelector + ".Shipping");
+		var shippingAddressElement = $(classSelector + " .Shipping");
 		if (shippingAddressElement == null) return;
 
 		if (shippingAddressElement.is(":visible")) {
@@ -14,11 +14,12 @@
 	};
 
 	if ($(classSelector)) {
-		var billingAddressContentElement = $(classSelector + ".Billing" + " .well");
+		var billingAddressContentElement = $(classSelector + " .Billing" + ".well");
 		if (billingAddressContentElement == null) return;
 
 		var checkbox = document.createElement('input');
 		checkbox.type = "checkbox";
+		checkbox.name = "IsShippingAddressDifferent";
 		checkbox.addEventListener('click', function () {
 			toggleShippingAddress(); return false;
 		});

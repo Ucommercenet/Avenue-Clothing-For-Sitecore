@@ -165,13 +165,13 @@
     <Content Include="Views\CatalogImageCarusel.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Category.cshtml" />
+    <Content Include="Views\Category\Category.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Facets.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\ProductCard.cshtml" />
+    <Content Include="Views\ProductCard\ProductCard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\VariantPicker\Index.cshtml" />
