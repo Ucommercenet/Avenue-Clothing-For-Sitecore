@@ -33,7 +33,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
                     Id = p.Id,
                     PriceCalculation = CatalogLibrary.CalculatePrice(p),
                     Url = CatalogLibrary.GetNiceUrlForProduct(p),
-                    Sku = p.Sku,
+                    ProductSku = p.Sku,
                     IsVariant = p.IsVariant,
                     VariantSku = p.VariantSku,
 					ThumbnailImageUrl = _imageService.GetImage(p.ThumbnailImageMediaId).Url
