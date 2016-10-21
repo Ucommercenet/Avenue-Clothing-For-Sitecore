@@ -5,11 +5,19 @@ using Sitecore.Mvc.Pipelines.Response.RenderRendering;
 using Sitecore.Mvc.Presentation;
 using UCommerce;
 using UCommerce.Api;
+using UCommerce.Transactions;
 
 namespace AvenueClothing.Feature.Transaction.Module.Controllers
 {
 	public class MiniBasketController : Controller
 	{
+	    private readonly TransactionLibraryInternal _transactionLibraryInternal;
+
+	    public MiniBasketController(TransactionLibraryInternal transactionLibraryInternal)
+	    {
+	        _transactionLibraryInternal = transactionLibraryInternal;
+	    }
+
 		public ActionResult MiniBasket()
 		{
 			var miniBasketViewModel = new MiniBasketViewModel
@@ -18,12 +26,12 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 				RefreshUrl = Url.Action("Refresh")
 			};
 
-			if (!TransactionLibrary.HasBasket())
+			if (!_transactionLibraryInternal.HasBasket())
 			{
 				return View(miniBasketViewModel);
 			}
 
-			var purchaseOrder = TransactionLibrary.GetBasket(false).PurchaseOrder;
+			var purchaseOrder = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
 
 			miniBasketViewModel.NumberOfItems = purchaseOrder.OrderLines.Sum(x => x.Quantity);
 			miniBasketViewModel.IsEmpty = miniBasketViewModel.NumberOfItems == 0;
@@ -40,12 +48,12 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 				IsEmpty = true
 			};
 
-			if (!TransactionLibrary.HasBasket())
+			if (!_transactionLibraryInternal.HasBasket())
 			{
 				return Json(viewModel, JsonRequestBehavior.AllowGet);
 			}
 
-			var purchaseOrder = TransactionLibrary.GetBasket(false).PurchaseOrder;
+			var purchaseOrder = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
 
 			var quantity = purchaseOrder.OrderLines.Sum(x => x.Quantity);
 

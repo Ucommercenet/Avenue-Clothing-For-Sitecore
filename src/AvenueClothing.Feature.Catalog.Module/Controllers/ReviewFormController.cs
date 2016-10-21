@@ -14,16 +14,24 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
     {
         public ActionResult ReviewForm()
         {
-            var currentProductId = RenderingContext.Current.ContextItem.ID.Guid;
-            return View("~/Views/ReviewForm.cshtml", currentProductId);
+            CategoryProductGuid guids = new CategoryProductGuid()
+            {
+                ProductGuid = RenderingContext.Current.ContextItem.ID.Guid,
+            };
+            if (SiteContext.Current.CatalogContext.CurrentCategory != null)
+            {
+                guids.CategoryGuid = SiteContext.Current.CatalogContext.CurrentCategory.Guid;
+            }
+          
+            return View("~/Views/ReviewForm.cshtml", guids);
         }
 
         [HttpPost]
         public ActionResult PostReview(ProductReviewViewModel formReview)
         {
-            var productId = formReview.ProductGuid;
-            var product = Product.FirstOrDefault(x=> x.Guid == productId);
-            
+     
+            var product = Product.FirstOrDefault(x=> x.Guid == formReview.ProductGuid);
+            var category = Category.FirstOrDefault(x => x.Guid == formReview.CategoryGuid);
 
             var request = System.Web.HttpContext.Current.Request;
             var basket = SiteContext.Current.OrderContext.GetBasket();
@@ -76,8 +84,14 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 
             PipelineFactory.Create<ProductReview>("ProductReview").Execute(review);
 
-            return Redirect(CatalogLibrary.GetNiceUrlForProduct(product));
-            
+            if (category != null)
+            {
+                return Redirect(CatalogLibrary.GetNiceUrlForProduct(product, category));
+            }
+            else
+            {
+                return Redirect(CatalogLibrary.GetNiceUrlForProduct(product));
+            }
         }
     }
 }
