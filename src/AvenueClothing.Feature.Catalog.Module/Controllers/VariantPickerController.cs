@@ -13,15 +13,17 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
     public class VariantPickerController : Controller
     {
         private readonly IPipeline<IPipelineArgs<GetProductRequest, GetProductResponse>> _getProductPipeline;
+	    private readonly ICatalogContext _catalogContext;
 
-        public VariantPickerController(IPipeline<IPipelineArgs<GetProductRequest, GetProductResponse>> getProductPipeline)
-        {
-            _getProductPipeline = getProductPipeline;
-        }
+	    public VariantPickerController(IPipeline<IPipelineArgs<GetProductRequest, GetProductResponse>> getProductPipeline, ICatalogContext catalogContext)
+	    {
+		    _getProductPipeline = getProductPipeline;
+		    _catalogContext = catalogContext;
+	    }
 
-        public ActionResult Index()
+	    public ActionResult Index()
         {
-            var currentProduct = SiteContext.Current.CatalogContext.CurrentProduct;
+			var currentProduct = _catalogContext.CurrentProduct;
 
             var viewModel = new VariantPickerViewModel
             {

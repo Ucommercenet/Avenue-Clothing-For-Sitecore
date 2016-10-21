@@ -1,0 +1,23 @@
+﻿---
+ID: "d182fbb3-dcf2-400c-8f14-eb44ad50f62b"
+Parent: "17c96cdf-8a1a-4645-9e11-447e03913e80"
+Template: "ce15a068-f72e-445e-8b54-96ac75afa1c7"
+Path: /sitecore/content/Data source/Button_Continue_To_Checkout
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20161020T100119Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: sitecore\admin
+    - ID: "93506b07-99c4-47eb-8ec3-f82f9911dc49"
+      Hint: Label
+      Value: Continue to Checkout
+    - ID: "ffff52cc-581c-4bc8-a2b3-2fe01f68031a"
+      Hint: Action
+      Value: "{5338EE97-DC6E-4E6C-9D91-D2045FE5F563}"

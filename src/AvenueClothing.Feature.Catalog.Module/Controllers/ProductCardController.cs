@@ -20,26 +20,27 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
 	public class ProductCardController : Controller
 	{
+		private readonly IRepository<Product> _productRepository;
+
+		public ProductCardController(IRepository<Product> productRepository)
+		{
+			_productRepository = productRepository;
+		}
+
 		public ActionResult ProductCard()
 		{
 			var productView = new ProductViewModel();
 			
 			Database database = Sitecore.Context.Database;
 			Item productItem = database.GetItem(RenderingContext.Current.Rendering.Properties["productItem"]);
-			
-            productView.Name = productItem.DisplayName;
-            productView.Sku = productItem.Fields["SKU"].ToString();
 
-			var productRepository = ObjectFactory.Instance.Resolve<IRepository<Product>>();
-			var currentProduct = productRepository.SingleOrDefault(x => x.Guid == productItem.ID.Guid);
+			var currentProduct = _productRepository.SingleOrDefault(x => x.Guid == productItem.ID.Guid);
             var category = SiteContext.Current.CatalogContext.CurrentCategory;
 			productView.Url = CatalogLibrary.GetNiceUrlForProduct(currentProduct,category);
 
-			//Get it the Sitecore way
-			//productView.ThumbnailImageUrl = (string)productItem.Fields["Thumbnail image"];
-
+			productView.PriceCalculation = CatalogLibrary.CalculatePrice(currentProduct);
+			
 			return View("/views/ProductCard.cshtml", productView);
-           
 		}
 	}
 }

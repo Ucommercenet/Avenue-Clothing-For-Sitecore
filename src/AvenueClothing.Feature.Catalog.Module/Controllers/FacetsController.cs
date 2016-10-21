@@ -16,9 +16,16 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
 	public class FacetsController : Controller
 	{
+		private readonly ICatalogContext _catalogContext;
+
+		public FacetsController(ICatalogContext catalogContext)
+		{
+			_catalogContext = catalogContext;
+		}
+
 		public ActionResult Facets()
 		{
-			var category = SiteContext.Current.CatalogContext.CurrentCategory;
+			var category = _catalogContext.CurrentCategory;
 			var facetValueOutputModel = new FacetsDisplayedViewModel();
 			IList<Facet> facetsForQuerying = System.Web.HttpContext.Current.Request.QueryString.ToFacets();
 			
