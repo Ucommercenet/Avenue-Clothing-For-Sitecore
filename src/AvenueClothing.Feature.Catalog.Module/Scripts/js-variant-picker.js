@@ -65,13 +65,6 @@
                             });
                         }
                     });
-                    //.done()
-                    //.fail(function () {
-                    //    alert("Whoops...");
-                    //})
-                    //.always(function () {
-                    //    //No-op
-                    //})
                 });
         }
     };
