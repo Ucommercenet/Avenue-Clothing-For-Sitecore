@@ -13,9 +13,16 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
     public class HomepageCatalogController: Controller
     {
-        public ActionResult HomepageCatalog()
+	    private readonly IImageService _imageService;
+
+	    public HomepageCatalogController(IImageService imageService)
+	    {
+		    _imageService = imageService;
+	    }
+
+	    public ActionResult HomepageCatalog()
         {
-            var products = UCommerce.Api.CatalogLibrary.GetCatalog().Categories.SelectMany(c=>c.Products.Where(p => p.ProductProperties.Any(pp => pp.ProductDefinitionField.Name == "ShowOnHomepage" && Convert.ToBoolean(pp.Value))));
+            var products = CatalogLibrary.GetCatalog().Categories.SelectMany(c=>c.Products.Where(p => p.ProductProperties.Any(pp => pp.ProductDefinitionField.Name == "ShowOnHomepage" && Convert.ToBoolean(pp.Value))));
             HomepageCatalogViewModel homepageCatalogViewModel = new HomepageCatalogViewModel();
 
             foreach (var p in products)
@@ -29,7 +36,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
                     Sku = p.Sku,
                     IsVariant = p.IsVariant,
                     VariantSku = p.VariantSku,
-                    ThumbnailImageUrl = ObjectFactory.Instance.Resolve<IImageService>().GetImage(p.ThumbnailImageMediaId).Url
+					ThumbnailImageUrl = _imageService.GetImage(p.ThumbnailImageMediaId).Url
                 });
             }
 

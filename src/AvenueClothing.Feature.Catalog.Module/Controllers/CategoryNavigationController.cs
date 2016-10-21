@@ -12,7 +12,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 		{
 			var categoryNavigation = new CategoryNavigationViewModel();
 
-			categoryNavigation.Categories = MapCategories(UCommerce.Api.CatalogLibrary.GetRootCategories());
+			categoryNavigation.Categories = MapCategories(CatalogLibrary.GetRootCategories());
 
 			return View("/views/CategoryNavigation.cshtml", categoryNavigation);
 		}
@@ -30,7 +30,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 
 				categoriesToReturn.Add(categoryToAdd);
 
-				categoryToAdd.Categories = MapCategories(UCommerce.Api.CatalogLibrary.GetCategories(category));
+				categoryToAdd.Categories = MapCategories(CatalogLibrary.GetCategories(category));
 			}
 
 			return categoriesToReturn;
