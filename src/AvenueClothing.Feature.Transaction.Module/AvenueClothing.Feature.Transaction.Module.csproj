@@ -150,9 +150,6 @@
   <ItemGroup>
     <Content Include="Views\ContinueToCheckout\ContinueToCheckout.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Address\Address.cshtml" />
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

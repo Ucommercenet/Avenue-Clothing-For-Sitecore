@@ -12,15 +12,33 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
     public class ReviewFormController: Controller
     {
-        public ActionResult ReviewForm()
+	    private readonly ICatalogContext _catalogContext;
+	    private readonly IRepository<Product> _productRepository;
+	    private readonly IRepository<ProductReviewStatus> _productReviewStatusRepository;
+	    private readonly IRepository<Category> _categoryRepository;
+	    private readonly IOrderContext _orderContext;
+	    private readonly IPipeline<ProductReview> _productReviewPipeline;
+
+	    public ReviewFormController(ICatalogContext catalogContext, IRepository<Product> productRepository, IRepository<ProductReviewStatus> productReviewStatusRepository, 
+			IRepository<Category> categoryRepository, IOrderContext orderContext, IPipeline<ProductReview> productReviewPipeline )
+	    {
+		    _catalogContext = catalogContext;
+		    _productRepository = productRepository;
+			_productReviewStatusRepository = productReviewStatusRepository;
+			_categoryRepository = categoryRepository;
+		    _orderContext = orderContext;
+		    _productReviewPipeline = productReviewPipeline;
+	    }
+
+	    public ActionResult ReviewForm()
         {
             CategoryProductGuid guids = new CategoryProductGuid()
             {
                 ProductGuid = RenderingContext.Current.ContextItem.ID.Guid,
             };
-            if (SiteContext.Current.CatalogContext.CurrentCategory != null)
+			if (_catalogContext.CurrentCategory != null)
             {
-                guids.CategoryGuid = SiteContext.Current.CatalogContext.CurrentCategory.Guid;
+				guids.CategoryGuid = _catalogContext.CurrentCategory.Guid;
             }
           
             return View("~/Views/ReviewForm.cshtml", guids);
@@ -30,11 +48,11 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
         public ActionResult PostReview(ProductReviewViewModel formReview)
         {
      
-            var product = Product.FirstOrDefault(x=> x.Guid == formReview.ProductGuid);
-            var category = Category.FirstOrDefault(x => x.Guid == formReview.CategoryGuid);
+            var product = _productRepository.SingleOrDefault(x=> x.Guid == formReview.ProductGuid);
+			var category = _categoryRepository.SingleOrDefault(x => x.Guid == formReview.CategoryGuid);
 
             var request = System.Web.HttpContext.Current.Request;
-            var basket = SiteContext.Current.OrderContext.GetBasket();
+			var basket = _orderContext.GetBasket();
 
             if (request.Form.AllKeys.All(x => x != "review-product"))
             {
@@ -69,8 +87,8 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
             basket.PurchaseOrder.Customer.Save();
 
             var review = new ProductReview();
-            review.ProductCatalogGroup = SiteContext.Current.CatalogContext.CurrentCatalogGroup;
-            review.ProductReviewStatus = ProductReviewStatus.SingleOrDefault(s => s.Name == "New");
+            review.ProductCatalogGroup = _catalogContext.CurrentCatalogGroup;
+			review.ProductReviewStatus = _productReviewStatusRepository.SingleOrDefault(s => s.Name == "New");
             review.CreatedOn = DateTime.Now;
             review.CreatedBy = "System";
             review.Product = product;
@@ -82,7 +100,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 
             product.AddProductReview(review);
 
-            PipelineFactory.Create<ProductReview>("ProductReview").Execute(review);
+            _productReviewPipeline.Execute(review);
 
             if (category != null)
             {

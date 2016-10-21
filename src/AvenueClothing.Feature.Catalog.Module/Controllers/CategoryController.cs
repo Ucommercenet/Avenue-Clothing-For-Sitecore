@@ -18,10 +18,17 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
 	public class CategoryController : Controller
 	{
+		private readonly ICatalogContext _catalogContext;
+
+		public CategoryController(ICatalogContext catalogContext)
+		{
+			_catalogContext = catalogContext;
+		}
+
 		public ActionResult Category()
 		{
 			var categoryViewModel = new CategoryViewModel();
-			var currentCategory = SiteContext.Current.CatalogContext.CurrentCategory;
+			var currentCategory = _catalogContext.CurrentCategory;
 			var productGuidsFromFacets = GetProductGuidsInFacets(currentCategory);
 
 			categoryViewModel.ProductItemGuids = RemoveUnselectedSitecoreItems(productGuidsFromFacets, RenderingContext.Current.ContextItem);
