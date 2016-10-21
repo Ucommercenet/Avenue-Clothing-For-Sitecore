@@ -1,36 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using AvenueClothing.Feature.Transaction.Module.Controllers;
 using AvenueClothing.Feature.Transaction.Module.ViewModels;
-using AvenueClothing.Tests.Fakes;
+using NSubstitute;
 using UCommerce.EntitiesV2;
+using UCommerce.Transactions;
 using Xunit;
 
 namespace AvenueClothing.Tests
 {
     public class MiniBasketControllerTests
     {
+        private readonly MiniBasketController _controller;
+        private readonly TransactionLibraryInternal _transactionLibraryInternal;
+
+        public MiniBasketControllerTests()
+        {
+            //Create
+            _transactionLibraryInternal = Substitute.For<TransactionLibraryInternal>(null, null, null, null, null, null, null, null, null, null, null);
+            
+            _controller = new MiniBasketController(_transactionLibraryInternal);
+
+            _controller.Url = Substitute.For<UrlHelper>();
+            _controller.Url.Action(Arg.Any<string>()).Returns("anything");
+        }
+
         [Fact]
         public void MiniBasket_When_Basket_Is_Empty_Should_Return_View_With_Empty_Model()
         {
-            //Create
-            var fakeTransactionLibraryInternal = new FakeTransactionLibraryInternal();
-            var miniBasketController = new MiniBasketController(fakeTransactionLibraryInternal);
-            
-
             //Arrange
-            fakeTransactionLibraryInternal.HasBasketFunc = () => false;
+            _transactionLibraryInternal.HasBasket().Returns(false);
 
             //Act
-            var result = miniBasketController.MiniBasket();
+            var result = _controller.MiniBasket();
 
             //Assert
             var viewResult = result as ViewResult;
-            var model = viewResult.Model as MiniBasketViewModel;
+            var model = viewResult?.Model as MiniBasketViewModel;
             Assert.NotNull(viewResult);
             Assert.NotNull(model);
             Assert.True(model.IsEmpty);
@@ -44,25 +49,24 @@ namespace AvenueClothing.Tests
         [Fact]
         public void MiniBasket_When_Basket_Is_Not_Empty_Should_Return_View_With_Non_Empty_Model()
         {
-            //Create
-            var fakeTransactionLibraryInternal = new FakeTransactionLibraryInternal();
-            var miniBasketController = new MiniBasketController(fakeTransactionLibraryInternal);
-
             //Arrange
-            fakeTransactionLibraryInternal.HasBasketFunc = () => true;
-            fakeTransactionLibraryInternal.GetBasketFunc = () => new Basket(new PurchaseOrder());
+            _transactionLibraryInternal.HasBasket().Returns(true);
+            _transactionLibraryInternal.GetBasket(false).Returns(new Basket(new PurchaseOrder
+            {
+                BillingCurrency = new Currency()
+            }));
 
             //Act
-            var result = miniBasketController.MiniBasket();
+            var result = _controller.MiniBasket();
 
             //Assert
             var viewResult = result as ViewResult;
-            var model = viewResult.Model as MiniBasketViewModel;
+            var model = viewResult?.Model as MiniBasketViewModel;
             Assert.NotNull(viewResult);
             Assert.NotNull(model);
             Assert.True(model.IsEmpty);
             Assert.Equal(0, model.NumberOfItems);
-            Assert.Null(model.Total);
+            Assert.Equal(0, model.Total.Value);
             Assert.NotEmpty(model.RefreshUrl);
 
             //var result2 = miniBasketController.Refresh();
