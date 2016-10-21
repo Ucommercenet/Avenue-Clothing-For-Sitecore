@@ -25,13 +25,13 @@ namespace AvenueClothing.Tests
         }
 
         [Fact]
-        public void MiniBasket_When_Basket_Is_Empty_Should_Return_View_With_Empty_Model()
+        public void Rendering_When_Basket_Is_Empty_Should_Return_View_With_Empty_Model()
         {
             //Arrange
             _transactionLibraryInternal.HasBasket().Returns(false);
 
             //Act
-            var result = _controller.MiniBasket();
+            var result = _controller.Rendering();
 
             //Assert
             var viewResult = result as ViewResult;
@@ -42,12 +42,10 @@ namespace AvenueClothing.Tests
             Assert.Equal(0, model.NumberOfItems);
             Assert.Null(model.Total);
             Assert.NotEmpty(model.RefreshUrl);
-
-            //var result2 = miniBasketController.Refresh();
         }
 
         [Fact]
-        public void MiniBasket_When_Basket_Is_Not_Empty_Should_Return_View_With_Non_Empty_Model()
+        public void Rendering_When_Basket_Is_Not_Empty_Should_Return_View_With_Non_Empty_Model()
         {
             //Arrange
             _transactionLibraryInternal.HasBasket().Returns(true);
@@ -57,7 +55,7 @@ namespace AvenueClothing.Tests
             }));
 
             //Act
-            var result = _controller.MiniBasket();
+            var result = _controller.Rendering();
 
             //Assert
             var viewResult = result as ViewResult;
@@ -68,8 +66,8 @@ namespace AvenueClothing.Tests
             Assert.Equal(0, model.NumberOfItems);
             Assert.Equal(0, model.Total.Value);
             Assert.NotEmpty(model.RefreshUrl);
-
-            //var result2 = miniBasketController.Refresh();
         }
+
+        //var result2 = miniBasketController.Refresh();
     }
 }

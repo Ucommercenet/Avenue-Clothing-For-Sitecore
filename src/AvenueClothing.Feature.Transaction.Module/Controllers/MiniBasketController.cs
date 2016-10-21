@@ -18,7 +18,7 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 	        _transactionLibraryInternal = transactionLibraryInternal;
 	    }
 
-		public ActionResult MiniBasket()
+		public ActionResult Rendering()
 		{
 			var miniBasketViewModel = new MiniBasketViewModel
 			{
