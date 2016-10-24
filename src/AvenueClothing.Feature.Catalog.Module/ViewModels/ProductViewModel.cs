@@ -24,5 +24,6 @@ namespace AvenueClothing.Feature.Catalog.Module.ViewModels
 		public string VariantSku { get; set; }
 		public string	Amount { get; set; }
 		public string ThumbnailImageUrl { get; set; }
+		public PriceCalculation PriceCalculation { get; set; }
 	}
 }
