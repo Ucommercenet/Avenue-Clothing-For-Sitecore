@@ -11,59 +11,59 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 {
 	public class AddressController : Controller
 	{
-		public ActionResult Addresses()
+		public ActionResult Rendering()
 		{
-			var addressDetails = new AddressDetailsViewModel();
+			var viewModel = new AddressRenderingViewModel();
 
 			var shippingInformation = TransactionLibrary.GetShippingInformation();
 			var billingInformation = TransactionLibrary.GetBillingInformation();
 
-			addressDetails.BillingAddress.FirstName = billingInformation.FirstName;
-			addressDetails.BillingAddress.LastName = billingInformation.LastName;
-			addressDetails.BillingAddress.EmailAddress = billingInformation.EmailAddress;
-			addressDetails.BillingAddress.PhoneNumber = billingInformation.PhoneNumber;
-			addressDetails.BillingAddress.MobilePhoneNumber = billingInformation.MobilePhoneNumber;
-			addressDetails.BillingAddress.Line1 = billingInformation.Line1;
-			addressDetails.BillingAddress.Line2 = billingInformation.Line2;
-			addressDetails.BillingAddress.PostalCode = billingInformation.PostalCode;
-			addressDetails.BillingAddress.City = billingInformation.City;
-			addressDetails.BillingAddress.State = billingInformation.State;
-			addressDetails.BillingAddress.Attention = billingInformation.Attention;
-			addressDetails.BillingAddress.CompanyName = billingInformation.CompanyName;
-			addressDetails.BillingAddress.CountryId = billingInformation.Country != null ? billingInformation.Country.CountryId : -1;
+			viewModel.BillingAddress.FirstName = billingInformation.FirstName;
+			viewModel.BillingAddress.LastName = billingInformation.LastName;
+			viewModel.BillingAddress.EmailAddress = billingInformation.EmailAddress;
+			viewModel.BillingAddress.PhoneNumber = billingInformation.PhoneNumber;
+			viewModel.BillingAddress.MobilePhoneNumber = billingInformation.MobilePhoneNumber;
+			viewModel.BillingAddress.Line1 = billingInformation.Line1;
+			viewModel.BillingAddress.Line2 = billingInformation.Line2;
+			viewModel.BillingAddress.PostalCode = billingInformation.PostalCode;
+			viewModel.BillingAddress.City = billingInformation.City;
+			viewModel.BillingAddress.State = billingInformation.State;
+			viewModel.BillingAddress.Attention = billingInformation.Attention;
+			viewModel.BillingAddress.CompanyName = billingInformation.CompanyName;
+			viewModel.BillingAddress.CountryId = billingInformation.Country != null ? billingInformation.Country.CountryId : -1;
 
-			addressDetails.ShippingAddress.FirstName = shippingInformation.FirstName;
-			addressDetails.ShippingAddress.LastName = shippingInformation.LastName;
-			addressDetails.ShippingAddress.EmailAddress = shippingInformation.EmailAddress;
-			addressDetails.ShippingAddress.PhoneNumber = shippingInformation.PhoneNumber;
-			addressDetails.ShippingAddress.MobilePhoneNumber = shippingInformation.MobilePhoneNumber;
-			addressDetails.ShippingAddress.Line1 = shippingInformation.Line1;
-			addressDetails.ShippingAddress.Line2 = shippingInformation.Line2;
-			addressDetails.ShippingAddress.PostalCode = shippingInformation.PostalCode;
-			addressDetails.ShippingAddress.City = shippingInformation.City;
-			addressDetails.ShippingAddress.State = shippingInformation.State;
-			addressDetails.ShippingAddress.Attention = shippingInformation.Attention;
-			addressDetails.ShippingAddress.CompanyName = shippingInformation.CompanyName;
-			addressDetails.ShippingAddress.CountryId = shippingInformation.Country != null ? shippingInformation.Country.CountryId : -1;
+			viewModel.ShippingAddress.FirstName = shippingInformation.FirstName;
+			viewModel.ShippingAddress.LastName = shippingInformation.LastName;
+			viewModel.ShippingAddress.EmailAddress = shippingInformation.EmailAddress;
+			viewModel.ShippingAddress.PhoneNumber = shippingInformation.PhoneNumber;
+			viewModel.ShippingAddress.MobilePhoneNumber = shippingInformation.MobilePhoneNumber;
+			viewModel.ShippingAddress.Line1 = shippingInformation.Line1;
+			viewModel.ShippingAddress.Line2 = shippingInformation.Line2;
+			viewModel.ShippingAddress.PostalCode = shippingInformation.PostalCode;
+			viewModel.ShippingAddress.City = shippingInformation.City;
+			viewModel.ShippingAddress.State = shippingInformation.State;
+			viewModel.ShippingAddress.Attention = shippingInformation.Attention;
+			viewModel.ShippingAddress.CompanyName = shippingInformation.CompanyName;
+			viewModel.ShippingAddress.CountryId = shippingInformation.Country != null ? shippingInformation.Country.CountryId : -1;
 
-			addressDetails.AvailableCountries = Country.All().ToList().Select(x => new SelectListItem() { Text = x.Name, Value = x.CountryId.ToString() }).ToList();
+			viewModel.AvailableCountries = Country.All().ToList().Select(x => new SelectListItem() { Text = x.Name, Value = x.CountryId.ToString() }).ToList();
 
-			return View(addressDetails);
+			return View(viewModel);
 		}
 
 		[HttpPost]
-		public ActionResult Index(AddressDetailsViewModel addressDetails)
+		public ActionResult Save(AddressRenderingViewModel addressRendering)
 		{
-			if (addressDetails.IsShippingAddressDifferent)
+			if (addressRendering.IsShippingAddressDifferent)
 			{
-				EditBillingInformation(addressDetails.BillingAddress);
-				EditShippingInformation(addressDetails.ShippingAddress);
+				EditBillingInformation(addressRendering.BillingAddress);
+				EditShippingInformation(addressRendering.ShippingAddress);
 			}
 
 			else
 			{
-				EditBillingInformation(addressDetails.BillingAddress);
-				EditShippingInformation(addressDetails.BillingAddress);
+				EditBillingInformation(addressRendering.BillingAddress);
+				EditShippingInformation(addressRendering.BillingAddress);
 			}
 
 			TransactionLibrary.ExecuteBasketPipeline();

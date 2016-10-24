@@ -2,7 +2,7 @@
 
 namespace AvenueClothing.Feature.Transaction.Module.ViewModels
 {
-	public class MiniBasketViewModel
+	public class MiniBasketRenderingViewModel
 	{
 		public int NumberOfItems { get; set; }
 		public Money Total { get; set; }

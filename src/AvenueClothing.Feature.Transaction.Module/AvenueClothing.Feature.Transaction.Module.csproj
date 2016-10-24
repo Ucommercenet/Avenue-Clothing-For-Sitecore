@@ -128,13 +128,13 @@
     <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\MiniBasketController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\AddressDetailsViewModel.cs" />
+    <Compile Include="ViewModels\AddressSaveViewModel.cs" />
+    <Compile Include="ViewModels\AddressRenderingViewModel.cs" />
     <Compile Include="ViewModels\AddressViewModel.cs" />
     <Compile Include="ViewModels\AddToBasketButtonRenderingViewModel.cs" />
-    <Compile Include="ViewModels\RefreshMiniBasketViewModel.cs" />
-    <Compile Include="ViewModels\MiniBasketViewModel.cs" />
-    <Compile Include="ViewModels\ValidateProductExistsViewModel.cs" />
-    <Compile Include="ViewModels\AddToBasketViewModel.cs" />
+    <Compile Include="ViewModels\MiniBasketRefreshViewModel.cs" />
+    <Compile Include="ViewModels\MiniBasketRenderingViewModel.cs" />
+    <Compile Include="ViewModels\AddToBasketButtonAddToBasketViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
@@ -155,7 +155,7 @@
     <Content Include="Views\ContinueToCheckout\ContinueToCheckout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Address\Address.cshtml" />
+    <Content Include="Views\Address\Rendering.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

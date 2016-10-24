@@ -20,7 +20,7 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 
 		public ActionResult Rendering()
 		{
-			var miniBasketViewModel = new MiniBasketViewModel
+			var miniBasketViewModel = new MiniBasketRenderingViewModel
 			{
 				IsEmpty = true, 
 				RefreshUrl = Url.Action("Refresh")
@@ -43,7 +43,7 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 		[HttpGet]
 		public ActionResult Refresh()
 		{
-			var viewModel = new RefreshMiniBasketViewModel
+			var viewModel = new MiniBasketRefreshViewModel
 			{
 				IsEmpty = true
 			};

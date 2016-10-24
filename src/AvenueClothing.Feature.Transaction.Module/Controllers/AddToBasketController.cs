@@ -35,13 +35,8 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
             return View(viewModel);
         }
 
-        /// <summary>
-        /// POST /api/Sitecore/Product/AddToBasket/
-        /// </summary>
-        /// <param name="viewModel">Json or Http Form data</param>
-        /// <returns>Http status codes</returns>
         [HttpPost]
-        public ActionResult AddToBasket(AddToBasketViewModel viewModel)
+        public ActionResult AddToBasket(AddToBasketButtonAddToBasketViewModel viewModel)
         {
             if (viewModel.Quantity <= 0)
             {
