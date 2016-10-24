@@ -1,8 +1,8 @@
 ﻿@model AvenueClothing.Feature.Transaction.Module.ViewModels.MiniBasketRenderingViewModel
 @{
     Layout = null;
-    var emptyClass = Model.IsEmpty ? "display:none;" : null;
-    var notEmptyClass = !Model.IsEmpty ? null : "display:none;";
+    var emptyClass = Model.IsEmpty ? null : "display:none;";
+    var notEmptyClass = !Model.IsEmpty ? null: "display:none;";
 }
 
 <div class="js-mini-basket" data-refresh-url="@Model.RefreshUrl" data-mini-basket-empty-selector=".js-mini-basket-empty" data-mini-basket-not-empty-selector=".js-mini-basket-not-empty" data-mini-basket-number-of-items-selector=".js-mini-basket-number-of-items" data-mini-basket-total-selector=".js-mini-basket-total">

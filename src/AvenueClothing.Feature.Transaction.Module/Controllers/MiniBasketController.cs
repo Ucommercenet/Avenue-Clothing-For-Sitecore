@@ -1,10 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Transaction.Module.ViewModels;
-using Sitecore.Mvc.Pipelines.Response.RenderRendering;
-using Sitecore.Mvc.Presentation;
 using UCommerce;
-using UCommerce.Api;
 using UCommerce.Transactions;
 
 namespace AvenueClothing.Feature.Transaction.Module.Controllers
