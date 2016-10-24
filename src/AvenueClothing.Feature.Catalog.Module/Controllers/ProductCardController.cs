@@ -18,9 +18,9 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 			_catalogContext = catalogContext;
 		}
 
-		public ActionResult ProductCard()
+		public ActionResult Rendering()
 		{
-			var productView = new ProductViewModel();
+			var productView = new ProductCardRenderingViewModel();
 			
 			var database = Sitecore.Context.Database;
 			var productItem = database.GetItem(RenderingContext.Current.Rendering.Properties["productItem"]);

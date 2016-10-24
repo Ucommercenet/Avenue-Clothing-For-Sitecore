@@ -1,5 +1,5 @@
 ﻿@using Sitecore.Mvc
-@model IList<AvenueClothing.Feature.Catalog.Module.ViewModels.ProductReviewViewModel>
+@model AvenueClothing.Feature.Catalog.Module.ViewModels.ReviewListRenderingViewModel
 
 @{
     Layout = null;
@@ -7,7 +7,7 @@
 
 @if (Model.Any())
 {
-    foreach (var review in Model)
+    foreach (var review in Model.Reviews)
     {
         <section itemprop="review" itemscope itemtype="http://schema.org/Review" class="review">
             <header>

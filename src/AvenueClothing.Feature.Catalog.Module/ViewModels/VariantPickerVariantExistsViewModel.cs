@@ -2,9 +2,9 @@
 
 namespace AvenueClothing.Feature.Catalog.Module.ViewModels
 {
-    public class VariantExistsViewModel
+    public class VariantPickerVariantExistsViewModel
     {
-        public VariantExistsViewModel()
+        public VariantPickerVariantExistsViewModel()
         {
             VariantNameValueDictionary = new Dictionary<string, string>();
         }

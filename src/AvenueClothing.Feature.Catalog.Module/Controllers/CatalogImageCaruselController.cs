@@ -8,12 +8,12 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
 	public class CatalogImageCaruselController : Controller
     {
-		public ActionResult CatalogImageCarusel()
+		public ActionResult Rendering()
 		{
 			var item = Sitecore.Mvc.Presentation.RenderingContext.Current.Rendering.Item;
 			var slideIds = Sitecore.Data.ID.ParseArray(item["images"]);
 			
-			var viewModel = new CarouselViewModel
+			var viewModel = new CatalogImageCaruselRenderingViewModel
 			{
 				ImageUrls = 
 					slideIds.Select(i =>
@@ -21,7 +21,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 						).ToList()
 			};
 
-			return View("/views/CatalogImageCarusel.cshtml", viewModel);
+			return View(viewModel);
 		}
 
 		public static string GetMediaItemUrl(Item item)

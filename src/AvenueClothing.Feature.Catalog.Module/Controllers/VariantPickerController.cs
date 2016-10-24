@@ -21,11 +21,11 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 		    _catalogContext = catalogContext;
 	    }
 
-	    public ActionResult Index()
+	    public ActionResult Rendering()
         {
 			var currentProduct = _catalogContext.CurrentProduct;
 
-            var viewModel = new VariantPickerViewModel
+            var viewModel = new VariantPickerRenderingViewModel
             {
                 ProductSku = currentProduct.Sku,
                 VariantExistsUrl = Url.Action("VariantExists")
@@ -43,7 +43,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 
             foreach (var variant in uniqueVariants)
             {
-                var productPropertiesViewModel = new VariantPickerViewModel.Variant
+                var productPropertiesViewModel = new VariantPickerRenderingViewModel.Variant
                 {
                     Name = variant.Key.Name,
                     DisplayName = variant.Key.Name
@@ -51,7 +51,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 
                 foreach (var variantValue in variant.Select(v => v.Value).Distinct())
                 {
-                    productPropertiesViewModel.VaraintItems.Add(new VariantPickerViewModel.Variant.VaraintValue
+                    productPropertiesViewModel.VaraintItems.Add(new VariantPickerRenderingViewModel.Variant.VaraintValue
                     {
                         Name = variantValue,
                         DisplayName = variantValue
@@ -64,11 +64,8 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
             return View(viewModel);
         }
 
-        /// <summary>
-        /// POST /api/Sitecore/VariantPicker/VariantExists/
-        /// </summary>
         [HttpPost]
-        public ActionResult VariantExists(VariantExistsViewModel viewModel)
+        public ActionResult VariantExists(VariantPickerVariantExistsViewModel viewModel)
         {
             var getProductResponse = new GetProductResponse();
             if (_getProductPipeline.Execute(new GetProductPipelineArgs(new GetProductRequest(new ProductIdentifier(viewModel.ProductSku, null)), getProductResponse)) == PipelineExecutionResult.Error)

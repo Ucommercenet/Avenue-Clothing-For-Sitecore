@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Catalog.Module.ViewModels;
 using Sitecore.Mvc.Presentation;
@@ -15,55 +16,51 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 	    private readonly ICatalogContext _catalogContext;
 	    private readonly IRepository<Product> _productRepository;
 	    private readonly IRepository<ProductReviewStatus> _productReviewStatusRepository;
-	    private readonly IRepository<Category> _categoryRepository;
 	    private readonly IOrderContext _orderContext;
 	    private readonly IPipeline<ProductReview> _productReviewPipeline;
 
 	    public ReviewFormController(ICatalogContext catalogContext, IRepository<Product> productRepository, IRepository<ProductReviewStatus> productReviewStatusRepository, 
-			IRepository<Category> categoryRepository, IOrderContext orderContext, IPipeline<ProductReview> productReviewPipeline )
+			IOrderContext orderContext, IPipeline<ProductReview> productReviewPipeline )
 	    {
 		    _catalogContext = catalogContext;
 		    _productRepository = productRepository;
 			_productReviewStatusRepository = productReviewStatusRepository;
-			_categoryRepository = categoryRepository;
 		    _orderContext = orderContext;
 		    _productReviewPipeline = productReviewPipeline;
 	    }
 
-	    public ActionResult ReviewForm()
+	    public ActionResult Rendering()
         {
-            CategoryProductGuid guids = new CategoryProductGuid()
+            var viewModel = new ReviewFormRenderingViewModel()
             {
                 ProductGuid = RenderingContext.Current.ContextItem.ID.Guid,
             };
 			if (_catalogContext.CurrentCategory != null)
             {
-				guids.CategoryGuid = _catalogContext.CurrentCategory.Guid;
+                viewModel.CategoryGuid = _catalogContext.CurrentCategory.Guid;
             }
           
-            return View("~/Views/ReviewForm.cshtml", guids);
+            return View(viewModel);
         }
 
         [HttpPost]
-        public ActionResult PostReview(ProductReviewViewModel formReview)
+        public ActionResult SaveReview(ReviewFormSaveReviewViewModel viewModel)
         {
-     
-            var product = _productRepository.SingleOrDefault(x=> x.Guid == formReview.ProductGuid);
-			var category = _categoryRepository.SingleOrDefault(x => x.Guid == formReview.CategoryGuid);
+            var product = _productRepository.SingleOrDefault(x => x.Guid == viewModel.ProductGuid);
 
             var request = System.Web.HttpContext.Current.Request;
-			var basket = _orderContext.GetBasket();
+            var basket = _orderContext.GetBasket();
 
             if (request.Form.AllKeys.All(x => x != "review-product"))
             {
-                return View();
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var name = formReview.Name;
-            var email = formReview.Email;
-            var rating = Convert.ToInt32(formReview.Rating) * 20;
-            var reviewHeadline = formReview.Title;
-            var reviewText = formReview.Comments;
+            var name = viewModel.Name;
+            var email = viewModel.Email;
+            var rating = viewModel.Rating * 20;
+            var reviewHeadline = viewModel.Title;
+            var reviewText = viewModel.Comments;
 
             if (basket.PurchaseOrder.Customer == null)
             {
@@ -88,7 +85,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 
             var review = new ProductReview();
             review.ProductCatalogGroup = _catalogContext.CurrentCatalogGroup;
-			review.ProductReviewStatus = _productReviewStatusRepository.SingleOrDefault(s => s.Name == "New");
+            review.ProductReviewStatus = _productReviewStatusRepository.SingleOrDefault(s => s.Name == "New");
             review.CreatedOn = DateTime.Now;
             review.CreatedBy = "System";
             review.Product = product;
@@ -102,14 +99,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 
             _productReviewPipeline.Execute(review);
 
-            if (category != null)
-            {
-                return Redirect(CatalogLibrary.GetNiceUrlForProduct(product, category));
-            }
-            else
-            {
-                return Redirect(CatalogLibrary.GetNiceUrlForProduct(product));
-            }
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
     }
 }

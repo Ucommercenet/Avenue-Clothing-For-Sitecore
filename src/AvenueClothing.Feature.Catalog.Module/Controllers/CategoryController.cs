@@ -26,9 +26,9 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 			_searchLibraryInternal = searchLibraryInternal;
 		}
 
-		public ActionResult Category()
+		public ActionResult Rendering()
 		{
-			var categoryViewModel = new CategoryViewModel();
+			var categoryViewModel = new CategoryRenderingViewModel();
 
 			var currentCategory = _catalogContext.CurrentCategory;
 
@@ -37,7 +37,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 			return View(categoryViewModel);
 		}
 		
-		private IList<Guid> GetProductGuidsInFacetsAndSelectedProductOnSitecoreItem(Category category)
+		private List<Guid> GetProductGuidsInFacetsAndSelectedProductOnSitecoreItem(Category category)
 		{
 			var facetsForQuerying = HttpContext.Request.QueryString.ToFacets();
 			var productGuidsInCategory = new List<Guid>();

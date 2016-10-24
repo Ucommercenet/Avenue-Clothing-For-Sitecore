@@ -1,12 +1,12 @@
 ﻿@using System.Web.Mvc.Html
 @using AvenueClothing.Feature.Catalog.Module.ViewModels
 
-@model AvenueClothing.Feature.Catalog.Module.ViewModels.CategoryNavigationViewModel
+@model AvenueClothing.Feature.Catalog.Module.ViewModels.CategoryNavigationRenderingViewModel
 @{
 	Layout = null;
 }
 
-@helper DisplayCategories(IList<CategoryViewModel> categories)
+@helper DisplayCategories(List<CategoryNavigationRenderingViewModel.Category> categories)
 {
 	<ul class="nav nav-pills nav-stacked">
 		@foreach (var category in categories)

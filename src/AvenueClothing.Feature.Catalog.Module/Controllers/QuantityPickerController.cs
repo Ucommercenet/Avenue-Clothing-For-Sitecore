@@ -13,11 +13,11 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 		    _catalogContext = catalogContext;
 	    }
 
-	    public ActionResult Index()
+	    public ActionResult Rendering()
         {
 			var currentProduct = _catalogContext.CurrentProduct;
 
-            var viewModel = new QuantityPickerViewModel
+            var viewModel = new QuantityPickerRenderingViewModel
             {
                 ProductSku = currentProduct.Sku,
                 MaxNumberOfItems = 30

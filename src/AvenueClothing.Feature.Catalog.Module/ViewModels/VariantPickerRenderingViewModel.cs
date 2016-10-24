@@ -2,9 +2,9 @@
 
 namespace AvenueClothing.Feature.Catalog.Module.ViewModels
 {
-    public class VariantPickerViewModel
+    public class VariantPickerRenderingViewModel
     {
-        public VariantPickerViewModel()
+        public VariantPickerRenderingViewModel()
         {
             Variants = new List<Variant>();
         }

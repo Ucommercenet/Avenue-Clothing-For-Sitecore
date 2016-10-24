@@ -131,24 +131,23 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CategoryNavigationController.cs" />
     <Compile Include="Controllers\QuantityPickerController.cs" />
-    <Compile Include="Controllers\ReviewDisplayController.cs" />
+    <Compile Include="Controllers\ReviewListController.cs" />
     <Compile Include="Controllers\ReviewFormController.cs" />
     <Compile Include="Controllers\VariantPickerController.cs" />
     <Compile Include="Extensions\FacetedQueryStringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\CarouselViewModel.cs" />
-    <Compile Include="ViewModels\CategoryNavigationViewModel.cs" />
-    <Compile Include="ViewModels\CategoryProductGuid.cs" />
-    <Compile Include="ViewModels\CategoryViewModel.cs" />
-    <Compile Include="ViewModels\FacetsDisplayedViewModel.cs" />
-    <Compile Include="ViewModels\FacetValueViewModel.cs" />
-    <Compile Include="ViewModels\FacetViewModel.cs" />
+    <Compile Include="ViewModels\CatalogImageCaruselRenderingViewModel.cs" />
+    <Compile Include="ViewModels\CategoryNavigationRenderingViewModel.cs" />
+    <Compile Include="ViewModels\CategoryRenderingViewModel.cs" />
+    <Compile Include="ViewModels\ReviewFormRenderingViewModel.cs" />
+    <Compile Include="ViewModels\FacetsRenderingViewModel.cs" />
     <Compile Include="ViewModels\HomepageCatalogViewModel.cs" />
-    <Compile Include="ViewModels\ProductReviewViewModel.cs" />
-    <Compile Include="ViewModels\ProductViewModel.cs" />
-    <Compile Include="ViewModels\QuantityPickerViewModel.cs" />
-    <Compile Include="ViewModels\VariantExistsViewModel.cs" />
-    <Compile Include="ViewModels\VariantPickerViewModel.cs" />
+    <Compile Include="ViewModels\ProductCardRenderingViewModel.cs" />
+    <Compile Include="ViewModels\QuantityPickerRenderingViewModel.cs" />
+    <Compile Include="ViewModels\ReviewFormSaveReviewViewModel.cs" />
+    <Compile Include="ViewModels\ReviewListRenderingViewModel.cs" />
+    <Compile Include="ViewModels\VariantPickerVariantExistsViewModel.cs" />
+    <Compile Include="ViewModels\VariantPickerRenderingViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -159,28 +158,28 @@
     <Content Include="Scripts\js-variant-picker.js" />
     <Content Include="Scripts\uCommerce.demostore.productpage.js" />
     <Content Include="Scripts\uCommerce.facets.js" />
-    <Content Include="Views\CategoryNavigation.cshtml" />
+    <Content Include="Views\CategoryNavigation\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\CatalogImageCarusel.cshtml" />
+    <Content Include="Views\CatalogImageCarusel\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Category\Category.cshtml" />
+    <Content Include="Views\Category\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Facets.cshtml" />
+    <Content Include="Views\Facets\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\ProductCard\ProductCard.cshtml" />
+    <Content Include="Views\ProductCard\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\VariantPicker\Index.cshtml" />
+    <Content Include="Views\VariantPicker\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\HomepageCatalog.cshtml" />
+    <Content Include="Views\HomepageCatalog\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\QuantityPicker\Index.cshtml" />
+    <Content Include="Views\QuantityPicker\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ProductImage.cshtml" />
@@ -192,10 +191,10 @@
     <Content Include="Views\ProductDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\ReviewForm.cshtml" />
+    <Content Include="Views\ReviewForm\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\ReviewDisplay.cshtml" />
+    <Content Include="Views\ReviewList\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ProductList.cshtml" />

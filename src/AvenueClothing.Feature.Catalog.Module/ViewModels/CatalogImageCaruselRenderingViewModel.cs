@@ -5,11 +5,11 @@ using System.Web;
 
 namespace AvenueClothing.Feature.Catalog.Module.ViewModels
 {
-	public class CarouselViewModel
+	public class CatalogImageCaruselRenderingViewModel
 	{
-		public IList<string> ImageUrls { get; set; }
+		public List<string> ImageUrls { get; set; }
 
-		public CarouselViewModel()
+		public CatalogImageCaruselRenderingViewModel()
 		{
 			ImageUrls = new List<string>();
 		}
