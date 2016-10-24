@@ -35,7 +35,7 @@ namespace AvenueClothing.Tests
 
             //Assert
             var viewResult = result as ViewResult;
-            var model = viewResult?.Model as MiniBasketViewModel;
+            var model = viewResult.Model as MiniBasketViewModel;
             Assert.NotNull(viewResult);
             Assert.NotNull(model);
             Assert.True(model.IsEmpty);
@@ -59,7 +59,7 @@ namespace AvenueClothing.Tests
 
             //Assert
             var viewResult = result as ViewResult;
-            var model = viewResult?.Model as MiniBasketViewModel;
+            var model = viewResult.Model as MiniBasketViewModel;
             Assert.NotNull(viewResult);
             Assert.NotNull(model);
             Assert.True(model.IsEmpty);
