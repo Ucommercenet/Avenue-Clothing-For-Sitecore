@@ -42,7 +42,8 @@ namespace AvenueClothing.Project.Website
 			container.Register(() => ObjectFactory.Instance.Resolve<IRepository<Category>>(), Lifestyle.Transient);
 			container.Register(() => ObjectFactory.Instance.Resolve<IRepository<ProductReviewStatus>>(), Lifestyle.Transient);
 			container.Register(() => ObjectFactory.Instance.Resolve<IPipeline<ProductReview>>(), Lifestyle.Transient);
-
+            container.Register(() => Country.All(), Lifestyle.Transient);
+            
             //var uCommerceExportedTypes = AppDomain.CurrentDomain.GetAssemblies()
             //    .Where(assembly => assembly.FullName.StartsWith("UCommerce"))
             //    .SelectMany(x => x.GetExportedTypes())
