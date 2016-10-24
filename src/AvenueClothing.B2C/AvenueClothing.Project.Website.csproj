@@ -205,7 +205,7 @@
     <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
-    <Content Include="Views\Avenue Clothing\Header.cshtml" />
+    <Content Include="Views\Header\Rendering.cshtml" />
     <Content Include="Views\Avenue Clothing\CreateStore.cshtml" />
   </ItemGroup>
   <ItemGroup>
