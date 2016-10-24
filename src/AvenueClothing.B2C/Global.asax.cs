@@ -8,11 +8,13 @@ using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
 using UCommerce.Infrastructure;
 using AvenueClothing.Project.Website.ExtensionMethods;
+using UCommerce.Catalog;
 using UCommerce.Content;
 using UCommerce.EntitiesV2;
 using UCommerce.Pipelines;
 using UCommerce.Pipelines.GetProduct;
 using UCommerce.Runtime;
+using UCommerce.Search;
 using UCommerce.Transactions;
 
 namespace AvenueClothing.Project.Website
@@ -30,6 +32,8 @@ namespace AvenueClothing.Project.Website
 
             //Register uCommerce types
             container.Register(() => ObjectFactory.Instance.Resolve<TransactionLibraryInternal>(), Lifestyle.Transient);
+            container.Register(() => ObjectFactory.Instance.Resolve<CatalogLibraryInternal>(), Lifestyle.Transient);
+			container.Register(() => ObjectFactory.Instance.Resolve<SearchLibraryInternal>(), Lifestyle.Transient);
             container.Register(() => ObjectFactory.Instance.Resolve<ICatalogContext>(), Lifestyle.Transient);
             container.Register(() => ObjectFactory.Instance.Resolve<IOrderContext>(), Lifestyle.Transient);
             container.Register(() => ObjectFactory.Instance.Resolve<IPipeline<IPipelineArgs<GetProductRequest, GetProductResponse>>>(), Lifestyle.Transient);
