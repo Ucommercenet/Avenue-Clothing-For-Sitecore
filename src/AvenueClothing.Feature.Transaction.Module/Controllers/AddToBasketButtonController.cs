@@ -38,15 +38,6 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
         [HttpPost]
         public ActionResult AddToBasket(AddToBasketButtonAddToBasketViewModel viewModel)
         {
-            if (viewModel.Quantity <= 0)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            if (string.IsNullOrEmpty(viewModel.ProductSku))
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
             _transactionLibraryInternal.AddToBasket(viewModel.Quantity, viewModel.ProductSku, viewModel.VariantSku);
 
             return new HttpStatusCodeResult(HttpStatusCode.OK);

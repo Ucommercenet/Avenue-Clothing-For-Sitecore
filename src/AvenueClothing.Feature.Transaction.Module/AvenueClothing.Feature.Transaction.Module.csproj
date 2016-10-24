@@ -124,7 +124,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\AddToBasketController.cs" />
+    <Compile Include="Controllers\AddToBasketButtonController.cs" />
     <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\MiniBasketController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

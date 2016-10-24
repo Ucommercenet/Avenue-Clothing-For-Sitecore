@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Transaction.Module.ViewModels;
 using Sitecore.Mvc.Pipelines.Response.RenderRendering;
@@ -6,17 +7,26 @@ using Sitecore.Mvc.Presentation;
 using UCommerce;
 using UCommerce.Api;
 using UCommerce.EntitiesV2;
+using UCommerce.Transactions;
 
 namespace AvenueClothing.Feature.Transaction.Module.Controllers
 {
 	public class AddressController : Controller
 	{
+	    private readonly TransactionLibraryInternal _transactionLibraryInternal;
+	    private readonly IQueryable<Country> _countries;
+
+	    public AddressController(TransactionLibraryInternal transactionLibraryInternal, IQueryable<Country> countries)
+	    {
+	        _transactionLibraryInternal = transactionLibraryInternal;
+	        _countries = countries;
+	    }
 		public ActionResult Rendering()
 		{
 			var viewModel = new AddressRenderingViewModel();
 
-			var shippingInformation = TransactionLibrary.GetShippingInformation();
-			var billingInformation = TransactionLibrary.GetBillingInformation();
+		    var shippingInformation = _transactionLibraryInternal.GetBasket().PurchaseOrder.GetShippingAddress(Constants.DefaultShipmentAddressName) ?? new OrderAddress();
+            var billingInformation = _transactionLibraryInternal.GetBasket().PurchaseOrder.BillingAddress ?? new OrderAddress();
 
 			viewModel.BillingAddress.FirstName = billingInformation.FirstName;
 			viewModel.BillingAddress.LastName = billingInformation.LastName;
@@ -46,13 +56,13 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 			viewModel.ShippingAddress.CompanyName = shippingInformation.CompanyName;
 			viewModel.ShippingAddress.CountryId = shippingInformation.Country != null ? shippingInformation.Country.CountryId : -1;
 
-			viewModel.AvailableCountries = Country.All().ToList().Select(x => new SelectListItem() { Text = x.Name, Value = x.CountryId.ToString() }).ToList();
+		    viewModel.AvailableCountries = _countries.ToList().Select(x => new SelectListItem() { Text = x.Name, Value = x.CountryId.ToString() }).ToList();
 
 			return View(viewModel);
 		}
 
 		[HttpPost]
-		public ActionResult Save(AddressRenderingViewModel addressRendering)
+		public ActionResult Save(AddressSaveViewModel addressRendering)
 		{
 			if (addressRendering.IsShippingAddressDifferent)
 			{
@@ -66,32 +76,33 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 				EditShippingInformation(addressRendering.BillingAddress);
 			}
 
-			TransactionLibrary.ExecuteBasketPipeline();
+			_transactionLibraryInternal.ExecuteBasketPipeline();
 
-			return Redirect("/basket/shipping");
+		    return new HttpStatusCodeResult(HttpStatusCode.OK);
 		}
 
 		private void EditShippingInformation(AddressViewModel shippingAddress)
 		{
-			TransactionLibrary.EditShippingInformation(
-		  shippingAddress.FirstName,
-		  shippingAddress.LastName,
-		  shippingAddress.EmailAddress,
-		  shippingAddress.PhoneNumber,
-		  shippingAddress.MobilePhoneNumber,
-		  shippingAddress.CompanyName,
-		  shippingAddress.Line1,
-		  shippingAddress.Line2,
-		  shippingAddress.PostalCode,
-		  shippingAddress.City,
-		  shippingAddress.State,
-		  shippingAddress.Attention,
-		  shippingAddress.CountryId);
+			_transactionLibraryInternal.EditShipmentInformation(
+                Constants.DefaultShipmentAddressName,
+                shippingAddress.FirstName,
+		        shippingAddress.LastName,
+		        shippingAddress.EmailAddress,
+		        shippingAddress.PhoneNumber,
+		        shippingAddress.MobilePhoneNumber,
+		        shippingAddress.CompanyName,
+		        shippingAddress.Line1,
+		        shippingAddress.Line2,
+		        shippingAddress.PostalCode,
+		        shippingAddress.City,
+		        shippingAddress.State,
+		        shippingAddress.Attention,
+		        shippingAddress.CountryId);
 		}
 
 		private void EditBillingInformation(AddressViewModel billingAddress)
 		{
-			TransactionLibrary.EditBillingInformation(
+            _transactionLibraryInternal.EditBillingInformation(
 			   billingAddress.FirstName,
 			   billingAddress.LastName,
 			   billingAddress.EmailAddress,

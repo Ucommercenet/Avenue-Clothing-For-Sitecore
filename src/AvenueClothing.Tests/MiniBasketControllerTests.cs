@@ -35,7 +35,7 @@ namespace AvenueClothing.Tests
 
             //Assert
             var viewResult = result as ViewResult;
-            var model = viewResult.Model as MiniBasketRenderingViewModel;
+            var model = viewResult?.Model as MiniBasketRenderingViewModel;
             Assert.NotNull(viewResult);
             Assert.NotNull(model);
             Assert.True(model.IsEmpty);
@@ -59,7 +59,7 @@ namespace AvenueClothing.Tests
 
             //Assert
             var viewResult = result as ViewResult;
-            var model = viewResult.Model as MiniBasketRenderingViewModel;
+            var model = viewResult?.Model as MiniBasketRenderingViewModel;
             Assert.NotNull(viewResult);
             Assert.NotNull(model);
             Assert.True(model.IsEmpty);
@@ -68,6 +68,46 @@ namespace AvenueClothing.Tests
             Assert.NotEmpty(model.RefreshUrl);
         }
 
-        //var result2 = miniBasketController.Refresh();
+        [Fact]
+        public void Refresh_When_Basket_Is_Empty_Should_Return_View_With_Empty_Model()
+        {
+            //Arrange
+            _transactionLibraryInternal.HasBasket().Returns(false);
+
+            //Act
+            var result = _controller.Refresh();
+
+            //Assert
+            var viewResult = result as JsonResult;
+            var model = viewResult?.Data as MiniBasketRefreshViewModel;
+            Assert.NotNull(viewResult);
+            Assert.NotNull(model);
+            Assert.True(model.IsEmpty);
+            Assert.Null(model.NumberOfItems);
+            Assert.Null(model.Total);
+        }
+
+        [Fact]
+        public void Refresh_When_Basket_Is_Not_Empty_Should_Return_View_With_Non_Empty_Model()
+        {
+            //Arrange
+            _transactionLibraryInternal.HasBasket().Returns(true);
+            _transactionLibraryInternal.GetBasket(false).Returns(new Basket(new PurchaseOrder
+            {
+                BillingCurrency = new Currency()
+            }));
+
+            //Act
+            var result = _controller.Refresh();
+
+            //Assert
+            var viewResult = result as JsonResult;
+            var model = viewResult?.Data as MiniBasketRefreshViewModel;
+            Assert.NotNull(viewResult);
+            Assert.NotNull(model);
+            Assert.True(model.IsEmpty);
+            Assert.NotNull(model.NumberOfItems);
+            Assert.NotNull(model.Total);
+        }
     }
 }
