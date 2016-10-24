@@ -7,23 +7,23 @@ using UCommerce.Transactions;
 
 namespace AvenueClothing.Feature.Transaction.Module.Controllers
 {
-    public class AddToBasketController : Controller
+    public class AddToBasketButtonController : Controller
     {
         private readonly TransactionLibraryInternal _transactionLibraryInternal;
         private readonly ICatalogContext _catalogContext;
 
-        public AddToBasketController(TransactionLibraryInternal transactionLibraryInternal, ICatalogContext catalogContext)
+        public AddToBasketButtonController(TransactionLibraryInternal transactionLibraryInternal, ICatalogContext catalogContext)
         {
             _transactionLibraryInternal = transactionLibraryInternal;
             _catalogContext = catalogContext;
         }
 
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Rendering()
         {
             var product = _catalogContext.CurrentProduct;
 
-            var viewModel = new AddToBasketIndexViewModel
+            var viewModel = new AddToBasketButtonRenderingViewModel
             {
                 AddToBasketUrl = Url.Action("AddToBasket"),
                 BasketUrl = "/cart",

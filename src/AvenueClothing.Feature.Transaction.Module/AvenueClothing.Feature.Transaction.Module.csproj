@@ -130,7 +130,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AddressDetailsViewModel.cs" />
     <Compile Include="ViewModels\AddressViewModel.cs" />
-    <Compile Include="ViewModels\AddToBasketIndexViewModel.cs" />
+    <Compile Include="ViewModels\AddToBasketButtonRenderingViewModel.cs" />
     <Compile Include="ViewModels\RefreshMiniBasketViewModel.cs" />
     <Compile Include="ViewModels\MiniBasketViewModel.cs" />
     <Compile Include="ViewModels\ValidateProductExistsViewModel.cs" />
@@ -146,7 +146,7 @@
     <Content Include="Scripts\js-add-to-basket-button.js" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\AddToBasket\Index.cshtml" />
+    <Content Include="Views\AddToBasketButton\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\MiniBasket\Rendering.cshtml" />

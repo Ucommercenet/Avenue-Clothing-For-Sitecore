@@ -1,6 +1,6 @@
 ﻿namespace AvenueClothing.Feature.Transaction.Module.ViewModels
 {
-    public class AddToBasketIndexViewModel
+    public class AddToBasketButtonRenderingViewModel
     {
         public string AddToBasketUrl { get; set; }
         public string BasketUrl { get; set; }
