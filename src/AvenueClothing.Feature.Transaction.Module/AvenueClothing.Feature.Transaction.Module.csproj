@@ -130,7 +130,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AddressSaveViewModel.cs" />
     <Compile Include="ViewModels\AddressRenderingViewModel.cs" />
-    <Compile Include="ViewModels\AddressViewModel.cs" />
     <Compile Include="ViewModels\AddToBasketButtonRenderingViewModel.cs" />
     <Compile Include="ViewModels\MiniBasketRefreshViewModel.cs" />
     <Compile Include="ViewModels\MiniBasketRenderingViewModel.cs" />

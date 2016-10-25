@@ -81,7 +81,7 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 		    return new HttpStatusCodeResult(HttpStatusCode.OK);
 		}
 
-		private void EditShippingInformation(AddressViewModel shippingAddress)
+		private void EditShippingInformation(AddressSaveViewModel.Address shippingAddress)
 		{
 			_transactionLibraryInternal.EditShipmentInformation(
                 Constants.DefaultShipmentAddressName,
@@ -100,7 +100,7 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 		        shippingAddress.CountryId);
 		}
 
-		private void EditBillingInformation(AddressViewModel billingAddress)
+		private void EditBillingInformation(AddressSaveViewModel.Address billingAddress)
 		{
             _transactionLibraryInternal.EditBillingInformation(
 			   billingAddress.FirstName,
