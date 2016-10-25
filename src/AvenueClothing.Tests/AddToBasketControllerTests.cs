@@ -44,7 +44,7 @@ namespace AvenueClothing.Tests
 
             //Assert
             var viewResult = result as ViewResult;
-            var model = viewResult?.Model as AddToBasketButtonRenderingViewModel;
+            var model = viewResult != null ? viewResult.Model as AddToBasketButtonRenderingViewModel : null;
             Assert.NotNull(viewResult);
             Assert.NotNull(model);
             Assert.NotEmpty(model.AddToBasketUrl);

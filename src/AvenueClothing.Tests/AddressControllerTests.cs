@@ -39,7 +39,7 @@ namespace AvenueClothing.Tests
 
             //Assert
             var viewResult = result as ViewResult;
-            var model = viewResult?.Model as AddressRenderingViewModel;
+            var model = viewResult != null ? viewResult.Model as AddressRenderingViewModel : null;
             Assert.NotNull(viewResult);
             Assert.NotNull(model);
             Assert.NotNull(model.BillingAddress);

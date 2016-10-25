@@ -35,7 +35,7 @@ namespace AvenueClothing.Tests
 
             //Assert
             var viewResult = result as ViewResult;
-            var model = viewResult?.Model as MiniBasketRenderingViewModel;
+            var model = viewResult != null ? viewResult.Model as MiniBasketRenderingViewModel : null;
             Assert.NotNull(viewResult);
             Assert.NotNull(model);
             Assert.True(model.IsEmpty);
@@ -59,7 +59,7 @@ namespace AvenueClothing.Tests
 
             //Assert
             var viewResult = result as ViewResult;
-            var model = viewResult?.Model as MiniBasketRenderingViewModel;
+            var model = viewResult != null ? viewResult.Model as MiniBasketRenderingViewModel : null;
             Assert.NotNull(viewResult);
             Assert.NotNull(model);
             Assert.True(model.IsEmpty);
@@ -78,9 +78,9 @@ namespace AvenueClothing.Tests
             var result = _controller.Refresh();
 
             //Assert
-            var viewResult = result as JsonResult;
-            var model = viewResult?.Data as MiniBasketRefreshViewModel;
-            Assert.NotNull(viewResult);
+            var jsonResult = result as JsonResult;
+            var model = jsonResult != null ? jsonResult.Data as MiniBasketRefreshViewModel : null;
+            Assert.NotNull(jsonResult);
             Assert.NotNull(model);
             Assert.True(model.IsEmpty);
             Assert.Null(model.NumberOfItems);
@@ -101,9 +101,9 @@ namespace AvenueClothing.Tests
             var result = _controller.Refresh();
 
             //Assert
-            var viewResult = result as JsonResult;
-            var model = viewResult?.Data as MiniBasketRefreshViewModel;
-            Assert.NotNull(viewResult);
+            var jsonResult = result as JsonResult;
+            var model = jsonResult != null ? jsonResult.Data as MiniBasketRefreshViewModel : null;
+            Assert.NotNull(jsonResult);
             Assert.NotNull(model);
             Assert.True(model.IsEmpty);
             Assert.NotNull(model.NumberOfItems);
