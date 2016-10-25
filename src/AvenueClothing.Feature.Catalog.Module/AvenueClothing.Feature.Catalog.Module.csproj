@@ -125,7 +125,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CatalogImageCaruselController.cs" />
-    <Compile Include="Controllers\HomepageCatalogController.cs" />
     <Compile Include="Controllers\ProductCardController.cs" />
     <Compile Include="Controllers\FacetsController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -176,19 +175,19 @@
     <Content Include="Views\VariantPicker\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\HomepageCatalog\Rendering.cshtml" />
+    <Content Include="Views\Renderings\HomepageCatalog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\QuantityPicker\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\ProductImage.cshtml" />
+    <Content Include="Views\Renderings\ProductImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\CategoryImage.cshtml" />
+    <Content Include="Views\Renderings\CategoryImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\ProductDetails.cshtml" />
+    <Content Include="Views\Renderings\ProductDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ReviewForm\Rendering.cshtml" />
@@ -198,6 +197,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ProductList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\HomepageCatalog\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
