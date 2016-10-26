@@ -39,8 +39,8 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
         public ActionResult AddToBasket(AddToBasketButtonAddToBasketViewModel viewModel)
         {
             _transactionLibraryInternal.AddToBasket(viewModel.Quantity, viewModel.ProductSku, viewModel.VariantSku);
-
-            return new HttpStatusCodeResult(HttpStatusCode.OK);
+			
+			return Json(new { });
         }
     }
 }
