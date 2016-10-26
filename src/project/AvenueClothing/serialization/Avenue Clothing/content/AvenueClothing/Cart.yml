@@ -12,7 +12,24 @@ SharedFields:
     <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <d
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-        l="{55AD3180-3D79-461F-AC6F-D679AB58A849}" />
+        l="{55AD3180-3D79-461F-AC6F-D679AB58A849}">
+        <r
+          id="{878E2B49-315C-4EFE-8D26-52605F78C3D6}"
+          ph="header"
+          uid="{971026AA-5068-40BE-AAF6-741B95173D02}" />
+        <r
+          id="{AA92D865-76BA-4A80-ABD9-BC6E7CE83687}"
+          ph="breadcrumb"
+          uid="{747FE680-129C-4C4F-867E-A8BDF7FCCEB3}" />
+        <r
+          id="{749D4A8D-990A-4FFE-BE3A-C74591EBD862}"
+          ph="sidebar"
+          uid="{B21CC8AB-F8D8-464B-96A4-17CD280D024F}" />
+        <r
+          id="{33DD6E2C-D788-4F6B-BCD8-6DBFA912C99E}"
+          ph="main"
+          uid="{2892537F-4881-42AE-BC49-697D8A534530}" />
+      </d>
     </r>
 Languages:
 - Language: en

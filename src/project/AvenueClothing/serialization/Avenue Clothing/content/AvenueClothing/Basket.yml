@@ -1,10 +1,16 @@
 ﻿---
-ID: "66e7657c-1656-4d16-969b-78034ba5bb7b"
+ID: "7729ecf0-b7cc-4b0a-bbea-6e3f1053e707"
 Parent: "7919567a-faa2-4504-9c31-63a2cf67b551"
 Template: "3870177d-3bc6-46dc-9594-13860b542060"
-Path: /sitecore/content/AvenueClothing/Search
+Path: /sitecore/content/AvenueClothing/Basket
 DB: master
 SharedFields:
+- ID: "4c9312a5-2e4e-42f8-ab6f-b8db8b82bf22"
+  Hint: __Controller
+  Value: Basket
+- ID: "9fb734cc-8952-4072-a2d4-40f890e16f56"
+  Hint: __Controller Action
+  Value: Index
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Type: layout
@@ -14,13 +20,17 @@ SharedFields:
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
         l="{55AD3180-3D79-461F-AC6F-D679AB58A849}">
         <r
-          id="{AA92D865-76BA-4A80-ABD9-BC6E7CE83687}"
-          ph="breadcrumb"
-          uid="{4344B916-9389-4F0A-A59D-41D7BFFC0253}" />
-        <r
           id="{878E2B49-315C-4EFE-8D26-52605F78C3D6}"
           ph="header"
-          uid="{0DB705AD-DD13-4A78-B745-9A161BD8C6D6}" />
+          uid="{655D4995-F357-411B-BA1F-E56D7578C23C}" />
+        <r
+          id="{AA92D865-76BA-4A80-ABD9-BC6E7CE83687}"
+          ph="breadcrumb"
+          uid="{0747E1DE-2940-41F1-8058-5E5B6D306DDB}" />
+        <r
+          id="{749D4A8D-990A-4FFE-BE3A-C74591EBD862}"
+          ph="sidebar"
+          uid="{A5892745-ADE6-4A1A-B335-ACEF10A5AD16}" />
       </d>
     </r>
 Languages:
@@ -30,7 +40,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20161006T130827Z
+      Value: 20161019T074056Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: sitecore\admin

@@ -35,10 +35,10 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
             var category = SiteContext.Current.CatalogContext.CurrentCategory;
 			productView.Url = CatalogLibrary.GetNiceUrlForProduct(currentProduct,category);
 
-			//Get it the Sitecore way
-			//productView.ThumbnailImageUrl = (string)productItem.Fields["Thumbnail image"];
+            //Get it the Sitecore way
+            productView.ThumbnailImageUrl = productItem.Fields["Thumbnail image"].ToString();
 
-			return View("/views/ProductCard.cshtml", productView);
+            return View("/views/ProductCard.cshtml", productView);
            
 		}
 	}
