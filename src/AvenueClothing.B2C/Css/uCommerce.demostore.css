@@ -645,3 +645,17 @@ p.btn-group.view-details {
     margin-bottom: 5px;
         opacity: 0.5;
 }
+
+ aside .item-price {
+        color: #46a546;
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 40px;
+        margin: 10px 0 0;
+    }
+
+   aside .item-tax {
+        font-style: italic;
+        font-size: 0.9em;
+        color: #606060;
+    }

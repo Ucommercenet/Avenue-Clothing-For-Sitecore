@@ -1,0 +1,11 @@
+﻿@model AvenueClothing.Feature.Catalog.Module.ViewModels.ProductPriceRenderingViewModel
+@{
+    Layout = null;
+}
+
+<aside class="col-md-5 js-price-calculation" data-price-calculation-url="@Model.CalculatePriceUrl" data-product-sku="@Model.SKU" data-category-guid="@Model.CategoryGuid" data-catalog-guid="@Model.CatalogGuid" itemprop="offers" itemscope itemtype="http://schema.org/Offer" data>
+    <p class="item-price" itemprop="price"></p>
+    <p class="item-tax">
+        <small class="tax">Inc. </small>
+    </p>
+</aside>

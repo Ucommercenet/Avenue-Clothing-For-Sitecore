@@ -50,13 +50,15 @@
     <script src="~/Scripts/js-mini-basket.js"></script>
 	<script src="~/Scripts/js-infinite-scrolling.js"></script>
     <script src="~/Scripts/uCommerce.demostore.productpage.js"></script>
-	<script src="~/Scripts/js-addresses.js"></script>
+<script src="~/Scripts/js-addresses.js"></script>
+    <script src="~/Scripts/js-price-calculation.js"></script>
 	<script>
 		$(document).ready(function () {
 			AddToBasketButton.init($(document), $("*"));
 			VariantPicker.init($(document), $("*"));
 			QuantityPicker.init($(document), $("*"));
 			MiniBasket.init($(document), $("*"));
+		    PriceCalculation.init($(document), $("*"));
 		});
 	</script>
 </body>
