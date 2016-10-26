@@ -77,8 +77,7 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 			}
 
 			_transactionLibraryInternal.ExecuteBasketPipeline();
-
-		    return new HttpStatusCodeResult(HttpStatusCode.OK);
+            return Json(new {});
 		}
 
 		private void EditShippingInformation(AddressSaveViewModel.Address shippingAddress)
