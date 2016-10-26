@@ -18,10 +18,7 @@
 <body class="header-static @(Sitecore.Context.PageMode.IsNormal ? "" : (Sitecore.Context.PageMode.IsExperienceEditor ? "pagemode-edit" : "pagemode-preview"))">
 	<div id="main-container">
 		<header>
-
 			@Html.Sitecore().Placeholder("header")
-            @Html.Sitecore().Placeholder("header content")
-
 		</header>
 		<section>
 			<div class="container">
@@ -44,22 +41,20 @@
 	</div>
 	<script src="~/Scripts/jquery-3.0.0.min.js"></script>
 	<script src="~/Scripts/bootstrap.min.js"></script>
-	<script src="~/Scripts/uCommerce.facets.js"></script>
-	<script src="~/Scripts/js-add-to-basket-button.js"></script>
-	<script src="~/Scripts/js-variant-picker.js"></script>
-	<script src="~/Scripts/js-quantity-picker.js"></script>
-    <script src="~/Scripts/js-mini-basket.js"></script>
-	<script src="~/Scripts/js-infinite-scrolling.js"></script>
+    <script src="~/Scripts/uCommerce.facets.js"></script>
+	<script src="~/Scripts/uCommerce.scrolling.js"></script>
+    <script src="~/Scripts/js-add-to-basket-button.js"></script>
+    <script src="~/Scripts/js-variant-picker.js"></script>
+    <script src="~/Scripts/js-quantity-picker.js"></script>
+<script src="~/Scripts/js-mini-basket.js"></script>
     <script src="~/Scripts/uCommerce.demostore.productpage.js"></script>
-	<script src="~/Scripts/js-addresses.js"></script>
-	<script>
-		$(document).ready(function () {
-			AddToBasketButton.init($(document), $("*"));
-			VariantPicker.init($(document), $("*"));
-			QuantityPicker.init($(document), $("*"));
-			MiniBasket.init($(document), $("*"));
-		});
-	</script>
+    <script>
+        $(document).ready(function() {
+            AddToBasketButton.init($(document), $("*"));
+            VariantPicker.init($(document), $("*"));
+            QuantityPicker.init($(document), $("*"));
+            MiniBasket.init($(document), $("*"));
+        });
+    </script>
 </body>
-
 </html>

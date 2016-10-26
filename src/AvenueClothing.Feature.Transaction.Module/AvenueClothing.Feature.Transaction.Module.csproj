@@ -125,10 +125,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AddToBasketButtonController.cs" />
+    <Compile Include="Controllers\BasketController.cs" />
     <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\MiniBasketController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AddressSaveViewModel.cs" />
+    <Compile Include="ViewModels\OrderlineViewModel.cs" />
+    <Compile Include="ViewModels\PurchaseOrderViewModel.cs" />
     <Compile Include="ViewModels\AddressRenderingViewModel.cs" />
     <Compile Include="ViewModels\AddToBasketButtonRenderingViewModel.cs" />
     <Compile Include="ViewModels\MiniBasketRefreshViewModel.cs" />
@@ -149,6 +152,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\MiniBasket\Rendering.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Basket\Basket.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ContinueToCheckout\ContinueToCheckout.cshtml" />

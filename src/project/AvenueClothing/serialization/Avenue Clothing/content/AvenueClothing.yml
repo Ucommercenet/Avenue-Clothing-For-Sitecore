@@ -76,9 +76,9 @@ Languages:
       Hint: Products
       Type: Treelist
       Value: |
-        {9DC2159A-7DA7-4B17-9BCA-D4673370D27E}
-        {9604A35B-3B97-4A97-A290-69E28D6EC85B}
-        {A70F0A82-3525-449B-B1D2-E701A4204FB1}
+        {0584A526-FC90-43E5-AEBB-8667DD4342C0}
+        {166ECA55-193B-408F-B961-D625A7A8D816}
+        {23E011E6-D47C-4736-9682-7BC6740C052C}
     - ID: "b9baaa2b-d947-4cae-97cf-4e413b57c511"
       Hint: Images
       Type: Multilist
