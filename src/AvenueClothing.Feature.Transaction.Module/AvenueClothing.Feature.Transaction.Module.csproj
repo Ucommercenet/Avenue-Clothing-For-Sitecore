@@ -137,10 +137,6 @@
     <Compile Include="ViewModels\MiniBasketRefreshViewModel.cs" />
     <Compile Include="ViewModels\MiniBasketRenderingViewModel.cs" />
     <Compile Include="ViewModels\AddToBasketButtonAddToBasketViewModel.cs" />
-    <Compile Include="ViewModels\RefreshMiniBasketViewModel.cs" />
-    <Compile Include="ViewModels\MiniBasketViewModel.cs" />
-    <Compile Include="ViewModels\ValidateProductExistsViewModel.cs" />
-    <Compile Include="ViewModels\AddToBasketViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
@@ -160,8 +156,8 @@
   <ItemGroup>
     <Content Include="Views\Basket\Basket.cshtml" />
   </ItemGroup>
-    <ItemGroup>
-     <Content Include="Views\ContinueToCheckout\ContinueToCheckout.cshtml" />
+  <ItemGroup>
+    <Content Include="Views\ContinueToCheckout\ContinueToCheckout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Address\Rendering.cshtml" />
