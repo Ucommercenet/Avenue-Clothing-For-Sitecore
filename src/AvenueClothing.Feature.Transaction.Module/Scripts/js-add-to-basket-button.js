@@ -76,19 +76,12 @@
                             ProductSku: productSku,
                             VariantSku: productVariantSku
                         },
-                        dataType: "json"
-                    })
-                    .done(function () {
+                        dataType: "json",
+                        success: function (data) {
+                            $triggerEventSelector.trigger("basket-changed");
 
-                        $triggerEventSelector.trigger("basket-changed");
-
-                        showConfirmationMessage($button);
-                    })
-                    .fail(function (err) {
-                        alert("Whoops..." + err);
-                    })
-                    .always(function () {
-                        //No-op
+                            showConfirmationMessage($button);
+                        }
                     });
             });
         }

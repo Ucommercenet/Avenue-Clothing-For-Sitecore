@@ -15,26 +15,20 @@
         $.ajax({
 			type: "GET",
 			url: refreshUrl,
-			dataType: "json"
-		}
-			.done(function (data) {
-				if (data.IsEmpty) {
-					$miniBasket.find(notEmptySelector).hide();
-					$miniBasket.find(emptySelector).show();
-				} else {
-					$miniBasket.find(numberOfItemsSelector).text(data.NumberOfItems);
-					$miniBasket.find(totalSelector).text(data.Total);
+			dataType: "json",
+			success: function (data) {
+			    if (data.IsEmpty) {
+			        $miniBasket.find(notEmptySelector).hide();
+			        $miniBasket.find(emptySelector).show();
+			    } else {
+			        $miniBasket.find(numberOfItemsSelector).text(data.NumberOfItems);
+			        $miniBasket.find(totalSelector).text(data.Total);
 
-					$miniBasket.find(notEmptySelector).show();
-					$miniBasket.find(emptySelector).hide();
-				}
-			})
-			.fail(function () {
-				alert("Whoops...");
-			})
-			.always(function () {
-				//No-op
-			}));
+			        $miniBasket.find(notEmptySelector).show();
+			        $miniBasket.find(emptySelector).hide();
+			    }
+			}
+		});
 	}
 
 

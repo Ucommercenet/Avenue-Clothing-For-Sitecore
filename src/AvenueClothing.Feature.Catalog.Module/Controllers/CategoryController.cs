@@ -4,50 +4,59 @@ using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Catalog.Module.Extensions;
 using AvenueClothing.Feature.Catalog.Module.ViewModels;
-using Sitecore.Data.Items;
 using Sitecore.Mvc.Presentation;
 using UCommerce.Api;
-using UCommerce.Content;
+using UCommerce.Catalog;
 using UCommerce.EntitiesV2;
-using UCommerce.Extensions;
-using UCommerce.Infrastructure;
 using UCommerce.Runtime;
-using UCommerce.Search.Facets;
+using UCommerce.Search;
 
 namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
 	public class CategoryController : Controller
 	{
-		public ActionResult Category()
+		private readonly ICatalogContext _catalogContext;
+		private readonly CatalogLibraryInternal _catalogLibraryInternal;
+		private readonly SearchLibraryInternal _searchLibraryInternal;
+
+		public CategoryController(ICatalogContext catalogContext, CatalogLibraryInternal catalogLibraryInternal, SearchLibraryInternal searchLibraryInternal)
 		{
-			var categoryViewModel = new CategoryViewModel();
-			var currentCategory = SiteContext.Current.CatalogContext.CurrentCategory;
-			var productGuidsFromFacets = GetProductGuidsInFacets(currentCategory);
-
-			categoryViewModel.ProductItemGuids = RemoveUnselectedSitecoreItems(productGuidsFromFacets, RenderingContext.Current.ContextItem);
-
-			return View("/views/Category.cshtml", categoryViewModel);
+			_catalogContext = catalogContext;
+			_catalogLibraryInternal = catalogLibraryInternal;
+			_searchLibraryInternal = searchLibraryInternal;
 		}
 
-		private IList<Guid> RemoveUnselectedSitecoreItems(IList<Guid> productGuidsFromFacets, Item contextItem)
+		public ActionResult Rendering()
 		{
-			IList<Guid> selectedProductItems = contextItem.Fields["Products"].ToString().Split('|').Select(x => new Guid(x)).ToList();
-			return productGuidsFromFacets.Where(x => selectedProductItems.Contains(x)).ToList();
-		}
+			var categoryViewModel = new CategoryRenderingViewModel();
 
-		private IList<Guid> GetProductGuidsInFacets(Category category)
+			var currentCategory = _catalogContext.CurrentCategory;
+
+			categoryViewModel.ProductItemGuids = GetProductGuidsInFacetsAndSelectedProductOnSitecoreItem(currentCategory);
+
+			return View(categoryViewModel);
+		}
+		
+		private List<Guid> GetProductGuidsInFacetsAndSelectedProductOnSitecoreItem(Category category)
 		{
-			IList<Facet> facetsForQuerying = System.Web.HttpContext.Current.Request.QueryString.ToFacets();
+			var facetsForQuerying = HttpContext.Request.QueryString.ToFacets();
 			var productGuidsInCategory = new List<Guid>();
 
 			foreach (var subcategory in category.Categories)
 			{
-				productGuidsInCategory.AddRange(GetProductGuidsInFacets(subcategory));
+				productGuidsInCategory.AddRange(GetProductGuidsInFacetsAndSelectedProductOnSitecoreItem(subcategory));
 			}
 
-			IEnumerable<int> productIds = SearchLibrary.GetProductsFor(category, facetsForQuerying).Select(x => x.Id);
-		
-			var productGuids =CatalogLibrary.GetProducts(category).Where(x => productIds.Contains(x.ProductId)).Select(x => x.Guid).ToList();
+			var productIds = _searchLibraryInternal.GetProductsFor(category, facetsForQuerying).Select(x => x.Id);
+
+			var selectedProductItems = RenderingContext.Current.ContextItem.Fields["Products"].ToString().Split('|').Select(x => new Guid(x)).ToList();
+
+			var productGuids = _catalogLibraryInternal.GetProductsInCategory(category)
+				.Where(x => selectedProductItems.Contains(x.Guid))
+				.Where(x => productIds.Contains(x.ProductId))
+				.Select(x => x.Guid)
+				.ToList();
+
 			productGuidsInCategory.AddRange(productGuids);
 
 			return productGuidsInCategory;

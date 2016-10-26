@@ -9,9 +9,9 @@ namespace AvenueClothing.Feature.Catalog.Module.ViewModels
     {
         public HomepageCatalogViewModel()
         {
-            Products = new List<ProductViewModel>();
+            Products = new List<ProductCardRenderingViewModel>();
         }
 
-        public IList<ProductViewModel> Products;
+        public IList<ProductCardRenderingViewModel> Products;
     }
 }

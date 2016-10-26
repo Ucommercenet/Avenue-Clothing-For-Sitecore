@@ -4,9 +4,9 @@ namespace AvenueClothing.Project.Website.Controllers
 {
     public class HeaderController : Controller
     {
-		public ActionResult Header()
+		public ActionResult Rendering()
 		{
-			return View("/views/Avenue Clothing/Header.cshtml");
+			return View();
 		}
     }
 }

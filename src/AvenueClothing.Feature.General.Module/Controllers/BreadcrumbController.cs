@@ -1,22 +1,18 @@
-﻿using AvenueClothing.Feature.General.Module.ViewModels;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using AvenueClothing.Feature.General.Module.ViewModels;
+using Sitecore.Data.Items;
+using UCommerce.Api;
 using UCommerce.EntitiesV2;
 using UCommerce.Extensions;
 using UCommerce.Runtime;
-using Sitecore.Mvc.Presentation;
-using System.Web;
-using Sitecore.Data.Items;
-using Sitecore.Data.Managers;
-using Sitecore.Data.Templates;
-using UCommerce.Api;
 
-namespace AvenueClothing.Project.Website.Controllers
+namespace AvenueClothing.Feature.General.Module.Controllers
 {
     public class BreadcrumbController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Rendering()
         {
             BreadcrumbWrapper breadcrumbs = new BreadcrumbWrapper();
             IList<Item> items = GetBreadcrumbItems();
@@ -52,7 +48,7 @@ namespace AvenueClothing.Project.Website.Controllers
                 };
                 breadcrumbs.UcommerceBreadcrumbs.Add(breadcrumb);
             }
-            return View("/Views/Breadcrumb.cshtml", breadcrumbs);
+            return View(breadcrumbs);
         }
 
         private bool IsTemplateBlacklisted(string templateName)

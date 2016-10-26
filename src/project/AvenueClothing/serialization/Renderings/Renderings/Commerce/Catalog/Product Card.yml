@@ -7,13 +7,17 @@ DB: master
 SharedFields:
 - ID: "ded9e431-3604-4921-a4b3-a6ec7636a5b6"
   Hint: Controller Action
-  Value: ProductCard
+  Value: Rendering
 - ID: "e144d9d4-b135-42d4-a5a0-53c09704671c"
   Hint: Parameters
   Value: Product
 - ID: "e64ad073-dfcc-4d20-8c0b-fe5aa6226cd7"
   Hint: Controller
   Value: ProductCard
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: 
 Languages:
 - Language: en
   Versions:

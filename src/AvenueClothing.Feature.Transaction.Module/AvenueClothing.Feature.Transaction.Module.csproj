@@ -44,6 +44,9 @@
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Sitecore.Kernel">
+      <HintPath>..\..\lib\Sitecore\Sitecore.Kernel.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.Mvc">
       <HintPath>..\..\lib\Sitecore\Sitecore.Mvc.dll</HintPath>
     </Reference>
@@ -121,13 +124,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\AddToBasketController.cs" />
+    <Compile Include="Controllers\AddToBasketButtonController.cs" />
     <Compile Include="Controllers\BasketController.cs" />
+    <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\MiniBasketController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\AddToBasketIndexViewModel.cs" />
+    <Compile Include="ViewModels\AddressSaveViewModel.cs" />
     <Compile Include="ViewModels\OrderlineViewModel.cs" />
     <Compile Include="ViewModels\PurchaseOrderViewModel.cs" />
+    <Compile Include="ViewModels\AddressRenderingViewModel.cs" />
+    <Compile Include="ViewModels\AddToBasketButtonRenderingViewModel.cs" />
+    <Compile Include="ViewModels\MiniBasketRefreshViewModel.cs" />
+    <Compile Include="ViewModels\MiniBasketRenderingViewModel.cs" />
+    <Compile Include="ViewModels\AddToBasketButtonAddToBasketViewModel.cs" />
     <Compile Include="ViewModels\RefreshMiniBasketViewModel.cs" />
     <Compile Include="ViewModels\MiniBasketViewModel.cs" />
     <Compile Include="ViewModels\ValidateProductExistsViewModel.cs" />
@@ -138,17 +147,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="Scripts\js-addresses.js" />
     <Content Include="Scripts\js-mini-basket.js" />
     <Content Include="Scripts\js-add-to-basket-button.js" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\AddToBasket\Index.cshtml" />
+    <Content Include="Views\AddToBasketButton\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\MiniBasket\MiniBasket.cshtml" />
+    <Content Include="Views\MiniBasket\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Basket\Basket.cshtml" />
+  </ItemGroup>
+    <ItemGroup>
+     <Content Include="Views\ContinueToCheckout\ContinueToCheckout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Address\Rendering.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -13,17 +13,19 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
     public class VariantPickerController : Controller
     {
         private readonly IPipeline<IPipelineArgs<GetProductRequest, GetProductResponse>> _getProductPipeline;
+	    private readonly ICatalogContext _catalogContext;
 
-        public VariantPickerController(IPipeline<IPipelineArgs<GetProductRequest, GetProductResponse>> getProductPipeline)
+	    public VariantPickerController(IPipeline<IPipelineArgs<GetProductRequest, GetProductResponse>> getProductPipeline, ICatalogContext catalogContext)
+	    {
+		    _getProductPipeline = getProductPipeline;
+		    _catalogContext = catalogContext;
+	    }
+
+	    public ActionResult Rendering()
         {
-            _getProductPipeline = getProductPipeline;
-        }
+			var currentProduct = _catalogContext.CurrentProduct;
 
-        public ActionResult Index()
-        {
-            var currentProduct = SiteContext.Current.CatalogContext.CurrentProduct;
-
-            var viewModel = new VariantPickerViewModel
+            var viewModel = new VariantPickerRenderingViewModel
             {
                 ProductSku = currentProduct.Sku,
                 VariantExistsUrl = Url.Action("VariantExists")
@@ -41,7 +43,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 
             foreach (var variant in uniqueVariants)
             {
-                var productPropertiesViewModel = new VariantPickerViewModel.Variant
+                var productPropertiesViewModel = new VariantPickerRenderingViewModel.Variant
                 {
                     Name = variant.Key.Name,
                     DisplayName = variant.Key.Name
@@ -49,7 +51,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 
                 foreach (var variantValue in variant.Select(v => v.Value).Distinct())
                 {
-                    productPropertiesViewModel.VaraintItems.Add(new VariantPickerViewModel.Variant.VaraintValue
+                    productPropertiesViewModel.VaraintItems.Add(new VariantPickerRenderingViewModel.Variant.VaraintValue
                     {
                         Name = variantValue,
                         DisplayName = variantValue
@@ -62,11 +64,8 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
             return View(viewModel);
         }
 
-        /// <summary>
-        /// POST /api/Sitecore/VariantPicker/VariantExists/
-        /// </summary>
         [HttpPost]
-        public ActionResult VariantExists(VariantExistsViewModel viewModel)
+        public ActionResult VariantExists(VariantPickerVariantExistsViewModel viewModel)
         {
             var getProductResponse = new GetProductResponse();
             if (_getProductPipeline.Execute(new GetProductPipelineArgs(new GetProductRequest(new ProductIdentifier(viewModel.ProductSku, null)), getProductResponse)) == PipelineExecutionResult.Error)

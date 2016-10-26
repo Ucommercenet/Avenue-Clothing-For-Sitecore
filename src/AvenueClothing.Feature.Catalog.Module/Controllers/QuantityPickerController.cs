@@ -6,11 +6,18 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
     public class QuantityPickerController : Controller
     {
-        public ActionResult Index()
-        {
-            var currentProduct = SiteContext.Current.CatalogContext.CurrentProduct;
+	    private readonly ICatalogContext _catalogContext;
 
-            var viewModel = new QuantityPickerViewModel
+	    public QuantityPickerController(ICatalogContext catalogContext)
+	    {
+		    _catalogContext = catalogContext;
+	    }
+
+	    public ActionResult Rendering()
+        {
+			var currentProduct = _catalogContext.CurrentProduct;
+
+            var viewModel = new QuantityPickerRenderingViewModel
             {
                 ProductSku = currentProduct.Sku,
                 MaxNumberOfItems = 30

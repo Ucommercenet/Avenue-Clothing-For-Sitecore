@@ -1,29 +1,34 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Transaction.Module.ViewModels;
-using Sitecore.Mvc.Pipelines.Response.RenderRendering;
-using Sitecore.Mvc.Presentation;
 using UCommerce;
-using UCommerce.Api;
+using UCommerce.Transactions;
 
 namespace AvenueClothing.Feature.Transaction.Module.Controllers
 {
 	public class MiniBasketController : Controller
 	{
-		public ActionResult MiniBasket()
+	    private readonly TransactionLibraryInternal _transactionLibraryInternal;
+
+	    public MiniBasketController(TransactionLibraryInternal transactionLibraryInternal)
+	    {
+	        _transactionLibraryInternal = transactionLibraryInternal;
+	    }
+
+		public ActionResult Rendering()
 		{
-			var miniBasketViewModel = new MiniBasketViewModel
+			var miniBasketViewModel = new MiniBasketRenderingViewModel
 			{
 				IsEmpty = true, 
 				RefreshUrl = Url.Action("Refresh")
 			};
 
-			if (!TransactionLibrary.HasBasket())
+			if (!_transactionLibraryInternal.HasBasket())
 			{
 				return View(miniBasketViewModel);
 			}
 
-			var purchaseOrder = TransactionLibrary.GetBasket(false).PurchaseOrder;
+			var purchaseOrder = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
 
 			miniBasketViewModel.NumberOfItems = purchaseOrder.OrderLines.Sum(x => x.Quantity);
 			miniBasketViewModel.IsEmpty = miniBasketViewModel.NumberOfItems == 0;
@@ -35,17 +40,17 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 		[HttpGet]
 		public ActionResult Refresh()
 		{
-			var viewModel = new RefreshMiniBasketViewModel
+			var viewModel = new MiniBasketRefreshViewModel
 			{
 				IsEmpty = true
 			};
 
-			if (!TransactionLibrary.HasBasket())
+			if (!_transactionLibraryInternal.HasBasket())
 			{
 				return Json(viewModel, JsonRequestBehavior.AllowGet);
 			}
 
-			var purchaseOrder = TransactionLibrary.GetBasket(false).PurchaseOrder;
+			var purchaseOrder = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
 
 			var quantity = purchaseOrder.OrderLines.Sum(x => x.Quantity);
 

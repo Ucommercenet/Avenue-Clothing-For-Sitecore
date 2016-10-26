@@ -1,0 +1,20 @@
+﻿@using System.Collections.Specialized
+@using Sitecore.Data.Fields
+@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@{
+	Layout = null;
+}
+
+@{
+	var productItems = RenderingContext.Current.ContextItem.Fields["Products"].ToString().Split('|').ToList();
+}
+
+<div class="row">
+	<div class="product-list col-sm-12 col-md-12">
+		@foreach (var productItem in productItems)
+		{
+			@Html.Sitecore().Rendering("B82B3313-82E1-4D4D-9C3C-2935E1E6E0C0", new { productItem });
+		}
+	</div>
+</div>

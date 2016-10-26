@@ -16,32 +16,41 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
 	public class FacetsController : Controller
 	{
-		public ActionResult Facets()
+		private readonly ICatalogContext _catalogContext;
+
+		public FacetsController(ICatalogContext catalogContext)
 		{
-			var category = SiteContext.Current.CatalogContext.CurrentCategory;
-			var facetValueOutputModel = new FacetsDisplayedViewModel();
+			_catalogContext = catalogContext;
+		}
+
+		public ActionResult Rendering()
+		{
+			var category = _catalogContext.CurrentCategory;
+			var viewModel = new FacetsRenderingViewModel();
 			IList<Facet> facetsForQuerying = System.Web.HttpContext.Current.Request.QueryString.ToFacets();
 			
 			IList<Facet> facets = SearchLibrary.GetFacetsFor(category, facetsForQuerying);
 			if (facets.Any(x => x.FacetValues.Any(y => y.Hits > 0)))
 			{
-				facetValueOutputModel.Facets = MapFacets(facets);
+				viewModel.Facets = MapFacets(facets);
 			}
 
-			return View("/views/Facets.cshtml", facetValueOutputModel);
+			return View(viewModel);
 		}
 
-		private IList<FacetViewModel> MapFacets(IList<Facet> facetsInCategory)
+		private List<FacetsRenderingViewModel.Facet> MapFacets(IList<Facet> facetsInCategory)
 		{
-			IList<FacetViewModel> facets = new List<FacetViewModel>();
+			var facets = new List<FacetsRenderingViewModel.Facet>();
 
 			foreach (var facet in facetsInCategory)
 			{
-				var facetViewModel = new FacetViewModel();
-				facetViewModel.Name = facet.Name;
-				facetViewModel.DisplayName = facet.DisplayName;
+			    var facetViewModel = new FacetsRenderingViewModel.Facet
+			    {
+			        Name = facet.Name,
+			        DisplayName = facet.DisplayName
+			    };
 
-				if (!facet.FacetValues.Any())
+			    if (!facet.FacetValues.Any())
 				{
 					continue;
 				}
@@ -50,7 +59,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 				{
 					if (value.Hits > 0)
 					{
-						FacetValueViewModel facetVal = new FacetValueViewModel(value.Value, value.Hits);
+                        var facetVal = new FacetsRenderingViewModel.FacetValue(value.Value, value.Hits);
 						facetViewModel.FacetValues.Add(facetVal);
 					}
 				}

@@ -21,7 +21,7 @@ namespace AvenueClothing.Project.Website.Controllers
             settings.ConfigureSettings();
             CatalogueInstaller catalogueInstaller = new CatalogueInstaller("Avenue-Clothing.com", "Demo catalog");
             catalogueInstaller.Configure();
-            return View("/views/Avenue Clothing/CreateStore.cshtml");
+            return View();
         }
 
         public ActionResult CreateBigTiesCategory()

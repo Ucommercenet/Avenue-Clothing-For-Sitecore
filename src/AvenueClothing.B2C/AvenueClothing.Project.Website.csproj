@@ -187,7 +187,7 @@
     <Content Include="packages.config" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Views\Avenue Clothing\Layout.cshtml" />
+    <Content Include="Views\Layout.cshtml" />
     <Content Include="Css\fontawesome-webfont.eot" />
     <Content Include="Css\fontawesome-webfont.ttf" />
     <Content Include="Css\fontawesome-webfont.woff" />
@@ -205,8 +205,9 @@
     <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
-    <Content Include="Views\Avenue Clothing\Header.cshtml" />
-    <Content Include="Views\Avenue Clothing\CreateStore.cshtml" />
+    <Content Include="Views\Header\Rendering.cshtml" />
+    <Content Include="Views\CreateStore\CreateStore.cshtml" />
+    <Content Include="Views\CreateStore\CreateBigTiesCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CreateStoreController.cs" />
