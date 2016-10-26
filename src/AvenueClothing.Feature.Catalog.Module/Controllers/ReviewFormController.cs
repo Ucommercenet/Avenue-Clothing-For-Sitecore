@@ -53,7 +53,10 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 
             if (request.Form.AllKeys.All(x => x != "review-product"))
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //TODO: Should be set in the JsonResult
+                Response.StatusCode = 400;
+                Response.TrySkipIisCustomErrors = true;
+                return Json(new { });
             }
 
             var name = viewModel.Name;
@@ -99,7 +102,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 
             _productReviewPipeline.Execute(review);
 
-            return new HttpStatusCodeResult(HttpStatusCode.OK);
+            return Json(new { });
         }
     }
 }

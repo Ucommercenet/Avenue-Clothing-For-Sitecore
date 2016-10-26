@@ -48,7 +48,7 @@ namespace AvenueClothing.Tests
         }
 
         [Fact]
-        public void Save_When_With_Valid_Data_Should_Execute_Basket_Pipeline_And_Return_Http_Ok()
+        public void Save_When_With_Valid_Data_Should_Execute_Basket_Pipeline_And_Return_Json()
         {
             //Arrange
             var viewModel = new AddressSaveViewModel();
@@ -58,9 +58,8 @@ namespace AvenueClothing.Tests
 
             //Assert
             _transactionLibraryInternal.Received().ExecuteBasketPipeline();
-            var httpStatusResult = result as HttpStatusCodeResult;
-            Assert.NotNull(httpStatusResult);
-            Assert.Equal((int)HttpStatusCode.OK, httpStatusResult.StatusCode);
+            var jsonResult = result as JsonResult;
+            Assert.NotNull(jsonResult);
         }
     }
 }
