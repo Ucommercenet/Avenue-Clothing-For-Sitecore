@@ -10,7 +10,7 @@ using UCommerce.Transactions;
 namespace AvenueClothing.Feature.Transaction.Module.Controllers
 {
 	public class PaymentPickerController : SitecoreController
-	{
+    {
 	    private readonly TransactionLibraryInternal _transactionLibraryInternal;
 
 		public PaymentPickerController(TransactionLibraryInternal transactionLibraryInternal)

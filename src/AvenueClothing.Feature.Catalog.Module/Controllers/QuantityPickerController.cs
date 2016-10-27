@@ -1,10 +1,11 @@
 ﻿using System.Web.Mvc;
 using AvenueClothing.Feature.Catalog.Module.ViewModels;
+using Sitecore.Mvc.Controllers;
 using UCommerce.Runtime;
 
 namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
-    public class QuantityPickerController : Controller
+    public class QuantityPickerController : SitecoreController
     {
 	    private readonly ICatalogContext _catalogContext;
 

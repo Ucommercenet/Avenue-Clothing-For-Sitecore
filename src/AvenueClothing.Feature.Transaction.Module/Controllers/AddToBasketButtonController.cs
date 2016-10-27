@@ -2,12 +2,13 @@
 using System.Net;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Transaction.Module.ViewModels;
+using Sitecore.Mvc.Controllers;
 using UCommerce.Runtime;
 using UCommerce.Transactions;
 
 namespace AvenueClothing.Feature.Transaction.Module.Controllers
 {
-    public class AddToBasketButtonController : Controller
+    public class AddToBasketButtonController : SitecoreController
     {
         private readonly TransactionLibraryInternal _transactionLibraryInternal;
         private readonly ICatalogContext _catalogContext;

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Catalog.Module.ViewModels;
+using Sitecore.Mvc.Controllers;
 using Sitecore.Mvc.Presentation;
 using UCommerce.Api;
 using UCommerce.EntitiesV2;
@@ -11,7 +12,7 @@ using UCommerce.Runtime;
 
 namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
-    public class ReviewFormController: Controller
+    public class ReviewFormController: SitecoreController
     {
 	    private readonly ICatalogContext _catalogContext;
 	    private readonly IRepository<Product> _productRepository;

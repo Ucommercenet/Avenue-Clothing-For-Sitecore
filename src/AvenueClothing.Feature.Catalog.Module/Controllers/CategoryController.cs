@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Catalog.Module.Extensions;
 using AvenueClothing.Feature.Catalog.Module.ViewModels;
+using Sitecore.Mvc.Controllers;
 using Sitecore.Mvc.Presentation;
 using UCommerce.Api;
 using UCommerce.Catalog;
@@ -13,8 +14,8 @@ using UCommerce.Search;
 
 namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
-	public class CategoryController : Controller
-	{
+	public class CategoryController : SitecoreController
+    {
 		private readonly ICatalogContext _catalogContext;
 		private readonly CatalogLibraryInternal _catalogLibraryInternal;
 		private readonly SearchLibraryInternal _searchLibraryInternal;
