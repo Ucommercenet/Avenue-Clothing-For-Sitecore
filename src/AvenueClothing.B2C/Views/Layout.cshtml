@@ -9,13 +9,13 @@
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Css/uCommerce.demostore.css" rel="stylesheet"/>
     <link href="~/Css/font-awesome.min.css" rel="stylesheet"/>
-	@if (!Sitecore.Context.PageMode.IsExperienceEditor)
+	@if (!Sitecore.Context.PageMode.IsPageEditor)
 	{
 		@Html.Sitecore().Placeholder("head")
 	}
 	<title></title>
 </head>
-<body class="header-static @(Sitecore.Context.PageMode.IsNormal ? "" : (Sitecore.Context.PageMode.IsExperienceEditor ? "pagemode-edit" : "pagemode-preview"))">
+<body class="header-static @(Sitecore.Context.PageMode.IsNormal ? "" : (Sitecore.Context.PageMode.IsPageEditor ? "pagemode-edit" : "pagemode-preview"))">
 	<div id="main-container">
 		<header>
 
