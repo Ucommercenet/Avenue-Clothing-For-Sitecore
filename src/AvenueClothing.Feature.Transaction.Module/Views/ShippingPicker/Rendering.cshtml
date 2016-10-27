@@ -1,0 +1,31 @@
+﻿@using System.Web.Mvc.Html
+@model AvenueClothing.Feature.Transaction.Module.ViewModels.ShippingPickerViewModel
+
+@{
+	Layout = null;
+}
+
+<h3>Shipping method</h3>
+<br />
+@if (Model.AvailableShippingMethods.Count > 0)
+{
+	foreach (var shippingMethod in Model.AvailableShippingMethods)
+	{
+		<label class="radio">
+			@if (shippingMethod.Selected)
+			{
+				@Html.RadioButtonFor(x => x.SelectedShippingMethodId, shippingMethod.Value, new { @checked = "checked", @class = "js-shipping-picker-button" })
+				@shippingMethod.Text
+			}
+			else
+			{
+				@Html.RadioButtonFor(x => x.SelectedShippingMethodId, shippingMethod.Value, new { @class = "js-shipping-picker-button" })
+				@shippingMethod.Text
+			}
+		</label>
+	}
+}
+else
+{
+	<p class="alert">WARNING: No shipping methods have been configured for @Model.ShippingCountry within <a href="http://ucommerce.dk">UCommerce</a> administration area.</p>
+}
