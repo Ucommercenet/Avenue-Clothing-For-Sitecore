@@ -133,6 +133,8 @@
     <Compile Include="ViewModels\AddressSaveViewModel.cs" />
     <Compile Include="ViewModels\AddressRenderingViewModel.cs" />
     <Compile Include="ViewModels\AddToBasketButtonRenderingViewModel.cs" />
+    <Compile Include="ViewModels\CreatePaymentViewModel.cs" />
+    <Compile Include="ViewModels\CreateShipmentViewModel.cs" />
     <Compile Include="ViewModels\MiniBasketRefreshViewModel.cs" />
     <Compile Include="ViewModels\MiniBasketRenderingViewModel.cs" />
     <Compile Include="ViewModels\AddToBasketButtonAddToBasketViewModel.cs" />
@@ -149,6 +151,7 @@
     <Content Include="Scripts\js-add-to-basket-button.js" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\js-payment-picker.js" />
     <Content Include="Scripts\js-shipping-picker.js" />
     <Content Include="Views\AddToBasketButton\Rendering.cshtml" />
   </ItemGroup>

@@ -52,6 +52,7 @@
 	<script src="~/Scripts/uCommerce.demostore.productpage.js"></script>
 	<script src="~/Scripts/js-addresses.js"></script>
 	<script src="~/Scripts/js-shipping-picker.js"></script>
+	<script src="~/Scripts/js-payment-picker.js"></script>
 	<script>
 		$(document).ready(function () {
 			AddToBasketButton.init($(document), $("*"));
@@ -59,6 +60,7 @@
 			QuantityPicker.init($(document), $("*"));
 			MiniBasket.init($(document), $("*"));
 			ShippingPicker.init($(document), $("*"));
+			PaymentPicker.init($(document), $("*"));
 
 			ShippingPicker.initCompleted($(document), $("*"));
 		});

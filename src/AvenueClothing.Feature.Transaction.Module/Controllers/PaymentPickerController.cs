@@ -56,9 +56,9 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult CreatePayment(int paymentId)
+		public ActionResult CreatePayment(CreatePaymentViewModel createPaymentViewModel)
 		{
-			_transactionLibraryInternal.CreatePayment(paymentId, -1m, false, true);
+			_transactionLibraryInternal.CreatePayment(createPaymentViewModel.PaymentMethodId, -1m, false, true);
 			_transactionLibraryInternal.ExecuteBasketPipeline();
 
 			return Json(new {});
