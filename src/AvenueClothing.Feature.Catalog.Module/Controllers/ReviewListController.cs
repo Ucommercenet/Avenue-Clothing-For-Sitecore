@@ -2,11 +2,12 @@
 using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Catalog.Module.ViewModels;
+using Sitecore.Mvc.Controllers;
 using UCommerce.Runtime;
 
 namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
-    public class ReviewListController: Controller
+    public class ReviewListController: SitecoreController
     {
 	    private readonly ICatalogContext _catalogContext;
 

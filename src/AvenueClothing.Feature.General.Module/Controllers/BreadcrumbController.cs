@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Feature.General.Module.ViewModels;
 using Sitecore.Data.Items;
+using Sitecore.Mvc.Controllers;
 using UCommerce.Api;
 using UCommerce.EntitiesV2;
 using UCommerce.Extensions;
@@ -10,7 +11,7 @@ using UCommerce.Runtime;
 
 namespace AvenueClothing.Feature.General.Module.Controllers
 {
-    public class BreadcrumbController : Controller
+    public class BreadcrumbController : SitecoreController
     {
         public ActionResult Rendering()
         {
