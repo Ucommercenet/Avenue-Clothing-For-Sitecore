@@ -14,12 +14,12 @@
 		<label class="radio">
 			@if (shippingMethod.Selected)
 			{
-				@Html.RadioButtonFor(x => x.SelectedShippingMethodId, shippingMethod.Value, new { @checked = "checked", @class = "js-shipping-picker-button" })
+				@Html.RadioButtonFor(x => x.SelectedShippingMethodId, shippingMethod.Value, new { @checked = "checked", @class = "js-shipping-picker" })
 				@shippingMethod.Text
 			}
 			else
 			{
-				@Html.RadioButtonFor(x => x.SelectedShippingMethodId, shippingMethod.Value, new { @class = "js-shipping-picker-button" })
+				@Html.RadioButtonFor(x => x.SelectedShippingMethodId, shippingMethod.Value, new { @class = "js-shipping-picker" })
 				@shippingMethod.Text
 			}
 		</label>

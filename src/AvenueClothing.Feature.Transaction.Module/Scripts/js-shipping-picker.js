@@ -1,11 +1,11 @@
 ﻿var ShippingPicker = (function () {
 
 	// declared with `var`, must be "private"
-	var classSelector = ".js-shipping-picker-button";
+	var classSelector = ".js-shipping-picker";
 
 	var publicScope = {
 		init: function ($rootSelector, $triggerEventSelector) {
-			$rootSelector.find(".js-shipping-picker-button")
+			$rootSelector.find(classSelector)
 				.on("change", (function () {
 					$triggerEventSelector.trigger("shipping-method-changed", {
 						shippingMethodId: $(this).val()
