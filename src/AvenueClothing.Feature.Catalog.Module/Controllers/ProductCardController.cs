@@ -27,10 +27,10 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 
             var database = Sitecore.Context.Database;
 			var productItem = database.GetItem(RenderingContext.Current.Rendering.Properties["productItem"]);
-            productView.DisplayName =  new HtmlString(FieldRenderer.Render(productItem, "Display Name"));
-
-			
+            
 			if (productItem == null) return null;
+            productView.DisplayName = new HtmlString(FieldRenderer.Render(productItem, "Display Name"));
+
             RenderingContext.Current.ContextItem = productItem;
 
 			var currentProduct = _productRepository.SingleOrDefault(x => x.Guid == productItem.ID.Guid);
