@@ -50,12 +50,12 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult CreateShipment(CreateShipmentViewModel createShipmentViewModel)
+		public ActionResult CreateShipment(ShippingPickerViewModel createShipmentViewModel)
 		{
-			_transactionLibraryInternal.CreateShipment(createShipmentViewModel.ShippingMethodId, Constants.DefaultShipmentAddressName, true);
+			_transactionLibraryInternal.CreateShipment(createShipmentViewModel.SelectedShippingMethodId, Constants.DefaultShipmentAddressName, true);
 			_transactionLibraryInternal.ExecuteBasketPipeline();
 
-			return Json(new { });
+			return Redirect("/payment");
 		}
 	}
 }
