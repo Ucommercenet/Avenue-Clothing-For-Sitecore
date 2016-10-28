@@ -29,6 +29,8 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 			var productItem = database.GetItem(RenderingContext.Current.Rendering.Properties["productItem"]);
             productView.DisplayName =  new HtmlString(FieldRenderer.Render(productItem, "Display Name"));
 
+			
+			if (productItem == null) return null;
             RenderingContext.Current.ContextItem = productItem;
 
 			var currentProduct = _productRepository.SingleOrDefault(x => x.Guid == productItem.ID.Guid);
