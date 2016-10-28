@@ -19,9 +19,9 @@
 		}
 	</div>
 
-	<p class="item-name">
-		<a href="@Model.Url">@Html.Sitecore().Field("Display Name")</a>
-	</p>
+    <p class="item-name">
+        <a href="@Model.Url">@Model.DisplayName</a>
+    </p>
 
 	<p class="item-price">@Model.Amount</p>
 	<p class="btn-group view-details">
