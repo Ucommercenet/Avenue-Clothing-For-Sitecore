@@ -56,7 +56,7 @@ namespace AvenueClothing.Tests
         }
 
         [Fact]
-        public void AddToBasket_When_Data_Is_Valid_Should_Return_Http_Ok()
+        public void AddToBasket_When_Data_Is_Valid_Should_Return_Json()
         {
             //Arrange
             var viewModel = new AddToBasketButtonAddToBasketViewModel
@@ -71,9 +71,8 @@ namespace AvenueClothing.Tests
 
             //Assert
             _transactionLibraryInternal.Received().AddToBasket(viewModel.Quantity, viewModel.ProductSku, viewModel.VariantSku);
-            var httpStatusResult = result as HttpStatusCodeResult;
-            Assert.NotNull(httpStatusResult);
-            Assert.Equal((int)HttpStatusCode.OK, httpStatusResult.StatusCode);
+            var jsonResult = result as JsonResult;
+            Assert.NotNull(jsonResult);
         }
     }
 }

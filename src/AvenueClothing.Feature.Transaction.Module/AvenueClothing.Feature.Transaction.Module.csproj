@@ -47,7 +47,8 @@
     <Reference Include="Sitecore.Kernel">
       <HintPath>..\..\lib\Sitecore\Sitecore.Kernel.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.Mvc">
+    <Reference Include="Sitecore.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Sitecore\Sitecore.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
@@ -124,6 +125,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ShippingPickerController.cs" />
+    <Compile Include="Controllers\PaymentPickerController.cs" />
     <Compile Include="Controllers\AddToBasketButtonController.cs" />
     <Compile Include="Controllers\BasketController.cs" />
     <Compile Include="Controllers\AddressController.cs" />
@@ -134,9 +137,13 @@
     <Compile Include="ViewModels\PurchaseOrderViewModel.cs" />
     <Compile Include="ViewModels\AddressRenderingViewModel.cs" />
     <Compile Include="ViewModels\AddToBasketButtonRenderingViewModel.cs" />
+    <Compile Include="ViewModels\CreatePaymentViewModel.cs" />
+    <Compile Include="ViewModels\CreateShipmentViewModel.cs" />
     <Compile Include="ViewModels\MiniBasketRefreshViewModel.cs" />
     <Compile Include="ViewModels\MiniBasketRenderingViewModel.cs" />
     <Compile Include="ViewModels\AddToBasketButtonAddToBasketViewModel.cs" />
+    <Compile Include="ViewModels\PaymentPickerViewModel.cs" />
+    <Compile Include="ViewModels\ShippingPickerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
@@ -148,6 +155,8 @@
     <Content Include="Scripts\js-add-to-basket-button.js" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\js-payment-picker.js" />
+    <Content Include="Scripts\js-shipping-picker.js" />
     <Content Include="Views\AddToBasketButton\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -158,6 +167,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ContinueToCheckout\ContinueToCheckout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ShippingPicker\Rendering.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\PaymentPicker\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Address\Rendering.cshtml" />

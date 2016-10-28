@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Catalog.Module.ViewModels;
+using Sitecore.Mvc.Controllers;
 using Sitecore.Mvc.Presentation;
 using UCommerce.Api;
 using UCommerce.EntitiesV2;
@@ -11,7 +12,7 @@ using UCommerce.Runtime;
 
 namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
-    public class ReviewFormController: Controller
+    public class ReviewFormController: SitecoreController
     {
 	    private readonly ICatalogContext _catalogContext;
 	    private readonly IRepository<Product> _productRepository;
@@ -53,7 +54,10 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 
             if (request.Form.AllKeys.All(x => x != "review-product"))
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //TODO: Should be set in the JsonResult
+                Response.StatusCode = 400;
+                Response.TrySkipIisCustomErrors = true;
+                return Json(new { });
             }
 
             var name = viewModel.Name;
@@ -99,7 +103,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 
             _productReviewPipeline.Execute(review);
 
-            return new HttpStatusCodeResult(HttpStatusCode.OK);
+            return Json(new { });
         }
     }
 }
