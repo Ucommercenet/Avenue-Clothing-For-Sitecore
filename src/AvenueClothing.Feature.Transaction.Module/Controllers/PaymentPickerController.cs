@@ -56,12 +56,12 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult CreatePayment(CreatePaymentViewModel createPaymentViewModel)
+		public ActionResult CreatePayment(PaymentPickerViewModel createPaymentViewModel)
 		{
-			_transactionLibraryInternal.CreatePayment(createPaymentViewModel.PaymentMethodId, -1m, false, true);
+			_transactionLibraryInternal.CreatePayment(createPaymentViewModel.SelectedPaymentMethodId, -1m, false, true);
 			_transactionLibraryInternal.ExecuteBasketPipeline();
 
-			return Json(new {});
+			return Redirect("/preview");
 		}
 	}
 }
