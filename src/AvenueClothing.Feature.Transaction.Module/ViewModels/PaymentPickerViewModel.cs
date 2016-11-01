@@ -5,6 +5,11 @@ namespace AvenueClothing.Feature.Transaction.Module.ViewModels
 {
 	public class PaymentPickerViewModel
 	{
+		public PaymentPickerViewModel()
+		{
+			AvailablePaymentMethods = new List<SelectListItem>();
+		}
+
 		public IList<SelectListItem> AvailablePaymentMethods { get; set; }
 
 		public int SelectedPaymentMethodId { get; set; }
