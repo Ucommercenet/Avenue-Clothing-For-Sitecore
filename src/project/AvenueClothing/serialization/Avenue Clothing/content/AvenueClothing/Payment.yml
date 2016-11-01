@@ -29,6 +29,10 @@ SharedFields:
           id="{E220D074-D6E3-46B8-A4D4-0D2331F83660}"
           ph="main"
           uid="{3ED2A5DD-33B3-4F70-B2B7-6A2A62F47FCB}" />
+        <r
+          id="{EBBE7524-3356-47AC-852A-8EE1DD93CAD6}"
+          ph="header content"
+          uid="{DECDBBBD-8B6B-495B-B997-B371BC4BBE9D}" />
       </d>
     </r>
 Languages:
