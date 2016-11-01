@@ -142,7 +142,6 @@
     <Compile Include="ViewModels\MiniBasketRefreshViewModel.cs" />
     <Compile Include="ViewModels\MiniBasketRenderingViewModel.cs" />
     <Compile Include="ViewModels\AddToBasketButtonAddToBasketViewModel.cs" />
-    <Compile Include="ViewModels\OrderLinePreviewViewModel.cs" />
     <Compile Include="ViewModels\PaymentPickerViewModel.cs" />
     <Compile Include="ViewModels\ShippingPickerViewModel.cs" />
   </ItemGroup>

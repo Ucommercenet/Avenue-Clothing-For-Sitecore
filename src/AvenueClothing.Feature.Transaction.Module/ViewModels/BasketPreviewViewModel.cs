@@ -5,7 +5,12 @@ namespace AvenueClothing.Feature.Transaction.Module.ViewModels
 {
 	public class BasketPreviewViewModel
 	{
-		public IList<OrderLinePreviewViewModel> OrderLines { get; set; }
+		public BasketPreviewViewModel()
+		{
+			OrderLines = new List<PreviewOrderLine>();
+		}
+
+		public IList<PreviewOrderLine> OrderLines { get; set; }
 
 		public string OrderTotal { get; set; }
 
@@ -34,5 +39,30 @@ namespace AvenueClothing.Feature.Transaction.Module.ViewModels
 		public OrderAddress ShipmentAddress { get; set; }
 
 		public OrderAddress BillingAddress { get; set; }
+	}
+
+	public class PreviewOrderLine
+	{
+		public string Total { get; set; }
+
+		public int Quantity { get; set; }
+
+		public int OrderLineId { get; set; }
+
+		public string Sku { get; set; }
+
+		public string VariantSku { get; set; }
+
+		public string ProductName { get; set; }
+
+		public string Tax { get; set; }
+
+		public decimal? Discount { get; set; }
+
+		public string ProductUrl { get; set; }
+
+		public string Price { get; set; }
+
+		public string PriceWithDiscount { get; set; }
 	}
 }

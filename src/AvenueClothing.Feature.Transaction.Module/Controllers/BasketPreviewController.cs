@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Transaction.Module.ViewModels;
 using Sitecore.Mvc.Controllers;
 using UCommerce;
-using UCommerce.Api;
 using UCommerce.EntitiesV2;
 using UCommerce.Transactions;
 
@@ -22,10 +20,7 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 		public ActionResult Rendering()
 		{
 			var purchaseOrder = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
-			var basketPreviewViewModel = new BasketPreviewViewModel()
-			{
-				OrderLines = new List<OrderLinePreviewViewModel>()
-			};
+			var basketPreviewViewModel = new BasketPreviewViewModel();
 
 			basketPreviewViewModel = MapPurchaseOrderToViewModel(purchaseOrder, basketPreviewViewModel);
 
@@ -42,12 +37,12 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 		private BasketPreviewViewModel MapPurchaseOrderToViewModel(PurchaseOrder purchaseOrder, BasketPreviewViewModel basketPreviewViewModel)
 		{
 
-			basketPreviewViewModel.BillingAddress = TransactionLibrary.GetBillingInformation();
-			basketPreviewViewModel.ShipmentAddress = TransactionLibrary.GetShippingInformation();
+			basketPreviewViewModel.BillingAddress = purchaseOrder.BillingAddress ?? new OrderAddress();
+			basketPreviewViewModel.ShipmentAddress = purchaseOrder.GetShippingAddress(Constants.DefaultShipmentAddressName) ?? new OrderAddress();
 
 			foreach (var orderLine in purchaseOrder.OrderLines)
 			{
-				var orderLineModel = new OrderLinePreviewViewModel
+				var orderLineModel = new PreviewOrderLine
 				{
 					ProductName = orderLine.ProductName,
 					Sku = orderLine.Sku,
