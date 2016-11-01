@@ -25,7 +25,7 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 			};
 
 			var basket = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
-			var shippingCountry = basket.GetShippingAddress(Constants.DefaultShipmentAddressName).Country;
+			var shippingCountry = basket.GetAddress(Constants.DefaultShipmentAddressName).Country;
 
 			shipmentPickerViewModel.ShippingCountry = shippingCountry.Name;
 			var availableShippingMethods = _transactionLibraryInternal.GetShippingMethods(shippingCountry);
