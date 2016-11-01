@@ -19,10 +19,7 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 		}
 		public ActionResult Rendering()
 		{
-			var shipmentPickerViewModel = new ShippingPickerViewModel()
-			{
-				AvailableShippingMethods = new List<SelectListItem>()
-			};
+			var shipmentPickerViewModel = new ShippingPickerViewModel();
 
 			var basket = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
 			var shippingCountry = basket.GetAddress(Constants.DefaultShipmentAddressName).Country;

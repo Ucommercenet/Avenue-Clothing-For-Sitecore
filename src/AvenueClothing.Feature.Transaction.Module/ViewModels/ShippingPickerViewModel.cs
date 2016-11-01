@@ -5,6 +5,11 @@ namespace AvenueClothing.Feature.Transaction.Module.ViewModels
 {
 	public class ShippingPickerViewModel
 	{
+		public ShippingPickerViewModel()
+		{
+			AvailableShippingMethods = new List<SelectListItem>();
+		}
+
 		public IList<SelectListItem> AvailableShippingMethods { get; set; }
 
 		public int SelectedShippingMethodId { get; set; }
