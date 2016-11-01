@@ -1,0 +1,106 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using AvenueClothing.Feature.Transaction.Module.ViewModels;
+using Sitecore.Mvc.Controllers;
+using UCommerce;
+using UCommerce.Api;
+using UCommerce.EntitiesV2;
+using UCommerce.Transactions;
+
+namespace AvenueClothing.Feature.Transaction.Module.Controllers
+{
+	public class BasketPreviewController : SitecoreController
+	{
+		private readonly TransactionLibraryInternal _transactionLibraryInternal;
+
+		public BasketPreviewController(TransactionLibraryInternal transactionLibraryInternal)
+		{
+			_transactionLibraryInternal = transactionLibraryInternal;
+		}
+
+		public ActionResult Rendering()
+		{
+			var purchaseOrder = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
+			var basketPreviewViewModel = new BasketPreviewViewModel()
+			{
+				OrderLines = new List<OrderLinePreviewViewModel>()
+			};
+
+			basketPreviewViewModel = MapPurchaseOrderToViewModel(purchaseOrder, basketPreviewViewModel);
+
+			return View(basketPreviewViewModel);
+		}
+
+		[HttpPost]
+		public ActionResult RequestPayment()
+		{
+			_transactionLibraryInternal.RequestPayments();
+			return Redirect("/confirmation");
+		}
+
+		private BasketPreviewViewModel MapPurchaseOrderToViewModel(PurchaseOrder purchaseOrder, BasketPreviewViewModel basketPreviewViewModel)
+		{
+
+			basketPreviewViewModel.BillingAddress = TransactionLibrary.GetBillingInformation();
+			basketPreviewViewModel.ShipmentAddress = TransactionLibrary.GetShippingInformation();
+
+			foreach (var orderLine in purchaseOrder.OrderLines)
+			{
+				var orderLineModel = new OrderLinePreviewViewModel
+				{
+					ProductName = orderLine.ProductName,
+					Sku = orderLine.Sku,
+					VariantSku = orderLine.VariantSku,
+					Total = new Money(orderLine.Total.GetValueOrDefault(), orderLine.PurchaseOrder.BillingCurrency).ToString(),
+					Tax = new Money(orderLine.VAT, purchaseOrder.BillingCurrency).ToString(),
+					Price = new Money(orderLine.Price, purchaseOrder.BillingCurrency).ToString(),
+					PriceWithDiscount = new Money(orderLine.Price - orderLine.Discount, purchaseOrder.BillingCurrency).ToString(),
+					Quantity = orderLine.Quantity,
+					Discount = orderLine.Discount
+				};
+
+				basketPreviewViewModel.OrderLines.Add(orderLineModel);
+			}
+
+			basketPreviewViewModel.DiscountTotal = new Money(purchaseOrder.DiscountTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency).ToString();
+			basketPreviewViewModel.DiscountAmount = purchaseOrder.DiscountTotal.GetValueOrDefault();
+			basketPreviewViewModel.SubTotal = new Money(purchaseOrder.SubTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency).ToString();
+			basketPreviewViewModel.OrderTotal = new Money(purchaseOrder.OrderTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency).ToString();
+			basketPreviewViewModel.TaxTotal = new Money(purchaseOrder.TaxTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency).ToString();
+			basketPreviewViewModel.ShippingTotal = new Money(purchaseOrder.ShippingTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency).ToString();
+			basketPreviewViewModel.PaymentTotal = new Money(purchaseOrder.PaymentTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency).ToString();
+
+
+			var shipment = purchaseOrder.Shipments.FirstOrDefault();
+			if (shipment != null)
+			{
+				basketPreviewViewModel.ShipmentName = shipment.ShipmentName;
+				basketPreviewViewModel.ShipmentAmount = purchaseOrder.ShippingTotal.GetValueOrDefault();
+			}
+
+			var payment = purchaseOrder.Payments.FirstOrDefault();
+			if (payment != null)
+			{
+				basketPreviewViewModel.PaymentName = payment.PaymentMethodName;
+				basketPreviewViewModel.PaymentAmount = purchaseOrder.PaymentTotal.GetValueOrDefault();
+			}
+
+			ViewBag.RowSpan = 4;
+			if (purchaseOrder.DiscountTotal > 0)
+			{
+				ViewBag.RowSpan++;
+			}
+			if (purchaseOrder.ShippingTotal > 0)
+			{
+				ViewBag.RowSpan++;
+			}
+			if (purchaseOrder.PaymentTotal > 0)
+			{
+				ViewBag.RowSpan++;
+			}
+
+			return basketPreviewViewModel;
+		}
+	}
+}
