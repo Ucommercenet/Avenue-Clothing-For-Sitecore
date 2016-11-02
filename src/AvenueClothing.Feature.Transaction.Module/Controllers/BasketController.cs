@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Sitecore.Mvc.Controllers;
 using UCommerce;
 using UCommerce.Api;
 using UCommerce.EntitiesV2;
@@ -13,7 +14,7 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
     public class BasketController : Controller
     {
 
-        public ActionResult Index()
+        public ActionResult Rendering()
         {
             PurchaseOrder basket = UCommerce.Api.TransactionLibrary.GetBasket(false).PurchaseOrder;
             var basketModel = new PurchaseOrderViewModel();
@@ -42,7 +43,7 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
             basketModel.TaxTotal = new Money(basket.TaxTotal.GetValueOrDefault(), basket.BillingCurrency).ToString();
             basketModel.SubTotal = new Money(basket.SubTotal.GetValueOrDefault(), basket.BillingCurrency).ToString();
 
-            return base.View("/Views/Basket/Basket.cshtml", basketModel);
+            return View(basketModel);
         }
 
         [HttpPost]

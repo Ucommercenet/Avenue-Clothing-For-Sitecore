@@ -167,7 +167,7 @@
     <Content Include="Views\MiniBasket\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Basket\Basket.cshtml" />
+    <Content Include="Views\Basket\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ContinueToCheckout\ContinueToCheckout.cshtml" />
