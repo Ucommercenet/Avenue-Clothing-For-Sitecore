@@ -50,7 +50,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
         {
             var product = _productRepository.Select(x => x.Sku == priceCalculationDetails.ProductSku && x.ParentProduct == null).FirstOrDefault();
             var catalog = _catalogLibraryInternal.GetCatalog(priceCalculationDetails.CatalogId);
-            PriceCalculation priceCalculation = CatalogLibrary.CalculatePrice(product, catalog);
+            PriceCalculation priceCalculation = new PriceCalculation(product, catalog);
 
             var yourPrice = priceCalculation.YourPrice.Amount.ToString();
             var yourTax = priceCalculation.YourTax.ToString();
@@ -63,7 +63,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
         {
             Product variant = _productRepository.Select(x => x.VariantSku == variantPriceCalculationDetails.ProductVariantSku && x.Sku == variantPriceCalculationDetails.ProductSku).FirstOrDefault();
             var catalog = _catalogLibraryInternal.GetCatalog(variantPriceCalculationDetails.CatalogId);
-            PriceCalculation priceCalculation = CatalogLibrary.CalculatePrice(variant, catalog);
+            PriceCalculation priceCalculation = new PriceCalculation(variant, catalog);
 
             var yourPrice = priceCalculation.YourPrice.Amount.ToString();
             var yourTax = priceCalculation.YourTax.ToString();
