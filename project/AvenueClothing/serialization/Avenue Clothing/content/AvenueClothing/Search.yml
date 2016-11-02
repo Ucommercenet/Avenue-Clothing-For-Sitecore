@@ -1,0 +1,36 @@
+﻿---
+ID: "66e7657c-1656-4d16-969b-78034ba5bb7b"
+Parent: "7919567a-faa2-4504-9c31-63a2cf67b551"
+Template: "3870177d-3bc6-46dc-9594-13860b542060"
+Path: /sitecore/content/AvenueClothing/Search
+DB: master
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{55AD3180-3D79-461F-AC6F-D679AB58A849}">
+        <r
+          id="{AA92D865-76BA-4A80-ABD9-BC6E7CE83687}"
+          ph="breadcrumb"
+          uid="{4344B916-9389-4F0A-A59D-41D7BFFC0253}" />
+        <r
+          id="{878E2B49-315C-4EFE-8D26-52605F78C3D6}"
+          ph="header"
+          uid="{0DB705AD-DD13-4A78-B745-9A161BD8C6D6}" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20161006T130827Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: sitecore\admin
