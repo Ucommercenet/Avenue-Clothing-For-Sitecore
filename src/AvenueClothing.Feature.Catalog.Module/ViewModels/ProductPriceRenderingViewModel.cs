@@ -7,7 +7,9 @@ namespace AvenueClothing.Feature.Catalog.Module.ViewModels
 {
     public class ProductPriceRenderingViewModel
     {
-        public String CalculatePriceUrl { get; set; }
+        public string CalculatePriceUrl { get; set; }
+
+        public string CalculateVariantPriceUrl { get; set; }
 
         public string SKU { get; set; }
 

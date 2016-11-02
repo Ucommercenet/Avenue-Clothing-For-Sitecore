@@ -150,6 +150,7 @@
     <Compile Include="ViewModels\ReviewListRenderingViewModel.cs" />
     <Compile Include="ViewModels\VariantPickerVariantExistsViewModel.cs" />
     <Compile Include="ViewModels\VariantPickerRenderingViewModel.cs" />
+    <Compile Include="ViewModels\VariantPriceCalculationDetails.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
