@@ -1,8 +1,8 @@
 ﻿---
-ID: "5f8c462c-a4ca-4bbf-8061-e99a83fdb48e"
+ID: "3282f847-2d83-4c2e-9fe1-1905f45af3a2"
 Parent: "7919567a-faa2-4504-9c31-63a2cf67b551"
 Template: "3870177d-3bc6-46dc-9594-13860b542060"
-Path: /sitecore/content/AvenueClothing/Payment
+Path: /sitecore/content/AvenueClothing/Preview
 DB: master
 SharedFields:
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
@@ -16,23 +16,19 @@ SharedFields:
         <r
           id="{878E2B49-315C-4EFE-8D26-52605F78C3D6}"
           ph="header"
-          uid="{9FF22C15-DC07-4800-BC7C-53C1EFB23FC4}" />
-        <r
-          id="{749D4A8D-990A-4FFE-BE3A-C74591EBD862}"
-          ph="sidebar"
-          uid="{A98967F6-FA26-4F57-A38C-8A1288912382}" />
-        <r
-          id="{AA92D865-76BA-4A80-ABD9-BC6E7CE83687}"
-          ph="main"
-          uid="{9245648C-ECCF-427D-9380-F7C8EF0FD70F}" />
-        <r
-          id="{E220D074-D6E3-46B8-A4D4-0D2331F83660}"
-          ph="main"
-          uid="{3ED2A5DD-33B3-4F70-B2B7-6A2A62F47FCB}" />
+          uid="{031D6E95-9B4F-40FA-86D3-E96AC28D337A}" />
         <r
           id="{EBBE7524-3356-47AC-852A-8EE1DD93CAD6}"
           ph="header content"
-          uid="{DECDBBBD-8B6B-495B-B997-B371BC4BBE9D}" />
+          uid="{DE147494-E9D2-4C7E-9633-08105D027EDF}" />
+        <r
+          id="{749D4A8D-990A-4FFE-BE3A-C74591EBD862}"
+          ph="sidebar"
+          uid="{9F71F427-F6A4-447E-AA67-466576246C12}" />
+        <r
+          id="{A56E9C47-09B5-443D-BA4F-26CC617E50AB}"
+          ph="main"
+          uid="{14A4BF28-E51A-40AA-9730-F4DD4A1628F9}" />
       </d>
     </r>
 Languages:
@@ -42,7 +38,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20161006T125328Z
+      Value: 20161006T125647Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: sitecore\admin

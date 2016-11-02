@@ -7,7 +7,7 @@
 		var $miniBasket = $(this);
 
 		var emptySelector = $miniBasket.data("mini-basket-empty-selector");
-		var notEmptySelector = $miniBasket.data("basket-not-empty-selector");
+		var notEmptySelector = $miniBasket.data("mini-basket-not-empty-selector");
 		var numberOfItemsSelector = $miniBasket.data("mini-basket-number-of-items-selector");
 		var totalSelector = $miniBasket.data("mini-basket-total-selector");
         var refreshUrl = $(this).data("refresh-url");

@@ -129,12 +129,15 @@
     <Compile Include="Controllers\FacetsController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CategoryNavigationController.cs" />
+    <Compile Include="Controllers\ProductPriceController.cs" />
     <Compile Include="Controllers\QuantityPickerController.cs" />
     <Compile Include="Controllers\ReviewListController.cs" />
     <Compile Include="Controllers\ReviewFormController.cs" />
     <Compile Include="Controllers\VariantPickerController.cs" />
     <Compile Include="Extensions\FacetedQueryStringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\PriceCalculationDetails.cs" />
+    <Compile Include="ViewModels\ProductPriceRenderingViewModel.cs" />
     <Compile Include="ViewModels\CatalogImageCaruselRenderingViewModel.cs" />
     <Compile Include="ViewModels\CategoryNavigationRenderingViewModel.cs" />
     <Compile Include="ViewModels\CategoryRenderingViewModel.cs" />
@@ -147,12 +150,14 @@
     <Compile Include="ViewModels\ReviewListRenderingViewModel.cs" />
     <Compile Include="ViewModels\VariantPickerVariantExistsViewModel.cs" />
     <Compile Include="ViewModels\VariantPickerRenderingViewModel.cs" />
+    <Compile Include="ViewModels\VariantPriceCalculationDetails.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\js-infinite-scrolling.js" />
+    <Content Include="Scripts\js-price-calculation.js" />
     <Content Include="Scripts\js-quantity-picker.js" />
     <Content Include="Scripts\js-variant-picker.js" />
     <Content Include="Scripts\uCommerce.demostore.productpage.js" />
@@ -200,6 +205,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\HomepageCatalog\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controllers\ProductCardController.cs.orig" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controllers\ProductCardController.cs.orig" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ProductPrice\Rendering.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

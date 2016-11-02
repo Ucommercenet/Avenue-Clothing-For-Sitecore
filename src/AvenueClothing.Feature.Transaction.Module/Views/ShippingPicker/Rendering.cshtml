@@ -1,31 +1,43 @@
-﻿@using System.Web.Mvc.Html
+﻿@using System.Web.Mvc
+@using System.Web.Mvc.Html
 @model AvenueClothing.Feature.Transaction.Module.ViewModels.ShippingPickerViewModel
 
 @{
 	Layout = null;
 }
-
-<h3>Shipping method</h3>
-<br />
-@if (Model.AvailableShippingMethods.Count > 0)
+@using (Html.BeginForm("CreateShipment", "ShippingPicker", FormMethod.Post))
 {
-	foreach (var shippingMethod in Model.AvailableShippingMethods)
+	<h3>Shipping method</h3>
+	<br />
+	if (Model.AvailableShippingMethods.Count > 0)
 	{
-		<label class="radio">
-			@if (shippingMethod.Selected)
-			{
-				@Html.RadioButtonFor(x => x.SelectedShippingMethodId, shippingMethod.Value, new { @checked = "checked", @class = "js-shipping-picker" })
-				@shippingMethod.Text
-			}
-			else
-			{
-				@Html.RadioButtonFor(x => x.SelectedShippingMethodId, shippingMethod.Value, new { @class = "js-shipping-picker" })
-				@shippingMethod.Text
-			}
-		</label>
+		foreach (var shippingMethod in Model.AvailableShippingMethods)
+		{
+			<label class="radio">
+				@if (shippingMethod.Selected)
+				{
+					@Html.RadioButtonFor(x => x.SelectedShippingMethodId, shippingMethod.Value, new { @checked = "checked", @class = "js-shipping-picker" })
+					@shippingMethod.Text
+				}
+				else
+				{
+					@Html.RadioButtonFor(x => x.SelectedShippingMethodId, shippingMethod.Value, new { @class = "js-shipping-picker" })
+					@shippingMethod.Text
+				}
+			</label>
+		}
+
+		<div class="control-group margin-top">
+			<div class="controls">
+				<button type="submit" class="btn btn-primary" name="review-product">Continue to payment options</button>
+			</div>
+		</div>
+		<input type="hidden" name="PaymentMethodId" value="@Model.SelectedShippingMethodId">
 	}
-}
-else
-{
-	<p class="alert">WARNING: No shipping methods have been configured for @Model.ShippingCountry within <a href="http://ucommerce.dk">UCommerce</a> administration area.</p>
+	else
+	{
+		<p class="alert">
+			WARNING: No shipping methods have been configured for @Model.ShippingCountry within <a href="http://ucommerce.dk">UCommerce</a> administration area.
+		</p>
+	}
 }

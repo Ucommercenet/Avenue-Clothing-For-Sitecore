@@ -16,19 +16,15 @@ SharedFields:
         <r
           id="{878E2B49-315C-4EFE-8D26-52605F78C3D6}"
           ph="header"
-          uid="{971026AA-5068-40BE-AAF6-741B95173D02}" />
+          uid="{44B9FE56-176D-4C7B-BCAD-491D49BACF3A}" />
         <r
-          id="{AA92D865-76BA-4A80-ABD9-BC6E7CE83687}"
-          ph="breadcrumb"
-          uid="{747FE680-129C-4C4F-867E-A8BDF7FCCEB3}" />
+          id="{EBBE7524-3356-47AC-852A-8EE1DD93CAD6}"
+          ph="header content"
+          uid="{F3DCAFAB-B473-47F3-9C13-F8B76EB4378D}" />
         <r
           id="{749D4A8D-990A-4FFE-BE3A-C74591EBD862}"
           ph="sidebar"
-          uid="{B21CC8AB-F8D8-464B-96A4-17CD280D024F}" />
-        <r
-          id="{33DD6E2C-D788-4F6B-BCD8-6DBFA912C99E}"
-          ph="main"
-          uid="{2892537F-4881-42AE-BC49-697D8A534530}" />
+          uid="{5B92BE73-85D1-4D0C-8110-5F4C3649E0B1}" />
       </d>
     </r>
 Languages:

@@ -19,13 +19,10 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 		}
 		public ActionResult Rendering()
 		{
-			var shipmentPickerViewModel = new ShippingPickerViewModel()
-			{
-				AvailableShippingMethods = new List<SelectListItem>()
-			};
+			var shipmentPickerViewModel = new ShippingPickerViewModel();
 
 			var basket = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
-			var shippingCountry = basket.GetShippingAddress(Constants.DefaultShipmentAddressName).Country;
+			var shippingCountry = basket.GetAddress(Constants.DefaultShipmentAddressName).Country;
 
 			shipmentPickerViewModel.ShippingCountry = shippingCountry.Name;
 			var availableShippingMethods = _transactionLibraryInternal.GetShippingMethods(shippingCountry);
@@ -50,12 +47,12 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult CreateShipment(CreateShipmentViewModel createShipmentViewModel)
+		public ActionResult CreateShipment(ShippingPickerViewModel createShipmentViewModel)
 		{
-			_transactionLibraryInternal.CreateShipment(createShipmentViewModel.ShippingMethodId, Constants.DefaultShipmentAddressName, true);
+			_transactionLibraryInternal.CreateShipment(createShipmentViewModel.SelectedShippingMethodId, Constants.DefaultShipmentAddressName, true);
 			_transactionLibraryInternal.ExecuteBasketPipeline();
 
-			return Json(new { });
+			return Redirect("/payment");
 		}
 	}
 }
