@@ -207,12 +207,6 @@
     <Folder Include="Views\HomepageCatalog\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Controllers\ProductCardController.cs.orig" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Controllers\ProductCardController.cs.orig" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\ProductPrice\Rendering.cshtml" />
   </ItemGroup>
   <PropertyGroup>
