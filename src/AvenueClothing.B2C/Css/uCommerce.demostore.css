@@ -217,6 +217,8 @@ div.row.well {
 -------------------------------------------*/
 #search-form {
     font-size: 0.8rem;
+    display: inline-block;
+    width: 33%;
 }
 
     #search-form .btn {
@@ -659,3 +661,6 @@ p.btn-group.view-details {
         font-size: 0.9em;
         color: #606060;
     }
+
+
+ 
