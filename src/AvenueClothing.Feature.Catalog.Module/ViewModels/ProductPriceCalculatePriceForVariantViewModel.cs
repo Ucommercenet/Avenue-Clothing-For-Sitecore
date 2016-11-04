@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AvenueClothing.Feature.Catalog.Module.ViewModels
 {
-    public class VariantPriceCalculationDetails
+    public class ProductPriceCalculatePriceForVariantViewModel
     {
         public string ProductSku { get; set; }
         public string ProductVariantSku { get; set; }
