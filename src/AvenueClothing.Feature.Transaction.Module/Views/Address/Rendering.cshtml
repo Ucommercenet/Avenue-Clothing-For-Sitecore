@@ -111,7 +111,12 @@
 	<label for="toggleShippingView" class="display-inline">Use a different address for shipping</label>
 	@Html.CheckBoxFor(x => x.IsShippingAddressDifferent, new { @class = "js-address-checkbox display-inline" })
 
-	<div class="display-block">
-		<input type="submit" class="btn btn-secondary btn-lg pull-right" value="Continue to shipping options" />
-	</div>
+    <div class="display-block">
+        <input type="submit" class="btn btn-secondary btn-lg pull-right" value="Continue to shipping options" />
+    </div>
+
+    <div class="display-block">
+        <a href="/cart" type="submit" class="btn btn-secondary btn-default pull-left" >Back</a>
+    </div>
+
 }

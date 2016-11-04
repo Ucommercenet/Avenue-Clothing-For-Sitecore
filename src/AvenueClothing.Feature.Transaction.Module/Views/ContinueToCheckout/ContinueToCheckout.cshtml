@@ -9,7 +9,7 @@
 
 	Database database = Sitecore.Context.Database;
 	RenderingContext.Current.ContextItem = database.GetItem(datasource);
-	var nextItemId = @Html.Sitecore().Field("Link");
+	var nextItemId = @Html.Sitecore().Field("Paths");
 	var nextItemPath = Sitecore.Links.LinkManager.GetItemUrl(database.GetItem(nextItemId.ToString()));
 	Layout = null;
 }

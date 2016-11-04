@@ -133,6 +133,7 @@
     <Compile Include="Controllers\QuantityPickerController.cs" />
     <Compile Include="Controllers\ReviewListController.cs" />
     <Compile Include="Controllers\ReviewFormController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\VariantPickerController.cs" />
     <Compile Include="Extensions\FacetedQueryStringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -208,6 +209,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ProductPrice\Rendering.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Search\Rendering.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Renderings\Searchbar.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
