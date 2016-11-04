@@ -27,9 +27,12 @@
 		}
 
 		<div class="control-group margin-top">
-			<div class="controls">
-				<button type="submit" class="btn btn-primary" name="review-product">Continue to order preview</button>
-			</div>
+		    <div class="controls">
+		        <button type="submit" class="btn btn-primary" name="review-product">Continue to order preview</button>
+                <a href="/shipping" type="submit" class="btn btn-secondary btn-default pull-left">Back</a>
+
+		    </div>
+          
 		</div>
 		<input type="hidden" name="PaymentMethodId" value="@Model.SelectedPaymentMethodId">
 	}
