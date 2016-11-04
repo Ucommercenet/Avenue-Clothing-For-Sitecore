@@ -148,6 +148,7 @@
     <Compile Include="ViewModels\AddToBasketButtonAddToBasketViewModel.cs" />
     <Compile Include="ViewModels\PaymentPickerViewModel.cs" />
     <Compile Include="ViewModels\ShippingPickerViewModel.cs" />
+    <Compile Include="ViewModels\VoucherViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
@@ -161,6 +162,7 @@
   <ItemGroup>
     <Content Include="Scripts\js-payment-picker.js" />
     <Content Include="Scripts\js-shipping-picker.js" />
+    <Content Include="Scripts\js-voucher.js" />
     <Content Include="Views\AddToBasketButton\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>

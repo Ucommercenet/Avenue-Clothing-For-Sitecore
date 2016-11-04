@@ -1,5 +1,8 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
+using AvenueClothing.Feature.Transaction.Module.ViewModels;
 using Sitecore.Mvc.Controllers;
+using UCommerce.Api;
 using UCommerce.Marketing;
 using UCommerce.Transactions;
 
@@ -10,24 +13,31 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 		private readonly MarketingLibraryInternal _marketingLibraryInternal;
 		private readonly TransactionLibraryInternal _transactionLibraryInternal;
 
-		public VoucherController(MarketingLibraryInternal marketingLibraryInternal, TransactionLibraryInternal transactionLibraryInternal)
+		public VoucherController(TransactionLibraryInternal transactionLibraryInternal)
 		{
-			_marketingLibraryInternal = marketingLibraryInternal;
 			_transactionLibraryInternal = transactionLibraryInternal;
 		}
 
 		public ActionResult Rendering()
 		{
-			return View();
+			var voucherViewModel = new VoucherViewModel()
+			{
+				VoucherUrl = Url.Action("AddVoucher"),
+				InputClassSelector = "js-voucher-input-" + Guid.NewGuid(),
+				ButtonClassSelector = "js-voucher-button-" + Guid.NewGuid()
+			};
+
+			return View(voucherViewModel);
 		}
 
+		[HttpPost]
 		public ActionResult AddVoucher(string voucher)
 		{
-			_marketingLibraryInternal.AddVoucher(voucher);
+			//TODO: user marketing library internal
+			MarketingLibrary.AddVoucher(voucher);
 			_transactionLibraryInternal.ExecuteBasketPipeline();
 
-			return Json(new { });
-
+			return Json(new { voucher });
 		}
 	}
 }
