@@ -47,7 +47,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
         }
 
         [HttpPost]
-        public ActionResult CalculatePrice(PriceCalculationDetails priceCalculationDetails)
+		public ActionResult CalculatePrice(ProductCardRenderingViewModel priceCalculationDetails)
         {
             var product = _productRepository.Select(x => x.Sku == priceCalculationDetails.ProductSku && x.ParentProduct == null).FirstOrDefault();
             var catalog = _catalogLibraryInternal.GetCatalog(priceCalculationDetails.CatalogId);
@@ -60,7 +60,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
         }
 
         [HttpPost]
-        public ActionResult CalculatePriceForVariant(VariantPriceCalculationDetails variantPriceCalculationDetails)
+		public ActionResult CalculatePriceForVariant(ProductPriceCalculatePriceForVariantViewModel variantPriceCalculationDetails)
         {
             Product variant = _productRepository.Select(x => x.VariantSku == variantPriceCalculationDetails.ProductVariantSku && x.Sku == variantPriceCalculationDetails.ProductSku).FirstOrDefault();
             var catalog = _catalogLibraryInternal.GetCatalog(variantPriceCalculationDetails.CatalogId);
