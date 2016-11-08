@@ -8,7 +8,6 @@ using AvenueClothing.Feature.Catalog.Module.ViewModels;
 using Sitecore.Mvc.Controllers;
 using Sitecore.Mvc.Presentation;
 using Sitecore.Web.UI.WebControls;
-using UCommerce.Api;
 using UCommerce.Catalog;
 using UCommerce.EntitiesV2;
 using UCommerce.Runtime;

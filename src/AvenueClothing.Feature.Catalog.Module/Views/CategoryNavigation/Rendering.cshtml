@@ -6,7 +6,7 @@
 	Layout = null;
 }
 
-@helper DisplayCategories(List<CategoryNavigationRenderingViewModel.Category> categories)
+@helper DisplayCategories(IList<CategoryNavigationRenderingViewModel.Category> categories)
 {
 	<ul class="nav nav-pills nav-stacked">
 		@foreach (var category in categories)
