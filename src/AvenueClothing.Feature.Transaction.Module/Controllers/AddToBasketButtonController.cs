@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using AvenueClothing.Feature.Transaction.Module.Services;
 using AvenueClothing.Feature.Transaction.Module.ViewModels;
 using Sitecore.Mvc.Controllers;
+using UCommerce;
 using UCommerce.Runtime;
 using UCommerce.Transactions;
 
@@ -12,11 +15,13 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
     {
         private readonly TransactionLibraryInternal _transactionLibraryInternal;
         private readonly ICatalogContext _catalogContext;
+	    private readonly IMiniBasketService _miniBasketService;
 
-        public AddToBasketButtonController(TransactionLibraryInternal transactionLibraryInternal, ICatalogContext catalogContext)
+	    public AddToBasketButtonController(TransactionLibraryInternal transactionLibraryInternal, ICatalogContext catalogContext, IMiniBasketService miniBasketService)
         {
             _transactionLibraryInternal = transactionLibraryInternal;
             _catalogContext = catalogContext;
+		    _miniBasketService = miniBasketService;
         }
 
         [HttpGet]
@@ -40,8 +45,8 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
         public ActionResult AddToBasket(AddToBasketButtonAddToBasketViewModel viewModel)
         {
             _transactionLibraryInternal.AddToBasket(viewModel.Quantity, viewModel.ProductSku, viewModel.VariantSku);
-			
-			return Json(new { });
+
+	        return Json(_miniBasketService.Refresh(), JsonRequestBehavior.AllowGet);
         }
     }
 }

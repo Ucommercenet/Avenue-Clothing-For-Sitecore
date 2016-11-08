@@ -78,7 +78,7 @@
                         },
                         dataType: "json",
                         success: function (data) {
-                            $triggerEventSelector.trigger("basket-changed");
+                            $triggerEventSelector.trigger("basket-changed", data);
 
                             showConfirmationMessage($button);
                         }

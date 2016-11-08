@@ -3,6 +3,8 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
+using AvenueClothing.Feature.Transaction.Module.Services;
+using AvenueClothing.Feature.Transaction.Module.Services.Impl;
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
@@ -56,6 +58,8 @@ namespace AvenueClothing.Project.Website
 
             // This is an extension method from the integration package.
             container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
+
+			container.Register<IMiniBasketService, MiniBasketService>();
 
             container.Verify();
 
