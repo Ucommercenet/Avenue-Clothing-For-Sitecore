@@ -1,6 +1,4 @@
-﻿@using System.Web.Mvc.Html
-@using AvenueClothing.Feature.Catalog.Module.ViewModels
-@using Sitecore.Mvc
+﻿@using Sitecore.Mvc
 
 @model AvenueClothing.Feature.Catalog.Module.ViewModels.CategoryRenderingViewModel
 @{
@@ -8,7 +6,7 @@
 }
 
 <div class="category">
-	<h1>@Html.Sitecore().Field("Name")</h1>
+	<h1>@Model.DisplayName</h1>
 	<div class="row">
 		<div class="product-list col-sm-12 col-md-12">
 			@foreach (var productItem in Model.ProductItemGuids)

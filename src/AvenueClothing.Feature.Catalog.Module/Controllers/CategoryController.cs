@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Catalog.Module.Extensions;
 using AvenueClothing.Feature.Catalog.Module.ViewModels;
 using Sitecore.Mvc.Controllers;
 using Sitecore.Mvc.Presentation;
+using Sitecore.Web.UI.WebControls;
 using UCommerce.Api;
 using UCommerce.Catalog;
 using UCommerce.EntitiesV2;
@@ -32,6 +34,8 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 			var categoryViewModel = new CategoryRenderingViewModel();
 
 			var currentCategory = _catalogContext.CurrentCategory;
+		
+			categoryViewModel.DisplayName = new HtmlString(FieldRenderer.Render(RenderingContext.Current.Rendering.Item, "Name"));
 
 			categoryViewModel.ProductItemGuids = GetProductGuidsInFacetsAndSelectedProductOnSitecoreItem(currentCategory);
 
