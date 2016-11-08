@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Sitecore.Mvc.Controllers;
-using UCommerce;
+using AvenueClothing.Foundation.MvcExtensionsModule;
 using UCommerce.EntitiesV2;
 using UCommerce.EntitiesV2.Factories;
 using UCommerce.Infrastructure;
@@ -14,7 +12,7 @@ using UCommerce.Security;
 namespace AvenueClothing.Project.Website.Controllers
 {
 
-    public class CreateStoreController: SitecoreController
+	public class CreateStoreController : BaseController
     {
         public ActionResult CreateStore()
         {
