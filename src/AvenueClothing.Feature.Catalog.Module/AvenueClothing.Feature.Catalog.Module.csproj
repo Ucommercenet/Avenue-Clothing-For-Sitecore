@@ -137,7 +137,8 @@
     <Compile Include="Controllers\VariantPickerController.cs" />
     <Compile Include="Extensions\FacetedQueryStringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\PriceCalculationDetails.cs" />
+    <Compile Include="ViewModels\ProductPriceCalculatePriceForVariantViewModel.cs" />
+    <Compile Include="ViewModels\ProductPriceCalculatePriceViewModel.cs" />
     <Compile Include="ViewModels\ProductPriceRenderingViewModel.cs" />
     <Compile Include="ViewModels\CatalogImageCaruselRenderingViewModel.cs" />
     <Compile Include="ViewModels\CategoryNavigationRenderingViewModel.cs" />
@@ -151,7 +152,6 @@
     <Compile Include="ViewModels\ReviewListRenderingViewModel.cs" />
     <Compile Include="ViewModels\VariantPickerVariantExistsViewModel.cs" />
     <Compile Include="ViewModels\VariantPickerRenderingViewModel.cs" />
-    <Compile Include="ViewModels\VariantPriceCalculationDetails.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
