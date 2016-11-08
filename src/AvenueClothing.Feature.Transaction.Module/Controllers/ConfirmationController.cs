@@ -1,9 +1,9 @@
 ﻿using System.Web.Mvc;
-using Sitecore.Mvc.Controllers;
+using AvenueClothing.Foundation.MvcExtensionsModule;
 
 namespace AvenueClothing.Feature.Transaction.Module.Controllers
 {
-	public class ConfirmationController : SitecoreController
+	public class ConfirmationController : BaseController
 	{
 		public ActionResult Rendering()
 		{

@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Transaction.Module.ViewModels;
-using Sitecore.Mvc.Controllers;
+using AvenueClothing.Foundation.MvcExtensionsModule;
 using UCommerce.Api;
 using UCommerce.Marketing;
 using UCommerce.Transactions;
 
 namespace AvenueClothing.Feature.Transaction.Module.Controllers
 {
-	public class VoucherController : SitecoreController
+	public class VoucherController : BaseController
 	{
 		private readonly MarketingLibraryInternal _marketingLibraryInternal;
 		private readonly TransactionLibraryInternal _transactionLibraryInternal;

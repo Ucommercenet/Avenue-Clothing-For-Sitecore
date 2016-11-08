@@ -192,6 +192,12 @@
   <ItemGroup>
     <Content Include="Views\Confirmation\Rendering.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AvenueClothing.Foundation.MvcExtensionsModule\AvenueClothing.Foundation.MvcExtensionsModule.csproj">
+      <Project>{F2BAB86C-44DB-446C-A995-03A33C98855D}</Project>
+      <Name>AvenueClothing.Foundation.MvcExtensionsModule</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
