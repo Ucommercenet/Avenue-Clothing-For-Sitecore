@@ -5796,8 +5796,8 @@ button.close {
   .nav-collapse .nav > li > .dropdown-menu:after {
     display: none;
   }
-  .nav-collapse .navbar-form,
-  .nav-collapse .navbar-search {
+  .navbar-form,
+  .navbar-search {
     float: none;
     padding: 10px 15px;
     margin: 10px 0;

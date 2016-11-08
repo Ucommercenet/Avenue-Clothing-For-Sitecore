@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Transaction.Module.ViewModels;
@@ -20,10 +19,7 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 
 		public ActionResult Rendering()
 		{
-			var paymentPickerViewModel = new PaymentPickerViewModel()
-			{
-				AvailablePaymentMethods = new List<SelectListItem>()
-			};
+			var paymentPickerViewModel = new PaymentPickerViewModel();
 
 			var basket = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
 			var shippingCountry = basket.GetShippingAddress(Constants.DefaultShipmentAddressName).Country;
@@ -55,12 +51,13 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 			return View(paymentPickerViewModel);
 		}
 
-		public ActionResult CreatePayment(int paymentId)
+		[HttpPost]
+		public ActionResult CreatePayment(PaymentPickerViewModel createPaymentViewModel)
 		{
-			_transactionLibraryInternal.CreatePayment(paymentId, -1m, false, true);
+			_transactionLibraryInternal.CreatePayment(createPaymentViewModel.SelectedPaymentMethodId, -1m, false, true);
 			_transactionLibraryInternal.ExecuteBasketPipeline();
 
-			return Json(new {});
+			return Redirect("/preview");
 		}
 	}
 }

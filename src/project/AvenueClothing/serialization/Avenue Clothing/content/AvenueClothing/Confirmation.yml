@@ -12,7 +12,28 @@ SharedFields:
     <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <d
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-        l="{55AD3180-3D79-461F-AC6F-D679AB58A849}" />
+        l="{55AD3180-3D79-461F-AC6F-D679AB58A849}">
+        <r
+          id="{878E2B49-315C-4EFE-8D26-52605F78C3D6}"
+          ph="header"
+          uid="{9C3DD5D7-6130-4767-BFE9-F73FF3F48B90}" />
+        <r
+          id="{EBBE7524-3356-47AC-852A-8EE1DD93CAD6}"
+          ph="header content"
+          uid="{C4E2EBFF-8382-48CB-9D20-9D91CB314A15}" />
+        <r
+          id="{749D4A8D-990A-4FFE-BE3A-C74591EBD862}"
+          ph="sidebar"
+          uid="{487A0A85-C33B-44AB-AC30-CBA3A196487E}" />
+        <r
+          id="{514E5AAF-527A-4D2B-9124-9C3FADC8EA2D}"
+          ph="main"
+          uid="{EE9EC8DD-B41A-4141-8E6E-17B8D989ECE8}" />
+        <r
+          id="{E5C76A34-378F-4808-957B-2C055AE08BCB}"
+          ph="header content"
+          uid="{725A8AAF-3A9D-4287-A83E-1F13065BDECB}" />
+      </d>
     </r>
 Languages:
 - Language: en

@@ -1,5 +1,5 @@
 module.exports = function () {
-	var instanceRoot = "C:\\inetpub\\SC8Accelerator\\Website";
+	var instanceRoot = "C:\\inetpub\\sc8dev\\Website";
 	var config = {
 		websiteRoot: instanceRoot,
 		websiteUrl: "http://sc8accelerator",

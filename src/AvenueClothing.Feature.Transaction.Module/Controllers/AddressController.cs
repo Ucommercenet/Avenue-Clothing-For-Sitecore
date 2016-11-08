@@ -1,12 +1,8 @@
 ﻿using System.Linq;
-using System.Net;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Transaction.Module.ViewModels;
 using Sitecore.Mvc.Controllers;
-using Sitecore.Mvc.Pipelines.Response.RenderRendering;
-using Sitecore.Mvc.Presentation;
 using UCommerce;
-using UCommerce.Api;
 using UCommerce.EntitiesV2;
 using UCommerce.Transactions;
 
@@ -78,7 +74,8 @@ namespace AvenueClothing.Feature.Transaction.Module.Controllers
 			}
 
 			_transactionLibraryInternal.ExecuteBasketPipeline();
-            return Json(new {});
+
+			return Redirect("/shipping");
 		}
 
 		private void EditShippingInformation(AddressSaveViewModel.Address shippingAddress)
