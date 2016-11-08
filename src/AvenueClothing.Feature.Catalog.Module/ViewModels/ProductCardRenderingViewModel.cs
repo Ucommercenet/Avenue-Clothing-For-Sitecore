@@ -11,5 +11,6 @@ namespace AvenueClothing.Feature.Catalog.Module.ViewModels
 
 		public HtmlString DisplayName { get; set; }
 		public string CatalogId { get; set; }
+		public HtmlString ThumbnailImage { get; set; }
 	}
 }

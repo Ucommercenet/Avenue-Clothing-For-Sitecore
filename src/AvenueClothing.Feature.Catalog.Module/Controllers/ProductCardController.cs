@@ -30,6 +30,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
             
 			if (productItem == null) return null;
             productView.DisplayName = new HtmlString(FieldRenderer.Render(productItem, "Display Name"));
+			productView.ThumbnailImage = new HtmlString(FieldRenderer.Render(productItem, "Thumbnail image"));
 
             RenderingContext.Current.ContextItem = productItem;
 
