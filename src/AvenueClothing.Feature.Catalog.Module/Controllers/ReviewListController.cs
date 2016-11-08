@@ -27,7 +27,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 	            Name = review.Customer.FirstName + " " + review.Customer.LastName,
 	            Email = review.Customer.EmailAddress,
 	            Title = review.ReviewHeadline,
-	            CreatedOn = review.CreatedOn,
+				CreatedOn = review.CreatedOn.ToString("yyyy-MM-dd"),
 	            Comments = review.ReviewText,
 	            Rating = review.Rating
 	        }).ToList();
