@@ -13,7 +13,6 @@ var config = require("./gulp-config.js")();
 var nugetRestore = require('gulp-nuget-restore');
 var fs = require('fs');
 var unicorn = require("./scripts/unicorn.js");
-var habitat = require("./scripts/habitat.js");
 
 module.exports.config = config;
 
@@ -105,7 +104,7 @@ gulp.task("04-Apply-Xml-Transform", function () {
 
 gulp.task("05-Sync-Unicorn", function (callback) {
 	var options = {};
-	options.siteHostName = habitat.getSiteUrl();
+	options.siteHostName = config.websiteUrl;
 	options.authenticationConfigFile = config.websiteRoot + "/App_config/Include/Unicorn/Unicorn.UI.config";
 
 	unicorn(function () { return callback() }, options);
