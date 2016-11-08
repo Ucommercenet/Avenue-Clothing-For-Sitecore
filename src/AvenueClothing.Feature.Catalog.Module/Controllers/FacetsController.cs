@@ -3,19 +3,14 @@ using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Catalog.Module.Extensions;
 using AvenueClothing.Feature.Catalog.Module.ViewModels;
-using Sitecore.Mvc.Controllers;
+using AvenueClothing.Foundation.MvcExtensionsModule;
 using UCommerce.Api;
-using UCommerce.Content;
-using UCommerce.EntitiesV2;
-using UCommerce.Extensions;
-using UCommerce.Infrastructure;
 using UCommerce.Runtime;
 using UCommerce.Search.Facets;
-using UCommerce.Search;
 
 namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
-	public class FacetsController : SitecoreController
+	public class FacetsController : BaseController
     {
 		private readonly ICatalogContext _catalogContext;
 
