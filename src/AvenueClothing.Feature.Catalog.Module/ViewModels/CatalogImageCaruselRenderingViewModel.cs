@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace AvenueClothing.Feature.Catalog.Module.ViewModels
 {
 	public class CatalogImageCaruselRenderingViewModel
 	{
-		public List<string> ImageUrls { get; set; }
+		public IList<string> ImageUrls { get; set; }
 
 		public CatalogImageCaruselRenderingViewModel()
 		{

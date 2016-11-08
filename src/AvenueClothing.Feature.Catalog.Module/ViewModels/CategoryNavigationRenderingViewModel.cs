@@ -9,7 +9,7 @@ namespace AvenueClothing.Feature.Catalog.Module.ViewModels
 		{
 			Categories = new List<Category>();
 		}
-		public List<Category> Categories { get; set; }
+		public IList<Category> Categories { get; set; }
 
         public class Category
         {
@@ -19,10 +19,10 @@ namespace AvenueClothing.Feature.Catalog.Module.ViewModels
                 Categories = new List<Category>();
             }
 
-            public List<Guid> ProductItemGuids { get; set; }
+            public IList<Guid> ProductItemGuids { get; set; }
             public string Name { get; set; }
             public string Url { get; set; }
-            public List<Category> Categories { get; set; }
+            public IList<Category> Categories { get; set; }
         }
     }
 }

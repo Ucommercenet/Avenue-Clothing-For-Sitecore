@@ -211,6 +211,8 @@
     <Content Include="Views\Header\Rendering.cshtml" />
     <Content Include="Views\CreateStore\CreateStore.cshtml" />
     <Content Include="Views\CreateStore\CreateBigTiesCategory.cshtml" />
+    <Content Include="Views\Avenue Clothing\Layout.cshtml" />
+    <Content Include="Views\Avenue Clothing\Layout.cshtml.orig" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CreateStoreController.cs" />

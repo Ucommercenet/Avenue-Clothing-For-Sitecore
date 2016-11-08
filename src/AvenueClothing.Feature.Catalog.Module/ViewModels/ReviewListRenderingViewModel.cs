@@ -5,7 +5,7 @@ namespace AvenueClothing.Feature.Catalog.Module.ViewModels
 {
     public class ReviewListRenderingViewModel
     {
-        public List<Review> Reviews { get; set; }
+        public IList<Review> Reviews { get; set; }
 
         public ReviewListRenderingViewModel()
         {
