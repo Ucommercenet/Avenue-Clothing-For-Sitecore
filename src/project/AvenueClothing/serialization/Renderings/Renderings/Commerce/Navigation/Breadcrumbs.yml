@@ -1,8 +1,8 @@
 ﻿---
 ID: "aa92d865-76ba-4a80-abd9-bc6e7ce83687"
-Parent: "3a5a2f28-52ee-4cb3-b649-eb1ac2d43b82"
+Parent: "4b8a276f-c8f2-46f3-9f8b-b38a9ff54c0c"
 Template: "2a3e91a0-7987-44b5-ab34-35c2d9de83b9"
-Path: /sitecore/layout/Renderings/Commerce/General/Breadcrumbs
+Path: /sitecore/layout/Renderings/Commerce/Navigation/Breadcrumbs
 DB: master
 SharedFields:
 - ID: "ded9e431-3604-4921-a4b3-a6ec7636a5b6"
