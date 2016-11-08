@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Sitecore.Data.Items;
-using Sitecore.Links;
+﻿using Sitecore.Data.Items;
 
 namespace AvenueClothing.Feature.General.Module.ViewModels
 {
@@ -15,17 +10,9 @@ namespace AvenueClothing.Feature.General.Module.ViewModels
 
         }
 
-        //public string BreadcrumbName { get; set; }
-        //public string BreadcrumbUrl { get; set; }
-        public string BreadcrumbName
-        { get { return InnerItem["Name"]; } }
-
-        public bool IsActive
-        { get { return Sitecore.Context.Item.ID == InnerItem.ID; } }
-
-        public string BreadcrumbUrl
-        {  get { return LinkManager.GetItemUrl(InnerItem); } }
-
+        public string BreadcrumbName{ get; set; }
+        public bool IsActive{ get; set; }
+        public string BreadcrumbUrl{ get; set; }
         public string UcommerceBreadcrumbUrl { get; set; }
     }
 }
