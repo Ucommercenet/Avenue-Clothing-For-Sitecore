@@ -9,7 +9,6 @@ using System.Web.Compilation;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Transaction.Module.Services;
 using AvenueClothing.Feature.Transaction.Module.Services.Impl;
-using UCommerce.Infrastructure;
 using AvenueClothing.Project.Website.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 using UCommerce.Catalog;
@@ -33,12 +32,18 @@ namespace AvenueClothing.Project.Website
 
             ConfigureUCommerceServices(services);
             ConfigureControllerServices(services);
+			ConfigureAcceleratorServices(services);
             
             var resolver = new ServiceProviderDependencyResolver(services.BuildServiceProvider());
             DependencyResolver.SetResolver(resolver);
         }
 
-        public void ConfigureUCommerceServices(IServiceCollection services)
+	    private void ConfigureAcceleratorServices(ServiceCollection services)
+	    {
+			services.AddTransient<IMiniBasketService, MiniBasketService>();
+	    }
+
+	    public void ConfigureUCommerceServices(IServiceCollection services)
         {
             services.AddTransient(p => ObjectFactory.Instance.Resolve<TransactionLibraryInternal>());
             services.AddTransient(p => ObjectFactory.Instance.Resolve<CatalogLibraryInternal>());
