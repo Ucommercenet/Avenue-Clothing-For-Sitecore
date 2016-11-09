@@ -26,6 +26,10 @@ SharedFields:
           ph="sidebar"
           uid="{5B92BE73-85D1-4D0C-8110-5F4C3649E0B1}" />
         <r
+          id="{AA92D865-76BA-4A80-ABD9-BC6E7CE83687}"
+          ph="main"
+          uid="{04ED61B9-8B13-4767-BC7E-EB5DD3CD88A5}" />
+        <r
           id="{33DD6E2C-D788-4F6B-BCD8-6DBFA912C99E}"
           ph="main"
           uid="{E6CD0C68-FA5D-4C0D-A330-44BDB7B4B828}" />
@@ -33,9 +37,6 @@ SharedFields:
           id="{E5C76A34-378F-4808-957B-2C055AE08BCB}"
           ph="header content"
           uid="{D3FED12B-90BD-4190-A9B2-C4625036B60B}" />
-          id="{765AF52A-4993-4738-98D3-AD75AD89FCC2}"
-          ph="main"
-          uid="{43B307A1-7EB7-4BBA-AB74-87A6A3C2F7AC}" />
       </d>
     </r>
 Languages:

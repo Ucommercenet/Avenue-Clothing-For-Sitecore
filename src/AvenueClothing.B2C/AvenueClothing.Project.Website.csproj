@@ -204,13 +204,11 @@
     <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
-    <Content Include="Views\Header\Rendering.cshtml" />
     <Content Include="Views\CreateStore\CreateStore.cshtml" />
     <Content Include="Views\CreateStore\CreateBigTiesCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CreateStoreController.cs" />
-    <Compile Include="Controllers\HeaderController.cs" />
     <Compile Include="Extensions\ServiceProviderDependencyResolver.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
