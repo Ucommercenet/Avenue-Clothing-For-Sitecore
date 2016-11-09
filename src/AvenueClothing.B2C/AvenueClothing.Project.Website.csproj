@@ -217,7 +217,12 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\AvenueClothing.Feature.Transaction.Module\AvenueClothing.Feature.Transaction.Module.csproj">
+      <Project>{267ea69c-3f72-4f2c-b46e-ca229d71546f}</Project>
+      <Name>AvenueClothing.Feature.Transaction.Module</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

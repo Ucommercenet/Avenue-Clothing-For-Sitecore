@@ -7,6 +7,8 @@ using System.Reflection;
 using System.Web;
 using System.Web.Compilation;
 using System.Web.Mvc;
+using AvenueClothing.Feature.Transaction.Module.Services;
+using AvenueClothing.Feature.Transaction.Module.Services.Impl;
 using UCommerce.Infrastructure;
 using AvenueClothing.Project.Website.Extensions;
 using Microsoft.Extensions.DependencyInjection;

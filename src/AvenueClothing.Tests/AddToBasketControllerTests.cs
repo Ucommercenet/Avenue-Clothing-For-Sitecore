@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Transaction.Module.Controllers;
+using AvenueClothing.Feature.Transaction.Module.Services.Impl;
 using AvenueClothing.Feature.Transaction.Module.ViewModels;
 using NSubstitute;
 using UCommerce.EntitiesV2;
@@ -15,14 +16,16 @@ namespace AvenueClothing.Tests
         private readonly AddToBasketButtonController _controller;
         private readonly TransactionLibraryInternal _transactionLibraryInternal;
         private readonly ICatalogContext _catalogContext;
+	    private MiniBasketService _miniBasketService;
 
-        public AddToBasketControllerTests()
+	    public AddToBasketControllerTests()
         {
             //Create
             _transactionLibraryInternal = Substitute.For<TransactionLibraryInternal>(null, null, null, null, null, null, null, null, null, null, null);
             _catalogContext = Substitute.For<ICatalogContext>();
+			_miniBasketService = Substitute.For<MiniBasketService>(_transactionLibraryInternal);
 
-            _controller = new AddToBasketButtonController(_transactionLibraryInternal, _catalogContext);
+			_controller = new AddToBasketButtonController(_transactionLibraryInternal, _catalogContext, _miniBasketService);
 
             _controller.Url = Substitute.For<UrlHelper>();
             _controller.Url.Action(Arg.Any<string>()).Returns("anything");
