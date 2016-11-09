@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using AvenueClothing.Feature.Transaction.Module.Controllers;
-using AvenueClothing.Feature.Transaction.Module.ViewModels;
+using AvenueClothing.Project.Transaction.Controllers;
+using AvenueClothing.Project.Transaction.ViewModels;
 using NSubstitute;
 using UCommerce.EntitiesV2;
 using UCommerce.Transactions;
