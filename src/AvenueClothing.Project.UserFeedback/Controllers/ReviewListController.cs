@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using AvenueClothing.Feature.Catalog.Module.ViewModels;
-using AvenueClothing.Foundation.MvcExtensions;
+using AvenueClothing.Foundation.MvcExtensionsModule;
+using AvenueClothing.Project.UserFeedback.ViewModels;
 using UCommerce.Runtime;
 
-namespace AvenueClothing.Feature.Catalog.Module.Controllers
+namespace AvenueClothing.Project.UserFeedback.Controllers
 {
 	public class ReviewListController : BaseController
     {
