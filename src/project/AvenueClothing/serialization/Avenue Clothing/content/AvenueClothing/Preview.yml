@@ -26,6 +26,10 @@ SharedFields:
           ph="sidebar"
           uid="{9F71F427-F6A4-447E-AA67-466576246C12}" />
         <r
+          id="{AA92D865-76BA-4A80-ABD9-BC6E7CE83687}"
+          ph="main"
+          uid="{828C9432-9363-424B-8191-7AD66CC41902}" />
+        <r
           id="{A56E9C47-09B5-443D-BA4F-26CC617E50AB}"
           ph="main"
           uid="{14A4BF28-E51A-40AA-9730-F4DD4A1628F9}" />

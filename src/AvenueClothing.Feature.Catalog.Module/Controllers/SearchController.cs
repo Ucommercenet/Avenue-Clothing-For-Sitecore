@@ -42,7 +42,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
             }
 
             
-            return View("/search", productsViewModel);
+            return View(productsViewModel);
         }
     }
 }

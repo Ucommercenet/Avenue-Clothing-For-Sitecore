@@ -9,13 +9,13 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F18EC679-469A-4BC0-B845-F6A6698A8344}</ProjectGuid>
+    <ProjectGuid>{E3D4ED85-337F-4489-A197-289375D3D1E8}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AvenueClothing.Project.Website</RootNamespace>
-    <AssemblyName>AvenueClothing.Project.Website</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>AvenueClothing.Project.Header.Module</RootNamespace>
+    <AssemblyName>AvenueClothing.Project.Header.Module</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -24,7 +24,6 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,50 +43,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Kamsar.WebConsole">
-      <HintPath>..\packages\Kamsar.WebConsole.1.2.2.0\lib\net40\Kamsar.WebConsole.dll</HintPath>
-    </Reference>
-    <Reference Include="MicroCHAP">
-      <HintPath>..\packages\MicroCHAP.1.2.1.0\lib\net45\MicroCHAP.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.1.0.0\lib\netstandard1.1\Microsoft.Extensions.DependencyInjection.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Rainbow">
-      <HintPath>..\packages\Rainbow.Core.1.3.1\lib\net45\Rainbow.dll</HintPath>
-    </Reference>
-    <Reference Include="Rainbow.Storage.Sc">
-      <HintPath>..\packages\Rainbow.Storage.Sc.1.3.1\lib\net45\Rainbow.Storage.Sc.dll</HintPath>
-    </Reference>
-    <Reference Include="Rainbow.Storage.Yaml">
-      <HintPath>..\packages\Rainbow.Storage.Yaml.1.3.1\lib\net45\Rainbow.Storage.Yaml.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Sitecore.Mvc">
       <HintPath>..\..\lib\Sitecore\Sitecore.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -95,131 +61,53 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="UCommerce, Version=7.2.1.16274, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.2.1.16274\lib\net400\UCommerce.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Admin, Version=7.2.1.16274, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.2.1.16274\lib\net400\UCommerce.Admin.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Infrastructure, Version=7.2.1.16274, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.2.1.16274\lib\net400\UCommerce.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Installer, Version=7.2.1.16274, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.2.1.16274\lib\net400\UCommerce.Installer.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Pipelines, Version=7.2.1.16274, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.2.1.16274\lib\net400\UCommerce.Pipelines.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Presentation, Version=7.2.1.16274, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.2.1.16274\lib\net400\UCommerce.Presentation.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Transactions.Payments, Version=7.2.1.16274, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.2.1.16274\lib\net400\UCommerce.Transactions.Payments.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Web.Api, Version=7.2.1.16274, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.2.1.16274\lib\net400\UCommerce.Web.Api.dll</HintPath>
-    </Reference>
-    <Reference Include="Unicorn">
-      <HintPath>..\packages\Unicorn.Core.3.2.0\lib\net45\Unicorn.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Css\font-awesome.min.css" />
-    <Content Include="Css\fontawesome-webfont.svg" />
-    <Content Include="Css\glyphicons-28-search.png" />
-    <Content Include="Css\glyphicons-halflings-regular.svg" />
-    <Content Include="Css\tether.min.css" />
-    <Content Include="Css\uCommerce.bootstrap-responsive.css" />
-    <Content Include="Css\uCommerce.bootstrap.css" />
-    <Content Include="Css\uCommerce.demostore.css" />
-    <Content Include="Global.asax" />
     <Content Include="packages.config" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Views\Layout.cshtml" />
-    <Content Include="Css\fontawesome-webfont.eot" />
-    <Content Include="Css\fontawesome-webfont.ttf" />
-    <Content Include="Css\fontawesome-webfont.woff" />
-    <Content Include="Css\fontawesome-webfont.woff2" />
-    <Content Include="Css\FontAwesome.otf" />
-    <Content Include="Css\glyphicons-halflings-regular.eot" />
-    <Content Include="Css\glyphicons-halflings-regular.ttf" />
-    <Content Include="Css\glyphicons-halflings-regular.woff" />
-    <None Include="Scripts\jquery-3.0.0.intellisense.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\jquery-3.0.0.js" />
-    <Content Include="Scripts\jquery-3.0.0.min.js" />
-    <Content Include="Scripts\jquery-3.0.0.slim.js" />
-    <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
-    <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
-    <Content Include="Scripts\jquery-3.0.0.min.map" />
-    <Content Include="Views\CreateStore\CreateStore.cshtml" />
-    <Content Include="Views\CreateStore\CreateBigTiesCategory.cshtml" />
+    <Content Include="Views\Header\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\CreateStoreController.cs" />
-    <Compile Include="Extensions\ServiceProviderDependencyResolver.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
+    <Compile Include="Controllers\HeaderController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AvenueClothing.Feature.Transaction.Module\AvenueClothing.Feature.Transaction.Module.csproj">
-      <Project>{267ea69c-3f72-4f2c-b46e-ca229d71546f}</Project>
-      <Name>AvenueClothing.Feature.Transaction.Module</Name>
-    </ProjectReference>
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\AvenueClothing.Foundation.MvcExtensionsModule\AvenueClothing.Foundation.MvcExtensionsModule.csproj">
       <Project>{F2BAB86C-44DB-446C-A995-03A33C98855D}</Project>
       <Name>AvenueClothing.Foundation.MvcExtensionsModule</Name>
@@ -238,9 +126,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>6892</DevelopmentServerPort>
+          <DevelopmentServerPort>57430</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:6892/</IISUrl>
+          <IISUrl>http://localhost:57430/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
