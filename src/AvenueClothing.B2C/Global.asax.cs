@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Web;
+using System.Web.Compilation;
 using System.Web.Mvc;
-using SimpleInjector;
-using SimpleInjector.Integration.Web;
-using SimpleInjector.Integration.Web.Mvc;
 using UCommerce.Infrastructure;
-using AvenueClothing.Project.Website.ExtensionMethods;
+using AvenueClothing.Project.Website.Extensions;
+using Microsoft.Extensions.DependencyInjection;
 using UCommerce.Catalog;
 using UCommerce.Content;
 using UCommerce.EntitiesV2;
@@ -16,6 +18,7 @@ using UCommerce.Pipelines.GetProduct;
 using UCommerce.Runtime;
 using UCommerce.Search;
 using UCommerce.Transactions;
+using ObjectFactory = UCommerce.Infrastructure.ObjectFactory;
 
 namespace AvenueClothing.Project.Website
 {
@@ -24,42 +27,91 @@ namespace AvenueClothing.Project.Website
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            var container = new Container();
-            container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
+            var services = new ServiceCollection();
 
-            // Register your types, for instance:
-            //container.Register<IUserRepository, SqlUserRepository>(Lifestyle.Scoped);
-
-            //Register uCommerce types
-            container.Register(() => ObjectFactory.Instance.Resolve<TransactionLibraryInternal>(), Lifestyle.Transient);
-            container.Register(() => ObjectFactory.Instance.Resolve<CatalogLibraryInternal>(), Lifestyle.Transient);
-			container.Register(() => ObjectFactory.Instance.Resolve<SearchLibraryInternal>(), Lifestyle.Transient);
-            container.Register(() => ObjectFactory.Instance.Resolve<ICatalogContext>(), Lifestyle.Transient);
-            container.Register(() => ObjectFactory.Instance.Resolve<IOrderContext>(), Lifestyle.Transient);
-            container.Register(() => ObjectFactory.Instance.Resolve<IPipeline<IPipelineArgs<GetProductRequest, GetProductResponse>>>(), Lifestyle.Transient);
-			container.Register(() => ObjectFactory.Instance.Resolve<IImageService>(), Lifestyle.Transient);
-			container.Register(() => ObjectFactory.Instance.Resolve<IRepository<Product>>(), Lifestyle.Transient);
-			container.Register(() => ObjectFactory.Instance.Resolve<IRepository<Category>>(), Lifestyle.Transient);
-			container.Register(() => ObjectFactory.Instance.Resolve<IRepository<ProductReviewStatus>>(), Lifestyle.Transient);
-			container.Register(() => ObjectFactory.Instance.Resolve<IPipeline<ProductReview>>(), Lifestyle.Transient);
-            container.Register(() => Country.All(), Lifestyle.Transient);
+            ConfigureUCommerceServices(services);
+            ConfigureControllerServices(services);
             
-            //var uCommerceExportedTypes = AppDomain.CurrentDomain.GetAssemblies()
-            //    .Where(assembly => assembly.FullName.StartsWith("UCommerce"))
-            //    .SelectMany(x => x.GetExportedTypes())
-            //    .Where(type => !type.IsValueType)
-            //    .Where(type => !type.IsGenericTypeDefinition);
-            //foreach (var type in uCommerceExportedTypes)
-            //{
-            //    container.Register(type, ()=> ObjectFactory.Instance.Resolve(type));
-            //}
+            var resolver = new ServiceProviderDependencyResolver(services.BuildServiceProvider());
+            DependencyResolver.SetResolver(resolver);
+        }
 
-            // This is an extension method from the integration package.
-            container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
+        public void ConfigureUCommerceServices(IServiceCollection services)
+        {
+            services.AddTransient(p => ObjectFactory.Instance.Resolve<TransactionLibraryInternal>());
+            services.AddTransient(p => ObjectFactory.Instance.Resolve<CatalogLibraryInternal>());
+            services.AddTransient(p => ObjectFactory.Instance.Resolve<SearchLibraryInternal>());
+            services.AddTransient(p => ObjectFactory.Instance.Resolve<ICatalogContext>());
+            services.AddTransient(p => ObjectFactory.Instance.Resolve<IOrderContext>());
+            services.AddTransient(p => ObjectFactory.Instance.Resolve<IPipeline<IPipelineArgs<GetProductRequest, GetProductResponse>>>());
+            services.AddTransient(p => ObjectFactory.Instance.Resolve<IImageService>());
+            services.AddTransient(p => ObjectFactory.Instance.Resolve<IRepository<Product>>());
+            services.AddTransient(p => ObjectFactory.Instance.Resolve<IRepository<Category>>());
+            services.AddTransient(p => ObjectFactory.Instance.Resolve<IRepository<ProductReviewStatus>>());
+            services.AddTransient(p => ObjectFactory.Instance.Resolve<IRepository<ProductReviewStatus>>());
+            services.AddTransient(p => ObjectFactory.Instance.Resolve<IPipeline<ProductReview>>());
+            services.AddTransient(p => Country.All());
+        }
 
-            container.Verify();
+        public void ConfigureControllerServices(IServiceCollection services)
+        {
+            var controllerTypesToRegister = GetControllerTypesToRegister();
+            foreach (var type in controllerTypesToRegister)
+            {
+                services.AddTransient(type);
+            }
+        }
 
-            DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
+        public static Type[] GetControllerTypesToRegister(params Assembly[] assemblies)
+        {
+            if (assemblies == null || assemblies.Length == 0)
+            {
+                assemblies = BuildManager.GetReferencedAssemblies().OfType<Assembly>().ToArray();
+            }
+
+            return (
+                from assembly in assemblies
+                where !assembly.IsDynamic
+                from type in GetExportedTypes(assembly)
+                where typeof(IController).IsAssignableFrom(type)
+                where !type.IsAbstract
+                where !type.IsGenericTypeDefinition
+                where type.Name.EndsWith("Controller", StringComparison.Ordinal)
+                select type)
+                .ToArray();
+        }
+
+        private static IEnumerable<Type> GetExportedTypes(Assembly assembly)
+        {
+            try
+            {
+                return assembly.GetExportedTypes();
+            }
+            catch (NotSupportedException)
+            {
+                // A type load exception would typically happen on an Anonymously Hosted DynamicMethods 
+                // Assembly and it would be safe to skip this exception.
+                return Type.EmptyTypes;
+            }
+            catch (FileNotFoundException)
+            {
+                return Type.EmptyTypes;
+            }
+            catch (FileLoadException)
+            {
+                return Type.EmptyTypes;
+            }
+            catch (ReflectionTypeLoadException ex)
+            {
+                // Return the types that could be loaded. Types can contain null values.
+                return ex.Types.Where(type => type != null);
+            }
+            catch (Exception ex)
+            {
+                // Throw a more descriptive message containing the name of the assembly.
+                throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture,
+                    "Unable to load types from assembly {0}. {1}", assembly.FullName, ex.Message), ex);
+            }
         }
 
         protected void Session_Start(object sender, EventArgs e)
