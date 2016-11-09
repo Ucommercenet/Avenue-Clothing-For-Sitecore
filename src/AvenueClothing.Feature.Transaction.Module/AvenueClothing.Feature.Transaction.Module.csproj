@@ -172,9 +172,6 @@
     <Content Include="Views\Basket\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\ContinueToCheckout\ContinueToCheckout.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\ShippingPicker\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
