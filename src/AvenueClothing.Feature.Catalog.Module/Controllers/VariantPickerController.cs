@@ -2,8 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Catalog.Module.ViewModels;
-using Sitecore.Mvc.Controllers;
-using UCommerce.Api;
+using AvenueClothing.Foundation.MvcExtensionsModule;
 using UCommerce.EntitiesV2;
 using UCommerce.Pipelines;
 using UCommerce.Pipelines.GetProduct;
@@ -11,7 +10,7 @@ using UCommerce.Runtime;
 
 namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
-    public class VariantPickerController : SitecoreController
+	public class VariantPickerController : BaseController
     {
         private readonly IPipeline<IPipelineArgs<GetProductRequest, GetProductResponse>> _getProductPipeline;
 	    private readonly ICatalogContext _catalogContext;

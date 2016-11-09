@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Transaction.Module.ViewModels;
-using Sitecore.Mvc.Controllers;
+using AvenueClothing.Foundation.MvcExtensionsModule;
 using UCommerce;
 using UCommerce.Transactions;
 
 namespace AvenueClothing.Feature.Transaction.Module.Controllers
 {
-	public class ShippingPickerController : SitecoreController
+	public class ShippingPickerController : BaseController
 	{
 		private readonly TransactionLibraryInternal _transactionLibraryInternal;
 

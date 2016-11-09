@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Catalog.Module.ViewModels;
-using Sitecore.Mvc.Controllers;
+using AvenueClothing.Foundation.MvcExtensionsModule;
 using Sitecore.Mvc.Presentation;
 using Sitecore.Web.UI.WebControls;
 using UCommerce.Api;
@@ -10,7 +10,7 @@ using UCommerce.Runtime;
 
 namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
-	public class ProductCardController : SitecoreController
+	public class ProductCardController : BaseController
     {
 		private readonly IRepository<Product> _productRepository;
 		private readonly ICatalogContext _catalogContext;

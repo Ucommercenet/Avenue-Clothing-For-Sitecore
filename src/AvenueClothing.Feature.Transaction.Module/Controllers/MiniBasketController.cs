@@ -2,13 +2,13 @@
 using System.Web.Mvc;
 using AvenueClothing.Feature.Transaction.Module.Services;
 using AvenueClothing.Feature.Transaction.Module.ViewModels;
-using Sitecore.Mvc.Controllers;
+using AvenueClothing.Foundation.MvcExtensionsModule;
 using UCommerce;
 using UCommerce.Transactions;
 
 namespace AvenueClothing.Feature.Transaction.Module.Controllers
 {
-	public class MiniBasketController : SitecoreController
+	public class MiniBasketController : BaseController
     {
 	    private readonly TransactionLibraryInternal _transactionLibraryInternal;
 		private readonly IMiniBasketService _miniBasketService;

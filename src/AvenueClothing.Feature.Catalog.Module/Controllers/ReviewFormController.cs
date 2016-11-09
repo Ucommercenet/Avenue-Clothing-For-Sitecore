@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Linq;
-using System.Net;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Catalog.Module.ViewModels;
-using Sitecore.Mvc.Controllers;
+using AvenueClothing.Foundation.MvcExtensionsModule;
 using Sitecore.Mvc.Presentation;
-using UCommerce.Api;
 using UCommerce.EntitiesV2;
 using UCommerce.Pipelines;
 using UCommerce.Runtime;
 
 namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
-    public class ReviewFormController: SitecoreController
+	public class ReviewFormController : BaseController
     {
 	    private readonly ICatalogContext _catalogContext;
 	    private readonly IRepository<Product> _productRepository;

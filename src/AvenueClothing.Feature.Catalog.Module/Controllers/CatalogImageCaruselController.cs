@@ -1,13 +1,13 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Catalog.Module.ViewModels;
+using AvenueClothing.Foundation.MvcExtensionsModule;
 using Sitecore.Data.Items;
-using Sitecore.Mvc.Controllers;
 using Sitecore.Resources.Media;
 
 namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
-	public class CatalogImageCaruselController : SitecoreController
+	public class CatalogImageCaruselController : BaseController
     {
 		public ActionResult Rendering()
 		{

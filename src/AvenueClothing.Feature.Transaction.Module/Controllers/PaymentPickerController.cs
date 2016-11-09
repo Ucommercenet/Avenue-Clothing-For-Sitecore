@@ -2,13 +2,13 @@
 using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Transaction.Module.ViewModels;
-using Sitecore.Mvc.Controllers;
+using AvenueClothing.Foundation.MvcExtensionsModule;
 using UCommerce;
 using UCommerce.Transactions;
 
 namespace AvenueClothing.Feature.Transaction.Module.Controllers
 {
-	public class PaymentPickerController : SitecoreController
+	public class PaymentPickerController : BaseController
     {
 	    private readonly TransactionLibraryInternal _transactionLibraryInternal;
 

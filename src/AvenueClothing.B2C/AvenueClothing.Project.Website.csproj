@@ -221,6 +221,10 @@
     <ProjectReference Include="..\AvenueClothing.Feature.Transaction.Module\AvenueClothing.Feature.Transaction.Module.csproj">
       <Project>{267ea69c-3f72-4f2c-b46e-ca229d71546f}</Project>
       <Name>AvenueClothing.Feature.Transaction.Module</Name>
+     </ProjectReference>
+    <ProjectReference Include="..\AvenueClothing.Foundation.MvcExtensionsModule\AvenueClothing.Foundation.MvcExtensionsModule.csproj">
+      <Project>{F2BAB86C-44DB-446C-A995-03A33C98855D}</Project>
+      <Name>AvenueClothing.Foundation.MvcExtensionsModule</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

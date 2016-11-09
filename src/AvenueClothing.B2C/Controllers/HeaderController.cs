@@ -1,9 +1,9 @@
 ﻿using System.Web.Mvc;
-using Sitecore.Mvc.Controllers;
+using AvenueClothing.Foundation.MvcExtensionsModule;
 
 namespace AvenueClothing.Project.Website.Controllers
 {
-    public class HeaderController : SitecoreController
+    public class HeaderController : BaseController
     {
 		public ActionResult Rendering()
 		{

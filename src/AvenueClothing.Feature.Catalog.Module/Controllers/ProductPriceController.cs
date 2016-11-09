@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Catalog.Module.ViewModels;
-using Sitecore.Mvc.Controllers;
+using AvenueClothing.Foundation.MvcExtensionsModule;
 using UCommerce.Api;
 using UCommerce.Catalog;
 using UCommerce.EntitiesV2;
@@ -12,7 +9,7 @@ using UCommerce.Runtime;
 
 namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
-    public class ProductPriceController: SitecoreController
+	public class ProductPriceController : BaseController
     {
         private readonly IRepository<Product> _productRepository;
         private readonly CatalogLibraryInternal _catalogLibraryInternal;

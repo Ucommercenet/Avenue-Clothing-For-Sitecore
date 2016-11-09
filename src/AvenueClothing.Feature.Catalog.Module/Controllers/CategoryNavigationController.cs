@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Catalog.Module.ViewModels;
-using Sitecore.Mvc.Controllers;
+using AvenueClothing.Foundation.MvcExtensionsModule;
 using UCommerce.Api;
 using UCommerce.Extensions;
 
 namespace AvenueClothing.Feature.Catalog.Module.Controllers
 {
-    public class CategoryNavigationController : SitecoreController
+	public class CategoryNavigationController : BaseController
     {
 		public ActionResult Rendering()
 		{
