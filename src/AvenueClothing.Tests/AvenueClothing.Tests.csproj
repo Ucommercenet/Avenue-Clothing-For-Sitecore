@@ -143,10 +143,6 @@
       <Project>{f18ec679-469a-4bc0-b845-f6a6698a8344}</Project>
       <Name>AvenueClothing.Project.Website</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AvenueClothing.Feature.Catalog.Module\AvenueClothing.Feature.Catalog.Module.csproj">
-      <Project>{5c0e229b-f2c2-4a8b-b5ee-b936ba3efac2}</Project>
-      <Name>AvenueClothing.Feature.Catalog.Module</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AvenueClothing.Feature.Transaction.Module\AvenueClothing.Feature.Transaction.Module.csproj">
       <Project>{267ea69c-3f72-4f2c-b46e-ca229d71546f}</Project>
       <Name>AvenueClothing.Feature.Transaction.Module</Name>
