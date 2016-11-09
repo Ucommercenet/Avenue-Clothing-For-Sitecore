@@ -1,0 +1,45 @@
+﻿@using System.Web.Mvc
+@using System.Web.Mvc.Html
+@model AvenueClothing.Project.Transaction.ViewModels.PaymentPickerViewModel
+@{
+	Layout = null;
+}
+
+@using (Html.BeginForm("CreatePayment", "PaymentPicker", FormMethod.Post))
+{
+	<h3>Payment method</h3>
+	if (@Model.AvailablePaymentMethods.Count > 0)
+	{
+		foreach (var paymentMethod in @Model.AvailablePaymentMethods)
+		{
+			<label class="radio">
+				@if (paymentMethod.Selected)
+				{
+					@Html.RadioButtonFor(x => x.SelectedPaymentMethodId, paymentMethod.Value, new { @checked = "checked", @class = "js-payment-picker" })
+					<span>@paymentMethod.Text</span>
+				}
+				else
+				{
+					@Html.RadioButtonFor(x => x.SelectedPaymentMethodId, paymentMethod.Value, new { @class = "js-payment-picker" })
+					<span>@paymentMethod.Text</span>
+				}
+			</label>
+		}
+
+		<div class="control-group margin-top">
+		    <div class="controls">
+		        <button type="submit" class="btn btn-primary" name="review-product">Continue to order preview</button>
+                <a href="/shipping" type="submit" class="btn btn-secondary btn-default pull-left">Back</a>
+
+		    </div>
+          
+		</div>
+		<input type="hidden" name="PaymentMethodId" value="@Model.SelectedPaymentMethodId">
+	}
+	else
+	{
+		<p class="alert">
+			WARNING: No payment methods have been configured for @Model.ShippingCountry within <a href="http://ucommerce.dk">UCommerce</a> administration area.
+		</p>
+	}
+}
