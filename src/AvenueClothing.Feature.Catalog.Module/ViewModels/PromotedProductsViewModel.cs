@@ -5,5 +5,6 @@ namespace AvenueClothing.Feature.Catalog.Module.ViewModels
 	public class PromotedProductsViewModel
 	{
 		public List<string> ProductGuids { get; set; }
+		public string ProductCardRendering { get; set; }
 	}
 }

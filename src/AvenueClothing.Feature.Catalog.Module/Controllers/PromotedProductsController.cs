@@ -11,7 +11,10 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 		public ActionResult Rendering()
 		{
 			var promotedProductsViewModel = new PromotedProductsViewModel();
+
 			promotedProductsViewModel.ProductGuids = RenderingContext.Current.ContextItem.Fields["Products"].ToString().Split('|').ToList();
+			promotedProductsViewModel.ProductCardRendering = RenderingContext.Current.Rendering.DataSource;
+
 			return View(promotedProductsViewModel);
 		}
 	}
