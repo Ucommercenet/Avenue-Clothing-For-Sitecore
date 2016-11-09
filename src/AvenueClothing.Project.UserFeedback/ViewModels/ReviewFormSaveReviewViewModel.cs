@@ -1,7 +1,6 @@
 ﻿using System;
 
-namespace AvenueClothing.Feature.Catalog.Module.ViewModels
-{
+namespace AvenueClothing.Project.UserFeedback.ViewModels { 
     public class ReviewFormSaveReviewViewModel
     {
         public Guid ProductGuid { get; set; }

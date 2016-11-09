@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AvenueClothing.Feature.Catalog.Module.ViewModels
+namespace AvenueClothing.Project.UserFeedback.ViewModels
 {
     public class ReviewListRenderingViewModel
     {

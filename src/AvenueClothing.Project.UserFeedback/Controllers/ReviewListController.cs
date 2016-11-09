@@ -4,7 +4,7 @@ using AvenueClothing.Feature.Catalog.Module.ViewModels;
 using AvenueClothing.Foundation.MvcExtensionsModule;
 using UCommerce.Runtime;
 
-namespace AvenueClothing.Feature.Catalog.Module.Controllers
+namespace AvenueClothing.Project.UserFeedback.Controllers
 {
 	public class ReviewListController : BaseController
     {

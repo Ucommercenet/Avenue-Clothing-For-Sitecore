@@ -8,7 +8,7 @@ using UCommerce.EntitiesV2;
 using UCommerce.Pipelines;
 using UCommerce.Runtime;
 
-namespace AvenueClothing.Feature.Catalog.Module.Controllers
+namespace AvenueClothing.Project.UserFeedback.Controllers
 {
 	public class ReviewFormController : BaseController
     {
