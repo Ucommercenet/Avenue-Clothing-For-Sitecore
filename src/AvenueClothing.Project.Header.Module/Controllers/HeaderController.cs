@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using AvenueClothing.Foundation.MvcExtensionsModule;
+using AvenueClothing.Foundation.MvcExtensions;
 
 namespace AvenueClothing.Project.Header.Module.Controllers
 {
