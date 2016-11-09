@@ -38,6 +38,8 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 
 			categoryViewModel.ProductItemGuids = GetProductGuidsInFacetsAndSelectedProductOnSitecoreItem(currentCategory);
 
+			categoryViewModel.ProductCardRendering = RenderingContext.Current.Rendering.DataSource;
+
 			return View(categoryViewModel);
 		}
 		

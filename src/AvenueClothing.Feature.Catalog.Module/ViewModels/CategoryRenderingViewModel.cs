@@ -8,5 +8,6 @@ namespace AvenueClothing.Feature.Catalog.Module.ViewModels
     {
         public IList<Guid> ProductItemGuids { get; set; }
 		public HtmlString DisplayName { get; set; }
+	    public string ProductCardRendering { get; set; }
     }
 }
