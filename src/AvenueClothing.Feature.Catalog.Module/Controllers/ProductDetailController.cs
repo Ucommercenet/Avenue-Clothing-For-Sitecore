@@ -13,7 +13,9 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 		{
 			var productDetailViewModel = new ProductDetailViewModel();
 
-			productDetailViewModel.LongDescription = new HtmlString(FieldRenderer.Render(RenderingContext.Current.Rendering.Item, "Long description"));
+			productDetailViewModel.LongDescription = new HtmlString(FieldRenderer.Render(RenderingContext.Current.ContextItem, "Long description"));
+			productDetailViewModel.ReviewListRendering = RenderingContext.Current.Rendering.DataSource.Split('|')[0];
+			productDetailViewModel.ReviewFormRendering = RenderingContext.Current.Rendering.DataSource.Split('|')[1];
 
 			return View(productDetailViewModel);
 		}

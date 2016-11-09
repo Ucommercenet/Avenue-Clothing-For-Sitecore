@@ -1,6 +1,5 @@
 ﻿@using Sitecore.Mvc
 @model AvenueClothing.Feature.Catalog.Module.ViewModels.ProductDetailViewModel
-
 @{
 	Layout = null;
 }
@@ -29,8 +28,8 @@
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Maecenas placerat elementum tristique.Ut ut pretium massa.Nullam mollis lobortis rutrum. Integer quis tellus enim. Donec viverra aliquam faucibus. Nam ac eros velit. Mauris vel adipiscing turpis. Mauris id tortor et augue tincidunt molestie in sed lectus.</p>
 		</div>
 		<div id="customer-reviews" class="tab-pane" role="tabpanel">
-			@Html.Sitecore().Rendering("395CC694-42B4-45D5-A3D5-81DA55DE6CE4")
-			@Html.Sitecore().Rendering("93411B0B-FF7F-4D1E-A2EB-769FCA3B4B99")
+			@Html.Sitecore().Rendering(Model.ReviewListRendering)
+			@Html.Sitecore().Rendering(Model.ReviewFormRendering)
 		</div>
 	</div>
 </section>

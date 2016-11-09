@@ -127,7 +127,7 @@
   <ItemGroup>
     <Compile Include="Controllers\CatalogImageCaruselController.cs" />
     <Compile Include="Controllers\ProductPrimaryImageController.cs" />
-    <Compile Include="Controllers\ProductDetailsController.cs" />
+    <Compile Include="Controllers\ProductDetailController.cs" />
     <Compile Include="Controllers\PromotedProductsController.cs" />
     <Compile Include="Controllers\CategoryImageController.cs" />
     <Compile Include="Controllers\ProductCardController.cs" />
