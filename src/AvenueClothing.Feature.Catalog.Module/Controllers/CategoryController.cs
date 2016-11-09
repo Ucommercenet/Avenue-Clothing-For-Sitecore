@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Catalog.Module.Extensions;
 using AvenueClothing.Feature.Catalog.Module.ViewModels;
-using AvenueClothing.Foundation.MvcExtensionsModule;
+using AvenueClothing.Foundation.MvcExtensions;
 using Sitecore.Mvc.Presentation;
 using UCommerce.Catalog;
 using UCommerce.EntitiesV2;

@@ -195,9 +195,9 @@
     <Content Include="Views\Confirmation\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AvenueClothing.Foundation.MvcExtensionsModule\AvenueClothing.Foundation.MvcExtensionsModule.csproj">
+    <ProjectReference Include="..\AvenueClothing.Foundation.MvcExtensions\AvenueClothing.Foundation.MvcExtensions.csproj">
       <Project>{F2BAB86C-44DB-446C-A995-03A33C98855D}</Project>
-      <Name>AvenueClothing.Foundation.MvcExtensionsModule</Name>
+      <Name>AvenueClothing.Foundation.MvcExtensions</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Project.Navigation.ViewModels;
-using AvenueClothing.Foundation.MvcExtensionsModule;
+using AvenueClothing.Foundation.MvcExtensions;
 using Sitecore.Data.Items;
 using UCommerce.Api;
 using UCommerce.EntitiesV2;

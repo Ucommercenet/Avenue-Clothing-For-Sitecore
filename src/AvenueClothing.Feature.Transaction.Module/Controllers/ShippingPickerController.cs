@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Transaction.Module.ViewModels;
-using AvenueClothing.Foundation.MvcExtensionsModule;
+using AvenueClothing.Foundation.MvcExtensions;
 using UCommerce;
 using UCommerce.Transactions;
 

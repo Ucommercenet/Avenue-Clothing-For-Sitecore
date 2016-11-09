@@ -1,6 +1,6 @@
 ﻿using AvenueClothing.Feature.Transaction.Module.ViewModels;
 using System.Web.Mvc;
-using AvenueClothing.Foundation.MvcExtensionsModule;
+using AvenueClothing.Foundation.MvcExtensions;
 using UCommerce;
 using UCommerce.Api;
 using UCommerce.EntitiesV2;

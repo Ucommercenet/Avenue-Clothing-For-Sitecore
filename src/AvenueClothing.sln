@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Project.Website", "AvenueClothing.B2C\AvenueClothing.Project.Website.csproj", "{F18EC679-469A-4BC0-B845-F6A6698A8344}"
 EndProject
@@ -22,7 +22,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Tests", "Ave
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Project.Navigation", "AvenueClothing.Project.Navigation\AvenueClothing.Project.Navigation.csproj", "{1DC266FC-7ABA-4B60-B72D-B416845B93DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Foundation.MvcExtensionsModule", "AvenueClothing.Foundation.MvcExtensionsModule\AvenueClothing.Foundation.MvcExtensionsModule.csproj", "{F2BAB86C-44DB-446C-A995-03A33C98855D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Foundation.MvcExtensions", "AvenueClothing.Foundation.MvcExtensions\AvenueClothing.Foundation.MvcExtensions.csproj", "{F2BAB86C-44DB-446C-A995-03A33C98855D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

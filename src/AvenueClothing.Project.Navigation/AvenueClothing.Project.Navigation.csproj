@@ -131,9 +131,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AvenueClothing.Foundation.MvcExtensionsModule\AvenueClothing.Foundation.MvcExtensionsModule.csproj">
+    <ProjectReference Include="..\AvenueClothing.Foundation.MvcExtensions\AvenueClothing.Foundation.MvcExtensions.csproj">
       <Project>{f2bab86c-44db-446c-a995-03a33c98855d}</Project>
-      <Name>AvenueClothing.Foundation.MvcExtensionsModule</Name>
+      <Name>AvenueClothing.Foundation.MvcExtensions</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
