@@ -126,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CatalogImageCaruselController.cs" />
+    <Compile Include="Controllers\ProductPrimaryImageController.cs" />
     <Compile Include="Controllers\ProductDetailsController.cs" />
     <Compile Include="Controllers\PromotedProductsController.cs" />
     <Compile Include="Controllers\CategoryImageController.cs" />
@@ -149,6 +150,7 @@
     <Compile Include="ViewModels\CatalogImageCaruselRenderingViewModel.cs" />
     <Compile Include="ViewModels\CategoryNavigationRenderingViewModel.cs" />
     <Compile Include="ViewModels\CategoryRenderingViewModel.cs" />
+    <Compile Include="ViewModels\ProductPrimaryImageViewModel.cs" />
     <Compile Include="ViewModels\PromotedProductsViewModel.cs" />
     <Compile Include="ViewModels\ReviewFormRenderingViewModel.cs" />
     <Compile Include="ViewModels\FacetsRenderingViewModel.cs" />
@@ -191,9 +193,6 @@
     <Content Include="Views\QuantityPicker\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Renderings\ProductImage.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\ReviewForm\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -216,6 +215,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\ProductDetail\Rendering.cshtml" />
+    <None Include="Views\ProductPrimaryImage\Rendering.cshtml" />
     <None Include="Views\PromotedProducts\Rendering.cshtml" />
   </ItemGroup>
   <PropertyGroup>
