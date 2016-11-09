@@ -26,7 +26,7 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 			var productView = new ProductCardRenderingViewModel();
 
             var database = Sitecore.Context.Database;
-			var productItem = database.GetItem(RenderingContext.Current.Rendering.Properties["productItem"]);
+			var productItem = database.GetItem(RenderingContext.Current.Rendering.Properties["productGuid"]);
             
 			if (productItem == null) return null;
             productView.DisplayName = new HtmlString(FieldRenderer.Render(productItem, "Display Name"));
