@@ -126,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CatalogImageCaruselController.cs" />
+    <Compile Include="Controllers\ProductDetailsController.cs" />
     <Compile Include="Controllers\PromotedProductsController.cs" />
     <Compile Include="Controllers\CategoryImageController.cs" />
     <Compile Include="Controllers\ProductCardController.cs" />
@@ -141,6 +142,7 @@
     <Compile Include="Extensions\FacetedQueryStringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CategoryImageViewModel.cs" />
+    <Compile Include="ViewModels\ProductDetailViewModel.cs" />
     <Compile Include="ViewModels\ProductPriceCalculatePriceForVariantViewModel.cs" />
     <Compile Include="ViewModels\ProductPriceCalculatePriceViewModel.cs" />
     <Compile Include="ViewModels\ProductPriceRenderingViewModel.cs" />
@@ -192,9 +194,6 @@
     <Content Include="Views\Renderings\ProductImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Renderings\ProductDetails.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\ReviewForm\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -216,6 +215,7 @@
     <Content Include="Views\Renderings\Searchbar.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Views\ProductDetail\Rendering.cshtml" />
     <None Include="Views\PromotedProducts\Rendering.cshtml" />
   </ItemGroup>
   <PropertyGroup>
