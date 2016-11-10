@@ -13,7 +13,7 @@ namespace AvenueClothing.Feature.Catalog.Controllers
 		{
 			var productDetailViewModel = new ProductDetailViewModel();
 
-			productDetailViewModel.LongDescription = new HtmlString(FieldRenderer.Render(RenderingContext.Current.Rendering.Item, "Long description"));
+			productDetailViewModel.LongDescription = new HtmlString(FieldRenderer.Render(RenderingContext.Current.ContextItem, "Long description"));
 
 			return View(productDetailViewModel);
 		}
