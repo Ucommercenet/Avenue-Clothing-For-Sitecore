@@ -1,4 +1,5 @@
 ﻿@inherits System.Web.Mvc.WebViewPage
+@using System.Web.Optimization
 @using Sitecore.Mvc;
 
 <!DOCTYPE html>
@@ -6,9 +7,8 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width" />
-	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-	<link href="~/Css/uCommerce.demostore.css" rel="stylesheet" />
-	<link href="~/Css/font-awesome.min.css" rel="stylesheet" />
+
+    @Styles.Render("~/Content/css")
 	@if (!Sitecore.Context.PageMode.IsExperienceEditor)
 	{
 		@Html.Sitecore().Placeholder("head")
@@ -16,63 +16,69 @@
 	<title></title>
 </head>
 <body class="header-static @(Sitecore.Context.PageMode.IsNormal ? "" : (Sitecore.Context.PageMode.IsExperienceEditor ? "pagemode-edit" : "pagemode-preview"))">
-	<div id="main-container">
-		<header>
+<div id="main-container">
+    <header>
 
-			@Html.Sitecore().Placeholder("header")
+        @Html.Sitecore().Placeholder("header")
 
-		</header>
-		<section>
-			<div class="container">
-				<div class="col-sm-3 col-md-3">
-					@Html.Sitecore().Placeholder("sidebar")
+    </header>
+    <section>
+        <div class="container">
+            <div class="col-sm-3 col-md-3">
+                @Html.Sitecore().Placeholder("sidebar")
 
-				</div>
-				<div class="col-sm-9 col-md-9">
+            </div>
+            <div class="col-sm-9 col-md-9">
 
-					@Html.Sitecore().Placeholder("breadcrumb")
+                @Html.Sitecore().Placeholder("breadcrumb")
 
-					@Html.Sitecore().Placeholder("main")
-				</div>
+                @Html.Sitecore().Placeholder("main")
+            </div>
 
-			</div>
-		</section>
-		<footer>
-			@Html.Sitecore().Placeholder("footer")
-		</footer>
-	</div>
-    <script src="~/Scripts/require-2.3.2.min.js"></script>
-    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
-	<script src="~/Scripts/bootstrap.min.js"></script>
-	<script src="~/Scripts/uCommerce.facets.js"></script>
-	<script src="~/Scripts/js-add-to-basket-button.js"></script>
-	<script src="~/Scripts/js-variant-picker.js"></script>
-	<script src="~/Scripts/js-quantity-picker.js"></script>
-	<script src="~/Scripts/js-mini-basket.js"></script>
-	<script src="~/Scripts/js-infinite-scrolling.js"></script>
-	<script src="~/Scripts/uCommerce.demostore.productpage.js"></script>
-	<script src="~/Scripts/js-address.js"></script>
-	<script src="~/Scripts/js-shipping-picker.js"></script>
-	<script src="~/Scripts/js-price-calculation.js"></script>
-	<script src="~/Scripts/js-payment-picker.js"></script>
-	<script src="~/Scripts/js-voucher.js"></script>
+        </div>
+    </section>
+    <footer>
+        @Html.Sitecore().Placeholder("footer")
+    </footer>
+</div>
+    @Scripts.Render("~/bundles/require")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    
+    @if (!HttpContext.Current.IsDebuggingEnabled)
+    {
+        <script>
+            requirejs.config({
+                bundles: {
+                    @*'@Scripts.Url("~/bundles/jquery").ToString()': [
+                        'jquery'
+                    ],*@
+                    @*'@Scripts.Url("~/bundles/bootstrap").ToString()': [
+                        'bootstrap'
+                    ]*@
+                }
+            });
+        </script>
+    }
+    
+    @Scripts.Render("~/bundles/js-components")
 
-	<script>
-		$(document).ready(function () {
-			AddToBasketButton.init($(document), $("*"));
-			VariantPicker.init($(document), $("*"));
-			QuantityPicker.init($(document), $("*"));
-			MiniBasket.init($(document), $("*"));
-			ShippingPicker.init($(document), $("*"));
-			PriceCalculation.init($(document), $("*"));
-			PaymentPicker.init($(document), $("*"));
-			Addresses.init($(document), $("*"));
-			Voucher.init($(document), $("*"));
+<script>
+        $(document).ready(function () {
+            AddToBasketButton.init($(document), $("*"));
+            VariantPicker.init($(document), $("*"));
+            QuantityPicker.init($(document), $("*"));
+            MiniBasket.init($(document), $("*"));
+            ShippingPicker.init($(document), $("*"));
+            PriceCalculation.init($(document), $("*"));
+            PaymentPicker.init($(document), $("*"));
+            Addresses.init($(document), $("*"));
+            Voucher.init($(document), $("*"));
 
-			ShippingPicker.initCompleted($(document), $("*"));
-			PaymentPicker.initCompleted($(document), $("*"));
-		});
-	</script>
+            ShippingPicker.initCompleted($(document), $("*"));
+            PaymentPicker.initCompleted($(document), $("*"));
+        });
+    </script>
 </body>
 
 </html>

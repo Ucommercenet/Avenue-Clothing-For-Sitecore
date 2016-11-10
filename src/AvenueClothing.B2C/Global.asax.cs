@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Web;
 using System.Web.Compilation;
 using System.Web.Mvc;
+using System.Web.Optimization;
 using AvenueClothing.Project.Transaction.Services;
 using AvenueClothing.Project.Transaction.Services.Impl;
 using AvenueClothing.Project.Website.Extensions;
@@ -36,6 +37,8 @@ namespace AvenueClothing.Project.Website
             
             var resolver = new ServiceProviderDependencyResolver(services.BuildServiceProvider());
             DependencyResolver.SetResolver(resolver);
+
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
 	    private void ConfigureAcceleratorServices(ServiceCollection services)
