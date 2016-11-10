@@ -36,15 +36,15 @@ SharedFields:
         <r
           id="{DFCC28D2-F51F-46BC-9FF4-B4945FE2B05E}"
           ph="main"
-          uid="{488D87DD-F566-4C06-AF19-0A052F93340F}" />
-        <r
-          id="{74D43CB5-4D7A-470F-A042-8954F2B5A75B}"
-          ph="main"
-          uid="{24471DBA-9114-46FD-9406-0A671E698CE4}" />
+          uid="{974AC727-34A5-4053-8F04-F70E60D50F98}" />
         <r
           id="{AA92D865-76BA-4A80-ABD9-BC6E7CE83687}"
           ph="breadcrumb"
           uid="{B5E00E7D-0E08-47A0-AD67-497D17B22720}" />
+        <r
+          id="{0314ED58-5A97-41E9-855D-046700380E21}"
+          ph="main"
+          uid="{66CD58A8-5E9E-49FE-A6A3-8D3CCF8DB476}" />
       </d>
     </r>
 Languages:
@@ -85,9 +85,9 @@ Languages:
       Hint: Products
       Type: Treelist
       Value: |
-        {0A2D1B36-5A98-4907-8130-9DDC0C5F762F}
-        {2B707FC6-C7EB-4F5D-A75C-550EC0492834}
-        {0AA9AB53-95E3-4991-86E9-96C2F17B5AAF}
+        {0303350E-538D-4F6F-B564-5D861F38A52D}
+        {34196200-5452-445D-BFE3-B9E93839788E}
+        {8B98009A-45A1-461D-9027-03EBB0B1DDC1}
     - ID: "b9baaa2b-d947-4cae-97cf-4e413b57c511"
       Hint: Images
       Type: Multilist

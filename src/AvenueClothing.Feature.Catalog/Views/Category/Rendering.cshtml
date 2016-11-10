@@ -1,19 +1,16 @@
-﻿@using System.Web.Mvc.Html
-@using AvenueClothing.Feature.Catalog.ViewModels
-@using Sitecore.Mvc
-
+﻿@using Sitecore.Mvc
 @model AvenueClothing.Feature.Catalog.ViewModels.CategoryRenderingViewModel
 @{
 	Layout = null;
 }
 
 <div class="category">
-	<h1>@Html.Sitecore().Field("Name")</h1>
+	<h1>@Model.DisplayName</h1>
 	<div class="row">
 		<div class="product-list col-sm-12 col-md-12">
-			@foreach (var productItem in Model.ProductItemGuids)
+			@foreach (var productGuid in Model.ProductItemGuids)
 			{
-				@Html.Sitecore().Rendering("B82B3313-82E1-4D4D-9C3C-2935E1E6E0C0", new { productItem })
+				@Html.Sitecore().Rendering(Model.ProductCardRendering, new { productGuid })
 			}
 		</div>
 	</div>

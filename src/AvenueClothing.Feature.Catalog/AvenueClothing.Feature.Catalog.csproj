@@ -47,7 +47,8 @@
     <Reference Include="Sitecore.Kernel">
       <HintPath>..\..\lib\Sitecore\Sitecore.Kernel.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.Mvc">
+    <Reference Include="Sitecore.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Sitecore\Sitecore.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
@@ -125,6 +126,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CatalogImageCaruselController.cs" />
+    <Compile Include="Controllers\ProductPrimaryImageController.cs" />
+    <Compile Include="Controllers\ProductDetailController.cs" />
+    <Compile Include="Controllers\PromotedProductsController.cs" />
+    <Compile Include="Controllers\CategoryImageController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CategoryNavigationController.cs" />
     <Compile Include="Controllers\FacetsController.cs" />
@@ -134,9 +139,13 @@
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Extensions\FacetedQueryStringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CategoryImageViewModel.cs" />
+    <Compile Include="ViewModels\ProductDetailViewModel.cs" />
     <Compile Include="ViewModels\CatalogImageCaruselRenderingViewModel.cs" />
     <Compile Include="ViewModels\CategoryNavigationRenderingViewModel.cs" />
     <Compile Include="ViewModels\CategoryRenderingViewModel.cs" />
+    <Compile Include="ViewModels\ProductPrimaryImageViewModel.cs" />
+    <Compile Include="ViewModels\PromotedProductsViewModel.cs" />
     <Compile Include="ViewModels\FacetsRenderingViewModel.cs" />
     <Compile Include="ViewModels\HomepageCatalogViewModel.cs" />
     <Compile Include="ViewModels\ProductCardRenderingViewModel.cs" />
@@ -172,22 +181,10 @@
     <Content Include="Views\ProductCard\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Renderings\HomepageCatalog.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Renderings\ProductImage.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Renderings\CategoryImage.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Renderings\ProductDetails.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\ProductList.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\HomepageCatalog\" />
+    <Content Include="Views\CategoryImage\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ProductPrice\Rendering.cshtml" />
@@ -197,6 +194,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Renderings\Searchbar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Views\ProductDetail\Rendering.cshtml" />
+    <None Include="Views\ProductPrimaryImage\Rendering.cshtml" />
+    <None Include="Views\PromotedProducts\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AvenueClothing.Foundation.MvcExtensions\AvenueClothing.Foundation.MvcExtensions.csproj">

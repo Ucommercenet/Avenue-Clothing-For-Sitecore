@@ -1,21 +1,13 @@
-﻿@using Sitecore.Data
-@using Sitecore.Mvc
-@using Sitecore.Mvc.Presentation
-@using Sitecore.Web.UI.WebControls.Presentation
-@using Item = Sitecore.Data.Items.Item
-@model AvenueClothing.Feature.Catalog.ViewModels.ProductCardRenderingViewModel
+﻿@model AvenueClothing.Feature.Catalog.ViewModels.ProductCardRenderingViewModel
 @{
 	Layout = null;
-	Database database = Sitecore.Context.Database;
-	Item productItem = database.GetItem(RenderingContext.Current.Rendering.Properties["productItem"]);
-	RenderingContext.Current.ContextItem = productItem;
 }
 
 <div class="product col-sm-4 col-md-4 col-xs-2" id="@Model.ProductSku">
 	<div class="product-image">
-		@if (!string.IsNullOrEmpty(@Html.Sitecore().Field("Thumbnail image").ToString()))
+		@if (!string.IsNullOrEmpty(@Model.ThumbnailImage.ToString()))
 		{
-			<a href="@Model.Url">@Html.Sitecore().Field("Thumbnail image")</a>
+			<a href="@Model.Url">@Model.ThumbnailImage</a>
 		}
 	</div>
 

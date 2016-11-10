@@ -10,6 +10,6 @@ namespace AvenueClothing.Project.Transaction.ViewModels
         }
 
         public string ProductSku { get; set; }
-        public Dictionary<string, string> VariantNameValueDictionary { get; set; }
+        public IDictionary<string, string> VariantNameValueDictionary { get; set; }
     }
 }

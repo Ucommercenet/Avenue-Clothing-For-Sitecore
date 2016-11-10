@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Feature.Catalog.ViewModels;
 using AvenueClothing.Foundation.MvcExtensions;
+using Sitecore.Mvc.Presentation;
 using UCommerce.EntitiesV2;
 
 namespace AvenueClothing.Feature.Catalog.Controllers
@@ -41,7 +42,8 @@ namespace AvenueClothing.Feature.Catalog.Controllers
                 productsViewModel.ProductItemGuids.Add(product.Guid);
             }
 
-            
+			productsViewModel.ProductCardRendering = RenderingContext.Current.Rendering.DataSource;
+
             return View(productsViewModel);
         }
     }
