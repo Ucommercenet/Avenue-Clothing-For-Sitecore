@@ -33,8 +33,8 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 			var categoryViewModel = new CategoryRenderingViewModel();
 
 			var currentCategory = _catalogContext.CurrentCategory;
-		
-			categoryViewModel.DisplayName = new HtmlString(FieldRenderer.Render(RenderingContext.Current.Rendering.Item, "Name"));
+
+			categoryViewModel.DisplayName = new HtmlString(FieldRenderer.Render(RenderingContext.Current.ContextItem, "Display name"));
 
 			categoryViewModel.ProductItemGuids = GetProductGuidsInFacetsAndSelectedProductOnSitecoreItem(currentCategory);
 

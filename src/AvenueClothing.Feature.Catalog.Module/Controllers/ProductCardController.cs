@@ -32,8 +32,6 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
             productView.DisplayName = new HtmlString(FieldRenderer.Render(productItem, "Display Name"));
 			productView.ThumbnailImage = new HtmlString(FieldRenderer.Render(productItem, "Thumbnail image"));
 
-            RenderingContext.Current.ContextItem = productItem;
-
 			var currentProduct = _productRepository.SingleOrDefault(x => x.Guid == productItem.ID.Guid);
 			var category = _catalogContext.CurrentCategory;
 
