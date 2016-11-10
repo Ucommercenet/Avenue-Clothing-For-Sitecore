@@ -33,7 +33,7 @@ namespace AvenueClothing.Feature.Catalog.Controllers
                 CalculatePriceUrl = Url.Action("CalculatePrice"),
                 CalculateVariantPriceUrl = Url.Action("CalculatePriceForVariant"),
                 CatalogGuid = currentCatalog.Id,
-                SKU = currentProduct.Sku
+                Sku = currentProduct.Sku
             };
             if (currentCategory != null)
             {

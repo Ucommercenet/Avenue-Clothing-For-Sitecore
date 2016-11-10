@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace AvenueClothing.Feature.Catalog.ViewModels
 {
@@ -12,7 +9,7 @@ namespace AvenueClothing.Feature.Catalog.ViewModels
 			Facets = new List<Facet>();
 		}
 
-		public List<Facet> Facets { get; set; }
+		public IList<Facet> Facets { get; set; }
 
         public class Facet
         {
@@ -20,7 +17,7 @@ namespace AvenueClothing.Feature.Catalog.ViewModels
             {
                 FacetValues = new List<FacetValue>();
             }
-            public List<FacetValue> FacetValues { get; set; }
+            public IList<FacetValue> FacetValues { get; set; }
             public string Name { get; set; }
 
             public string DisplayName { get; set; }

@@ -66,5 +66,4 @@ namespace AvenueClothing.Feature.Catalog.Controllers
 			return facets;
 		}
 	}
-
 }

@@ -1,0 +1,24 @@
+﻿---
+ID: "0314ed58-5a97-41e9-855d-046700380e21"
+Parent: "ea28baf4-62fa-4fa9-80f9-07c39608e5e7"
+Template: "2a3e91a0-7987-44b5-ab34-35c2d9de83b9"
+Path: /sitecore/layout/Renderings/Commerce/Catalog/Promoted Products
+DB: master
+SharedFields:
+- ID: "5a14936f-2100-4541-b700-2f122e88f3f8"
+  Hint: Data source
+  Value: "{B82B3313-82E1-4D4D-9C3C-2935E1E6E0C0}"
+- ID: "ded9e431-3604-4921-a4b3-a6ec7636a5b6"
+  Hint: Controller Action
+  Value: Rendering
+- ID: "e64ad073-dfcc-4d20-8c0b-fe5aa6226cd7"
+  Hint: Controller
+  Value: PromotedProducts
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20161109T065705Z

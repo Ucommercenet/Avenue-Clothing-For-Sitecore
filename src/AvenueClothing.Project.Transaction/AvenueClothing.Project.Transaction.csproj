@@ -127,12 +127,14 @@
   <ItemGroup>
     <Compile Include="Controllers\BasketPreviewController.cs" />
     <Compile Include="Controllers\ConfirmationController.cs" />
+    <Compile Include="Controllers\QuantityPickerController.cs" />
     <Compile Include="Controllers\ShippingPickerController.cs" />
     <Compile Include="Controllers\PaymentPickerController.cs" />
     <Compile Include="Controllers\AddToBasketButtonController.cs" />
     <Compile Include="Controllers\BasketController.cs" />
     <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\MiniBasketController.cs" />
+    <Compile Include="Controllers\VariantPickerController.cs" />
     <Compile Include="Controllers\VoucherController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IMiniBasketService.cs" />
@@ -149,7 +151,10 @@
     <Compile Include="ViewModels\MiniBasketRenderingViewModel.cs" />
     <Compile Include="ViewModels\AddToBasketButtonAddToBasketViewModel.cs" />
     <Compile Include="ViewModels\PaymentPickerViewModel.cs" />
+    <Compile Include="ViewModels\QuantityPickerRenderingViewModel.cs" />
     <Compile Include="ViewModels\ShippingPickerViewModel.cs" />
+    <Compile Include="ViewModels\VariantPickerRenderingViewModel.cs" />
+    <Compile Include="ViewModels\VariantPickerVariantExistsViewModel.cs" />
     <Compile Include="ViewModels\VoucherViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -174,9 +179,6 @@
     <Content Include="Views\Basket\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\ContinueToCheckout\ContinueToCheckout.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\ShippingPicker\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +201,12 @@
       <Project>{F2BAB86C-44DB-446C-A995-03A33C98855D}</Project>
       <Name>AvenueClothing.Foundation.MvcExtensions</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\VariantPicker\Rendering.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\QuantityPicker\Rendering.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

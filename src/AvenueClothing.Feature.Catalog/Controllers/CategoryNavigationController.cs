@@ -16,8 +16,7 @@ namespace AvenueClothing.Feature.Catalog.Controllers
 		        Categories = MapCategories(CatalogLibrary.GetRootCategories())
 		    };
 
-
-		    return View(categoryNavigation);
+			return View(categoryNavigation);
 		}
 
 		private List<CategoryNavigationRenderingViewModel.Category> MapCategories(ICollection<UCommerce.EntitiesV2.Category> categoriesToMap)

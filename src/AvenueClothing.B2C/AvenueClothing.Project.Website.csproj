@@ -218,8 +218,7 @@
     <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
-    <Content Include="Views\CreateStore\CreateStore.cshtml" />
-    <Content Include="Views\CreateStore\CreateBigTiesCategory.cshtml" />
+    <Content Include="Views\Avenue Clothing\Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />

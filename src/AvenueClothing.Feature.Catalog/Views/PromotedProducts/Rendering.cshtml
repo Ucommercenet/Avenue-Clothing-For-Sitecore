@@ -1,0 +1,14 @@
+﻿@using Sitecore.Mvc
+@model AvenueClothing.Feature.Catalog.ViewModels.PromotedProductsViewModel
+@{
+	Layout = null;
+}
+
+<div class="row">
+	<div class="product-list col-sm-12 col-md-12">
+		@foreach (var productGuid in Model.ProductGuids)
+		{
+			@Html.Sitecore().Rendering(Model.ProductCardRendering, new { productGuid });
+		}
+	</div>
+</div>

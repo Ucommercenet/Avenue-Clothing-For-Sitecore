@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using AvenueClothing.Project.Navigation.ViewModels;
 using AvenueClothing.Foundation.MvcExtensions;
 using Sitecore.Data.Items;
+using Sitecore.Links;
 using UCommerce.Api;
 using UCommerce.EntitiesV2;
 using UCommerce.Extensions;
@@ -22,6 +23,9 @@ namespace AvenueClothing.Project.Navigation.Controllers
                 if (!IsTemplateBlacklisted(item.TemplateName))
                 {
                     BreadcrumbViewModel crumb = new BreadcrumbViewModel(item);
+	                crumb.BreadcrumbName = item["Name"];
+					crumb.IsActive = Sitecore.Context.Item.ID == item.ID;
+					crumb.BreadcrumbUrl = LinkManager.GetItemUrl(item);
                     breadcrumbs.SitecoreBreadcrumbs.Add(crumb);
                 }
             }
