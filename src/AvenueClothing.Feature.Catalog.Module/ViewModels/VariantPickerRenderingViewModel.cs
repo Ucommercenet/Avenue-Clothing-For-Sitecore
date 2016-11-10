@@ -8,7 +8,7 @@ namespace AvenueClothing.Feature.Catalog.Module.ViewModels
         {
             Variants = new List<Variant>();
         }
-        public List<Variant> Variants { get; set; }
+        public IList<Variant> Variants { get; set; }
         public string ProductSku { get; set; }
         public string VariantExistsUrl { get; set; }
 
@@ -21,7 +21,7 @@ namespace AvenueClothing.Feature.Catalog.Module.ViewModels
 
             public string Name { get; set; }
             public string DisplayName { get; set; }
-            public List<VaraintValue> VaraintItems { get; set; }
+            public IList<VaraintValue> VaraintItems { get; set; }
 
             public class VaraintValue
             {

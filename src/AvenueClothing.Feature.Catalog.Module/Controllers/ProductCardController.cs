@@ -26,12 +26,11 @@ namespace AvenueClothing.Feature.Catalog.Module.Controllers
 			var productView = new ProductCardRenderingViewModel();
 
             var database = Sitecore.Context.Database;
-			var productItem = database.GetItem(RenderingContext.Current.Rendering.Properties["productItem"]);
+			var productItem = database.GetItem(RenderingContext.Current.Rendering.Properties["productGuid"]);
             
 			if (productItem == null) return null;
             productView.DisplayName = new HtmlString(FieldRenderer.Render(productItem, "Display Name"));
-
-            RenderingContext.Current.ContextItem = productItem;
+			productView.ThumbnailImage = new HtmlString(FieldRenderer.Render(productItem, "Thumbnail image"));
 
 			var currentProduct = _productRepository.SingleOrDefault(x => x.Guid == productItem.ID.Guid);
 			var category = _catalogContext.CurrentCategory;

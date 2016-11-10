@@ -11,9 +11,7 @@ namespace AvenueClothing.Feature.Transaction.Module.ViewModels
 		}
 
 		public IList<SelectListItem> AvailablePaymentMethods { get; set; }
-
 		public int SelectedPaymentMethodId { get; set; }
-
 		public string ShippingCountry { get; set; }
 	}
 }

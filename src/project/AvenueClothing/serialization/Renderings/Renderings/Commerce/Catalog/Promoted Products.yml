@@ -1,8 +1,8 @@
 ﻿---
-ID: "702720cf-81eb-4b67-aa31-400ddd891e50"
+ID: "0314ed58-5a97-41e9-855d-046700380e21"
 Parent: "ea28baf4-62fa-4fa9-80f9-07c39608e5e7"
 Template: "2a3e91a0-7987-44b5-ab34-35c2d9de83b9"
-Path: /sitecore/layout/Renderings/Commerce/Catalog/Search
+Path: /sitecore/layout/Renderings/Commerce/Catalog/Promoted Products
 DB: master
 SharedFields:
 - ID: "5a14936f-2100-4541-b700-2f122e88f3f8"
@@ -13,7 +13,7 @@ SharedFields:
   Value: Rendering
 - ID: "e64ad073-dfcc-4d20-8c0b-fe5aa6226cd7"
   Hint: Controller
-  Value: Search
+  Value: PromotedProducts
 Languages:
 - Language: en
   Versions:
@@ -21,4 +21,4 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20161104T110748Z
+      Value: 20161109T065705Z

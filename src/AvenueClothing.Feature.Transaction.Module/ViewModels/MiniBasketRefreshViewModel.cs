@@ -1,6 +1,4 @@
-﻿using UCommerce;
-
-namespace AvenueClothing.Feature.Transaction.Module.ViewModels
+﻿namespace AvenueClothing.Feature.Transaction.Module.ViewModels
 {
 	public class MiniBasketRefreshViewModel
 	{
