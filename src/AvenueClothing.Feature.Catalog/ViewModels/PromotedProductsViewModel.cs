@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AvenueClothing.Feature.Catalog.Module.ViewModels
+namespace AvenueClothing.Feature.Catalog.ViewModels
 {
 	public class PromotedProductsViewModel
 	{

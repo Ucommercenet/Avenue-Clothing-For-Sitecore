@@ -1,5 +1,4 @@
 ﻿namespace AvenueClothing.Project.Transaction.ViewModels
-
 {
     public class OrderlineViewModel
     {

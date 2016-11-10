@@ -1,6 +1,6 @@
 ﻿using System.Web;
 
-namespace AvenueClothing.Feature.Catalog.Module.ViewModels
+namespace AvenueClothing.Feature.Catalog.ViewModels
 {
 	public class ProductDetailViewModel
 	{

@@ -126,14 +126,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CatalogImageCaruselController.cs" />
-    <Compile Include="Controllers\ProductPrimaryImageController.cs" />
     <Compile Include="Controllers\ProductDetailController.cs" />
+    <Compile Include="Controllers\ProductPrimaryImageController.cs" />
     <Compile Include="Controllers\PromotedProductsController.cs" />
     <Compile Include="Controllers\CategoryImageController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CategoryNavigationController.cs" />
     <Compile Include="Controllers\FacetsController.cs" />
-    <Compile Include="Controllers\FrontpageProductsController.cs" />
     <Compile Include="Controllers\ProductCardController.cs" />
     <Compile Include="Controllers\ProductPriceController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -178,9 +177,6 @@
     <Content Include="Views\Facets\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\ProductCard\Rendering.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\ProductList.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -196,9 +192,14 @@
     <Content Include="Views\Renderings\Searchbar.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\CategoryImage\Rendering.cshtml" />
+    <Content Include="Views\ProductCard\Rendering.cshtml" />
     <None Include="Views\ProductDetail\Rendering.cshtml" />
+    <Content Include="Views\ProductDetail\Rendering.cshtml" />
     <None Include="Views\ProductPrimaryImage\Rendering.cshtml" />
+    <Content Include="Views\ProductPrimaryImage\Rendering.cshtml" />
     <None Include="Views\PromotedProducts\Rendering.cshtml" />
+    <Content Include="Views\PromotedProducts\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AvenueClothing.Foundation.MvcExtensions\AvenueClothing.Foundation.MvcExtensions.csproj">

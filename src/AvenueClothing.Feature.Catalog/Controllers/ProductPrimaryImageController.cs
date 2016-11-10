@@ -1,11 +1,11 @@
 ﻿using System.Web;
 using System.Web.Mvc;
-using AvenueClothing.Feature.Catalog.Module.ViewModels;
+using AvenueClothing.Feature.Catalog.ViewModels;
 using Sitecore.Mvc.Controllers;
 using Sitecore.Mvc.Presentation;
 using Sitecore.Web.UI.WebControls;
 
-namespace AvenueClothing.Feature.Catalog.Module.Controllers
+namespace AvenueClothing.Feature.Catalog.Controllers
 {
 	public class ProductPrimaryImageController : SitecoreController
     {
