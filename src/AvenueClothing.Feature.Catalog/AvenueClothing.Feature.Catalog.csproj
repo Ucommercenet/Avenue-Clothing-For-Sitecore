@@ -192,7 +192,6 @@
     <Content Include="Views\Renderings\Searchbar.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\CategoryImage\Rendering.cshtml" />
     <Content Include="Views\ProductCard\Rendering.cshtml" />
     <None Include="Views\ProductDetail\Rendering.cshtml" />
     <Content Include="Views\ProductDetail\Rendering.cshtml" />
