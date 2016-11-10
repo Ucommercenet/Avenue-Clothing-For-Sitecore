@@ -1,4 +1,4 @@
-﻿namespace AvenueClothing.Feature.Catalog.ViewModels
+﻿namespace AvenueClothing.Project.Transaction.ViewModels
 {
     public class QuantityPickerRenderingViewModel
     {

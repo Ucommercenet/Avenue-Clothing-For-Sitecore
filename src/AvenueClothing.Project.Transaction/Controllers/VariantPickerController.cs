@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
-using AvenueClothing.Feature.Catalog.ViewModels;
 using AvenueClothing.Foundation.MvcExtensions;
+using AvenueClothing.Project.Transaction.ViewModels;
 using UCommerce.EntitiesV2;
 using UCommerce.Pipelines;
 using UCommerce.Pipelines.GetProduct;
 using UCommerce.Runtime;
 
-namespace AvenueClothing.Feature.Catalog.Controllers
+namespace AvenueClothing.Project.Transaction.Controllers
 {
 	public class VariantPickerController : BaseController
     {

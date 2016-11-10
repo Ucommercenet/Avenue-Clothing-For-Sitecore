@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AvenueClothing.Feature.Catalog.ViewModels
+namespace AvenueClothing.Project.Transaction.ViewModels
 {
     public class VariantPickerVariantExistsViewModel
     {

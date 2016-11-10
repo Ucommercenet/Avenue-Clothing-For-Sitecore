@@ -131,9 +131,7 @@
     <Compile Include="Controllers\FrontpageProductsController.cs" />
     <Compile Include="Controllers\ProductCardController.cs" />
     <Compile Include="Controllers\ProductPriceController.cs" />
-    <Compile Include="Controllers\QuantityPickerController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
-    <Compile Include="Controllers\VariantPickerController.cs" />
     <Compile Include="Extensions\FacetedQueryStringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CatalogImageCaruselRenderingViewModel.cs" />
@@ -145,12 +143,9 @@
     <Compile Include="ViewModels\ProductPriceCalculatePriceForVariantViewModel.cs" />
     <Compile Include="ViewModels\ProductPriceCalculatePriceViewModel.cs" />
     <Compile Include="ViewModels\ProductPriceRenderingViewModel.cs" />
-    <Compile Include="ViewModels\QuantityPickerRenderingViewModel.cs" />
     <Compile Include="ViewModels\ReviewFormRenderingViewModel.cs" />
     <Compile Include="ViewModels\ReviewFormSaveReviewViewModel.cs" />
     <Compile Include="ViewModels\ReviewListRenderingViewModel.cs" />
-    <Compile Include="ViewModels\VariantPickerRenderingViewModel.cs" />
-    <Compile Include="ViewModels\VariantPickerVariantExistsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -177,13 +172,7 @@
     <Content Include="Views\ProductCard\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\VariantPicker\Rendering.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Renderings\HomepageCatalog.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\QuantityPicker\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Renderings\ProductImage.cshtml" />

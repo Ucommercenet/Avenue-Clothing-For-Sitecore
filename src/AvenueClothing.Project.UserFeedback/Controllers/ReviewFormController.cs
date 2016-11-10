@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
+using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.UserFeedback.ViewModels;
-using AvenueClothing.Foundation.MvcExtensionsModule;
 using Sitecore.Mvc.Presentation;
 using UCommerce.EntitiesV2;
 using UCommerce.Pipelines;

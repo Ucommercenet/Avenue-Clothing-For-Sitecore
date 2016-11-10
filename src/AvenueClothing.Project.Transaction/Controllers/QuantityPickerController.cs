@@ -1,9 +1,9 @@
 ﻿using System.Web.Mvc;
-using AvenueClothing.Feature.Catalog.ViewModels;
 using AvenueClothing.Foundation.MvcExtensions;
+using AvenueClothing.Project.Transaction.ViewModels;
 using UCommerce.Runtime;
 
-namespace AvenueClothing.Feature.Catalog.Controllers
+namespace AvenueClothing.Project.Transaction.Controllers
 {
 	public class QuantityPickerController : BaseController
     {
