@@ -140,6 +140,7 @@
     <Compile Include="Services\IMiniBasketService.cs" />
     <Compile Include="Services\Impl\MiniBasketService.cs" />
     <Compile Include="ViewModels\AddressSaveViewModel.cs" />
+    <Compile Include="ViewModels\ConfirmationViewModel.cs" />
     <Compile Include="ViewModels\OrderlineViewModel.cs" />
     <Compile Include="ViewModels\PurchaseOrderViewModel.cs" />
     <Compile Include="ViewModels\AddressRenderingViewModel.cs" />
