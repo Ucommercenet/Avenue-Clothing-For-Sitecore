@@ -1,9 +1,11 @@
-﻿@{
+﻿@using Sitecore.Mvc
+@model AvenueClothing.Project.Transaction.ViewModels.ConfirmationViewModel
+@{
 	Layout = null;
 }
 
 <div class="alert alert-info">
-	<h1>Thank you for your order</h1>
+	<h1>@Model.Headline</h1>
 	<br />
-	<p>An order confirmation email has been sent to your email address</p>
+	<p>@Model.Message</p>
 </div>

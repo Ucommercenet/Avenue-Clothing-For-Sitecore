@@ -10,19 +10,23 @@
 		<div class="col-md-6">
 			<h3>Billing address</h3>
 			<br />
-			<address>
-				<span class="address-line"><strong>@Model.BillingAddress.FirstName @Model.BillingAddress.LastName</strong></span><br>
-				<span class="address-line">@Model.BillingAddress.Line1<br></span>
-				<span class="address-line">@Model.BillingAddress.PostalCode @Model.BillingAddress.City</span><br>
-				<span class="address-line">@Model.BillingAddress.Country.Name</span>
-				@if (!String.IsNullOrWhiteSpace(@Model.BillingAddress.Attention))
-				{
-					<span class="address-line"><text>att. </text> @Model.BillingAddress.Attention</span>
-				}<br>
-				<span class="address-line"><abbr title="Phone">P:</abbr>@Model.BillingAddress.PhoneNumber</span><br>
-				<span class="address-line"><abbr title="Mobile">M:</abbr>@Model.BillingAddress.MobilePhoneNumber </span><br>
-				<span class="address-line"><abbr title="Email">E:</abbr><a href="mailto:@Model.BillingAddress.EmailAddress">@Model.BillingAddress.EmailAddress</a></span>
-			</address>
+		    <address>
+		                        @* 			@Html.Sitecore().Field("My Field Name");
+        @Html.Sitecore().Field("My Field Name", Model.Item) //Datasource item (may be context item)
+
+                                *@
+		        <span class="address-line"><strong>@Model.BillingAddress.FirstName @Model.BillingAddress.LastName</strong></span><br>
+		        <span class="address-line">@Model.BillingAddress.Line1<br></span>
+		        <span class="address-line">@Model.BillingAddress.PostalCode @Model.BillingAddress.City</span><br>
+		        <span class="address-line">@Model.BillingAddress.Country.Name</span>
+		        @if (!String.IsNullOrWhiteSpace(@Model.BillingAddress.Attention))
+		        {
+		            <span class="address-line"><text>att. </text> @Model.BillingAddress.Attention</span>
+		        }<br>
+		        <span class="address-line"><abbr title="Phone">P:</abbr>@Model.BillingAddress.PhoneNumber</span><br>
+		        <span class="address-line"><abbr title="Mobile">M:</abbr>@Model.BillingAddress.MobilePhoneNumber </span><br>
+		        <span class="address-line"><abbr title="Email">E:</abbr><a href="mailto:@Model.BillingAddress.EmailAddress">@Model.BillingAddress.EmailAddress</a></span>
+		    </address>
 		</div>
 		<div class="col-md-6">
 			<h3>Shipping address</h3>
