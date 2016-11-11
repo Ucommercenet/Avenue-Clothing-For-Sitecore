@@ -1,0 +1,18 @@
+﻿---
+ID: "6d87a255-98d5-4136-b727-36e5f2c61e9b"
+Parent: "ea28baf4-62fa-4fa9-80f9-07c39608e5e7"
+Template: "99f8905d-4a87-4eb8-9f8b-a9bebfb3add6"
+Path: /sitecore/layout/Renderings/Commerce/Catalog/Product Card View
+DB: master
+SharedFields:
+- ID: "51b435bc-f7b9-478a-9c51-52916af96ff5"
+  Hint: Path
+  Value: /views/ProductCard.cshtml
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20161006T124742Z
