@@ -16,7 +16,6 @@ namespace AvenueClothing.Project.Transaction.Controllers
             var confirmation= new ConfirmationViewModel();
             confirmation.Headline = new HtmlString(FieldRenderer.Render(RenderingContext.Current.ContextItem, "Headline"));
             confirmation.Message = new HtmlString(FieldRenderer.Render(RenderingContext.Current.ContextItem, "Message"));
-
             return View(confirmation);
 		}
 	}
