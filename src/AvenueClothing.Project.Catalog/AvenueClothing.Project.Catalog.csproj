@@ -193,11 +193,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ProductCard\Rendering.cshtml" />
-    <None Include="Views\ProductDetail\Rendering.cshtml" />
     <Content Include="Views\ProductDetail\Rendering.cshtml" />
-    <None Include="Views\ProductPrimaryImage\Rendering.cshtml" />
     <Content Include="Views\ProductPrimaryImage\Rendering.cshtml" />
-    <None Include="Views\PromotedProducts\Rendering.cshtml" />
     <Content Include="Views\PromotedProducts\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
