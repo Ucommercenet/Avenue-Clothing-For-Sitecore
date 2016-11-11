@@ -1,8 +1,8 @@
 ﻿---
-ID: "93411b0b-ff7f-4d1e-a2eb-769fca3b4b99"
-Parent: "ea28baf4-62fa-4fa9-80f9-07c39608e5e7"
+ID: "395cc694-42b4-45d5-a3d5-81da55de6ce4"
+Parent: "a1ddb7a9-ed3f-4ada-96e8-30909cfe69b8"
 Template: "2a3e91a0-7987-44b5-ab34-35c2d9de83b9"
-Path: /sitecore/layout/Renderings/Commerce/Catalog/Review Form
+Path: /sitecore/layout/Renderings/Commerce/User Feedback/Review List
 DB: master
 SharedFields:
 - ID: "ded9e431-3604-4921-a4b3-a6ec7636a5b6"
@@ -10,7 +10,7 @@ SharedFields:
   Value: Rendering
 - ID: "e64ad073-dfcc-4d20-8c0b-fe5aa6226cd7"
   Hint: Controller
-  Value: ReviewForm
+  Value: ReviewList
 Languages:
 - Language: en
   Versions:
@@ -18,4 +18,4 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20161018T073205Z
+      Value: 20161018T132844Z
