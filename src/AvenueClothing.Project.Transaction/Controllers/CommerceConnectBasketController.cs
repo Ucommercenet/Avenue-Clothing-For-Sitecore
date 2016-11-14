@@ -56,7 +56,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 				basketModel.TaxTotal = new Money(cart.Total.TaxTotal.Amount, currency).ToString();
 			basketModel.SubTotal = new Money((cart.Total.Amount - cart.Total.TaxTotal.Amount), currency).ToString();
 
-			return View("/Views/Basket/Rendering.cshtml", basketModel);
+			return View(basketModel);
 		}
 
 		[HttpPost]
