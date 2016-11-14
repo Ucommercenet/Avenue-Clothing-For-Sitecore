@@ -11,20 +11,17 @@ using Sitecore.Commerce.Entities.Prices;
 using Sitecore.Commerce.Services.Carts;
 using UCommerce.Api;
 using UCommerce.Runtime;
-using UCommerce.Transactions;
 using Convert = System.Convert;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {
 	public class CommerceConnectAddToBasketButtonController : BaseController
 	{
-		private readonly TransactionLibraryInternal _transactionLibraryInternal;
 		private readonly ICatalogContext _catalogContext;
 		private readonly IMiniBasketService _miniBasketService;
 
-		public CommerceConnectAddToBasketButtonController(TransactionLibraryInternal transactionLibraryInternal, ICatalogContext catalogContext, IMiniBasketService miniBasketService)
+		public CommerceConnectAddToBasketButtonController(ICatalogContext catalogContext, IMiniBasketService miniBasketService)
 		{
-			_transactionLibraryInternal = transactionLibraryInternal;
 			_catalogContext = catalogContext;
 			_miniBasketService = miniBasketService;
 		}
