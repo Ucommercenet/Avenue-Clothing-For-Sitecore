@@ -1,0 +1,35 @@
+﻿@using Sitecore.Mvc
+@model AvenueClothing.Project.Catalog.ViewModels.ProductDetailViewModel
+@{
+	Layout = null;
+}
+
+<section class="tabbable">
+	<ul class="nav nav-tabs" role="tablist">
+		<li class="nav-item">
+			<a href="#product-description" class="nav-link active" data-toggle="tab" role="tab">Details</a>
+		</li>
+		<li class="nav-item">
+			<a href="#delivery-info" class="nav-link" data-toggle="tab" role="tab">Delivery</a>
+		</li>
+		<li class="nav-item">
+			<a href="#returns-info" class="nav-link" data-toggle="tab" role="tab">Returns</a>
+		</li>
+		<li class="nav-item"><a href="#customer-reviews" class="nav-link" data-toggle="tab" role="tab">Reviews</a></li>
+	</ul>
+	<div class="tab-content margin-top">
+		<div itemprop="desription" id="product-description" class="tab-pane active" role="tabpanel">
+			@Model.LongDescription
+		</div>
+		<div id="delivery-info" class="tab-pane" role="tabpanel">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Maecenas placerat elementum tristique.Ut ut pretium massa.Nullam mollis lobortis rutrum. Integer quis tellus enim. Donec viverra aliquam faucibus. Nam ac eros velit. Mauris vel adipiscing turpis. Mauris id tortor et augue tincidunt molestie in sed lectus.</p>
+		</div>
+		<div id="returns-info" class="tab-pane" role="tabpanel">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Maecenas placerat elementum tristique.Ut ut pretium massa.Nullam mollis lobortis rutrum. Integer quis tellus enim. Donec viverra aliquam faucibus. Nam ac eros velit. Mauris vel adipiscing turpis. Mauris id tortor et augue tincidunt molestie in sed lectus.</p>
+		</div>
+		<div id="customer-reviews" class="tab-pane" role="tabpanel">
+			@Html.Sitecore().Rendering(Model.ReviewListRendering)
+			@Html.Sitecore().Rendering(Model.ReviewFormRendering)
+		</div>
+	</div>
+</section>

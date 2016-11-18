@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Project.Website", "AvenueClothing.B2C\AvenueClothing.Project.Website.csproj", "{F18EC679-469A-4BC0-B845-F6A6698A8344}"
 EndProject
@@ -21,15 +21,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Project.Navi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Foundation.MvcExtensions", "AvenueClothing.Foundation.MvcExtensions\AvenueClothing.Foundation.MvcExtensions.csproj", "{F2BAB86C-44DB-446C-A995-03A33C98855D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Project.Header.Module", "AvenueClothing.Project.Header.Module\AvenueClothing.Project.Header.Module.csproj", "{E3D4ED85-337F-4489-A197-289375D3D1E8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Project.UserFeedback", "AvenueClothing.Project.UserFeedback\AvenueClothing.Project.UserFeedback.csproj", "{FB136DD8-B0C0-41FD-9585-E3C7A1A3F33D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Feature.Catalog", "AvenueClothing.Feature.Catalog\AvenueClothing.Feature.Catalog.csproj", "{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Project.Transaction", "AvenueClothing.Project.Transaction\AvenueClothing.Project.Transaction.csproj", "{267EA69C-3F72-4F2C-B46E-CA229D71546F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Project.DemoStore", "AvenueClothing.Project.DemoStore\AvenueClothing.Project.DemoStore.csproj", "{78AA6C71-27CC-42C9-96D0-065457F82601}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Project.Header", "AvenueClothing.Project.Header\AvenueClothing.Project.Header.csproj", "{E3D4ED85-337F-4489-A197-289375D3D1E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Project.Catalog", "AvenueClothing.Project.Catalog\AvenueClothing.Project.Catalog.csproj", "{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,18 +53,10 @@ Global
 		{F2BAB86C-44DB-446C-A995-03A33C98855D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2BAB86C-44DB-446C-A995-03A33C98855D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2BAB86C-44DB-446C-A995-03A33C98855D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E3D4ED85-337F-4489-A197-289375D3D1E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E3D4ED85-337F-4489-A197-289375D3D1E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E3D4ED85-337F-4489-A197-289375D3D1E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E3D4ED85-337F-4489-A197-289375D3D1E8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FB136DD8-B0C0-41FD-9585-E3C7A1A3F33D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FB136DD8-B0C0-41FD-9585-E3C7A1A3F33D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB136DD8-B0C0-41FD-9585-E3C7A1A3F33D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB136DD8-B0C0-41FD-9585-E3C7A1A3F33D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{267EA69C-3F72-4F2C-B46E-CA229D71546F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{267EA69C-3F72-4F2C-B46E-CA229D71546F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{267EA69C-3F72-4F2C-B46E-CA229D71546F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -73,6 +65,14 @@ Global
 		{78AA6C71-27CC-42C9-96D0-065457F82601}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78AA6C71-27CC-42C9-96D0-065457F82601}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78AA6C71-27CC-42C9-96D0-065457F82601}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3D4ED85-337F-4489-A197-289375D3D1E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3D4ED85-337F-4489-A197-289375D3D1E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3D4ED85-337F-4489-A197-289375D3D1E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3D4ED85-337F-4489-A197-289375D3D1E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
