@@ -161,7 +161,7 @@
   <ItemGroup>
     <Content Include="Scripts\js-infinite-scrolling.js" />
     <Content Include="Scripts\js-price-calculation.js" />
-    <Content Include="Scripts\js-quantity-picker.js" />
+    <Content Include="Scripts\jsQuantityPicker.js" />
     <Content Include="Scripts\js-variant-picker.js" />
     <Content Include="Scripts\uCommerce.demostore.productpage.js" />
     <Content Include="Scripts\uCommerce.facets.js" />
