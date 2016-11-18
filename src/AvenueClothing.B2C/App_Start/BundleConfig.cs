@@ -10,9 +10,14 @@ namespace AvenueClothing.Project.Website
             bundles.Add(new ScriptBundle("~/bundles/require").Include(
                         "~/Scripts/require-{version}.js"));
 
+            //Change to wildcard when all js- files are changed to require.js
+            //bundles.Add(new ScriptBundle("~/bundles/jsComponents").Include(
+            //          "~/Scripts/js*.js"));
             bundles.Add(new ScriptBundle("~/bundles/jsComponents").Include(
-                        "~/Scripts/js-quantity-picker.js"));
+                        "~/Scripts/jsQuantityPicker.js", 
+                        "~/Scripts/jsAddToBasketButton.js"));
 
+            //Remove when all are converted to require.js
             bundles.Add(new ScriptBundle("~/bundles/js-components-old").Include(
                 "~/Scripts/uCommerce.facets.js", 
                 "~/Scripts/js-add-to-basket-button.js",

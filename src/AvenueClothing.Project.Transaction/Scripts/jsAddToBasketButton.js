@@ -1,4 +1,5 @@
-﻿var AddToBasketButton = (function () {
+﻿define('jsAddToBasketButton', ['jquery', 'jsConfig'], function ($, config) {
+    'use strict';
 
     // declared with `var`, must be "private"
     var classSelector = ".js-add-to-basket-button";
@@ -54,9 +55,12 @@
         toogleButton($button);
     };
 
-    var publicScope = {
-        init: function ($rootSelector, $triggerEventSelector) {
-            $rootSelector.find(classSelector)
+    /** START OF PUBLIC API **/
+
+    var jsAddToBasketButton = {};
+
+    jsAddToBasketButton.init = function () {
+        config.$rootSelector.find(classSelector)
                 .on("product-variant-changed", productVariantChanged)
                 .on("product-quantity-changed", productQuantityChanged)
                 .click(function () {
@@ -66,7 +70,7 @@
                     var addToBasketUrl = $button.data("add-to-basket-url");
                     var productVariantSku = $button.data("product-variant-sku");
                     var productQuantity = $button.data("product-quantity");
-                
+
                     $.ajax({
                         type: "POST",
                         url: addToBasketUrl,
@@ -78,15 +82,15 @@
                         },
                         dataType: "json",
                         success: function (data) {
-                            $triggerEventSelector.trigger("basket-changed", data);
+                            config.$triggerEventSelector.trigger("basket-changed", data);
 
                             showConfirmationMessage($button);
                         }
                     });
-            });
-        }
+                });
     };
 
-    return publicScope;
+    /** END OF PUBLIC API **/
 
-})();
+    return jsAddToBasketButton;
+});
