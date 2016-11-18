@@ -172,6 +172,7 @@
     <Content Include="Scripts\js-shipping-picker.js" />
     <Content Include="Scripts\js-voucher.js" />
     <Content Include="Scripts\jsQuantityPicker.js" />
+    <Content Include="Scripts\jsVariantPicker.js" />
     <Content Include="Views\AddToBasketButton\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
