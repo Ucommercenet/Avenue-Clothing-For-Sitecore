@@ -159,8 +159,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\js-infinite-scrolling.js" />
-    <Content Include="Scripts\js-price-calculation.js" />
+    <Content Include="Scripts\jsPriceCalculation.js" />
     <Content Include="Scripts\uCommerce.demostore.productpage.js" />
     <Content Include="Scripts\uCommerce.facets.js" />
     <Content Include="Views\CategoryNavigation\Rendering.cshtml" />

@@ -99,33 +99,28 @@
     <script>
         //@jsComponent
         require(['@jsComponent'], function (component) {
-        component.init();
-    });
-    </script>
-}
-    
-    <script>
-        //legacy - should be removed
-        require(['jquery'], function ($) {
-
-            var script = document.createElement("script");
-            script.type = "text/javascript";
-            script.src = '@Scripts.Url("~/bundles/js-components-old").ToString()';
-            document.body.appendChild(script);
-
-            $(document).ready(function () {
-                VariantPicker.init($(document), $("*"));
-                MiniBasket.init($(document), $("*"));
-                ShippingPicker.init($(document), $("*"));
-                PriceCalculation.init($(document), $("*"));
-                PaymentPicker.init($(document), $("*"));
-                Addresses.init($(document), $("*"));
-                Voucher.init($(document), $("*"));
-                ShippingPicker.initCompleted($(document), $("*"));
-                PaymentPicker.initCompleted($(document), $("*"));
-                });
+            component.init();
         });
     </script>
+}
+   
+<script>
+    //legacy - should be removed
+    require(['jquery'], function ($) {
+
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = '@Scripts.Url("~/bundles/js-components-old").ToString()';
+        document.body.appendChild(script);
+
+        $(document).ready(function () {
+            PriceCalculation.init($(document), $("*"));
+            PaymentPicker.init($(document), $("*"));
+            Voucher.init($(document), $("*"));
+            PaymentPicker.initCompleted($(document), $("*"));
+        });
+    });
+</script>
 </body>
 
 </html>
