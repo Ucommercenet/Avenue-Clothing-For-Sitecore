@@ -1,4 +1,4 @@
-﻿define('jsAddToBasketButton', ['jquery', 'jsConfig'], function ($, config) {
+﻿define('jsMiniBasket', ['jquery', 'jsConfig'], function ($, config) {
     'use strict';
 
     // declared with `var`, must be "private"
