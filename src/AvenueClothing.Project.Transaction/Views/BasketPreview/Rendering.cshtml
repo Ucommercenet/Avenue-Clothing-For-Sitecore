@@ -28,18 +28,18 @@
 			<h3>Shipping address</h3>
 			<br />
 			<address>
-				<span class="address-line"><strong>@Model.ShipmentInfo.FirstName @Model.ShipmentInfo.LastName</strong></span><br>
-				<span class="address-line">@Model.ShipmentInfo.CompanyName</span>
-				@if (!String.IsNullOrWhiteSpace(@Model.ShipmentInfo.Attention))
+				<span class="address-line"><strong>@Model.ShipmentAddress.FirstName @Model.ShipmentAddress.LastName</strong></span><br>
+				<span class="address-line">@Model.ShipmentAddress.CompanyName</span>
+				@if (!String.IsNullOrWhiteSpace(@Model.ShipmentAddress.Attention))
 				{
-					<span class="address-line"><text>att. </text> @Model.ShipmentInfo.Attention </span>
+					<span class="address-line"><text>att. </text> @Model.ShipmentAddress.Attention </span>
 				}<br />
-				<span class="address-line">@Model.ShipmentInfo.Line1</span><br>
-				<span class="address-line">@Model.ShipmentInfo.PostalCode @Model.ShipmentInfo.City</span><br>
-				<span class="address-line">@Model.ShipmentInfo.Country.Name</span><br>
-				<span class="address-line"><abbr title="Phone">P:</abbr>@Model.ShipmentInfo.PhoneNumber</span><br>
-				<span class="address-line"><abbr title="Mobile">M:</abbr>@Model.ShipmentInfo.MobilePhoneNumber</span><br>
-				<span class="address-line"><abbr title="Email">E:</abbr><a href="mailto:@Model.ShipmentInfo.EmailAddress">@Model.ShipmentInfo.EmailAddress</a></span>
+				<span class="address-line">@Model.ShipmentAddress.Line1</span><br>
+				<span class="address-line">@Model.ShipmentAddress.PostalCode @Model.ShipmentAddress.City</span><br>
+				<span class="address-line">@Model.ShipmentAddress.Country.Name</span><br>
+				<span class="address-line"><abbr title="Phone">P:</abbr>@Model.ShipmentAddress.PhoneNumber</span><br>
+				<span class="address-line"><abbr title="Mobile">M:</abbr>@Model.ShipmentAddress.MobilePhoneNumber</span><br>
+				<span class="address-line"><abbr title="Email">E:</abbr><a href="mailto:@Model.ShipmentAddress.EmailAddress">@Model.ShipmentAddress.EmailAddress</a></span>
 			</address>
 		</div>
 	</div>
