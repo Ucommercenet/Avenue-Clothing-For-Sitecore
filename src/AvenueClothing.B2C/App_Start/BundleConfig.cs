@@ -16,14 +16,14 @@ namespace AvenueClothing.Project.Website
             bundles.Add(new ScriptBundle("~/bundles/jsComponents").Include(
                         "~/Scripts/jsQuantityPicker.js", 
                         "~/Scripts/jsAddToBasketButton.js",
-                        "~/Scripts/jsVariantPicker.js"));
+                        "~/Scripts/jsVariantPicker.js",
+                        "~/Scripts/jsMiniBasket.js"));
 
             //Remove when all are converted to require.js
             bundles.Add(new ScriptBundle("~/bundles/js-components-old").Include(
                 "~/Scripts/uCommerce.facets.js", 
                 "~/Scripts/js-add-to-basket-button.js",
                 "~/Scripts/jsVariantPicker.js",
-                "~/Scripts/js-mini-basket.js",
                 "~/Scripts/js-infinite-scrolling.js",
                 "~/Scripts/uCommerce.demostore.productpage.js",
                 "~/Scripts/js-address.js",
