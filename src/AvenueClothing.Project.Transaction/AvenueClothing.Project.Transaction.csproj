@@ -128,10 +128,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CommerceConnectBasketPreviewController.cs" />
     <Compile Include="Controllers\CommerceConnectBasketController.cs" />
     <Compile Include="Controllers\CommerceConnectAddToBasketButtonController.cs" />
     <Compile Include="Controllers\BasketPreviewController.cs" />
     <Compile Include="Controllers\ConfirmationController.cs" />
+    <Compile Include="Controllers\CommerceConnectMiniBasketController.cs" />
     <Compile Include="Controllers\QuantityPickerController.cs" />
     <Compile Include="Controllers\ShippingPickerController.cs" />
     <Compile Include="Controllers\PaymentPickerController.cs" />

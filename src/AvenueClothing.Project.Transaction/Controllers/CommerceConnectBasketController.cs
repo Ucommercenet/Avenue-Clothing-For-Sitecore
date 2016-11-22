@@ -27,25 +27,25 @@ namespace AvenueClothing.Project.Transaction.Controllers
 				ISOCode = cart.CurrencyCode
 			};
 
-			foreach (var orderLine in cart.Lines)
+			foreach (var cartLine in cart.Lines)
 			{
 				var orderLineViewModel = new OrderlineViewModel();
 
-				orderLineViewModel.Quantity = (int)orderLine.Quantity;
-				orderLineViewModel.ProductName = orderLine.Product.ProductName;
-				orderLineViewModel.Sku = orderLine.Product.ProductId;
-				if (orderLine.GetPropertyValue("VariantSku") != null)
+				orderLineViewModel.Quantity = (int)cartLine.Quantity;
+				orderLineViewModel.ProductName = cartLine.Product.ProductName;
+				orderLineViewModel.Sku = cartLine.Product.ProductId;
+				if (cartLine.GetPropertyValue("VariantSku") != null)
 				{
-					orderLineViewModel.VariantSku = orderLine.GetPropertyValue("VariantSku").ToString();
+					orderLineViewModel.VariantSku = cartLine.GetPropertyValue("VariantSku").ToString();
 				}
-				orderLineViewModel.Total = new Money(orderLine.Total.Amount, currency).ToString();
-				orderLineViewModel.Discount = new Money(orderLine.Adjustments.Sum(x => x.Amount), currency).Value;
-				if (orderLine.Total.TaxTotal != null)
-					orderLineViewModel.Tax = orderLine.Total.TaxTotal.Amount.ToString();
-				orderLineViewModel.Price = new Money(orderLine.Product.Price.Amount, currency).ToString();
-				orderLineViewModel.ProductUrl = CatalogLibrary.GetNiceUrlForProduct(CatalogLibrary.GetProduct(orderLine.Product.ProductId));
-				orderLineViewModel.PriceWithDiscount = new Money((orderLine.Product.Price.Amount - orderLine.Adjustments.Sum(x => x.Amount)), currency).ToString();
-				orderLineViewModel.OrderLineId = Convert.ToInt32(orderLine.ExternalCartLineId);
+				orderLineViewModel.Total = new Money(cartLine.Total.Amount, currency).ToString();
+				orderLineViewModel.Discount = new Money(cartLine.Adjustments.Sum(x => x.Amount), currency).Value;
+				if (cartLine.Total.TaxTotal != null)
+					orderLineViewModel.Tax = new Money(cartLine.Total.TaxTotal.Amount, currency).ToString();
+				orderLineViewModel.Price = new Money(cartLine.Product.Price.Amount, currency).ToString();
+				orderLineViewModel.ProductUrl = CatalogLibrary.GetNiceUrlForProduct(CatalogLibrary.GetProduct(cartLine.Product.ProductId));
+				orderLineViewModel.PriceWithDiscount = new Money((cartLine.Product.Price.Amount - cartLine.Adjustments.Sum(x => x.Amount)), currency).ToString();
+				orderLineViewModel.OrderLineId = Convert.ToInt32(cartLine.ExternalCartLineId);
 
 				basketModel.OrderLines.Add(orderLineViewModel);
 			}
