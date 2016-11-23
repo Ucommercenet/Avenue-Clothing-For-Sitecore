@@ -1,13 +1,10 @@
-﻿define('jsFacets', ['jquery', 'jsConfig', 'urijs'], function ($, config) {
+﻿define('jsFacets', ['jquery', 'jsConfig'], function ($, config) {
     'use strict';
 
     // declared with `var`, must be "private"
-    //var classSelector = ".js-facets";
-    var classSelector = document.querySelectorAll("[data-selector='js-facets']");
+    var classSelector = ".js-facets";
 
     function createQueryString() {
-        //TODO: Use urijs to make url
-        //https://github.com/medialize/URI.js/
         var queryStrings = {};
         var baseUrl = window.location.href.split('?')[0] + '?';
         var allChecked = $(classSelector + ':checked') ;
@@ -29,8 +26,6 @@
     }
 
     function ensureCheckboxesAreChecked() {
-        //TODO: Decode url with urijs
-        //https://github.com/medialize/URI.js/
         var result = {}, queryString = location.search.slice(1),
             re = /([^&=]+)=([^&]*)/g, m;
 
@@ -44,7 +39,6 @@
             var value = params[propertyName].split('|');
 
             for (var i = 0; i < value.length - 1; i++) {
-                //TODO: Change to use html5 data properties
                 var filter = '.filter[key="' + propertyName + '"][value="' + value[i] + '"]';
                 var checkbox = $(filter);
                 if (checkbox != null) {
@@ -60,7 +54,7 @@
 
     jsFacets.init = function () {
         ensureCheckboxesAreChecked();
-        config.$(classSelector).click(createQueryString);
+        config.$rootSelector.find(classSelector).click(createQueryString);
     };
 
     /** END OF PUBLIC API **/

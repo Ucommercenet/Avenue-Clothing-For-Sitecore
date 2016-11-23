@@ -21,8 +21,7 @@
                 /* Load jquery from google cdn. On fail, load local file. */
                 jquery: ['//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min', 'jquery-3.0.0.min'],
                 /* Load bootstrap from cdn. On fail, load local file. */
-                bootstrap: [/*'//netdna.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min',*/ 'bootstrap.min'],
-                urijs: 'uri.min'
+                bootstrap: [/*'//netdna.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min',*/ 'bootstrap.min']
             },
             shim: {
                 /* Set bootstrap dependencies (just jQuery) */
@@ -30,16 +29,13 @@
             }
         });
     </script>
-    @if (!HttpContext.Current.IsDebuggingEnabled)
+    @if (BundleTable.EnableOptimizations && false)
     {
         <script>
             requirejs.config({
                 bundles: {
                     '@Scripts.Url("~/bundles/jsComponents").ToString()': [
                         @Html.Raw(string.Join(",", BundleTable.Bundles.GetBundleFor("~/bundles/jsComponents").EnumerateFiles(new BundleContext(this.Context, BundleTable.Bundles, string.Empty)).Select(x=> "'" + x.VirtualFile.Name.Replace(".js", "") + "'")))
-                    ],
-                    '@Scripts.Url("~/bundles/libs").ToString()': [
-                        @Html.Raw(string.Join(",", BundleTable.Bundles.GetBundleFor("~/bundles/libs").EnumerateFiles(new BundleContext(this.Context, BundleTable.Bundles, string.Empty)).Select(x=> "'" + x.VirtualFile.Name.Replace(".js", "") + "'")))
                     ]
                 }
             });
@@ -109,7 +105,7 @@
 }
 <script>
     require(['jsConfig'], function (config) {
-        config.$triggerEventSelector.trigger("init-completed", data);
+        config.$triggerEventSelector.trigger("init-completed", {});
     });
 </script>
 </body>
