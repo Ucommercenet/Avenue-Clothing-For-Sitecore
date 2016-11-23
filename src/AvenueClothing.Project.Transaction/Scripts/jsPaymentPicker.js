@@ -1,8 +1,19 @@
-﻿define('jsPaymentPicker', ['jquery', 'jsConfig'], function ($, config) {
-    'use strict';
+﻿define('jsPaymentPicker', ["jquery", "jsConfig"], function ($, config) {
+    "use strict";
 
     // declared with `var`, must be "private"
     var classSelector = ".js-payment-picker";
+
+    function tiggerPaymentMethodChanged(paymentMethodId) {
+        config.$triggerEventSelector.trigger("payment-method-changed", {
+            paymentMethodId: paymentMethodId
+        });
+    }
+
+    function initCompleted() {
+        var paymentMethodId = config.$rootSelector.find(classSelector + ":checked").val();
+        tiggerPaymentMethodChanged(paymentMethodId);
+    }
 
     /** START OF PUBLIC API **/
 
@@ -10,20 +21,11 @@
 
     jsPaymentPicker.init = function () {
         config.$rootSelector.find(classSelector)
-				.on("change", (function () {
-				    config.$triggerEventSelector.trigger("payment-method-changed", {
-				        paymentMethodId: $(this).val()
-				    });
-				}));
-    };
-
-    //Make a global event init complete, when all components have been loaded
-    jsPaymentPicker.initCompleted = function () {
-        var value = config.$rootSelector.find(classSelector + ":checked").val();
-
-        config.$triggerEventSelector.trigger("payment-method-changed", {
-            paymentMethodId: value
-        });
+            .on("init-completed", initCompleted)
+			.on("change", (function () {
+			    var paymentMethodId = $(this).val();
+			    tiggerPaymentMethodChanged(paymentMethodId);
+			}));
     };
 
     /** END OF PUBLIC API **/
