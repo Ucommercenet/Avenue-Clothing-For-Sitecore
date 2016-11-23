@@ -164,13 +164,13 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Scripts\jsAddress.js" />
-    <Content Include="Scripts\js-mini-basket.js" />
+    <Content Include="Scripts\jsMiniBasket.js" />
     <Content Include="Scripts\jsAddToBasketButton.js" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\js-payment-picker.js" />
-    <Content Include="Scripts\js-shipping-picker.js" />
-    <Content Include="Scripts\js-voucher.js" />
+    <Content Include="Scripts\jsPaymentPicker.js" />
+    <Content Include="Scripts\jsShippingPicker.js" />
+    <Content Include="Scripts\jsVoucher.js" />
     <Content Include="Scripts\jsQuantityPicker.js" />
     <Content Include="Scripts\jsVariantPicker.js" />
     <Content Include="Views\AddToBasketButton\Rendering.cshtml" />
