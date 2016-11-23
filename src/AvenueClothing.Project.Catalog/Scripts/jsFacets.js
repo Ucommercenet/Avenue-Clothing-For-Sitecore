@@ -2,14 +2,15 @@
     'use strict';
 
     // declared with `var`, must be "private"
-    var classSelector = ".js-facets";
+    //var classSelector = ".js-facets";
+    var classSelector = document.querySelectorAll("[data-selector='js-facets']");
 
     function createQueryString() {
         //TODO: Use urijs to make url
         //https://github.com/medialize/URI.js/
         var queryStrings = {};
         var baseUrl = window.location.href.split('?')[0] + '?';
-        var allChecked = $(classSelector + ':checked');
+        var allChecked = $(classSelector + ':checked') ;
         allChecked.each(function () {
             var key = $(this).attr('key');
             if (queryStrings[key] == null) {
