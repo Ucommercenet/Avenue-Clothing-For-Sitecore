@@ -142,6 +142,8 @@
     <Compile Include="Services\IMiniBasketService.cs" />
     <Compile Include="Services\Impl\MiniBasketService.cs" />
     <Compile Include="ViewModels\AddressSaveViewModel.cs" />
+    <Compile Include="ViewModels\BasketUpdateBasket.cs" />
+    <Compile Include="ViewModels\BasketUpdateBasketViewModel.cs" />
     <Compile Include="ViewModels\ConfirmationViewModel.cs" />
     <Compile Include="ViewModels\OrderlineViewModel.cs" />
     <Compile Include="ViewModels\PurchaseOrderViewModel.cs" />
@@ -174,6 +176,7 @@
     <Content Include="Scripts\jsShippingPicker.js" />
     <Content Include="Scripts\jsVoucher.js" />
     <Content Include="Scripts\jsQuantityPicker.js" />
+    <Content Include="Scripts\jsUpdateBasket.js" />
     <Content Include="Scripts\jsVariantPicker.js" />
     <Content Include="Views\AddToBasketButton\Rendering.cshtml" />
   </ItemGroup>

@@ -45,10 +45,6 @@ SharedFields:
           id="{0314ED58-5A97-41E9-855D-046700380E21}"
           ph="main"
           uid="{66CD58A8-5E9E-49FE-A6A3-8D3CCF8DB476}" />
-        <r
-          id="{72BE77A8-379E-469F-B1B8-504B7433A300}"
-          ph="sidebar"
-          uid="{A6367A27-3474-40A3-827F-9BA9BEDACC8A}" />
       </d>
     </r>
 Languages:
@@ -89,9 +85,9 @@ Languages:
       Hint: Products
       Type: Treelist
       Value: |
-        {0303350E-538D-4F6F-B564-5D861F38A52D}
-        {34196200-5452-445D-BFE3-B9E93839788E}
-        {8B98009A-45A1-461D-9027-03EBB0B1DDC1}
+        {0A2D1B36-5A98-4907-8130-9DDC0C5F762F}
+        {C7188F48-304A-4BF5-94D6-37A30DE48910}
+        {EB14A396-FF9C-42A4-A215-A9B8CD3C81D0}
     - ID: "b9baaa2b-d947-4cae-97cf-4e413b57c511"
       Hint: Images
       Type: Multilist

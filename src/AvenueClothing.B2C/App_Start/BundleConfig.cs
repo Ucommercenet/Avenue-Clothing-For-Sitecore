@@ -10,6 +10,8 @@ namespace AvenueClothing.Project.Website
             bundles.Add(new ScriptBundle("~/bundles/require").Include(
                         "~/Scripts/require-{version}.js"));
 
+           
+
             bundles.Add(new ScriptBundle("~/bundles/jsComponents").Include(
                 "~/Scripts/js*"));
 

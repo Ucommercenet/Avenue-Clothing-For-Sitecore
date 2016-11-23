@@ -24,6 +24,7 @@ namespace AvenueClothing.Project.Transaction.ViewModels
 		public decimal DiscountAmount { get; set; }
 		public OrderAddress ShipmentAddress { get; set; }
 		public OrderAddress BillingAddress { get; set; }
+        public string RefreshUrl { get; set; }
 
     }
 }
