@@ -10,8 +10,8 @@
 }
 else
 {
-    using(Html.BeginForm("Index", "Basket", FormMethod.Post))
-    {
+    //using(Html.BeginForm("UpdateBasket", "Basket", FormMethod.Post))
+    //{
         <table class="table table-striped" id="cart">
             <thead>
                 <tr>
@@ -27,7 +27,7 @@ else
                 @for (var i = 0; i < Model.OrderLines.Count; i++)
                 {
                     var line = Model.OrderLines[i];
-                    <tr class="order-line">
+                    <tr class="order-line" data-orderline="@line.OrderLineId">
 
                         @Html.HiddenFor(model => model.OrderLines[i].Sku)
                         @Html.HiddenFor(model => model.OrderLines[i].VariantSku)
@@ -37,23 +37,28 @@ else
                         <td class="money">
                             @if (@line.Discount.HasValue && @line.Discount > 0)
                         {
-                                <span style="text-decoration: line-through">
+                            <span style="text-decoration: line-through" data-price>
                                     @line.Price
-                                </span>
+                            </span>
+                            <span data-price-with-discount>
                                 @line.PriceWithDiscount
+                            </span>
                             }
                             else
                             {
-                                @line.Price
+                                <span data-price>
+                                    @line.Price
+                                </span>
+                                
                             }
                         </td>
-                        <td class="money">
+                        <td class="money" data-tax>
                             @line.Tax
                         </td>
                         <td>
-                            @Html.TextBoxFor(model => model.OrderLines[i].Quantity, new { @class = "qty form-control no-padding" })
+                            @Html.TextBoxFor(model => model.OrderLines[i].Quantity, new { @class = "qty form-control no-padding", data_orderline_id = @Model.OrderLines[i].OrderLineId, data_orderline_qty = @Model.OrderLines[i].Quantity})
                         </td>
-                        <td>
+                        <td data-total>
                             @line.Total
                         </td>
                         <td>
@@ -64,38 +69,38 @@ else
                 <tr>
                     <td rowspan="4"></td>
                     <td colspan="2" rowspan="4">
-                        <button name="update-basket" id="update-basket" class="btn btn-secondary update-basket" type="submit"><i class="icon-refresh icon-white"></i>Update</button>
+                        <button name="update-basket" id="update-basket" class="btn btn-secondary update-basket js-update-basket" data-refresh-url="@Model.RefreshUrl" data-basket="@Model" type="submit"><i class="icon-refresh icon-white"></i>Update</button>
                     </td>
                     <td>Sub total:</td>
-                    <td class="money order-subtotal">
+                    <td class="money order-subtotal" data-order-subtotal>
                         @Model.SubTotal
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td>VAT:</td>
-                    <td class="money order-tax">
+                    <td class="money order-tax" data-order-tax>
                         @Model.TaxTotal
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td>Discounts:</td>
-                    <td class="money order-discounts">
+                    <td class="money order-discounts" data-order-discounts>
                         @Model.DiscountTotal
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td>Order total:</td>
-                    <td class="money order-total">
+                    <td class="money order-total" data-order-total>
                         @Model.OrderTotal
                     </td>
                     <td>&nbsp;</td>
                 </tr>
             </tbody>
         </table>
-    }
+    //}
 
     <div class="control-group margin-top">
         <div class="controls">

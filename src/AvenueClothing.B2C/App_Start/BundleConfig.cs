@@ -10,26 +10,10 @@ namespace AvenueClothing.Project.Website
             bundles.Add(new ScriptBundle("~/bundles/require").Include(
                         "~/Scripts/require-{version}.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+           
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                        "~/Scripts/bootstrap.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/js-components").Include(
-                "~/Scripts/uCommerce.facets.js", 
-                "~/Scripts/js-add-to-basket-button.js",
-                "~/Scripts/js-variant-picker.js",
-                "~/Scripts/js-quantity-picker.js",
-                "~/Scripts/js-mini-basket.js",
-                "~/Scripts/js-infinite-scrolling.js",
-                "~/Scripts/uCommerce.demostore.productpage.js",
-                "~/Scripts/js-address.js",
-                "~/Scripts/js-shipping-picker.js",
-                "~/Scripts/js-price-calculation.js",
-                "~/Scripts/js-payment-picker.js",
-                "~/Scripts/js-voucher.js"
-                ));
+            bundles.Add(new ScriptBundle("~/bundles/jsComponents").Include(
+                "~/Scripts/js*"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.min.css",

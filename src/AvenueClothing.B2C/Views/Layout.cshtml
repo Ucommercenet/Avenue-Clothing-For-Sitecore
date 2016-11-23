@@ -13,6 +13,57 @@
 	{
 		@Html.Sitecore().Placeholder("head")
 	}
+    @Scripts.Render("~/bundles/require")
+    <script>
+        requirejs.config({
+            baseUrl: '/Scripts',
+            paths: {
+                /* Load jquery from google cdn. On fail, load local file. */
+                jquery: ['//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min', 'jquery-3.0.0.min'],
+                /* Load bootstrap from cdn. On fail, load local file. */
+                bootstrap: [/*'//netdna.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min',*/ 'bootstrap.min']
+            },
+            shim: {
+                /* Set bootstrap dependencies (just jQuery) */
+                'bootstrap': ['jquery']
+            }
+        });
+    </script>
+    @if (BundleTable.EnableOptimizations && false)
+    {
+        <script>
+            requirejs.config({
+                bundles: {
+                    '@Scripts.Url("~/bundles/jsComponents").ToString()': [
+                        @Html.Raw(string.Join(",", BundleTable.Bundles.GetBundleFor("~/bundles/jsComponents").EnumerateFiles(new BundleContext(this.Context, BundleTable.Bundles, string.Empty)).Select(x=> "'" + x.VirtualFile.Name.Replace(".js", "") + "'")))
+                    ]
+                }
+            });
+        </script>
+    }
+    <script>
+        //Load bootstrap
+        require(['bootstrap'], function (bootstrap) {
+        });
+    </script>
+    <script>
+        //Config
+        define('jsConfig', ['jquery'], function ($) {
+            'use strict';
+
+            /** START OF PUBLIC API **/
+
+            var jsConfig =
+            {
+                $rootSelector: function (){return $(document)}(),
+                $triggerEventSelector: function () { return $("*") }()
+            };
+
+            /** END OF PUBLIC API **/
+
+            return jsConfig;
+        });
+    </script>
 	<title></title>
 </head>
 <body class="header-static @(Sitecore.Context.PageMode.IsNormal ? "" : (Sitecore.Context.PageMode.IsExperienceEditor ? "pagemode-edit" : "pagemode-preview"))">
@@ -41,44 +92,22 @@
         @Html.Sitecore().Placeholder("footer")
     </footer>
 </div>
-    @Scripts.Render("~/bundles/require")
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    
-    @if (!HttpContext.Current.IsDebuggingEnabled)
-    {
-        <script>
-            requirejs.config({
-                bundles: {
-                    @*'@Scripts.Url("~/bundles/jquery").ToString()': [
-                        'jquery'
-                    ],*@
-                    @*'@Scripts.Url("~/bundles/bootstrap").ToString()': [
-                        'bootstrap'
-                    ]*@
-                }
-            });
-        </script>
-    }
-    
-    @Scripts.Render("~/bundles/js-components")
 
-<script>
-        $(document).ready(function () {
-            AddToBasketButton.init($(document), $("*"));
-            VariantPicker.init($(document), $("*"));
-            QuantityPicker.init($(document), $("*"));
-            MiniBasket.init($(document), $("*"));
-            ShippingPicker.init($(document), $("*"));
-            PriceCalculation.init($(document), $("*"));
-            PaymentPicker.init($(document), $("*"));
-            Addresses.init($(document), $("*"));
-            Voucher.init($(document), $("*"));
-
-            ShippingPicker.initCompleted($(document), $("*"));
-            PaymentPicker.initCompleted($(document), $("*"));
+    
+@foreach (var jsComponent in BundleTable.Bundles.GetBundleFor("~/bundles/jsComponents").EnumerateFiles(new BundleContext(this.Context, BundleTable.Bundles, string.Empty)).Select(x => x.VirtualFile.Name.Replace(".js", "")))
+{
+    <script>
+        //@jsComponent
+        require(['@jsComponent'], function (component) {
+            component.init();
         });
     </script>
+}
+<script>
+    require(['jsConfig'], function (config) {
+        config.$triggerEventSelector.trigger("init-completed", {});
+    });
+</script>
 </body>
 
 </html>
