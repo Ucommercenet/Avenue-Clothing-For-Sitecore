@@ -13,8 +13,8 @@ namespace AvenueClothing.Project.Website
             bundles.Add(new ScriptBundle("~/bundles/libs").Include(
                         "~/Scripts/uri.min.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jsComponents").Include(
-                "~/Scripts/js*"));
+            bundles.Add(new ScriptBundle("~/bundles/jsComponents").IncludeDirectory(
+                "~/Scripts", "js*.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.min.css",
