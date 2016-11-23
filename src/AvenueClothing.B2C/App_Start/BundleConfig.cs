@@ -14,7 +14,7 @@ namespace AvenueClothing.Project.Website
                         "~/Scripts/uri.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jsComponents").Include(
-                "~/Scripts/js*.js"));
+                "~/Scripts/js*"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.min.css",
