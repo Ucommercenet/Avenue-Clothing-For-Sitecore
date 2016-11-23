@@ -107,24 +107,6 @@
         });
     </script>
 }
-   
-<script>
-    //legacy - should be removed
-    require(['jquery'], function ($) {
-
-        var script = document.createElement("script");
-        script.type = "text/javascript";
-        script.src = '@Scripts.Url("~/bundles/js-components-old").ToString()';
-        document.body.appendChild(script);
-
-        $(document).ready(function () {
-            PriceCalculation.init($(document), $("*"));
-            PaymentPicker.init($(document), $("*"));
-            Voucher.init($(document), $("*"));
-            PaymentPicker.initCompleted($(document), $("*"));
-        });
-    });
-</script>
 </body>
 
 </html>

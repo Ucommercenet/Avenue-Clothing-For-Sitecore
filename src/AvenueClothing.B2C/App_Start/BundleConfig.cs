@@ -16,12 +16,6 @@ namespace AvenueClothing.Project.Website
             bundles.Add(new ScriptBundle("~/bundles/jsComponents").Include(
                 "~/Scripts/js*.js"));
 
-
-            //Remove when all are converted to require.js
-            bundles.Add(new ScriptBundle("~/bundles/js-components-old").Include(
-                "~/Scripts/uCommerce.demostore.productpage.js"
-                ));
-
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.min.css",
                       "~/Css/font-awesome.min.css",

@@ -154,6 +154,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\jsReviewForm.js" />
     <Content Include="Views\ReviewForm\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
