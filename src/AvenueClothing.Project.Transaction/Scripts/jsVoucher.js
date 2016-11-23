@@ -45,5 +45,5 @@
 
     /** END OF PUBLIC API **/
 
-    return jsShippingPicker;
+    return jsVoucher;
 });
