@@ -161,7 +161,7 @@
   <ItemGroup>
     <Content Include="Scripts\jsPriceCalculation.js" />
     <Content Include="Scripts\uCommerce.demostore.productpage.js" />
-    <Content Include="Scripts\uCommerce.facets.js" />
+    <Content Include="Scripts\jsFacets.js" />
     <Content Include="Views\CategoryNavigation\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>

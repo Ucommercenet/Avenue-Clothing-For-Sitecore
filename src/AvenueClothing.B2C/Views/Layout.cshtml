@@ -21,7 +21,8 @@
                 /* Load jquery from google cdn. On fail, load local file. */
                 jquery: ['//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min', 'jquery-3.0.0.min'],
                 /* Load bootstrap from cdn. On fail, load local file. */
-                bootstrap: [/*'//netdna.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min',*/ 'bootstrap.min']
+                bootstrap: [/*'//netdna.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min',*/ 'bootstrap.min'],
+                urijs: 'uri.min'
             },
             shim: {
                 /* Set bootstrap dependencies (just jQuery) */
@@ -36,6 +37,9 @@
                 bundles: {
                     '@Scripts.Url("~/bundles/jsComponents").ToString()': [
                         @Html.Raw(string.Join(",", BundleTable.Bundles.GetBundleFor("~/bundles/jsComponents").EnumerateFiles(new BundleContext(this.Context, BundleTable.Bundles, string.Empty)).Select(x=> "'" + x.VirtualFile.Name.Replace(".js", "") + "'")))
+                    ],
+                    '@Scripts.Url("~/bundles/libs").ToString()': [
+                        @Html.Raw(string.Join(",", BundleTable.Bundles.GetBundleFor("~/bundles/libs").EnumerateFiles(new BundleContext(this.Context, BundleTable.Bundles, string.Empty)).Select(x=> "'" + x.VirtualFile.Name.Replace(".js", "") + "'")))
                     ]
                 }
             });

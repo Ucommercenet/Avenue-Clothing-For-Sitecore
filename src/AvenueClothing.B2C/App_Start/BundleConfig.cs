@@ -10,13 +10,15 @@ namespace AvenueClothing.Project.Website
             bundles.Add(new ScriptBundle("~/bundles/require").Include(
                         "~/Scripts/require-{version}.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/libs").Include(
+                        "~/Scripts/uri.min.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jsComponents").Include(
-                      "~/Scripts/js*.js"));
+                "~/Scripts/js*.js"));
 
 
             //Remove when all are converted to require.js
             bundles.Add(new ScriptBundle("~/bundles/js-components-old").Include(
-                "~/Scripts/uCommerce.facets.js", 
                 "~/Scripts/uCommerce.demostore.productpage.js"
                 ));
 
