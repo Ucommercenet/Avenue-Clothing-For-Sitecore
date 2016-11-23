@@ -195,9 +195,10 @@
     <Content Include="Css\uCommerce.bootstrap.css" />
     <Content Include="Css\uCommerce.demostore.css" />
     <Content Include="Global.asax" />
-    <Content Include="packages.config" />
+    <None Include="packages.config" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Scripts\uri.min.js" />
     <Content Include="Scripts\require-2.3.2.js" />
     <Content Include="Scripts\require-2.3.2.min.js" />
     <Content Include="Views\Layout.cshtml" />

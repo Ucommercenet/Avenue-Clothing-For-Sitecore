@@ -9,7 +9,7 @@
 		@foreach (var value in facet.FacetValues)
 		{
 			<label>
-				<input type="checkbox" id="filter-@facet.Name-@value.FacetValueName" key="@facet.Name" class="filter" value="@value.FacetValueName">
+				<input type="checkbox" data-selector="js-facets" data-facets-name="@facet.Name" data-facets-value="@value.FacetValueName">
 				@value.FacetValueName (@value.FacetValueHits)
 			</label>
 		}
