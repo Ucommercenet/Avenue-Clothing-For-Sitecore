@@ -36,7 +36,7 @@
     };
 
     var jsVariantPicker = {
-        init: function ($rootSelector, $triggerEventSelector) {
+        init: function () {
             config.$rootSelector.find(classSelector)
                 .on("product-variant-changed", productVariantChanged)//TODO: Avoid Event Storm create a latch?
                 .change(function () {
@@ -71,4 +71,4 @@
 
     return jsVariantPicker;
 
-})();
+});

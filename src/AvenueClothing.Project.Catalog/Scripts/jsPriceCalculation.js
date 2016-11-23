@@ -46,9 +46,9 @@
                     type: "POST",
                     url: calculatePriceUrl,
                     data: {
-                        ProductSku: productSKU,
+                        ProductSku: productSku,
                         CatalogId: catalogGuid,
-                        CategoryId: categoryGuid,
+                        CategoryId: categoryGuid
                     },
                     dataType: "json",
                     success: function (data) {
