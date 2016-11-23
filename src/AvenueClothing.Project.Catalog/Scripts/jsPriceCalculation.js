@@ -39,26 +39,27 @@
 
     jsPriceCalculation.init = function () {
         config.$rootSelector.find(classSelector)
-                .ready(function () {
+            .on("product-variant-changed", productVariantChanged)
+            .ready(function () {
 
-                    $.ajax({
-                        type: "POST",
-                        url: calculatePriceUrl,
-                        data: {
-                            ProductSku: productSKU,
-                            CatalogId: catalogGuid,
-                            CategoryId: categoryGuid,
-                        },
-                        dataType: "json",
-                        success: function (data) {
-                            var yourPrice = data.YourPrice;
-                            var tax = data.Tax;
+                $.ajax({
+                    type: "POST",
+                    url: calculatePriceUrl,
+                    data: {
+                        ProductSku: productSKU,
+                        CatalogId: catalogGuid,
+                        CategoryId: categoryGuid,
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        var yourPrice = data.YourPrice;
+                        var tax = data.Tax;
 
-                            $('.item-price').text(yourPrice);
-                            $('.tax').text('Incl. ' + tax);
-                        }
-                    });
-                }).on("product-variant-changed", productVariantChanged);
+                        $('.item-price').text(yourPrice);
+                        $('.tax').text('Incl. ' + tax);
+                    }
+                });
+            });
     };
 
     /** END OF PUBLIC API **/
