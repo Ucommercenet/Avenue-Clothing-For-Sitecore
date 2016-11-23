@@ -7,13 +7,13 @@
     function createQueryString() {
         var queryStrings = {};
         var baseUrl = window.location.href.split('?')[0] + '?';
-        var allChecked = $(classSelector + ':checked') ;
+        var allChecked = $(classSelector + ':checked');
         allChecked.each(function () {
-            var key = $(this).attr('key');
+            var key = $(this).attr('data-facets-name');
             if (queryStrings[key] == null) {
-                queryStrings[key] = $(this).attr('value').toString() + '|';
+                queryStrings[key] = $(this).attr('data-facets-value').toString() + '|';
             } else {
-                queryStrings[key] += $(this).attr('value').toString() + '|';
+                queryStrings[key] += $(this).attr('data-facets-value').toString() + '|';
             }
         });
 
@@ -39,10 +39,10 @@
             var value = params[propertyName].split('|');
 
             for (var i = 0; i < value.length - 1; i++) {
-                var filter = '.filter[key="' + propertyName + '"][value="' + value[i] + '"]';
+                var filter = '.js-facets[data-facets-name="' + propertyName + '"][data-facets-value="' + value[i] + '"]';
                 var checkbox = $(filter);
                 if (checkbox != null) {
-                    checkbox.prop('checked', true);
+                    checkbox.attr("checked", true);
                 }
             }
         }
