@@ -107,6 +107,11 @@
         });
     </script>
 }
+<script>
+    require(['jsConfig'], function (config) {
+        config.$triggerEventSelector.trigger("init-completed", data);
+    });
+</script>
 </body>
 
 </html>

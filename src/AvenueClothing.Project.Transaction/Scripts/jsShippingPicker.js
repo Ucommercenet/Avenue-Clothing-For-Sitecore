@@ -1,8 +1,20 @@
-﻿define('jsShippingPicker', ['jquery', 'jsConfig'], function ($, config) {
-    'use strict';
+﻿define("jsShippingPicker", ["jquery", "jsConfig"], function ($, config) {
+    "use strict";
 
     // declared with `var`, must be "private"
     var classSelector = ".js-mini-basket";
+
+    function tiggerShippingMethodChanged(shippingMethodId) {
+        config.$triggerEventSelector.trigger("shipping-method-changed", {
+            shippingMethodId: shippingMethodId
+        });
+    }
+
+    function initCompleted() {
+        var shippingMethodId = config.$rootSelector.find(classSelector + ":checked").val();
+
+        tiggerShippingMethodChanged(shippingMethodId);
+    }
 
     /** START OF PUBLIC API **/
 
@@ -10,20 +22,16 @@
 
     jsShippingPicker.init = function () {
         config.$rootSelector.find(classSelector)
-				.on("change", (function () {
-				    config.$triggerEventSelector.trigger("shipping-method-changed", {
-				        shippingMethodId: $(this).val()
-				    });
-				}));
+            .on("init-completed", initCompleted)
+			.on("change", (function () {
+			    var shippingMethodId = $(this).val();
+			    tiggerShippingMethodChanged(shippingMethodId);
+            }));
     };
 
     //Make a global event init complete, when all components have been loaded
     jsShippingPicker.initCompleted = function () {
-        var value = config.$rootSelector.find(classSelector + ":checked").val();
-
-        config.$triggerEventSelector.trigger("shipping-method-changed", {
-            shippingMethodId: value
-        });
+       
     };
 
     /** END OF PUBLIC API **/
