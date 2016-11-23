@@ -163,7 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="Scripts\js-address.js" />
+    <Content Include="Scripts\jsAddress.js" />
     <Content Include="Scripts\js-mini-basket.js" />
     <Content Include="Scripts\jsAddToBasketButton.js" />
   </ItemGroup>

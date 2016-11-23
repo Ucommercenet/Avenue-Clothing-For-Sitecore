@@ -1,4 +1,6 @@
-﻿var Addresses = (function () {
+﻿define('jsAddress', ['jquery', 'jsConfig'], function ($, config) {
+    'use strict';
+    
 	var classSelector = ".js-address";
 	var billingClassSelector = ".js-address-billing";
 	var shippingClassSelector = ".js-address-shipping";
@@ -18,8 +20,8 @@
 	};
 
 	var publicScope = {
-		init: function ($rootSelector, $triggerEventSelector) {
-			$rootSelector.find(checkboxClassSelector).on("change", toggleShippingAddress);
+		init: function () {
+			config.$rootSelector.find(checkboxClassSelector).on("change", toggleShippingAddress);
 		}
 	};
 
