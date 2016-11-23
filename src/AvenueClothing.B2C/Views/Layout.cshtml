@@ -30,7 +30,7 @@
             }
         });
     </script>
-    @if (!HttpContext.Current.IsDebuggingEnabled)
+    @if (BundleTable.EnableOptimizations)
     {
         <script>
             requirejs.config({
