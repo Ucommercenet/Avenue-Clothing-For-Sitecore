@@ -76,9 +76,16 @@ namespace AvenueClothing.Project.Transaction.Controllers
 
 				bmw.Quantity = (uint)newQuantity;
 
-				var updateCartLinesRequest = new UpdateCartLinesRequest(cart, new Collection<CartLine> { bmw });
-
-				var result = cartServiceProvider.UpdateCartLines(updateCartLinesRequest);
+				if (newQuantity > 0)
+				{
+					var updateCartLinesRequest = new UpdateCartLinesRequest(cart, new Collection<CartLine> { bmw });
+					cartServiceProvider.UpdateCartLines(updateCartLinesRequest);
+				}
+				else
+				{
+					var request = new RemoveCartLinesRequest(cart, cart.Lines.Where(l => l.Product.ProductId == bmw.Product.ProductId).ToArray());
+					cartServiceProvider.RemoveCartLines(request);
+				}
 			}
 
 			return Redirect("/Cart");
