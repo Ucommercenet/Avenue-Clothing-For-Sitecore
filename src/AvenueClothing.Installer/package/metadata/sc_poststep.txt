@@ -1,0 +1,1 @@
+uCommerce.DemoStore.Installer.Install.PostInstallation.PostInstallation,uCommerce.DemoStore.Installer.dll

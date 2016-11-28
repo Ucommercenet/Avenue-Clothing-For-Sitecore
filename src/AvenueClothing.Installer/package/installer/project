@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<Metadata>
+		<metadata>
+			<PackageName></PackageName>
+			<Author></Author>
+			<Version></Version>
+			<Revision />
+			<License />
+			<Comment />
+			<Attributes />
+			<Readme />
+			<Publisher></Publisher>
+			<PostStep></PostStep>
+			<PackageID />
+		</metadata>
+	</Metadata>
+	<SaveProject>True</SaveProject>
+	<Sources>
+		<files>
+			<Root>/bin</Root>
+			<Converter>
+				<FileToEntryConverter>
+					<Root>/</Root>
+					<Transforms>
+						<InstallerConfigurationTransform>
+							<Options>
+								<BehaviourOptions>
+									<ItemMode>Undefined</ItemMode>
+									<ItemMergeMode>Undefined</ItemMergeMode>
+								</BehaviourOptions>
+							</Options>
+						</InstallerConfigurationTransform>
+					</Transforms>
+				</FileToEntryConverter>
+			</Converter>
+			<Include>
+				<FileNameFilter>
+					<Pattern>*</Pattern>
+					<AcceptDirectories>True</AcceptDirectories>
+				</FileNameFilter>
+				<FileDateFilter>
+					<FilterType>CreatedFilter</FilterType>
+					<ActionDateTo />
+					<ActionDateFrom />
+					<NotOlderThan />
+				</FileDateFilter>
+				<FileDateFilter>
+					<FilterType>ModifiedFilter</FilterType>
+					<ActionDateTo />
+					<ActionDateFrom />
+					<NotOlderThan />
+				</FileDateFilter>
+			</Include>
+			<Exclude />
+			<Name>binaries</Name>
+		</files>
+		<files>
+			<Root>/Layouts</Root>
+			<Converter>
+				<FileToEntryConverter>
+					<Root>/</Root>
+					<Transforms>
+						<InstallerConfigurationTransform>
+							<Options>
+								<BehaviourOptions>
+									<ItemMode>Undefined</ItemMode>
+									<ItemMergeMode>Undefined</ItemMergeMode>
+								</BehaviourOptions>
+							</Options>
+						</InstallerConfigurationTransform>
+					</Transforms>
+				</FileToEntryConverter>
+			</Converter>
+			<Include>
+				<FileNameFilter>
+					<Pattern>*</Pattern>
+					<AcceptDirectories>True</AcceptDirectories>
+				</FileNameFilter>
+				<FileDateFilter>
+					<FilterType>CreatedFilter</FilterType>
+					<ActionDateTo />
+					<ActionDateFrom />
+					<NotOlderThan />
+				</FileDateFilter>
+				<FileDateFilter>
+					<FilterType>ModifiedFilter</FilterType>
+					<ActionDateTo />
+					<ActionDateFrom />
+					<NotOlderThan />
+				</FileDateFilter>
+			</Include>
+			<Exclude />
+			<Name>Layouts</Name>
+		</files>
+		<files>
+			<Root>/Scripts</Root>
+			<Converter>
+				<FileToEntryConverter>
+					<Root>/</Root>
+					<Transforms>
+						<InstallerConfigurationTransform>
+							<Options>
+								<BehaviourOptions>
+									<ItemMode>Undefined</ItemMode>
+									<ItemMergeMode>Undefined</ItemMergeMode>
+								</BehaviourOptions>
+							</Options>
+						</InstallerConfigurationTransform>
+					</Transforms>
+				</FileToEntryConverter>
+			</Converter>
+			<Include>
+				<FileNameFilter>
+					<Pattern>*</Pattern>
+					<AcceptDirectories>True</AcceptDirectories>
+				</FileNameFilter>
+				<FileDateFilter>
+					<FilterType>CreatedFilter</FilterType>
+					<ActionDateTo />
+					<ActionDateFrom />
+					<NotOlderThan />
+				</FileDateFilter>
+				<FileDateFilter>
+					<FilterType>ModifiedFilter</FilterType>
+					<ActionDateTo />
+					<ActionDateFrom />
+					<NotOlderThan />
+				</FileDateFilter>
+			</Include>
+			<Exclude />
+			<Name>Javascript</Name>
+		</files>
+		<files>
+			<Root>/Sitecore Modules/shell/Sync Tool</Root>
+			<Converter>
+				<FileToEntryConverter>
+					<Root>/</Root>
+					<Transforms>
+						<InstallerConfigurationTransform>
+							<Options>
+								<BehaviourOptions>
+									<ItemMode>Undefined</ItemMode>
+									<ItemMergeMode>Undefined</ItemMergeMode>
+								</BehaviourOptions>
+							</Options>
+						</InstallerConfigurationTransform>
+					</Transforms>
+				</FileToEntryConverter>
+			</Converter>
+			<Include>
+				<FileNameFilter>
+					<Pattern>*</Pattern>
+					<AcceptDirectories>True</AcceptDirectories>
+				</FileNameFilter>
+				<FileDateFilter>
+					<FilterType>CreatedFilter</FilterType>
+					<ActionDateTo />
+					<ActionDateFrom />
+					<NotOlderThan />
+				</FileDateFilter>
+				<FileDateFilter>
+					<FilterType>ModifiedFilter</FilterType>
+					<ActionDateTo />
+					<ActionDateFrom />
+					<NotOlderThan />
+				</FileDateFilter>
+			</Include>
+			<Exclude />
+			<Name>Unicorn sync tool</Name>
+		</files>
+		<files>
+			<Root>/Css</Root>
+			<Converter>
+				<FileToEntryConverter>
+					<Root>/</Root>
+					<Transforms>
+						<InstallerConfigurationTransform>
+							<Options>
+								<BehaviourOptions>
+									<ItemMode>Undefined</ItemMode>
+									<ItemMergeMode>Undefined</ItemMergeMode>
+								</BehaviourOptions>
+							</Options>
+						</InstallerConfigurationTransform>
+					</Transforms>
+				</FileToEntryConverter>
+			</Converter>
+			<Include>
+				<FileNameFilter>
+					<Pattern>*</Pattern>
+					<AcceptDirectories>True</AcceptDirectories>
+				</FileNameFilter>
+				<FileDateFilter>
+					<FilterType>CreatedFilter</FilterType>
+					<ActionDateTo />
+					<ActionDateFrom />
+					<NotOlderThan />
+				</FileDateFilter>
+				<FileDateFilter>
+					<FilterType>ModifiedFilter</FilterType>
+					<ActionDateTo />
+					<ActionDateFrom />
+					<NotOlderThan />
+				</FileDateFilter>
+			</Include>
+			<Exclude />
+			<Name>Style sheets</Name>
+		</files>
+		<files>
+			<Root>/img</Root>
+			<Converter>
+				<FileToEntryConverter>
+					<Root>/</Root>
+					<Transforms>
+						<InstallerConfigurationTransform>
+							<Options>
+								<BehaviourOptions>
+									<ItemMode>Undefined</ItemMode>
+									<ItemMergeMode>Undefined</ItemMergeMode>
+								</BehaviourOptions>
+							</Options>
+						</InstallerConfigurationTransform>
+					</Transforms>
+				</FileToEntryConverter>
+			</Converter>
+			<Include>
+				<FileNameFilter>
+					<Pattern>*</Pattern>
+					<AcceptDirectories>True</AcceptDirectories>
+				</FileNameFilter>
+				<FileDateFilter>
+					<FilterType>CreatedFilter</FilterType>
+					<ActionDateTo />
+					<ActionDateFrom />
+					<NotOlderThan />
+				</FileDateFilter>
+				<FileDateFilter>
+					<FilterType>ModifiedFilter</FilterType>
+					<ActionDateTo />
+					<ActionDateFrom />
+					<NotOlderThan />
+				</FileDateFilter>
+			</Include>
+			<Exclude />
+			<Name>Images</Name>
+		</files>
+	</Sources>
+	<Converter>
+		<TrivialConverter>
+			<Transforms />
+		</TrivialConverter>
+	</Converter>
+	<Include />
+	<Exclude />
+	<Name />
+</project>
