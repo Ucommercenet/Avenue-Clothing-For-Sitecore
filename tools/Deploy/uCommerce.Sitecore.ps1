@@ -1,4 +1,4 @@
-task CreateSitecorePackage -depends ValidateSetup, CleanSitecoreWorkingDirectory, CleanWebBinDirectory, Rebuild, CreateWorkingDir, CopyMetaDataToWorkingDir, CopyProjectFilesToFilesFolder, CreateSitecoreZipFile, DeleteTempPackage {
+task CreateSitecorePackage -depends ValidateSetup, CleanSitecoreWorkingDirectory, CleanWebBinDirectory, Rebuild, CreateWorkingDir, CopyMetaDataToWorkingDir, CopyBinariesToFilesFolder, CopyProjectFilesToFilesFolder, CreateSitecoreZipFile, DeleteTempPackage {
 
 }
 
@@ -38,12 +38,37 @@ task CopyMetaDataToWorkingDir {
 	Copy-Item "$src\AvenueClothing.Installer\package\*" "$working_dir" -Recurse -Force
 }
 
-task CopyProjectFilesToFilesFolder {
+task CopyBinariesToFilesFolder {
     foreach ($project in $projects) {
         Copy-Item "$src\$project\bin\$project.dll" "$working_dir\files\bin" -Force
         if ($Configuration -eq "Debug") {
             Copy-Item "$src\$project\bin\$project.pdb" "$working_dir\files\bin" -Force            
         }
+    }
+
+    #Of course there's one project that does not have the same folder and project name
+    Copy-Item "$src\AvenueClothing.B2C\bin\AvenueClothing.Project.Website.dll" "$working_dir\files\bin" -Force
+    
+    if ($Configuration -eq "Debug") {
+        Copy-Item "$src\AvenueClothing.B2C\bin\AvenueClothing.Project.Website.pdb" "$working_dir\files\bin" -Force
+    }
+
+    #Handle installer project as library with another bin structure!
+    if ($Configuration -eq "Debug") {
+        Copy-Item "$src\AvenueClothing.Installer\bin\Debug\AvenueClothing.Installer.dll" "$working_dir\files\bin" -Force
+        Copy-Item "$src\AvenueClothing.Installer\bin\Debug\AvenueClothing.Installer.pdb" "$working_dir\files\bin" -Force
+    }
+    else {
+        Copy-Item "$src\AvenueClothing.Installer\bin\Release\AvenueClothing.Installer.dll" "$working_dir\files\bin" -Force   
+    }
+}
+
+task CopyProjectFilesToFilesFolder {
+    
+    $options = @("/xf", "*.dll", "/xf", "*.cs", "/xf", "*.csproj", "/xf", "packages.config", "/xf", "*.user", "/xf", "*.cache", "/xd", "obj", "/xd", "bin");
+    
+    foreach ($project in $projects) {
+        ROBOCOPY "$src\$project" "$working_dir\files" $options /e /s
     }
 }
 
