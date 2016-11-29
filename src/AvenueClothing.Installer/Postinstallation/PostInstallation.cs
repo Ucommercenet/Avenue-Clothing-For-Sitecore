@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AvenueClothing.Installer.Postinstallation.Steps;
 using Sitecore.Install.Framework;
 
@@ -21,6 +17,7 @@ namespace AvenueClothing.Installer.Postinstallation
             _composite.Add(new CreateUCommerceCatalog());
             _composite.Add(new RunScratchIndexer()); 
             _composite.Add(new PublishMasterDatabase());
+			_composite.Add(new SynchronizeSitecoreItems());
         }
 
         public void Run(ITaskOutput output, NameValueCollection metaData)
