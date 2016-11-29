@@ -11,7 +11,7 @@ properties {
     $script:hash = @{}
     $target="none"
     $CreatePackage = $True
-	$projects = @("AvenueClothing.Project.Catalog", "AvenueClothing.Project.DemoStore", "AvenueClothing.Project.Header", "AvenueClothing.Project.Navigation", "AvenueClothing.Project.Transaction", "AvenueClothing.Project.UserFeedback")
+	$projects = @("AvenueClothing.Project.Website", "AvenueClothing.Project.Catalog", "AvenueClothing.Project.DemoStore", "AvenueClothing.Project.Header", "AvenueClothing.Project.Navigation", "AvenueClothing.Project.Transaction", "AvenueClothing.Project.UserFeedback")
 }
 . .\Deploy.Common.ps1
 . .\Validation.ps1

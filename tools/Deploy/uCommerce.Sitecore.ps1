@@ -46,13 +46,6 @@ task CopyBinariesToFilesFolder {
         }
     }
 
-    #Of course there's one project that does not have the same folder and project name
-    Copy-Item "$src\AvenueClothing.B2C\bin\AvenueClothing.Project.Website.dll" "$working_dir\files\bin" -Force
-    
-    if ($Configuration -eq "Debug") {
-        Copy-Item "$src\AvenueClothing.B2C\bin\AvenueClothing.Project.Website.pdb" "$working_dir\files\bin" -Force
-    }
-
     #Handle installer project as library with another bin structure!
     if ($Configuration -eq "Debug") {
         Copy-Item "$src\AvenueClothing.Installer\bin\Debug\AvenueClothing.Installer.dll" "$working_dir\files\bin" -Force

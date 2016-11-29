@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
+# Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Project.Website", "AvenueClothing.B2C\AvenueClothing.Project.Website.csproj", "{F18EC679-469A-4BC0-B845-F6A6698A8344}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Project.Website", "AvenueClothing.Website\AvenueClothing.Project.Website.csproj", "{F18EC679-469A-4BC0-B845-F6A6698A8344}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deploy", "deploy", "{1797BCCD-EA91-46AF-8EEE-9E4920FCB81C}"
 	ProjectSection(SolutionItems) = preProject
@@ -39,6 +39,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F18EC679-469A-4BC0-B845-F6A6698A8344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F18EC679-469A-4BC0-B845-F6A6698A8344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F18EC679-469A-4BC0-B845-F6A6698A8344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F18EC679-469A-4BC0-B845-F6A6698A8344}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1D685E2A-96DE-48B0-913A-1FEA7F0B4609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1D685E2A-96DE-48B0-913A-1FEA7F0B4609}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D685E2A-96DE-48B0-913A-1FEA7F0B4609}.Release|Any CPU.ActiveCfg = Release|Any CPU
