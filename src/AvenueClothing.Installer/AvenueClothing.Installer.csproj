@@ -34,6 +34,7 @@
       <HintPath>..\..\lib\Sitecore\Sitecore.Kernel.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -83,6 +84,7 @@
     <Compile Include="Postinstallation\Steps\CreateUCommerceSettings.cs" />
     <Compile Include="Postinstallation\Steps\PublishMasterDatabase.cs" />
     <Compile Include="Postinstallation\Steps\RunScratchIndexer.cs" />
+    <Compile Include="Postinstallation\Steps\SynchronizeSitecoreItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
