@@ -12,7 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deploy", "deploy", "{1797BC
 		gulp-config.js = gulp-config.js
 		gulpfile.js = gulpfile.js
 		package.json = package.json
-		scripts\Serialization\App_Config\Include\z.AvenueClothing.DevSettings.config = scripts\Serialization\App_Config\Include\z.AvenueClothing.DevSettings.config
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Tests", "AvenueClothing.Tests\AvenueClothing.Tests.csproj", "{1D685E2A-96DE-48B0-913A-1FEA7F0B4609}"

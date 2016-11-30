@@ -1,4 +1,4 @@
-task CreateSitecorePackage -depends ValidateSetup, CleanSitecoreWorkingDirectory, CleanWebBinDirectory, Rebuild, CreateWorkingDir, CopyMetaDataToWorkingDir, CopyBinariesToFilesFolder, CopyProjectFilesToFilesFolder, CopyUnicornItems, CreateSitecoreZipFile, DeleteTempPackage {
+task CreateSitecorePackage -depends ValidateSetup, CleanSitecoreWorkingDirectory, CleanWebBinDirectory, Rebuild, CreateWorkingDir, CopyMetaDataToWorkingDir, CopyBinariesToFilesFolder, CopyProjectFilesToFilesFolder, CopyUnicornItems, CopyConfigurationFiles, CreateSitecoreZipFile, DeleteTempPackage {
 
 }
 
@@ -28,7 +28,7 @@ task CreateWorkingDir {
         New-Item "$working_dir" -Force -ItemType Directory
     }
 	
-    New-Item "$working_dir\files\sitecore modules\Shell\ucommerce\install" -Force -ItemType Directory
+    New-Item "$working_dir\files\sitecore modules\Shell\ucommerce\install\config_include" -Force -ItemType Directory
     New-Item "$working_dir\installer" -Force -ItemType Directory
     New-Item "$working_dir\metadata" -Force -ItemType Directory
     New-Item "$working_dir\files\bin" -Force -ItemType Directory
@@ -59,7 +59,7 @@ task CopyBinariesToFilesFolder {
 
 task CopyProjectFilesToFilesFolder {
     
-    $options = @("/xf", "*.dll", "/xf", "*.cs", "/xf", "*.csproj", "/xf", "packages.config", "/xf", "*.user", "/xf", "*.cache", "/xd", "obj", "/xd", "bin");
+    $options = @("/xf", "*.dll", "/xf", "*.cs", "/xf", "*.csproj", "/xf", "packages.config", "/xf", "*.user", "/xf", "*.cache", "/xd", "obj", "/xd", "bin", "/xf", "global.asax");
     
     foreach ($project in $projects) {
         ROBOCOPY "$src\$project" "$working_dir\files" $options /e /s
@@ -68,6 +68,11 @@ task CopyProjectFilesToFilesFolder {
 
 task CopyUnicornItems {
     Copy-Item "$src\..\Project\AvenueClothing" "$working_dir\files\App_Data\tmp\accelerator\" -Recurse -Force
+}
+
+task CopyConfigurationFiles {
+    Copy-Item "$src\scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config" "$working_dir\files\sitecore modules\Shell\ucommerce\install\config_include\" -Force
+    Copy-Item "$src\scripts\Serialization\App_Config\Include\AvenueClothing.Sites.config" "$working_dir\files\sitecore modules\Shell\ucommerce\install\config_include\" -Force
 }
 
 task CreateSitecoreZipFile -description "Creates the Sitecore Zip fil" {

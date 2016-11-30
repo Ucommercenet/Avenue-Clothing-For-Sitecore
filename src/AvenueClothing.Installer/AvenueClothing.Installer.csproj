@@ -36,6 +36,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -80,8 +81,10 @@
     <Compile Include="Helpers\GenericHelpers.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Postinstallation\PostInstallation.cs" />
+    <Compile Include="Postinstallation\Steps\ClearSitecoreCache.cs" />
     <Compile Include="Postinstallation\Steps\CreateUCommerceCatalog.cs" />
     <Compile Include="Postinstallation\Steps\CreateUCommerceSettings.cs" />
+    <Compile Include="Postinstallation\Steps\MoveSitecoreConfigurationFiles.cs" />
     <Compile Include="Postinstallation\Steps\PublishMasterDatabase.cs" />
     <Compile Include="Postinstallation\Steps\RunScratchIndexer.cs" />
     <Compile Include="Postinstallation\Steps\SynchronizeSitecoreItems.cs" />
