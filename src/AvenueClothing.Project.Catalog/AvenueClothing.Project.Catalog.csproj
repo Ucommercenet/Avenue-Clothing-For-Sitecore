@@ -147,7 +147,6 @@
     <Compile Include="Controllers\ProductCardController.cs" />
     <Compile Include="Controllers\ProductPriceController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
-    <Compile Include="Extensions\FacetedQueryStringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\FacetModelBinder.cs" />
     <Compile Include="ViewModels\CategoryImageViewModel.cs" />

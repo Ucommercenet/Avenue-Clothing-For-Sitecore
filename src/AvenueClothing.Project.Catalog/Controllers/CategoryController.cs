@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using AvenueClothing.Project.Catalog.Extensions;
 using AvenueClothing.Project.Catalog.ViewModels;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Catalog.Services;
