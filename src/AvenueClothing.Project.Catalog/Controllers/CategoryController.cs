@@ -6,12 +6,14 @@ using System.Web.Mvc;
 using AvenueClothing.Project.Catalog.Extensions;
 using AvenueClothing.Project.Catalog.ViewModels;
 using AvenueClothing.Foundation.MvcExtensions;
+using AvenueClothing.Project.Catalog.Services;
 using Sitecore.Mvc.Presentation;
 using Sitecore.Web.UI.WebControls;
 using UCommerce.Catalog;
 using UCommerce.EntitiesV2;
 using UCommerce.Runtime;
 using UCommerce.Search;
+using UCommerce.Search.Facets;
 
 namespace AvenueClothing.Project.Catalog.Controllers
 {
@@ -45,7 +47,10 @@ namespace AvenueClothing.Project.Catalog.Controllers
 		
 		private List<Guid> GetProductGuidsInFacetsAndSelectedProductOnSitecoreItem(Category category)
 		{
-			var facetsForQuerying = HttpContext.Request.QueryString.ToFacets();
+
+            FacetModelBinder FacetBinder = new FacetModelBinder();
+            IList<Facet> facetsForQuerying = (IList<Facet>)FacetBinder.BindModel(new ControllerContext(), new ModelBindingContext());
+
 			var productGuidsInCategory = new List<Guid>();
 
 			foreach (var subcategory in category.Categories)
