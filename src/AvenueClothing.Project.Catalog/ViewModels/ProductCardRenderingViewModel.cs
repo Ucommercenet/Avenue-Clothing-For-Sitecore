@@ -10,5 +10,6 @@ namespace AvenueClothing.Project.Catalog.ViewModels
 		public HtmlString DisplayName { get; set; }
 		public string CatalogId { get; set; }
 		public HtmlString ThumbnailImage { get; set; }
+		public ProductPriceRenderingViewModel ProductPriceRenderingViewModel { get; set; }
 	}
 }
