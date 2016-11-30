@@ -36,9 +36,28 @@ namespace AvenueClothing.Project.Catalog.Controllers
 			var category = _catalogContext.CurrentCategory;
 
 			productView.Url = CatalogLibrary.GetNiceUrlForProduct(currentProduct, category);
-			productView.Amount = CatalogLibrary.CalculatePrice(currentProduct).YourPrice.Amount.ToString();
+			productView.ProductPriceRenderingViewModel = GetProductPriceRenderingViewModel(currentProduct, category, _catalogContext.CurrentCatalog);
 			
 			return View(productView);
 		}
-	}
+
+		private ProductPriceRenderingViewModel GetProductPriceRenderingViewModel(Product currentProduct, Category currentCategory, ProductCatalog currentCatalog)
+		{
+			ProductPriceRenderingViewModel productPriceRenderingViewModelModel = new ProductPriceRenderingViewModel()
+			{
+				CalculatePriceUrl = Url.Action("CalculatePrice", "ProductPrice"),
+				CalculateVariantPriceUrl = Url.Action("CalculatePriceForVariant", "ProductPrice"),
+				CatalogGuid = currentCatalog.Id,
+				Sku = currentProduct.Sku,
+				ProductId = currentProduct.Id
+			};
+
+			if (currentCategory != null)
+			{
+				productPriceRenderingViewModelModel.CategoryGuid = currentCategory.Guid;
+			}
+
+			return productPriceRenderingViewModelModel;
+		}
+    }
 }
