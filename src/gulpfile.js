@@ -23,7 +23,6 @@ gulp.task("default", function (callback) {
 	  "01-Nuget-Restore",
 	  "02-Copy-Serialization-Configuration",
 	  "03-Publish-Solution",
-	  //"04-Apply-Xml-Transform",
 	  "05-Sync-Unicorn",
 	  callback);
 });
@@ -74,32 +73,6 @@ gulp.task("03-Publish-Solution", function (callback) {
 	return runSequence(
 	  "Build-Solution",
 	  "Publish-Solution", callback);
-});
-
-gulp.task("04-Apply-Xml-Transform", function () {
-	var layerPathFilters = ["./AvenueClothing.B2C/**/*.transform", "!./**/obj/**/*.transform", "!./**/bin/**/*.transform"];
-	return gulp.src(layerPathFilters)
-   .pipe(foreach(function (stream, file) {
-   	var fileToTransform = file.path.replace(/.+AvenueClothing.B2C\\(.+)\.transform/, "$1");
-   	util.log("Applying configuration transform: " + file.path);
-   	util.log("fileToTransform: " + fileToTransform);
-   	return gulp.src("./applytransform.targets")
-	  .pipe(msbuild({
-	  	targets: ["ApplyTransform"],
-	  	configuration: config.buildConfiguration,
-	  	logCommand: false,
-	  	verbosity: "minimal",
-	  	stdout: true,
-	  	errorOnFail: true,
-	  	maxcpucount: 0,
-	  	toolsVersion: 14.0,
-	  	properties: {
-	  		WebConfigToTransform: config.websiteRoot,
-	  		TransformFile: file.path,
-	  		FileToTransform: fileToTransform
-	  	}
-	  }));
-   }));
 });
 
 gulp.task("05-Sync-Unicorn", function (callback) {

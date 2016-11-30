@@ -1,6 +1,6 @@
 ﻿function GetWorkingDirectories{
     $working_directories = @{
-        "Sitecore"=(Get-Item $env:TEMP).FullName + "\uCommerceTmp\8e0acd5c-1337-49db-933d-cc9e61fc1337"
+        "Sitecore"=(Get-Item $env:TEMP).FullName + "\uCommerceTmp\accelerator"
     };
 
     return $working_directories;

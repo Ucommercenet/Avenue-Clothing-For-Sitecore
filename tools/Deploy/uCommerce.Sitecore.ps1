@@ -1,4 +1,4 @@
-task CreateSitecorePackage -depends ValidateSetup, CleanSitecoreWorkingDirectory, CleanWebBinDirectory, Rebuild, CreateWorkingDir, CopyMetaDataToWorkingDir, CopyBinariesToFilesFolder, CopyProjectFilesToFilesFolder, CreateSitecoreZipFile, DeleteTempPackage {
+task CreateSitecorePackage -depends ValidateSetup, CleanSitecoreWorkingDirectory, CleanWebBinDirectory, Rebuild, CreateWorkingDir, CopyMetaDataToWorkingDir, CopyBinariesToFilesFolder, CopyProjectFilesToFilesFolder, CopyUnicornItems, CreateSitecoreZipFile, DeleteTempPackage {
 
 }
 
@@ -32,6 +32,7 @@ task CreateWorkingDir {
     New-Item "$working_dir\installer" -Force -ItemType Directory
     New-Item "$working_dir\metadata" -Force -ItemType Directory
     New-Item "$working_dir\files\bin" -Force -ItemType Directory
+    New-Item "$working_dir\files\App_Data\tmp\accelerator" -Force -ItemType Directory
 }
 
 task CopyMetaDataToWorkingDir {
@@ -63,6 +64,10 @@ task CopyProjectFilesToFilesFolder {
     foreach ($project in $projects) {
         ROBOCOPY "$src\$project" "$working_dir\files" $options /e /s
     }
+}
+
+task CopyUnicornItems {
+    Copy-Item "$src\..\Project\AvenueClothing" "$working_dir\files\App_Data\tmp\accelerator\" -Recurse -Force
 }
 
 task CreateSitecoreZipFile -description "Creates the Sitecore Zip fil" {

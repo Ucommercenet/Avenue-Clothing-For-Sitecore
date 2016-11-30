@@ -93,6 +93,7 @@
     <None Include="package\installer\version" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="PackageInformation\Readme.txt" />
     <Content Include="package\metadata\sc_author.txt" />
     <Content Include="package\metadata\sc_comment.txt" />
     <Content Include="package\metadata\sc_license.txt" />
