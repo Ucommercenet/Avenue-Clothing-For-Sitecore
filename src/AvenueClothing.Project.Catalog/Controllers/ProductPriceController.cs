@@ -33,7 +33,8 @@ namespace AvenueClothing.Project.Catalog.Controllers
                 CalculatePriceUrl = Url.Action("CalculatePrice"),
                 CalculateVariantPriceUrl = Url.Action("CalculatePriceForVariant"),
                 CatalogGuid = currentCatalog.Id,
-                Sku = currentProduct.Sku
+                Sku = currentProduct.Sku,
+				ProductId = currentProduct.Id
             };
             if (currentCategory != null)
             {
@@ -52,8 +53,9 @@ namespace AvenueClothing.Project.Catalog.Controllers
 
             var yourPrice = priceCalculation.YourPrice.Amount.ToString();
             var yourTax = priceCalculation.YourTax.ToString();
+			var discount = priceCalculation.Discount.Amount.ToString();
 
-            return Json(new {YourPrice = yourPrice, Tax = yourTax});
+            return Json(new {YourPrice = yourPrice, Tax = yourTax, Discount = discount});
         }
 
         [HttpPost]

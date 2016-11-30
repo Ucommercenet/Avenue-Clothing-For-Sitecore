@@ -139,10 +139,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AvenueClothing.B2C\AvenueClothing.Project.Website.csproj">
-      <Project>{f18ec679-469a-4bc0-b845-f6a6698a8344}</Project>
-      <Name>AvenueClothing.Project.Website</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AvenueClothing.Foundation.MvcExtensions\AvenueClothing.Foundation.MvcExtensions.csproj">
       <Project>{F2BAB86C-44DB-446C-A995-03A33C98855D}</Project>
       <Name>AvenueClothing.Foundation.MvcExtensions</Name>

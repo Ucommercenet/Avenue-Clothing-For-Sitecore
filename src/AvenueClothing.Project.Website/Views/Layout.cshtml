@@ -67,47 +67,53 @@
 	<title></title>
 </head>
 <body class="header-static @(Sitecore.Context.PageMode.IsNormal ? "" : (Sitecore.Context.PageMode.IsExperienceEditor ? "pagemode-edit" : "pagemode-preview"))">
-<div id="main-container">
-    <header>
+	<div id="main-container">
+		<header>
 
-        @Html.Sitecore().Placeholder("header")
+			@Html.Sitecore().Placeholder("header")
 
-    </header>
-    <section>
-        <div class="container">
-            <div class="col-sm-3 col-md-3">
-                @Html.Sitecore().Placeholder("sidebar")
+		</header>
+		<section>
+			<div class="container">
+				<div class="col-sm-3 col-md-3">
+					@Html.Sitecore().Placeholder("sidebar")
 
-            </div>
-            <div class="col-sm-9 col-md-9">
+				</div>
+				<div class="col-sm-9 col-md-9">
 
-                @Html.Sitecore().Placeholder("breadcrumb")
+					@Html.Sitecore().Placeholder("breadcrumb")
 
-                @Html.Sitecore().Placeholder("main")
-            </div>
+					@Html.Sitecore().Placeholder("main")
+				</div>
 
-        </div>
-    </section>
-    <footer>
-        @Html.Sitecore().Placeholder("footer")
-    </footer>
-</div>
+			</div>
+		</section>
+		<footer>
+			@Html.Sitecore().Placeholder("footer")
+		</footer>
+	</div>
 
-    
-@foreach (var jsComponent in BundleTable.Bundles.GetBundleFor("~/bundles/jsComponents").EnumerateFiles(new BundleContext(this.Context, BundleTable.Bundles, string.Empty)).Select(x => x.VirtualFile.Name.Replace(".js", "")))
-{
-    <script>
+
+	@foreach (var jsComponent in BundleTable.Bundles.GetBundleFor("~/bundles/jsComponents").EnumerateFiles(new BundleContext(this.Context, BundleTable.Bundles, string.Empty)).Select(x => x.VirtualFile.Name.Replace(".js", "")))
+	{
+		<script>
         //@jsComponent
-        require(['@jsComponent'], function (component) {
-            component.init();
-        });
-    </script>
-}
-<script>
-    require(['jsConfig'], function (config) {
-        config.$triggerEventSelector.trigger("init-completed", {});
-    });
-</script>
+			require(['@jsComponent'], function (component) {
+				component.init();
+			});
+		</script>
+	}
+	<script>
+		require(['jsConfig'], function (config) {
+			config.$triggerEventSelector.trigger("init-completed", {});
+		});
+	</script>
 </body>
+
+
+
+
+
+
 
 </html>

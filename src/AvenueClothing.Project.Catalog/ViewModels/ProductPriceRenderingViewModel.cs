@@ -9,5 +9,6 @@ namespace AvenueClothing.Project.Catalog.ViewModels
         public string Sku { get; set; }
         public Guid CategoryGuid { get; set; }
         public int CatalogGuid { get; set; }
-	}
+	    public int ProductId { get; set; }
+    }
 }
