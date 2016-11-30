@@ -50,10 +50,22 @@
             		success: function (data, element) {
             			var yourPrice = data.YourPrice;
             			var tax = data.Tax;
+			            var discount = data.Discount;
+
+			            var spinnerSelector = '.spinner.' + productId;
+			            $(spinnerSelector).css("display", "none");
+
             			var priceSelector = '.item-price.' + productId;
-			            if (!$(priceSelector)) console.log("couldn't find element for: " + priceSelector);
 			            $(priceSelector).text(yourPrice);
-            			$('.tax').text('Incl. ' + tax);
+						
+
+			            $('.tax').text('Incl. ' + tax);
+
+			            if (discount && discount > 0) {
+			            	$(priceSelector).css("text-decoration", "line-through");
+			            	var discountSelector = '.discount.' + productId;
+			            	$(discountSelector).text(discount);
+			            }
             		}
             	});
             });
