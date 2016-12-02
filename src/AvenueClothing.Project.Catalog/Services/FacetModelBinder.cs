@@ -10,7 +10,7 @@ using DefaultModelBinder = System.Web.ModelBinding.DefaultModelBinder;
 
 namespace AvenueClothing.Project.Catalog.Services
 {
-    public class FacetModelBinder : DefaultModelBinder
+    public class FacetModelBinder : DefaultModelBinder, IModelBinder
     {
         public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {

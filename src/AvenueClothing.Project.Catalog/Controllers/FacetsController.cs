@@ -8,38 +8,36 @@ using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Catalog.Services;
 using UCommerce.Api;
 using UCommerce.Runtime;
+using UCommerce.Search;
 using UCommerce.Search.Facets;
 
 namespace AvenueClothing.Project.Catalog.Controllers
 {
-	public class FacetsController : BaseController
+    public class FacetsController : BaseController
     {
-		private readonly ICatalogContext _catalogContext;
+        private readonly ICatalogContext _catalogContext;
+        private readonly SearchLibraryInternal _searchLibraryInternal;
 
-		public FacetsController(ICatalogContext catalogContext)
-		{
-			_catalogContext = catalogContext;
-		}
+        public FacetsController(ICatalogContext catalogContext, SearchLibraryInternal searchLibraryInternal)
+        {
+            _catalogContext = catalogContext;
+            _searchLibraryInternal = searchLibraryInternal;
+        }
 
-		public ActionResult Rendering(string test)
-		{
-
-            FacetModelBinder FacetBinder = new FacetModelBinder();        
-            IList<Facet> facetsForQuerying = (IList<Facet>)FacetBinder.BindModel(new ControllerContext(), new ModelBindingContext());
-
-            //-----
+        public ActionResult Rendering([ModelBinder(typeof(FacetModelBinder))]IList<Facet> facetsForQuerying)
+        {
 
             var category = _catalogContext.CurrentCategory;
             var viewModel = new FacetsRenderingViewModel();
 
-            IList<Facet> facets = SearchLibrary.GetFacetsFor(category, facetsForQuerying);
+            IList<Facet> facets = _searchLibraryInternal.GetFacetsFor(category, facetsForQuerying);
             if (facets.Any(x => x.FacetValues.Any(y => y.Hits > 0)))
             {
-                        viewModel.Facets = MapFacets(facets);
-                     }
+                viewModel.Facets = MapFacets(facets);
+            }
 
             return View(viewModel);
-		}
+        }
 
         private List<FacetsRenderingViewModel.Facet> MapFacets(IList<Facet> facetsInCategory)
         {
