@@ -40,11 +40,13 @@ namespace AvenueClothing.Installer.Postinstallation.Steps
 		{
 			var rootPath = GetSafeAppRoot();
 
-			var itemsDirectory = new DirectoryInfo(Path.Combine(rootPath, @"\App_Data\tmp\accelerator\AvenueClothing\serialization"));
+		    var combinedPath = Path.Combine(rootPath, @"App_Data\tmp\accelerator\AvenueClothing\serialization");
+
+            var itemsDirectory = new DirectoryInfo(combinedPath);
 
 		    if (!itemsDirectory.Exists)
 		    {
-		        throw new DirectoryNotFoundException(string.Format("Sitecore items wasn't found in '{0}'. Please make sure that the configured items path is correct. Rootpath was: '{1}'", itemsDirectory, rootPath));
+		        throw new DirectoryNotFoundException(string.Format("Sitecore items wasn't found in '{0}'. Please make sure that the configured items path is correct. Rootpath was: '{1}'", combinedPath, rootPath));
 		    }
 
 			return itemsDirectory;
