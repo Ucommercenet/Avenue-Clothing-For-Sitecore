@@ -42,7 +42,10 @@ namespace AvenueClothing.Installer.Postinstallation.Steps
 
 			var itemsDirectory = new DirectoryInfo(Path.Combine(rootPath, @"\App_Data\tmp\accelerator\AvenueClothing\serialization"));
 
-			if(!itemsDirectory.Exists) throw new DirectoryNotFoundException(string.Format("Sitecore wasn't found in {0}. Please make sure that the configured items path is correct.", itemsDirectory));
+		    if (!itemsDirectory.Exists)
+		    {
+		        throw new DirectoryNotFoundException(string.Format("Sitecore items wasn't found in '{0}'. Please make sure that the configured items path is correct. Rootpath was: '{1}'", itemsDirectory, rootPath));
+		    }
 
 			return itemsDirectory;
 		}
