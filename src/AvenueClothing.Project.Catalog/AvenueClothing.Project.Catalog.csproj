@@ -138,6 +138,7 @@
   <ItemGroup>
     <Compile Include="Controllers\CatalogImageCaruselController.cs" />
     <Compile Include="Controllers\ProductDetailController.cs" />
+    <Compile Include="Controllers\ProductPageController.cs" />
     <Compile Include="Controllers\ProductPrimaryImageController.cs" />
     <Compile Include="Controllers\ProductTitleController.cs" />
     <Compile Include="Controllers\ProductWellWithPickersAndButtonController.cs" />
@@ -173,6 +174,7 @@
     <None Include="packages.config" />
     <Content Include="Views\ProductTitle\Rendering.cshtml" />
     <Content Include="Views\ProductWellWithPickersAndButton\Rendering.cshtml" />
+    <Content Include="Views\ProductPage\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jsPriceCalculation.js" />
