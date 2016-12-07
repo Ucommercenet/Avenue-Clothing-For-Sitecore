@@ -23,12 +23,12 @@ namespace AvenueClothing.Project.Transaction.Controllers
 
         public ActionResult Rendering()
         {
-            PurchaseOrder basket = UCommerce.Api.TransactionLibrary.GetBasket(false).PurchaseOrder;
-            var basketModel = new PurchaseOrderViewModel();
+            PurchaseOrder basket = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
+            var basketModel = new BasketRenderingViewModel();
 
             foreach (var orderLine in basket.OrderLines)
             {
-                var orderLineViewModel = new OrderlineViewModel();
+                var orderLineViewModel = new BasketRenderingViewModel.OrderlineViewModel();
 
                 orderLineViewModel.Quantity = orderLine.Quantity;
                 orderLineViewModel.ProductName = orderLine.ProductName;
@@ -61,13 +61,14 @@ namespace AvenueClothing.Project.Transaction.Controllers
 	        foreach (var updateOrderline in model.RefreshBasket)
 	        {
 	            var newQuantity = updateOrderline.OrderLineQty;
-
-	            TransactionLibrary.UpdateLineItem(updateOrderline.OrderLineId, newQuantity);
+                
+                //TransactionLibrary.UpdateLineItem(updateOrderline.OrderLineId, newQuantity);
+                _transactionLibraryInternal.UpdateLineItemByOrderLineId(updateOrderline.OrderLineId, newQuantity);
 	        }
 
-	        TransactionLibrary.ExecuteBasketPipeline();
+	        _transactionLibraryInternal.ExecuteBasketPipeline();
 
-	        var basket = TransactionLibrary.GetBasket(false).PurchaseOrder;
+	        var basket = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
 
             BasketUpdateBasketViewModel updatedBasket = new BasketUpdateBasketViewModel();
 

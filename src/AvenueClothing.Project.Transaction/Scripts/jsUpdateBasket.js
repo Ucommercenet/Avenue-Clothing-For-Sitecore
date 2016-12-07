@@ -10,8 +10,8 @@
 
     jsUpdateBasket.init = function () {
         config.$rootSelector.find(classSelector).click(function () {
-            var $picker = $(this);
-            var refreshUrl = $picker.data('refresh-url');
+            var $updateBasket = $(this);
+            var refreshUrl = $updateBasket.data('refresh-url');
             var orderlines = $('[data-orderline-id]');
 
             var orderlineArray = [];
@@ -34,14 +34,17 @@
                 success: function (data) {
                     $('[data-orderline]').each(function (index, element) {
                         var orderlineId = element.dataset.orderline;
-
-
                     });
 
-                    $('[data-order-subtotal]').text(data.SubTotal);
-                    $('[data-order-tax]').text(data.TaxTotal);
-                    $('[data-order-discounts]').text(data.DiscountTotal);
-                    $('[data-order-total]').text(data.OrderTotal);
+                    var orderSubtotal = $updateBasket.data('order-subtotal');
+                    $(orderSubtotal).text(data.SubTotal);
+                    var taxTotal = $updateBasket.data('order-tax');
+                    $(taxTotal).text(data.TaxTotal);
+                    var discountTotal = $updateBasket.data('order-discounts');
+                    $(discountTotal).text(data.DiscountTotal);
+                    var orderTotal = $updateBasket.data('order-total');
+                    $(orderTotal).text(data.OrderTotal);
+                  
                     config.$triggerEventSelector.trigger("basket-changed", data.MiniBasketRefresh);
 
 
