@@ -131,6 +131,7 @@
     <Compile Include="AddToBasketControllerTests.cs" />
     <Compile Include="MiniBasketControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShippingPickerControllerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
