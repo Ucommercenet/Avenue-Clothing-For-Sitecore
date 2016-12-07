@@ -417,7 +417,15 @@ div.product.col-sm-4.col-md-4 {
 -------------------------------------------*/
 #product-details {
 }
-
+.js-add-to-basket-button {
+    width: inherit;
+}
+.js-variant-picker, .js-quantity-picker {
+    padding: 5px;
+}
+.margin-top-for-price {
+    margin-top: 19%;
+}
     #product-details select option:disabled {
         font-style: italic;
         color: #dcdcdc;
