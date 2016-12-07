@@ -30,7 +30,7 @@
     };
 
     var productVariantChanged = function (event, data) {
-        var $button = $(this);
+        var $button = event.data.$element;
 
         var productSku = $button.data("product-sku");
         if (productSku !== data.productSku) {
@@ -43,7 +43,7 @@
     };
 
     var productQuantityChanged = function (event, data) {
-        var $button = $(this);
+        var $button = event.data.$element;
 
         var productSku = $button.data("product-sku");
         if (productSku !== data.productSku) {
@@ -60,9 +60,11 @@
     var jsAddToBasketButton = {};
 
     jsAddToBasketButton.init = function () {
+        config.$rootSelector.find(classSelector).each(function() {
+            config.$triggerEventSelector.on("product-variant-changed", { $element: $(this) }, productVariantChanged);
+            config.$triggerEventSelector.on("product-quantity-changed", { $element: $(this) }, productQuantityChanged);
+        });
         config.$rootSelector.find(classSelector)
-                .on("product-variant-changed", productVariantChanged)
-                .on("product-quantity-changed", productQuantityChanged)
                 .click(function () {
                     var $button = $(this);
 

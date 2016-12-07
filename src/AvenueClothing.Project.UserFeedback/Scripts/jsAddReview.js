@@ -45,9 +45,9 @@
     var jsAddReview = {};
 
     jsAddReview.init = function () {
-        config.$rootSelector.find(classSelector).each(function () {
+        config.$rootSelector.find(classSelector).each(function() {
             config.$triggerEventSelector.on("review-added", { $element: $(this) }, reviewAdded);
-        })
+        });
     };
 
     return jsAddReview;

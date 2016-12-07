@@ -25,7 +25,7 @@
     };
 
     var productVariantChanged = function (event, data) {
-        var $picker = $(this);
+        var $picker = event.data.$element;
 
         var productSku = $picker.data("product-sku");
         if (productSku !== data.productSku) {
@@ -37,8 +37,10 @@
 
     var jsVariantPicker = {
         init: function () {
+            config.$triggerEventSelector.find(classSelector).each(function() {
+                config.$triggerEventSelector.on("product-variant-changed", { $element: $(this) }, productVariantChanged);
+            });
             config.$rootSelector.find(classSelector)
-                .on("product-variant-changed", productVariantChanged)//TODO: Avoid Event Storm create a latch?
                 .change(function () {
                     var $picker = $(this);
                     var productSku = $picker.data("product-sku");
