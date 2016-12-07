@@ -4,6 +4,7 @@
     // declared with `var`, must be "private"
     var classSelector = ".js-review-form";
 
+
     function wireupRatings(radios) {
         $('#review-form').addClass("display-none");
         $('label', radios).each(function () {
@@ -27,8 +28,23 @@
             });
             t.click(function () {
                 var parent = $(this);
+                $('label', radios).each(function () {
+                    var t = $(this);
+                    setStarHoverOutState($('i', t));
+                    t.removeClass('selected');
+                    if (t.hasClass('selected')) {
+                        setStarHoverState($('i', t));
+                    }
+                });
                 parent.addClass('selected');
                 $('#review-form').slideDown();
+                $('label', radios).each(function () {
+                    var t = $(this);
+                    if (t.hasClass('selected')) {
+                        setStarHoverState($('i', t.prevAll('label')));
+                        setStarHoverState($('i', t));
+                    }
+                });
             });
         });
     };
@@ -43,9 +59,44 @@
     /** START OF PUBLIC API **/
 
     var jsReviewForm = {};
+    var submitReviewUrl = $('[data-submit-url]').data('submit-url');
+    var $reviewForm = $(classSelector);
+
 
     jsReviewForm.init = function () {
         wireupRatings(config.$rootSelector.find(classSelector));
+
+
+        var submit = $reviewForm.data('submit-button');
+
+        $(submit).off().click(function (e) {
+            e.preventDefault();
+            var serializedFormData = $reviewForm.serializeArray();
+            var values = {};
+
+            $.each(serializedFormData, function (i, field) {
+                values[field.name] = field.value;
+            });
+
+            $.ajax({
+                type: 'POST',
+                url: submitReviewUrl,
+                data: {
+                    Name: values['Name'],
+                    Email: values['Email'],
+                    CategoryGuid: values['CategoryGuid'],
+                    Comments: values['Comments'],
+                    ProductGuid: values['ProductGuid'],
+                    Rating: parseInt(values['Rating']),
+                    Title: values['Title']
+                },
+                success: function (data) {
+                    config.$triggerEventSelector.trigger("review-added", data);
+
+                }
+            });
+        });
+
     };
 
     /** END OF PUBLIC API **/

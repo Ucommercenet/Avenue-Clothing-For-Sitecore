@@ -1,6 +1,6 @@
 ﻿@using System.Web.Mvc
 @using System.Web.Mvc.Html
-@model AvenueClothing.Project.Transaction.ViewModels.PurchaseOrderViewModel
+@model AvenueClothing.Project.Transaction.ViewModels.BasketRenderingViewModel
 
 @if (Model.OrderLines.Count == 0)
 {
@@ -12,7 +12,7 @@ else
 {
     //using(Html.BeginForm("UpdateBasket", "Basket", FormMethod.Post))
     //{
-        <table class="table table-striped" id="cart">
+        <table class="table table-striped"  id="cart">
             <thead>
                 <tr>
                     <th class="span7">Description</th>
@@ -69,31 +69,31 @@ else
                 <tr>
                     <td rowspan="4"></td>
                     <td colspan="2" rowspan="4">
-                        <button name="update-basket" id="update-basket" class="btn btn-secondary update-basket js-update-basket" data-refresh-url="@Model.RefreshUrl" data-basket="@Model" type="submit"><i class="icon-refresh icon-white"></i>Update</button>
+                       <button name="update-basket" id="update-basket" class="btn btn-secondary update-basket js-update-basket" data-refresh-url="@Model.RefreshUrl" data-order-subtotal=".order-subtotal" data-order-tax=".order-tax" data-order-discounts=".order-discounts" data-order-total=".order-total" data-basket="@Model" type="submit"><i class="icon-refresh icon-white"></i>Update</button>
                     </td>
                     <td>Sub total:</td>
-                    <td class="money order-subtotal" data-order-subtotal>
+                    <td class="money order-subtotal" >
                         @Model.SubTotal
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td>VAT:</td>
-                    <td class="money order-tax" data-order-tax>
+                    <td class="money order-tax">
                         @Model.TaxTotal
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td>Discounts:</td>
-                    <td class="money order-discounts" data-order-discounts>
+                    <td class="money order-discounts">
                         @Model.DiscountTotal
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td>Order total:</td>
-                    <td class="money order-total" data-order-total>
+                    <td class="money order-total">
                         @Model.OrderTotal
                     </td>
                     <td>&nbsp;</td>

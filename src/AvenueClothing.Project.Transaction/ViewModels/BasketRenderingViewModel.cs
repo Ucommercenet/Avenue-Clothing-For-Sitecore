@@ -3,9 +3,9 @@ using UCommerce.EntitiesV2;
 
 namespace AvenueClothing.Project.Transaction.ViewModels
 {
-    public class PurchaseOrderViewModel
+    public class BasketRenderingViewModel
     {
-        public PurchaseOrderViewModel()
+        public BasketRenderingViewModel()
         {
             OrderLines = new List<OrderlineViewModel>();
         }
@@ -26,5 +26,19 @@ namespace AvenueClothing.Project.Transaction.ViewModels
 		public OrderAddress BillingAddress { get; set; }
         public string RefreshUrl { get; set; }
 
+        public class OrderlineViewModel
+        {
+            public string Total { get; set; }
+            public int Quantity { get; set; }
+            public int OrderLineId { get; set; }
+            public string Sku { get; set; }
+            public string VariantSku { get; set; }
+            public string ProductName { get; set; }
+            public string Tax { get; set; }
+            public decimal? Discount { get; set; }
+            public string ProductUrl { get; set; }
+            public string Price { get; set; }
+            public string PriceWithDiscount { get; set; }
+        }
     }
 }

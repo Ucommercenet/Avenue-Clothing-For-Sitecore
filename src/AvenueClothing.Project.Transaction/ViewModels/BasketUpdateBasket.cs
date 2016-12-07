@@ -12,12 +12,14 @@ namespace AvenueClothing.Project.Transaction.ViewModels
             RefreshBasket = new List<UpdateOrderLine>();
         }
         public IList<UpdateOrderLine> RefreshBasket { get; set; }
+
+        public class UpdateOrderLine
+        {
+            public int OrderLineId { get; set; }
+
+            public int OrderLineQty { get; set; }
+        }
     }
 
-    public class UpdateOrderLine
-    {
-        public int OrderLineId { get; set; }
 
-        public int OrderLineQty { get; set; }
-    }
 }
