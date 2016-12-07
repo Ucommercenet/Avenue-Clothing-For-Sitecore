@@ -28,7 +28,8 @@ namespace AvenueClothing.Tests
         public void Rendering_When_Shipping_Has_New_Model()
         {
             //Arrange
-            _transactionLibraryInternal.GetBasket().Returns(new Basket(new PurchaseOrder()));
+            var purchaseOrder = new PurchaseOrder();
+            _transactionLibraryInternal.GetBasket(false).Returns(new Basket(new PurchaseOrder {});
             //Act
             var result = _controller.Rendering();
             //Assert
@@ -39,6 +40,12 @@ namespace AvenueClothing.Tests
             Assert.NotEmpty(model.AvailableShippingMethods);
             Assert.NotNull(model.SelectedShippingMethodId);
             Assert.NotNull(model.ShippingCountry);
+        }
+
+        [Fact]
+        public void Save_Shipping_Method_Should_Execute_Basket_Pipeline_And_Return_Json()
+        {
+
         }
     }
 }
