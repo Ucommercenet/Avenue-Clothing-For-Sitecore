@@ -77,10 +77,11 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
         color: #ffffff;
     }
 
-.navbar-brand, .navbar .nav > li > a {
+.navbar-brand, .navbar .nav > li > div > a {
     text-shadow: none;
     color: #ffffff;
 }
+
 
 .navbar-search .search-query {
     padding: 3px 14px;
