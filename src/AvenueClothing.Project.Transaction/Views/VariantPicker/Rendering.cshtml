@@ -5,7 +5,7 @@
 
 @foreach (var variant in Model.Variants)
 {
-    <div>@variant.DisplayName</div>
+    <div class="margin-top">@variant.DisplayName</div>
     <div class="dropdown">
         <select class="js-variant-picker" data-variant-name="@variant.Name" data-product-sku="@Model.ProductSku" data-variant-exists-url="@Model.VariantExistsUrl">
             <option class="dropdown-menu" value="">-- Please Select --</option>

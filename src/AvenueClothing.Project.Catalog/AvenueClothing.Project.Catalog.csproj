@@ -140,6 +140,7 @@
     <Compile Include="Controllers\ProductDetailController.cs" />
     <Compile Include="Controllers\ProductPrimaryImageController.cs" />
     <Compile Include="Controllers\ProductTitleController.cs" />
+    <Compile Include="Controllers\ProductWellWithPickersAndButtonController.cs" />
     <Compile Include="Controllers\PromotedProductsController.cs" />
     <Compile Include="Controllers\CategoryImageController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -171,6 +172,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Views\ProductTitle\Rendering.cshtml" />
+    <Content Include="Views\ProductWellWithPickersAndButton\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jsPriceCalculation.js" />
