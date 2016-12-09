@@ -5,7 +5,7 @@
     var classSelector = ".js-mini-basket";
 
     var basketChanged = function (event, data) {
-        var $miniBasket = $(this);
+        var $miniBasket = event.data.$element;
 
         var emptySelector = $miniBasket.data("mini-basket-empty-selector");
         var notEmptySelector = $miniBasket.data("mini-basket-not-empty-selector");
@@ -31,7 +31,9 @@
     var jsMiniBasket = {};
 
     jsMiniBasket.init = function () {
-        config.$rootSelector.find(classSelector).on("basket-changed", basketChanged);
+        config.$rootSelector.find(classSelector).each(function() {
+            config.$triggerEventSelector.on("basket-changed", { $element: $(this) }, basketChanged);
+        });
     };
 
     /** END OF PUBLIC API **/

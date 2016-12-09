@@ -20,9 +20,10 @@
     var jsPaymentPicker = {};
 
     jsPaymentPicker.init = function () {
-        config.$rootSelector.find(classSelector)
-            .on("init-completed", initCompleted)
-			.on("change", (function () {
+        config.$rootSelector.find(classSelector).each(function() {
+            config.$triggerEventSelector.on("init-completed", { $element: $(this) }, initCompleted);
+        });
+        config.$rootSelector.find(classSelector).on("change", (function () {
 			    var paymentMethodId = $(this).val();
 			    tiggerPaymentMethodChanged(paymentMethodId);
 			}));
