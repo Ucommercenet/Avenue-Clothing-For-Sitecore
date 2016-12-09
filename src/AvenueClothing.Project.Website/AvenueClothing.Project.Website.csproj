@@ -228,6 +228,7 @@
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Views\Footer\Rendering.cshtml" />
+    <Content Include="Views\Sidebar Static Content\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
