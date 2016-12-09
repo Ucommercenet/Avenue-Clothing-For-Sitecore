@@ -198,6 +198,15 @@
     <None Include="packages.config" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Img\uCommerce\cards.png" />
+    <Content Include="Img\uCommerce\homepage-banner-black-wonderland.jpg" />
+    <Content Include="Img\uCommerce\homepage-banner-blue-kittens.jpg" />
+    <Content Include="Img\uCommerce\homepage-banner-purple-wonderland.jpg" />
+    <Content Include="Img\uCommerce\logo.png" />
+    <Content Include="Img\uCommerce\return.png" />
+    <Content Include="Img\uCommerce\ucommerce.glyphicons-halflings-white.png" />
+    <Content Include="Img\uCommerce\ucommerce.glyphicons-halflings.png" />
+    <Content Include="Img\uCommerce\ucommerce.png" />
     <Content Include="Scripts\require-2.3.2.js" />
     <Content Include="Scripts\require-2.3.2.min.js" />
     <Content Include="Views\Layout.cshtml" />
