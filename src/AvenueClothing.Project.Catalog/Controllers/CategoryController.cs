@@ -6,10 +6,12 @@ using System.Web.Mvc;
 using AvenueClothing.Project.Catalog.ViewModels;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Catalog.Services;
+using ServiceStack.Common;
 using Sitecore.Mvc.Presentation;
 using Sitecore.Web.UI.WebControls;
 using UCommerce.Catalog;
 using UCommerce.EntitiesV2;
+using UCommerce.Extensions;
 using UCommerce.Runtime;
 using UCommerce.Search;
 using UCommerce.Search.Facets;
@@ -57,19 +59,26 @@ namespace AvenueClothing.Project.Catalog.Controllers
 				productGuidsInCategory.AddRange(GetProductGuidsInFacetsAndSelectedProductOnSitecoreItem(subcategory));
 			}
 
-			var productIds = _searchLibraryInternal.GetProductsFor(category, facetsForQuerying).Select(x => x.Id);
+		    if (RenderingContext.Current.ContextItem.Fields["Products"].ToString() != "")
+		    {
+		        var productIds = _searchLibraryInternal.GetProductsFor(category, facetsForQuerying).Select(x => x.Id);
 
-			var selectedProductItems = RenderingContext.Current.ContextItem.Fields["Products"].ToString().Split('|').Select(x => new Guid(x)).ToList();
+		        var selectedProductItems =
+		            RenderingContext.Current.ContextItem.Fields["Products"].ToString()
+		                .Split('|')
+		                .Select(x => new Guid(x))
+		                .ToList();
 
-			var productGuids = _catalogLibraryInternal.GetProductsInCategory(category)
-				.Where(x => selectedProductItems.Contains(x.Guid))
-				.Where(x => productIds.Contains(x.ProductId))
-				.Select(x => x.Guid)
-				.ToList();
+		        var productGuids = _catalogLibraryInternal.GetProductsInCategory(category)
+		            .Where(x => selectedProductItems.Contains(x.Guid))
+		            .Where(x => productIds.Contains(x.ProductId))
+		            .Select(x => x.Guid)
+		            .ToList();
 
-			productGuidsInCategory.AddRange(productGuids);
+		        productGuidsInCategory.AddRange(productGuids);
+		    }
 
-			return productGuidsInCategory;
+		    return productGuidsInCategory;
 		}
 	}
 }

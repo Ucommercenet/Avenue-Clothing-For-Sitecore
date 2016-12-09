@@ -7,11 +7,18 @@
 <div class="category">
 	<h1>@Model.DisplayName</h1>
 	<div class="row">
-		<div class="product-list col-sm-12 col-md-12">
-			@foreach (var productGuid in Model.ProductItemGuids)
-			{
-				@Html.Sitecore().Rendering(Model.ProductCardRendering, new { productGuid })
-			}
-		</div>
+	    <div class="product-list col-sm-12 col-md-12">
+	        @if (Model.ProductItemGuids.Count > 0)
+	        {
+	            foreach (var productGuid in Model.ProductItemGuids)
+	            {
+	                @Html.Sitecore().Rendering(Model.ProductCardRendering, new {productGuid})
+	            }
+	        }
+	        else
+	        {
+	            <p>You have no products here.</p>
+	        }
+	    </div>
 	</div>
 </div>
