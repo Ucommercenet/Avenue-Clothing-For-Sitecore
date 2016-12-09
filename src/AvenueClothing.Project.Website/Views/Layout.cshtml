@@ -6,13 +6,13 @@
 
 <html>
 <head>
-	<meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width" />
 
     @Styles.Render("~/Content/css")
-	@if (!Sitecore.Context.PageMode.IsExperienceEditor)
-	{
-		@Html.Sitecore().Placeholder("head")
-	}
+    @if (!Sitecore.Context.PageMode.IsExperienceEditor)
+    {
+        @Html.Sitecore().Placeholder("head")
+    }
     @Scripts.Render("~/bundles/require")
     <script>
         requirejs.config({
@@ -56,7 +56,7 @@
             var jsConfig =
             {
                 $rootSelector: function (){return $(document)}(),
-                $triggerEventSelector: $({}) 
+                $triggerEventSelector: $({})
             };
 
             /** END OF PUBLIC API **/
@@ -64,51 +64,51 @@
             return jsConfig;
         });
     </script>
-	<title></title>
+    <title></title>
 </head>
 <body class="header-static @(Sitecore.Context.PageMode.IsNormal ? "" : (Sitecore.Context.PageMode.IsExperienceEditor ? "pagemode-edit" : "pagemode-preview"))">
-	<div id="main-container">
-		<header>
+    <div id="main-container" class="container">
+        <header>
 
-			@Html.Sitecore().Placeholder("header")
+            @Html.Sitecore().Placeholder("header")
 
-		</header>
-	    <section>
-	        <div class="container">
-	            <div class="col-sm-3 col-md-3">
-	                @Html.Sitecore().Placeholder("sidebar")
+        </header>
+        <section>
+            <div class="container">
+                <div class="col-sm-3 col-md-3">
+                    @Html.Sitecore().Placeholder("sidebar")
 
-	            </div>
-	            <div class="col-sm-9 col-md-9">
+                </div>
+                <div class="col-sm-9 col-md-9">
 
-	                @Html.Sitecore().Placeholder("breadcrumb")
+                    @Html.Sitecore().Placeholder("breadcrumb")
 
-	                @Html.Sitecore().Placeholder("main")
-	            </div>
+                    @Html.Sitecore().Placeholder("main")
+                </div>
 
-	        </div>
-	    </section>
+            </div>
+        </section>
         <hr>
-		<footer>
-			@Html.Sitecore().Placeholder("footer")
-		</footer>
-	</div>
+        <footer>
+            @Html.Sitecore().Placeholder("footer")
+        </footer>
+    </div>
 
 
-	@foreach (var jsComponent in BundleTable.Bundles.GetBundleFor("~/bundles/jsComponents").EnumerateFiles(new BundleContext(this.Context, BundleTable.Bundles, string.Empty)).Select(x => x.VirtualFile.Name.Replace(".js", "")))
-	{
-		<script>
+    @foreach (var jsComponent in BundleTable.Bundles.GetBundleFor("~/bundles/jsComponents").EnumerateFiles(new BundleContext(this.Context, BundleTable.Bundles, string.Empty)).Select(x => x.VirtualFile.Name.Replace(".js", "")))
+    {
+        <script>
         //@jsComponent
 			require(['@jsComponent'], function (component) {
 				component.init();
 			});
-		</script>
-	}
-	<script>
+        </script>
+    }
+    <script>
 		require(['jsConfig'], function (config) {
 			config.$triggerEventSelector.trigger("init-completed", {});
 		});
-	</script>
+    </script>
 </body>
 
 
