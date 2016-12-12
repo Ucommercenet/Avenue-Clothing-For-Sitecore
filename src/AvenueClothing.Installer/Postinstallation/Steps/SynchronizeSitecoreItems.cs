@@ -70,7 +70,7 @@ namespace AvenueClothing.Installer.Postinstallation.Steps
         {
             var targetDataStore = configuration.Resolve<ITargetDataStore>();
             if (targetDataStore == null)
-                throw new Exception($"targetDatastore undefined in configuration '{configuration.Name}'");
+                throw new Exception(string.Format("targetDatastore undefined in configuration '{0}'", configuration.Name));
 
             return targetDataStore.GetConfigurationDetails().First(kvp => kvp.Key.Equals("Physical root path")).Value;
         }
