@@ -1,10 +1,19 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.IO;
+using System.Linq;
+using Rainbow.Storage.Yaml;
 using Sitecore.Data.Serialization;
 using Sitecore.Data.Serialization.ObjectModel;
 using Sitecore.Install.Framework;
 using Sitecore.IO;
+using UCommerce.Extensions;
+using Unicorn;
+using Unicorn.Configuration;
+using Unicorn.Data;
+using Unicorn.Loader;
+using Unicorn.Logging;
+using Unicorn.Predicates;
 
 namespace AvenueClothing.Installer.Postinstallation.Steps
 {
@@ -12,57 +21,87 @@ namespace AvenueClothing.Installer.Postinstallation.Steps
 	{
 		public void Run(ITaskOutput output, NameValueCollection metaData)
 		{
-			var itemsDicetory = GetItemsDirectory();
+            var itemsDicetory = GetItemsDirectory();
+            ProcessDirectory(itemsDicetory);
+        }
 
-			Syncronize(itemsDicetory);
+        public virtual void ProcessDirectory(DirectoryInfo directory)
+        {
+            if (directory == null) throw new InvalidOperationException("DirectoryInfo is null");
 
-			foreach (var info in itemsDicetory.GetDirectories())
-			{
-				Syncronize(info);
-			}
-		}
+            if (!directory.Exists) throw new InvalidOperationException("Directory does not exists under the website.");
 
-		private static void Syncronize(DirectoryInfo itemsDicetory)
-		{
-			foreach (var fileInfo in itemsDicetory.GetFiles("*.yml"))
-			{
-				var streamReader = new StreamReader(fileInfo.FullName);
+            var directoryShortName = directory.Name;
+            var configurations = UnicornConfigurationManager.Configurations;
 
-				var syncItem = SyncItem.ReadItem(new Tokenizer(streamReader), true);
+            if (configurations == null) throw new InvalidOperationException("Could not determine configurations for Unicorn.");
 
-				var options = new LoadOptions {DisableEvents = true, ForceUpdate = true, UseNewID = false};
+            var configuration = configurations.First(c => c.Name.Equals(directoryShortName, StringComparison.OrdinalIgnoreCase));
+            
+            if (configuration == null) throw new InvalidOperationException("Could not determine configuration for installation serialization with name: {0}".FormatWith(directoryShortName));
 
-				ItemSynchronization.PasteSyncItem(syncItem, options, true);
-			}
-		}
+            SynchroniseTargetDataStore(configuration);
+        }
 
-		private DirectoryInfo GetItemsDirectory()
-		{
-			var rootPath = GetSafeAppRoot();
+        public virtual void SynchroniseTargetDataStore(IConfiguration configuration)
+        {
+            var logger = configuration.Resolve<ILogger>();
+            var helper = configuration.Resolve<SerializationHelper>();
 
-		    var combinedPath = Path.Combine(rootPath, @"App_Data\tmp\accelerator\AvenueClothing\serialization");
+            try
+            {
+                logger.Info(string.Empty);
+                logger.Info("Unicorn.Bootstrap is syncing " + configuration.Name);
+
+                var pathResolver = configuration.Resolve<PredicateRootPathResolver>();
+
+                var roots = pathResolver.GetRootSerializedItems();
+
+                helper.SyncTree(configuration, null, roots);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+                throw;
+            }
+        }
+
+        public virtual string GetTargetDataStorePathFromIConfiguration(IConfiguration configuration)
+        {
+            var targetDataStore = configuration.Resolve<ITargetDataStore>();
+            if (targetDataStore == null)
+                throw new Exception($"targetDatastore undefined in configuration '{configuration.Name}'");
+
+            return targetDataStore.GetConfigurationDetails().First(kvp => kvp.Key.Equals("Physical root path")).Value;
+        }
+
+        private string GetSafeAppRoot()
+        {
+            try
+            {
+                return FileUtil.MapPath("/");
+            }
+            catch (Exception exception)
+            {
+
+            }
+            return AppDomain.CurrentDomain.BaseDirectory;
+        }
+
+        private DirectoryInfo GetItemsDirectory()
+        {
+            var rootPath = GetSafeAppRoot();
+
+            var combinedPath = Path.Combine(rootPath, @"App_Data\tmp\accelerator\AvenueClothing\serialization");
 
             var itemsDirectory = new DirectoryInfo(combinedPath);
 
-		    if (!itemsDirectory.Exists)
-		    {
-		        throw new DirectoryNotFoundException(string.Format("Sitecore items wasn't found in '{0}'. Please make sure that the configured items path is correct. Rootpath was: '{1}'", combinedPath, rootPath));
-		    }
+            if (!itemsDirectory.Exists)
+            {
+                throw new DirectoryNotFoundException(string.Format("Sitecore items wasn't found in '{0}'. Please make sure that the configured items path is correct. Rootpath was: '{1}'", combinedPath, rootPath));
+            }
 
-			return itemsDirectory;
-		}
-
-		private static string GetSafeAppRoot()
-		{
-			try
-			{
-				return FileUtil.MapPath("/");
-			}
-			catch (Exception exception)
-			{
-
-			}
-			return AppDomain.CurrentDomain.BaseDirectory;
-		}
-	}
+            return itemsDirectory;
+        }
+    }
 }

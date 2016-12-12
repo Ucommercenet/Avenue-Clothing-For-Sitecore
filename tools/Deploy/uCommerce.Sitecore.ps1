@@ -1,4 +1,4 @@
-task CreateSitecorePackage -depends ValidateSetup, CleanSitecoreWorkingDirectory, CleanWebBinDirectory, Rebuild, CreateWorkingDir, CopyMetaDataToWorkingDir, CopyBinariesToFilesFolder, CopyProjectFilesToFilesFolder, CopyUnicornItems, CopyConfigurationFiles, CreateSitecoreZipFile, DeleteTempPackage {
+task CreateSitecorePackage -depends ValidateSetup, CleanSitecoreWorkingDirectory, CleanWebBinDirectory, Rebuild, CreateWorkingDir, CopyMetaDataToWorkingDir, CopyBinariesToFilesFolder, CopyUnicornDependenciesToFilesFolder, CopyProjectFilesToFilesFolder, CopyUnicornItems, CopyConfigurationFiles, CreateSitecoreZipFile, DeleteTempPackage {
 
 }
 
@@ -37,6 +37,10 @@ task CreateWorkingDir {
 
 task CopyMetaDataToWorkingDir {
 	Copy-Item "$src\AvenueClothing.Installer\package\*" "$working_dir" -Recurse -Force
+}
+
+task CopyUnicornDependenciesToFilesFolder {
+    Copy-Item "$src\packages\Unicorn.Core.3.2.0\lib\net45\Unicorn.dll" "$working_dir\files\bin\Unicorn.dll" -Force 
 }
 
 task CopyBinariesToFilesFolder {
