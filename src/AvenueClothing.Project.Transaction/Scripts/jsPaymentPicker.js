@@ -23,6 +23,9 @@
         config.$rootSelector.find(classSelector).each(function() {
             config.$triggerEventSelector.on("init-completed", { $element: $(this) }, initCompleted);
         });
+        if (config.$rootSelector.find(classSelector + ":checked").length == 0) {
+            config.$rootSelector.find(classSelector).first().prop('checked', true);
+        };
         config.$rootSelector.find(classSelector).on("change", (function () {
 			    var paymentMethodId = $(this).val();
 			    tiggerPaymentMethodChanged(paymentMethodId);

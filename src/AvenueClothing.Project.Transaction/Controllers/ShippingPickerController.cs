@@ -15,7 +15,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 		public ShippingPickerController(TransactionLibraryInternal transactionLibraryInternal)
 		{
 			_transactionLibraryInternal = transactionLibraryInternal;
-		}
+       }
 		public ActionResult Rendering()
 		{
 			var shipmentPickerViewModel = new ShippingPickerViewModel();

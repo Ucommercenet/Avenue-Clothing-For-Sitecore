@@ -23,9 +23,9 @@ namespace AvenueClothing.Project.Navigation.Controllers
                 if (!IsTemplateBlacklisted(item.TemplateName))
                 {
                     BreadcrumbViewModel crumb = new BreadcrumbViewModel(item);
-	                crumb.BreadcrumbName = item["Name"];
-					crumb.IsActive = Sitecore.Context.Item.ID == item.ID;
-					crumb.BreadcrumbUrl = LinkManager.GetItemUrl(item);
+                    crumb.BreadcrumbName = item["Name"];
+                    crumb.IsActive = Sitecore.Context.Item.ID == item.ID;
+                    crumb.BreadcrumbUrl = LinkManager.GetItemUrl(item);
                     breadcrumbs.SitecoreBreadcrumbs.Add(crumb);
                 }
             }
@@ -53,7 +53,27 @@ namespace AvenueClothing.Project.Navigation.Controllers
                 };
                 breadcrumbs.UcommerceBreadcrumbs.Add(breadcrumb);
             }
+
+            if (IsTemplateWhitelisted(Sitecore.Context.Item.TemplateName))
+            {
+                BreadcrumbViewModelUcommerce currentCrumb = new BreadcrumbViewModelUcommerce();
+                currentCrumb.BreadcrumbNameUcommerce = Sitecore.Context.Item.DisplayName;
+                currentCrumb.BreadcrumbUrlUcommerce = LinkManager.GetItemUrl(Sitecore.Context.Item);
+                breadcrumbs.UcommerceBreadcrumbs.Add(currentCrumb);
+            }
+
+
             return View(breadcrumbs);
+        }
+
+        private bool IsTemplateWhitelisted(string templateName)
+        {
+            if(templateName.Equals("Content Page") || 
+               templateName.Equals("Confirmation"))
+            {
+                return true;
+            }
+            return false;
         }
 
         private bool IsTemplateBlacklisted(string templateName)
