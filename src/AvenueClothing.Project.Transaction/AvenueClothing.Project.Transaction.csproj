@@ -216,7 +216,7 @@
     <Content Include="Views\QuantityPicker\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Views\CommerceConnectBasket\Rendering.cshtml" />
+    <Content Include="Views\CommerceConnectBasket\Rendering.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

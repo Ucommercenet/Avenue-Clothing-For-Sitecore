@@ -26,7 +26,6 @@ namespace AvenueClothing.Project.Transaction.Controllers
 			_miniBasketService = miniBasketService;
 		}
 
-		[HttpGet]
 		public ActionResult Rendering()
 		{
 			var product = _catalogContext.CurrentProduct;
