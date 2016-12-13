@@ -36,7 +36,7 @@ namespace AvenueClothing.Installer.Postinstallation.Steps
 
             if (configurations == null) throw new InvalidOperationException("Could not determine configurations for Unicorn.");
 
-            var configuration = configurations.First(c => c.Name.Equals(directoryShortName, StringComparison.OrdinalIgnoreCase));
+            var configuration = configurations.First(c => c.Name.Equals("Project.AvenueClothing.Website.Installer", StringComparison.OrdinalIgnoreCase));
             
             if (configuration == null) throw new InvalidOperationException("Could not determine configuration for installation serialization with name: {0}".FormatWith(directoryShortName));
 

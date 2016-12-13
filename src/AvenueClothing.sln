@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deploy", "deploy", "{1797BCCD-EA91-46AF-8EEE-9E4920FCB81C}"
 	ProjectSection(SolutionItems) = preProject
 		scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config = scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config
+		scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.Installation.config = scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.Installation.config
 		scripts\Serialization\App_Config\Include\AvenueClothing.Sites.config = scripts\Serialization\App_Config\Include\AvenueClothing.Sites.config
 		gulp-config.js = gulp-config.js
 		gulpfile.js = gulpfile.js

@@ -33,6 +33,7 @@ task CreateWorkingDir {
     New-Item "$working_dir\metadata" -Force -ItemType Directory
     New-Item "$working_dir\files\bin" -Force -ItemType Directory
     New-Item "$working_dir\files\App_Data\tmp\accelerator" -Force -ItemType Directory
+    New-Item "$working_dir\files\App_Config\Include" -Force -ItemType Directory
 }
 
 task CopyMetaDataToWorkingDir {
@@ -41,6 +42,9 @@ task CopyMetaDataToWorkingDir {
 
 task CopyUnicornDependenciesToFilesFolder {
     Copy-Item "$src\packages\Unicorn.Core.3.2.0\lib\net45\Unicorn.dll" "$working_dir\files\bin\Unicorn.dll" -Force 
+    Copy-Item "$src\packages\Rainbow.Core.1.3.1\lib\net45\Rainbow.dll" "$working_dir\files\bin\Rainbow.dll" -Force 
+    Copy-Item "$src\packages\Rainbow.Storage.Yaml.1.3.1\lib\net45\Rainbow.Storage.Yaml.dll" "$working_dir\files\bin\Rainbow.Storage.Yaml.dll" -Force 
+    Copy-Item "$src\packages\Rainbow.Storage.Sc.1.3.1\lib\net45\Rainbow.Storage.Sc.dll" "$working_dir\files\bin\Rainbow.Storage.Sc.dll" -Force 
 }
 
 task CopyBinariesToFilesFolder {
@@ -75,6 +79,9 @@ task CopyUnicornItems {
 }
 
 task CopyConfigurationFiles {
+    Copy-Item "$src\packages\Rainbow.1.3.1\content\App_Config\Include\Rainbow.config" "$working_dir\files\App_Config\Include\Rainbow.config" -Force 
+    Copy-Item "$src\packages\Unicorn.3.2.0\content\App_Config\Include\Unicorn\Unicorn.config" "$working_dir\files\App_Config\Include\unicorn.config" -Force
+    Copy-Item "$src\scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.Installation.config" "$working_dir\files\App_Config\Include\AvenueClothing.Serialization.Installation.config" -Force 
     Copy-Item "$src\scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config" "$working_dir\files\sitecore modules\Shell\ucommerce\install\config_include\" -Force
     Copy-Item "$src\scripts\Serialization\App_Config\Include\AvenueClothing.Sites.config" "$working_dir\files\sitecore modules\Shell\ucommerce\install\config_include\" -Force
 }
