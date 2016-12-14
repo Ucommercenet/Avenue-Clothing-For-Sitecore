@@ -56,12 +56,30 @@
         label.addClass('fa-star-o').removeClass('fa-star');
     }
 
+  
     /** START OF PUBLIC API **/
 
     var jsReviewForm = {};
     var submitReviewUrl = $('[data-submit-url]').data('submit-url');
     var $reviewForm = $(classSelector);
 
+    // var validated= function validateForm() {
+    //     $reviewForm.each(function () {
+
+    //         $reviewForm.validate({
+    //             errorElement: "span",
+    //             errorClass: "help-inline",
+    //             highlight: function(tag) {
+    //                 $(tag).closest('.control-tag').addClass('error');
+    //                 return false;
+    //             },
+    //             success: function(tag) {
+    //                 tag.closest('.control-tag').addClass('success');
+    //             }
+    //         });
+    //     });
+    //     return true;
+    //     };
 
     jsReviewForm.init = function () {
         wireupRatings(config.$rootSelector.find(classSelector));
@@ -77,24 +95,25 @@
             $.each(serializedFormData, function (i, field) {
                 values[field.name] = field.value;
             });
+                $.ajax({
+                    type: 'POST',
+                    url: submitReviewUrl,
+                    data: {
+                        Name: values['Name'],
+                        Email: values['Email'],
+                        CategoryGuid: values['CategoryGuid'],
+                        Comments: values['Comments'],
+                        ProductGuid: values['ProductGuid'],
+                        Rating: parseInt(values['Rating']),
+                        Title: values['Title']
+                    },
+                    success: function (data) {
+                        $reviewForm.load(location.href + ' .js-review-form');
+                        config.$triggerEventSelector.trigger("review-added", data);
 
-            $.ajax({
-                type: 'POST',
-                url: submitReviewUrl,
-                data: {
-                    Name: values['Name'],
-                    Email: values['Email'],
-                    CategoryGuid: values['CategoryGuid'],
-                    Comments: values['Comments'],
-                    ProductGuid: values['ProductGuid'],
-                    Rating: parseInt(values['Rating']),
-                    Title: values['Title']
-                },
-                success: function (data) {
-                    config.$triggerEventSelector.trigger("review-added", data);
-
-                }
-            });
+                    }
+                });
+            
         });
 
     };
