@@ -434,6 +434,7 @@ div.product.col-sm-4.col-md-4 {
 }
 .js-variant-picker, .js-quantity-picker {
     padding: 5px;
+        width: 100%;
 }
 .margin-top-for-price {
     margin-top: 19%;
