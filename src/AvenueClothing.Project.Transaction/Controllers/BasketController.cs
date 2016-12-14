@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using AvenueClothing.Foundation.MvcExtensions;
@@ -61,9 +62,12 @@ namespace AvenueClothing.Project.Transaction.Controllers
 	        foreach (var updateOrderline in model.RefreshBasket)
 	        {
 	            var newQuantity = updateOrderline.OrderLineQty;
-                
-                //TransactionLibrary.UpdateLineItem(updateOrderline.OrderLineId, newQuantity);
-                _transactionLibraryInternal.UpdateLineItemByOrderLineId(updateOrderline.OrderLineId, newQuantity);
+	            if (newQuantity <= 0)
+                { 
+	                newQuantity = 0;
+	            }
+
+	        _transactionLibraryInternal.UpdateLineItemByOrderLineId(updateOrderline.OrderLineId, newQuantity);
 	        }
 
 	        _transactionLibraryInternal.ExecuteBasketPipeline();
@@ -106,6 +110,9 @@ namespace AvenueClothing.Project.Transaction.Controllers
                 OrderLines = updatedBasket.Orderlines
             });
 	    }
+
+
+
 	}
 
 }
