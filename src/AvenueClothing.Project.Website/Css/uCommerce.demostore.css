@@ -82,6 +82,9 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
     color: #ffffff;
 }
 
+ul.nav.navbar-nav > li > div {
+    color: #fff;
+}
 
 .navbar-brand, .navbar .nav > li > div >a {
     text-shadow: none;
