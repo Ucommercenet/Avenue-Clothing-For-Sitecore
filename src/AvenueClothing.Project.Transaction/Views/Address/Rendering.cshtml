@@ -10,7 +10,7 @@
 @using (Html.BeginForm("Save", "Address", FormMethod.Post))
 {
 	<div class="col-md-12 no-horizontal-padding js-address">
-		<div class="col-md-6 well no-left-margin js-address-billing">
+		<div class="col-lg-6 col-md-6 well no-left-margin js-address-billing">
 			<legend>Billing address</legend>
 			<div class="col-md-6 control-group form-group">
 
@@ -58,7 +58,7 @@
 
 		</div>
 
-		<div id="shippingAddress" class="col-md-6 well js-address-shipping" style="@showShippingAddress">
+		<div class="col-lg-6 col-md-6 well js-address-shipping" id="shippingAddress"  style="@showShippingAddress">
 			<legend>Shipping address</legend>
 
 			<div class="col-md-6 control-group form-group">
