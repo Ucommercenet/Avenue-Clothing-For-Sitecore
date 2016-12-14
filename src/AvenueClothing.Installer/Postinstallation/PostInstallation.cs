@@ -15,6 +15,7 @@ namespace AvenueClothing.Installer.Postinstallation
 
             _composite.Add(new CreateUCommerceSettings());
             _composite.Add(new CreateUCommerceCatalog());
+            _composite.Add(new UpdateStandardValuesForDefinitions());
             _composite.Add(new RunScratchIndexer());
             _composite.Add(new SynchronizeSitecoreItems());
             _composite.Add(new ClearSitecoreCache());

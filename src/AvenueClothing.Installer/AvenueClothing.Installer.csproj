@@ -112,6 +112,7 @@
     <Compile Include="Postinstallation\Steps\PublishMasterDatabase.cs" />
     <Compile Include="Postinstallation\Steps\RunScratchIndexer.cs" />
     <Compile Include="Postinstallation\Steps\SynchronizeSitecoreItems.cs" />
+    <Compile Include="Postinstallation\Steps\UpdateStandardValuesForDefinitions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

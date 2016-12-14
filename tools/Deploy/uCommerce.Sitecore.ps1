@@ -41,10 +41,10 @@ task CopyMetaDataToWorkingDir {
 }
 
 task CopyUnicornDependenciesToFilesFolder {
-    Copy-Item "$src\packages\Unicorn.Core.3.2.0\lib\net45\Unicorn.dll" "$working_dir\files\bin\Unicorn.dll" -Force 
-    Copy-Item "$src\packages\Rainbow.Core.1.3.1\lib\net45\Rainbow.dll" "$working_dir\files\bin\Rainbow.dll" -Force 
-    Copy-Item "$src\packages\Rainbow.Storage.Yaml.1.3.1\lib\net45\Rainbow.Storage.Yaml.dll" "$working_dir\files\bin\Rainbow.Storage.Yaml.dll" -Force 
-    Copy-Item "$src\packages\Rainbow.Storage.Sc.1.3.1\lib\net45\Rainbow.Storage.Sc.dll" "$working_dir\files\bin\Rainbow.Storage.Sc.dll" -Force 
+    Copy-Item "$src\packages\Unicorn.Core.3.3.2\lib\net452\Unicorn.dll" "$working_dir\files\bin\Unicorn.dll" -Force 
+    Copy-Item "$src\packages\Rainbow.Core.1.4.1\lib\net452\Rainbow.dll" "$working_dir\files\bin\Rainbow.dll" -Force 
+    Copy-Item "$src\packages\Rainbow.Storage.Yaml.1.4.1\lib\net452\Rainbow.Storage.Yaml.dll" "$working_dir\files\bin\Rainbow.Storage.Yaml.dll" -Force 
+    Copy-Item "$src\packages\Rainbow.Storage.Sc.1.4.1\lib\net452\Rainbow.Storage.Sc.dll" "$working_dir\files\bin\Rainbow.Storage.Sc.dll" -Force 
 }
 
 task CopyBinariesToFilesFolder {
