@@ -7,7 +7,7 @@ DB: master
 SharedFields:
 - ID: "a036b2bc-ba04-44f6-a75f-bae6cd242abf"
   Hint: Path
-  Value: /Views/Avenue Clothing/Layout.cshtml
+  Value: /Views/Layout.cshtml
 Languages:
 - Language: en
   Versions:
