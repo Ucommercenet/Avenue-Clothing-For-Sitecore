@@ -234,6 +234,7 @@ div.row.well {
     font-size: 0.8rem;
     display: inline-block;
     width: 33%;
+    padding-left: 15px;
 }
 
     #search-form .btn {
@@ -687,4 +688,3 @@ p.btn-group.view-details {
     }
 
 
- 
