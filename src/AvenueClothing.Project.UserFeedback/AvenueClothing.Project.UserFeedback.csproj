@@ -136,9 +136,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Scripts\jquery-1.4.4-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.4.4.js" />
-    <Content Include="Scripts\jquery-1.4.4.min.js" />
     <Content Include="Scripts\jsAddReview.js" />
     <Content Include="Scripts\jsReviewForm.js" />
     <Content Include="Views\ReviewForm\Rendering.cshtml" />

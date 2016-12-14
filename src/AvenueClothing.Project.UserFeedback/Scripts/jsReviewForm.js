@@ -56,7 +56,7 @@
         label.addClass('fa-star-o').removeClass('fa-star');
     }
 
-  
+
     /** START OF PUBLIC API **/
 
     var jsReviewForm = {};
@@ -95,25 +95,25 @@
             $.each(serializedFormData, function (i, field) {
                 values[field.name] = field.value;
             });
-                $.ajax({
-                    type: 'POST',
-                    url: submitReviewUrl,
-                    data: {
-                        Name: values['Name'],
-                        Email: values['Email'],
-                        CategoryGuid: values['CategoryGuid'],
-                        Comments: values['Comments'],
-                        ProductGuid: values['ProductGuid'],
-                        Rating: parseInt(values['Rating']),
-                        Title: values['Title']
-                    },
-                    success: function (data) {
-                        $reviewForm.load(location.href + ' .js-review-form');
-                        config.$triggerEventSelector.trigger("review-added", data);
+            $.ajax({
+                type: 'POST',
+                url: submitReviewUrl,
+                data: {
+                    Name: values['Name'],
+                    Email: values['Email'],
+                    CategoryGuid: values['CategoryGuid'],
+                    Comments: values['Comments'],
+                    ProductGuid: values['ProductGuid'],
+                    Rating: parseInt(values['Rating']),
+                    Title: values['Title']
+                },
+                success: function (data) {
+                    config.$triggerEventSelector.trigger("review-added", data);
 
-                    }
-                });
-            
+                }
+            });
+            // $reviewForm.load(location.href + ' .review-form');
+            $reviewForm[0].reset();
         });
 
     };
