@@ -15,10 +15,10 @@ namespace AvenueClothing.Installer.Postinstallation
 
             _composite.Add(new CreateUCommerceSettings());
             _composite.Add(new CreateUCommerceCatalog());
-            _composite.Add(new RunScratchIndexer()); 
+            _composite.Add(new RunScratchIndexer());
+            _composite.Add(new SynchronizeSitecoreItems());
             _composite.Add(new ClearSitecoreCache());
             _composite.Add(new PublishMasterDatabase());
-			_composite.Add(new SynchronizeSitecoreItems());
             _composite.Add(new MoveSitecoreConfigurationFiles());
         }
 

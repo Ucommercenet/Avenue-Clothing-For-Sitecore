@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using AvenueClothing.Project.Catalog.ViewModels;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Catalog.Services;
-using ServiceStack.Common;
 using Sitecore.Mvc.Presentation;
 using Sitecore.Web.UI.WebControls;
 using UCommerce.Catalog;
