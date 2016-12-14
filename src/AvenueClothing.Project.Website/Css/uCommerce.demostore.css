@@ -99,11 +99,12 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 
 .btn {
     /*padding: 3px 14px;*/
-    color: #fff;
+    /*color: #fff;
+        border: 1px solid #59B4EE;
+            background: #59B4EE; /*6dbe78*/*/
+
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-    background: #59B4EE; /*6dbe78*/
     filter: none;
-    border: 1px solid #59B4EE;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
@@ -118,6 +119,11 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
         text-decoration: none;
         background-color: #4A95C5;
     }
+.btn-uCommerce {
+     color: #fff;
+     border: 1px solid #59B4EE;
+     background: #59B4EE; /*6dbe78*/
+}
 
 .btn-group > .btn {
     position: relative;
@@ -409,7 +415,7 @@ div.product.col-sm-4.col-md-4 {
 .product-list .product .view-details a {
     padding: 0 0 0 14px;
     border: 0 none;
-    line-height: 33px;
+    line-height: 34px;
 }
 
 .product-list .product .view-details span {
