@@ -107,6 +107,7 @@
     <Compile Include="Helpers\Catalog.cs" />
     <Compile Include="Helpers\GenericHelpers.cs" />
     <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Pipelines\Initialize\RunAvenueClothingInstallerTask.cs" />
     <Compile Include="Postinstallation\PostInstallation.cs" />
     <Compile Include="Postinstallation\Steps\ClearSitecoreCache.cs" />
     <Compile Include="Postinstallation\Steps\CreateUCommerceCatalog.cs" />
@@ -122,6 +123,7 @@
     <None Include="packages.config" />
     <None Include="package\installer\project" />
     <None Include="package\installer\version" />
+    <None Include="sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Initialize\Initialize.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="PackageInformation\Readme.txt" />
