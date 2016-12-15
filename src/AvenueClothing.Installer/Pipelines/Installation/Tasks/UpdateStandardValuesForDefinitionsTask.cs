@@ -1,21 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Sitecore;
 using Sitecore.Install.Framework;
 using UCommerce.EntitiesV2;
 using UCommerce.Extensions;
 using UCommerce.Infrastructure;
+using UCommerce.Pipelines;
 using UCommerce.Sitecore.Entities;
 
-namespace AvenueClothing.Installer.Postinstallation.Steps
+namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
 {
-    public class UpdateStandardValuesForDefinitions : IPostStep
+    public class UpdateStandardValuesForDefinitionsTask : IPipelineTask<InstallationPipelineArgs>
     {
-        public void Run(ITaskOutput output, NameValueCollection metaData)
+        public PipelineExecutionResult Execute(InstallationPipelineArgs subject)
         {
             var sharedFieldRepository = ObjectFactory.Instance.Resolve<IRepository<SharedField>>();
             var sharedFieldsToSave = new List<SharedField>();
@@ -43,6 +41,8 @@ namespace AvenueClothing.Installer.Postinstallation.Steps
             }
 
             sharedFieldRepository.Save(sharedFieldsToSave);
+
+            return PipelineExecutionResult.Success;
         }
 
         private string GetXmlLayoutValueForCategory()

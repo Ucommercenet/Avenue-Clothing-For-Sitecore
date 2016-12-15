@@ -2,29 +2,20 @@
 using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
-using Rainbow.Storage.Yaml;
-using Sitecore.Data.Serialization;
-using Sitecore.Data.Serialization.ObjectModel;
 using Sitecore.Install.Framework;
 using Sitecore.IO;
 using UCommerce.Extensions;
+using UCommerce.Pipelines;
 using Unicorn;
 using Unicorn.Configuration;
 using Unicorn.Data;
-using Unicorn.Loader;
 using Unicorn.Logging;
 using Unicorn.Predicates;
 
-namespace AvenueClothing.Installer.Postinstallation.Steps
+namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
 {
-	public class SynchronizeSitecoreItems : IPostStep
+	public class SynchronizeSitecoreItemsTask : IPipelineTask<InstallationPipelineArgs>
 	{
-		public void Run(ITaskOutput output, NameValueCollection metaData)
-		{
-            var itemsDicetory = GetItemsDirectory();
-            ProcessDirectory(itemsDicetory);
-        }
-
         public virtual void ProcessDirectory(DirectoryInfo directory)
         {
             if (directory == null) throw new InvalidOperationException("DirectoryInfo is null");
@@ -103,5 +94,13 @@ namespace AvenueClothing.Installer.Postinstallation.Steps
 
             return itemsDirectory;
         }
-    }
+
+	    public PipelineExecutionResult Execute(InstallationPipelineArgs subject)
+	    {
+            var itemsDicetory = GetItemsDirectory();
+            ProcessDirectory(itemsDicetory);
+
+            return PipelineExecutionResult.Success;
+        }
+	}
 }
