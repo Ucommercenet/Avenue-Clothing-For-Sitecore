@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AvenueClothing.Installer.Postinstallation.Steps;
+using AvenueClothing.Installer.Pipelines.Installation;
+using AvenueClothing.Installer.Pipelines.Installation.Tasks;
 using Sitecore.Install.Framework;
 using UCommerce.EntitiesV2;
 using UCommerce.Pipelines;
@@ -14,10 +15,11 @@ namespace AvenueClothing.Installer.Pipelines.Initialize
     public class RunAvenueClothingInstallerTask : IPipelineTask<InitializeArgs>
     {
         private readonly IRepository<ProductCatalogGroup> _productCatalogGroupRepository;
-        private IList<IPostStep> _composite;
-        public RunAvenueClothingInstallerTask(IRepository<ProductCatalogGroup> productCatalogGroupRepository)
+        private readonly IPipeline<InstallationPipelineArgs> _installationPipeline;
+        public RunAvenueClothingInstallerTask(IRepository<ProductCatalogGroup> productCatalogGroupRepository, IPipeline<InstallationPipelineArgs> installationPipeline)
         {
             _productCatalogGroupRepository = productCatalogGroupRepository;
+            _installationPipeline = installationPipeline;
         }
 
         public PipelineExecutionResult Execute(InitializeArgs subject)
@@ -26,24 +28,8 @@ namespace AvenueClothing.Installer.Pipelines.Initialize
             {
                 return PipelineExecutionResult.Success;
             }
-            
-            _composite = new List<IPostStep>();
 
-            _composite.Add(new CreateUCommerceSettings());
-            _composite.Add(new CreateUCommerceCatalog());
-            _composite.Add(new UpdateStandardValuesForDefinitions());
-            _composite.Add(new RunScratchIndexer());
-            _composite.Add(new SynchronizeSitecoreItems());
-            _composite.Add(new ClearSitecoreCache());
-            _composite.Add(new PublishMasterDatabase());
-            _composite.Add(new MoveSitecoreConfigurationFiles());
-
-            foreach (var postStep in _composite)
-            {
-                postStep.Run(null, null);
-            }
-
-            return PipelineExecutionResult.Success;
+            return _installationPipeline.Execute(new InstallationPipelineArgs());
         }
     }
 }

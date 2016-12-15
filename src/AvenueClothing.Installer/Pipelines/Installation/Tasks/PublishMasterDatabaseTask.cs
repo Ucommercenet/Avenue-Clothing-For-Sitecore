@@ -7,16 +7,12 @@ using Sitecore.Install.Framework;
 using Sitecore.Publishing;
 using UCommerce.Infrastructure;
 using UCommerce.Infrastructure.Logging;
+using UCommerce.Pipelines;
 
-namespace AvenueClothing.Installer.Postinstallation.Steps
+namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
 {
-    public class PublishMasterDatabase : IPostStep
+    public class PublishMasterDatabaseTask : IPipelineTask<InstallationPipelineArgs>
     {
-
-        public void Run(ITaskOutput output, NameValueCollection metaData)
-        {
-            PublishEverything();
-        }
 
         private void PublishEverything()
         {
@@ -32,7 +28,7 @@ namespace AvenueClothing.Installer.Postinstallation.Steps
             }
             catch (Exception ex)
             {
-                loggingService.Log<PublishMasterDatabase>(ex);
+                loggingService.Log<PublishMasterDatabaseTask>(ex);
                 throw;
             }
         }
@@ -41,17 +37,17 @@ namespace AvenueClothing.Installer.Postinstallation.Steps
         {
             if (item == null)
             {
-                loggingService.Log<PublishMasterDatabase>("Could not publish to targetDatbase. Item is null");
+                loggingService.Log<PublishMasterDatabaseTask>("Could not publish to targetDatbase. Item is null");
                 return;
             }
 
-            loggingService.Log<PublishMasterDatabase>("Publishing to web from demo store installer.");
+            loggingService.Log<PublishMasterDatabaseTask>("Publishing to web from demo store installer.");
 
             var publishOptions = new PublishOptions(masterDatabase,
-                                                     Database.GetDatabase("web"),
-                                                     Sitecore.Publishing.PublishMode.Full,
-                                                     item.Language,
-                                                     DateTime.Now);
+                Database.GetDatabase("web"),
+                Sitecore.Publishing.PublishMode.Full,
+                item.Language,
+                DateTime.Now);
 
             var publisher = new Publisher(publishOptions);
             publisher.Options.RootItem = item;
@@ -59,7 +55,14 @@ namespace AvenueClothing.Installer.Postinstallation.Steps
 
             publisher.Publish();
 
-            loggingService.Log<PublishMasterDatabase>("Publishing done from demo store installer.");
+            loggingService.Log<PublishMasterDatabaseTask>("Publishing done from demo store installer.");
+        }
+
+        public PipelineExecutionResult Execute(InstallationPipelineArgs subject)
+        {
+            PublishEverything();
+
+            return PipelineExecutionResult.Success;
         }
     }
 }

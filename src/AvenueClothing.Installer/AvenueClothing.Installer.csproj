@@ -108,15 +108,16 @@
     <Compile Include="Helpers\GenericHelpers.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Pipelines\Initialize\RunAvenueClothingInstallerTask.cs" />
+    <Compile Include="Pipelines\Installation\InstallationPipeline.cs" />
+    <Compile Include="Pipelines\Installation\Tasks\ClearSitecoreCacheTask.cs" />
+    <Compile Include="Pipelines\Installation\Tasks\CreateUCommerceCatalogTask.cs" />
+    <Compile Include="Pipelines\Installation\Tasks\CreateUCommerceSettingsTask.cs" />
+    <Compile Include="Pipelines\Installation\Tasks\MoveSitecoreConfigurationFilesTask.cs" />
+    <Compile Include="Pipelines\Installation\Tasks\PublishMasterDatabaseTask.cs" />
+    <Compile Include="Pipelines\Installation\Tasks\RunScratchIndexerTask.cs" />
+    <Compile Include="Pipelines\Installation\Tasks\SynchronizeSitecoreItemsTask.cs" />
+    <Compile Include="Pipelines\Installation\Tasks\UpdateStandardValuesForDefinitionsTask.cs" />
     <Compile Include="Postinstallation\PostInstallation.cs" />
-    <Compile Include="Postinstallation\Steps\ClearSitecoreCache.cs" />
-    <Compile Include="Postinstallation\Steps\CreateUCommerceCatalog.cs" />
-    <Compile Include="Postinstallation\Steps\CreateUCommerceSettings.cs" />
-    <Compile Include="Postinstallation\Steps\MoveSitecoreConfigurationFiles.cs" />
-    <Compile Include="Postinstallation\Steps\PublishMasterDatabase.cs" />
-    <Compile Include="Postinstallation\Steps\RunScratchIndexer.cs" />
-    <Compile Include="Postinstallation\Steps\SynchronizeSitecoreItems.cs" />
-    <Compile Include="Postinstallation\Steps\UpdateStandardValuesForDefinitions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +125,7 @@
     <None Include="package\installer\project" />
     <None Include="package\installer\version" />
     <None Include="sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Initialize\Initialize.config" />
+    <None Include="sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Installation\Installation.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="PackageInformation\Readme.txt" />
@@ -138,7 +140,9 @@
     <Content Include="package\metadata\sc_revision.txt" />
     <Content Include="package\metadata\sc_version.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Postinstallation\Steps\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
