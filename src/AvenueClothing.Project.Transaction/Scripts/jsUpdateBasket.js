@@ -9,6 +9,29 @@
     var jsUpdateBasket = {};
 
     jsUpdateBasket.init = function () {
+        var removeButtonSelector = $(classSelector).data('line-remove');
+
+        $(removeButtonSelector).each(function (index, element) {
+            $(this).click(function () {
+                var refreshUrl = config.$rootSelector.find(classSelector).data('refresh-url');
+                var orderlineToRemove = [];
+                var orderlineId = $(this).data('line-id');
+                var orderlineQty = 0;
+                orderlineToRemove.push({ orderlineId, orderlineQty });
+
+                $.ajax({
+                    type: 'POST',
+                    url: refreshUrl,
+                    data: {
+                        RefreshBasket: orderlineToRemove
+                    },
+                    dataType: 'json',
+                    success: function (data) { }
+                });
+            });
+        });
+
+
         config.$rootSelector.find(classSelector).click(function () {
             var $updateBasket = $(this);
             var refreshUrl = $updateBasket.data('refresh-url');
@@ -44,7 +67,7 @@
                     $(discountTotal).text(data.DiscountTotal);
                     var orderTotal = $updateBasket.data('order-total');
                     $(orderTotal).text(data.OrderTotal);
-                  
+
                     config.$triggerEventSelector.trigger("basket-changed", data.MiniBasketRefresh);
 
 
