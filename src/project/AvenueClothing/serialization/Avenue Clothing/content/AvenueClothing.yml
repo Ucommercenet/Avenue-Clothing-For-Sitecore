@@ -96,7 +96,7 @@ Languages:
         {EB14A396-FF9C-42A4-A215-A9B8CD3C81D0}
     - ID: "b9baaa2b-d947-4cae-97cf-4e413b57c511"
       Hint: Images
-      Type: Multilist
+      Type: TreelistEx
       Value: |
         {1B0CDD3C-E5DD-4BB8-95A7-3CAAC820E201}
         {8E3609EE-7C0B-4D09-B9AD-88B0C1DF359F}
