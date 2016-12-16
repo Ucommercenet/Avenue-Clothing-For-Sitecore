@@ -1,8 +1,8 @@
 ﻿---
-ID: "1286733d-8e0f-4a30-9580-bb4c0fc54465"
-Parent: "526c5024-e751-476d-b9f3-58df3a13c721"
+ID: "230a0c97-f669-4f35-bc4c-af019f3db542"
+Parent: "ea28baf4-62fa-4fa9-80f9-07c39608e5e7"
 Template: "2a3e91a0-7987-44b5-ab34-35c2d9de83b9"
-Path: /sitecore/layout/Renderings/Commerce/Sync/Create Store
+Path: /sitecore/layout/Renderings/Commerce/Catalog/Product Page
 DB: master
 SharedFields:
 - ID: "ded9e431-3604-4921-a4b3-a6ec7636a5b6"
@@ -10,7 +10,7 @@ SharedFields:
   Value: Rendering
 - ID: "e64ad073-dfcc-4d20-8c0b-fe5aa6226cd7"
   Hint: Controller
-  Value: CreateStore
+  Value: ProductPage
 Languages:
 - Language: en
   Versions:
@@ -18,4 +18,4 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20160930T123903Z
+      Value: 20161207T110538Z
