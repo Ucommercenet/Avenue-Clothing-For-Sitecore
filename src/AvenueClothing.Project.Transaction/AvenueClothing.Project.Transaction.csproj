@@ -132,6 +132,7 @@
     <Compile Include="Controllers\CommerceConnectBasketController.cs" />
     <Compile Include="Controllers\CommerceConnectAddToBasketButtonController.cs" />
     <Compile Include="Controllers\BasketPreviewController.cs" />
+    <Compile Include="Controllers\CommerceConnectShippingPickerController.cs" />
     <Compile Include="Controllers\ConfirmationController.cs" />
     <Compile Include="Controllers\CommerceConnectMiniBasketController.cs" />
     <Compile Include="Controllers\QuantityPickerController.cs" />
