@@ -17,6 +17,7 @@ properties {
 . .\Validation.ps1
 . .\Compile.ps1
 . .\uCommerce.Sitecore.ps1
+. .\uCommerce.Deploy.Sitecore.ps1
 
 task default -depends Compile
 
