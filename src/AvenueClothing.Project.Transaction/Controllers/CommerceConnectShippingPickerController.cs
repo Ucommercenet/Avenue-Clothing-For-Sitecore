@@ -50,14 +50,26 @@ namespace AvenueClothing.Project.Transaction.Controllers
 				});
 			}
 
-			return View("/Views/ShippingPicker/Rendering.cshtml", shipmentPickerViewModel);
+			return View(shipmentPickerViewModel);
 		}
 
 		[HttpPost]
 		public ActionResult CreateShipment(ShippingPickerViewModel createShipmentViewModel)
 		{
-			_transactionLibraryInternal.CreateShipment(createShipmentViewModel.SelectedShippingMethodId, Constants.DefaultShipmentAddressName, true);
-			_transactionLibraryInternal.ExecuteBasketPipeline();
+			var cartService = new CartServiceProvider();
+			var cart = GetCart();
+
+			var shippingList = new List<ShippingInfo>
+			{
+				new ShippingInfo()
+				{
+					ShippingMethodID = createShipmentViewModel.SelectedShippingMethodId.ToString(), 
+					PartyID = cart.BuyerCustomerParty.PartyID
+				}
+			}; 
+
+			var addRequest = new AddShippingInfoRequest(cart, shippingList); 
+			var addResult = cartService.AddShippingInfo(addRequest);
 
 			return Redirect("/payment");
 		}

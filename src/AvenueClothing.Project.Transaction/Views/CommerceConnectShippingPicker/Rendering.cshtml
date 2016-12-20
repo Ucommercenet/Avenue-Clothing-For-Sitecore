@@ -1,0 +1,45 @@
+﻿@using System.Web.Mvc
+@using System.Web.Mvc.Html
+@model AvenueClothing.Project.Transaction.ViewModels.ShippingPickerViewModel
+@{
+	Layout = null;
+}
+@using (Html.BeginForm("CreateShipment", "CommerceConnectShippingPicker", FormMethod.Post))
+{
+	<h3>Shipping method</h3>
+	<br />
+	if (Model.AvailableShippingMethods.Count > 0)
+	{
+		foreach (var shippingMethod in Model.AvailableShippingMethods)
+		{
+			<label class="radio">
+				@if (shippingMethod.Selected)
+				{
+					@Html.RadioButtonFor(x => x.SelectedShippingMethodId, shippingMethod.Value, new { @checked = "checked", @class = "js-shipping-picker" })
+					@shippingMethod.Text
+				}
+				else
+				{
+					@Html.RadioButtonFor(x => x.SelectedShippingMethodId, shippingMethod.Value, new { @class = "js-shipping-picker" })
+					@shippingMethod.Text
+				}
+			</label>
+		}
+
+		<div class="control-group margin-top">
+		    <div class="controls">
+		        <button type="submit" class="btn btn-primary" name="review-product">Continue to payment options</button>
+		    </div>
+            <div class="controls">
+                <a href="/address" type="submit" class="btn btn-secondary btn-default pull-left">Back</a>
+            </div>
+		</div>
+		<input type="hidden" name="PaymentMethodId" value="@Model.SelectedShippingMethodId">
+	}
+	else
+	{
+		<p class="alert">
+			WARNING: No shipping methods have been configured for @Model.ShippingCountry within <a href="http://ucommerce.dk">UCommerce</a> administration area.
+		</p>
+	}
+}
