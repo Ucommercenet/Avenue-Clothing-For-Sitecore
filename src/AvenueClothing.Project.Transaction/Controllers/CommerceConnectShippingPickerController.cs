@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Transaction.ViewModels;
@@ -13,21 +12,12 @@ using Sitecore.Commerce.Entities.Shipping;
 using Sitecore.Commerce.Services.Carts;
 using Sitecore.Commerce.Services.Shipping;
 using Sitecore.Configuration;
-using UCommerce;
-using UCommerce.Transactions;
 using Constants = UCommerce.Constants;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {
 	public class CommerceConnectShippingPickerController : BaseController
 	{
-		private readonly TransactionLibraryInternal _transactionLibraryInternal;
-
-		public CommerceConnectShippingPickerController(TransactionLibraryInternal transactionLibraryInternal)
-		{
-			_transactionLibraryInternal = transactionLibraryInternal;
-		}
-
 		public ActionResult Rendering()
 		{
 			var shipmentPickerViewModel = new ShippingPickerViewModel();
@@ -37,6 +27,17 @@ namespace AvenueClothing.Project.Transaction.Controllers
 			var shippingMethods = GetShippingMethods(shippingOption, cart);
 			var shippingMethodPrices = GetShippingMethodPrices(shippingMethods, cart);
 
+			var shipping = cart.Shipping.FirstOrDefault();
+
+			if (shipping != null)
+			{
+				int shippingMethodId;
+				if (int.TryParse(shipping.ShippingMethodID, out shippingMethodId))
+				{
+					shipmentPickerViewModel.SelectedShippingMethodId = shippingMethodId;
+				}
+			}
+
 			foreach (var availableShippingMethod in shippingMethods)
 			{
 				var shippingMethodPrice = shippingMethodPrices.FirstOrDefault(x => x.MethodId == availableShippingMethod.ExternalId);
@@ -44,7 +45,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 
 				shipmentPickerViewModel.AvailableShippingMethods.Add(new SelectListItem()
 				{
-					Selected = shipmentPickerViewModel.SelectedShippingMethodId.ToString() == availableShippingMethod.ShippingOptionId,
+					Selected = shipmentPickerViewModel.SelectedShippingMethodId.ToString() == availableShippingMethod.ExternalId,
 					Text = String.Format(" {0} ({1})", availableShippingMethod.Name, formattedprice),
 					Value = availableShippingMethod.ExternalId
 				});
@@ -59,16 +60,23 @@ namespace AvenueClothing.Project.Transaction.Controllers
 			var cartService = new CartServiceProvider();
 			var cart = GetCart();
 
+			if (cart.Shipping.Any())
+			{
+				var removeRequest = new RemoveShippingInfoRequest(cart, cart.Shipping.ToList());
+				var removeResult = cartService.RemoveShippingInfo(removeRequest);
+			}
+
+			var shippingParty = cart.Parties.FirstOrDefault(x => (string)x.Properties["Name"] == Constants.DefaultShipmentAddressName);
 			var shippingList = new List<ShippingInfo>
 			{
 				new ShippingInfo()
 				{
 					ShippingMethodID = createShipmentViewModel.SelectedShippingMethodId.ToString(), 
-					PartyID = cart.BuyerCustomerParty.PartyID
+					PartyID = shippingParty.PartyId
 				}
-			}; 
+			};
 
-			var addRequest = new AddShippingInfoRequest(cart, shippingList); 
+			var addRequest = new AddShippingInfoRequest(cart, shippingList);
 			var addResult = cartService.AddShippingInfo(addRequest);
 
 			return Redirect("/payment");
@@ -78,7 +86,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 		{
 			var shippingService = new ShippingServiceProvider();
 			var request = new GetShippingOptionsRequest();
- 
+
 			return shippingService.GetShippingOptions(request).ShippingOptions;
 		}
 
@@ -97,7 +105,8 @@ namespace AvenueClothing.Project.Transaction.Controllers
 		private ReadOnlyCollection<ShippingMethod> GetShippingMethods(ShippingOption shippingOption, Cart cart)
 		{
 			var shippingService = new ShippingServiceProvider();
-			var party = cart.Parties.FirstOrDefault(x => x.PartyId == cart.BuyerCustomerParty.PartyID);
+			var shippingParty = cart.Parties.FirstOrDefault(x => (string)x.Properties["Name"] == Constants.DefaultShipmentAddressName);
+			var party = cart.Parties.FirstOrDefault(x => x.PartyId == shippingParty.PartyId);
 
 			var request = new GetShippingMethodsRequest(shippingOption, party);
 
