@@ -13,6 +13,7 @@ using AvenueClothing.Project.Transaction.Services.Impl;
 using AvenueClothing.Project.Website;
 using AvenueClothing.Project.Website.Extensions;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using UCommerce.Catalog;
 using UCommerce.Content;
 using UCommerce.EntitiesV2;
@@ -23,12 +24,29 @@ using UCommerce.Search;
 using UCommerce.Transactions;
 using ObjectFactory = UCommerce.Infrastructure.ObjectFactory;
 
-[assembly: PreApplicationStartMethod(typeof(UCommerceStartup), "PreStart")]
+[assembly: PreApplicationStartMethod(typeof(AvenueClothingStartup), "PreStart")]
 namespace AvenueClothing.Project.Website
 {
-    public static class UCommerceStartup
+    public class AvenueClothingHttpModule : IHttpModule
     {
-        public static void PreStart()
+        private static bool _hasStarted = false;
+        private static object _lock = new Object();
+        public void Init(HttpApplication context)
+        {
+            if (!_hasStarted)
+            {
+                lock (_lock)
+                {
+                    if (!_hasStarted)
+                    {
+                        _hasStarted = true;
+                        Init();
+                    }
+                }
+            }
+        }
+
+        public void Init()
         {
             var services = new ServiceCollection();
 
@@ -42,13 +60,12 @@ namespace AvenueClothing.Project.Website
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
-
-        private static void ConfigureAcceleratorServices(ServiceCollection services)
+        public void ConfigureAcceleratorServices(ServiceCollection services)
         {
             services.AddTransient<IMiniBasketService, MiniBasketService>();
         }
 
-        public static void ConfigureUCommerceServices(IServiceCollection services)
+        public void ConfigureUCommerceServices(IServiceCollection services)
         {
             services.AddTransient(p => ObjectFactory.Instance.Resolve<TransactionLibraryInternal>());
             services.AddTransient(p => ObjectFactory.Instance.Resolve<CatalogLibraryInternal>());
@@ -65,7 +82,7 @@ namespace AvenueClothing.Project.Website
             services.AddTransient(p => Country.All());
         }
 
-        public static void ConfigureControllerServices(IServiceCollection services)
+        public void ConfigureControllerServices(IServiceCollection services)
         {
             var controllerTypesToRegister = GetControllerTypesToRegister();
             foreach (var type in controllerTypesToRegister)
@@ -74,7 +91,7 @@ namespace AvenueClothing.Project.Website
             }
         }
 
-        public static Type[] GetControllerTypesToRegister(params Assembly[] assemblies)
+        public Type[] GetControllerTypesToRegister(params Assembly[] assemblies)
         {
             if (assemblies == null || assemblies.Length == 0)
             {
@@ -82,18 +99,18 @@ namespace AvenueClothing.Project.Website
             }
 
             return (
-                from assembly in assemblies
-                where !assembly.IsDynamic
-                from type in GetExportedTypes(assembly)
-                where typeof(IController).IsAssignableFrom(type)
-                where !type.IsAbstract
-                where !type.IsGenericTypeDefinition
-                where type.Name.EndsWith("Controller", StringComparison.Ordinal)
-                select type)
-                .ToArray();
+                    from assembly in assemblies
+                    where !assembly.IsDynamic
+                    from type in GetExportedTypes(assembly)
+                    where typeof(IController).IsAssignableFrom(type)
+                    where !type.IsAbstract
+                    where !type.IsGenericTypeDefinition
+                    where type.Name.EndsWith("Controller", StringComparison.Ordinal)
+                    select type)
+                .ToArray<Type>();
         }
 
-        private static IEnumerable<Type> GetExportedTypes(Assembly assembly)
+        public IEnumerable<Type> GetExportedTypes(Assembly assembly)
         {
             try
             {
@@ -121,10 +138,22 @@ namespace AvenueClothing.Project.Website
             catch (Exception ex)
             {
                 // Throw a more descriptive message containing the name of the assembly.
-                throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture,
+                throw new InvalidOperationException(String.Format(CultureInfo.InvariantCulture,
                     "Unable to load types from assembly {0}. {1}", assembly.FullName, ex.Message), ex);
             }
         }
 
+        public void Dispose()
+        {
+            
+        }
+    }
+
+    public static class AvenueClothingStartup
+    {
+        public static void PreStart()
+        {
+            DynamicModuleUtility.RegisterModule(typeof(AvenueClothingHttpModule));
+        }
     }
 }
