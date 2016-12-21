@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
-using Sitecore.Install.Framework;
 using Sitecore.IO;
 using UCommerce.Extensions;
 using UCommerce.Pipelines;
@@ -16,7 +14,9 @@ namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
 {
 	public class SynchronizeSitecoreItemsTask : IPipelineTask<InstallationPipelineArgs>
 	{
-        public virtual void ProcessDirectory(DirectoryInfo directory)
+		public string SynchronizeSitecoreItemsPath { get; set; }
+
+		public virtual void ProcessDirectory(DirectoryInfo directory)
         {
             if (directory == null) throw new InvalidOperationException("DirectoryInfo is null");
 
@@ -27,8 +27,9 @@ namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
 
             if (configurations == null) throw new InvalidOperationException("Could not determine configurations for Unicorn.");
 
-            var configuration = configurations.First(c => c.Name.Equals("Project.AvenueClothing.Website.Installer", StringComparison.OrdinalIgnoreCase));
-            
+            var configuration = configurations.FirstOrDefault(c => c.Name.Equals("Project.AvenueClothing.Website.Installer", StringComparison.OrdinalIgnoreCase));
+
+			if (configuration == null) configuration = configurations.FirstOrDefault(c => c.Name.Equals("Project.AvenueClothing.Website", StringComparison.OrdinalIgnoreCase));
             if (configuration == null) throw new InvalidOperationException("Could not determine configuration for installation serialization with name: {0}".FormatWith(directoryShortName));
 
             SynchroniseTargetDataStore(configuration);
@@ -87,8 +88,16 @@ namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
 
             var itemsDirectory = new DirectoryInfo(combinedPath);
 
-            if (!itemsDirectory.Exists)
+			if (!itemsDirectory.Exists && !string.IsNullOrEmpty(SynchronizeSitecoreItemsPath))
+			{
+				itemsDirectory = new DirectoryInfo(SynchronizeSitecoreItemsPath);
+			}
+
+	        if (!itemsDirectory.Exists)
             {
+				if(!string.IsNullOrEmpty(SynchronizeSitecoreItemsPath))
+					throw new DirectoryNotFoundException(string.Format("Sitecore items wasn't found in '{0}'. Please make sure that the configured items path is correct.", SynchronizeSitecoreItemsPath));
+				
                 throw new DirectoryNotFoundException(string.Format("Sitecore items wasn't found in '{0}'. Please make sure that the configured items path is correct. Rootpath was: '{1}'", combinedPath, rootPath));
             }
 

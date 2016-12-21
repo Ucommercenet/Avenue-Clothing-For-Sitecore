@@ -7,9 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Project.Webs
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deploy", "deploy", "{1797BCCD-EA91-46AF-8EEE-9E4920FCB81C}"
 	ProjectSection(SolutionItems) = preProject
-		scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config = scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config
-		scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.Installation.config = scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.Installation.config
-		scripts\Serialization\App_Config\Include\AvenueClothing.Sites.config = scripts\Serialization\App_Config\Include\AvenueClothing.Sites.config
+		..\tools\Deploy\Deploy.To.Local.ps1 = ..\tools\Deploy\Deploy.To.Local.ps1
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Tests", "AvenueClothing.Tests\AvenueClothing.Tests.csproj", "{1D685E2A-96DE-48B0-913A-1FEA7F0B4609}"
@@ -29,6 +27,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Project.Catalog", "AvenueClothing.Project.Catalog\AvenueClothing.Project.Catalog.csproj", "{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Installer", "AvenueClothing.Installer\AvenueClothing.Installer.csproj", "{FEF1E765-A680-4A5F-93BC-3E2BA183FC73}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{69AE946C-082F-4BDB-9654-AE9779A35FB8}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config = scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config
+		scripts\Serialization\App_Config\Include\AvenueClothing.Sites.config = scripts\Serialization\App_Config\Include\AvenueClothing.Sites.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,5 +83,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{69AE946C-082F-4BDB-9654-AE9779A35FB8} = {1797BCCD-EA91-46AF-8EEE-9E4920FCB81C}
 	EndGlobalSection
 EndGlobal
