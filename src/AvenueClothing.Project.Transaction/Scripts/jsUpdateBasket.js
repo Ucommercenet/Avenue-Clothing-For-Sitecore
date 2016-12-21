@@ -13,29 +13,36 @@
 
         $(removeButtonSelector).each(function (index, element) {
             $(this).click(function () {
-                var refreshUrl = config.$rootSelector.find(classSelector).data('refresh-url');
-                var orderlineToRemove = [];
+                var removeOrderlineUrl = config.$rootSelector.find(classSelector).data('remove-orderline-url');
                 var orderlineId = $(this).data('line-id');
-                var orderlineQty = 0;
-                orderlineToRemove.push({ orderlineId, orderlineQty });
 
                 $.ajax({
                     type: 'POST',
-                    url: refreshUrl,
+                    url: removeOrderlineUrl,
                     data: {
-                        RefreshBasket: orderlineToRemove
+                        orderlineId: orderlineId
                     },
                     dataType: 'json',
-                    success: function (data) { }
+                    success: function (data) {
+                        $('[data-orderline]').each(function (index, element) {
+                            if (element.dataset.orderline == data.orderlineId) {
+                                $(element).remove();
+                            }
+                        });
+                        if ($('[data-orderline]').length == 0) {
+                            $('body').load(location.href);
+                        }
+                    }
                 });
             });
         });
-
 
         config.$rootSelector.find(classSelector).click(function () {
             var $updateBasket = $(this);
             var refreshUrl = $updateBasket.data('refresh-url');
             var orderlines = $('[data-orderline-id]');
+            var itemTotalSelector = $updateBasket.data('item-total');
+
 
             var orderlineArray = [];
 
@@ -55,9 +62,26 @@
                 },
                 dataType: 'json',
                 success: function (data) {
+                    var orderlines = data.OrderLines;
+                    var orderlineIds = [];
                     $('[data-orderline]').each(function (index, element) {
-                        var orderlineId = element.dataset.orderline;
+                        var currentLine;
+                        for (var i = 0; i < orderlines.length; i++) {
+                            orderlineIds.push(orderlines[i].OrderlineId.toString());
+                            if (element.dataset.orderline == orderlines[i].OrderlineId) {
+                                currentLine = orderlines[i];
+                            };
+                        };
+                        if ($.inArray(element.dataset.orderline, orderlineIds) >= 0) {
+                            $(element).find(itemTotalSelector)[0].innerHTML = currentLine.Total;
+                        } else {
+                            $(element).remove();
+                        }
                     });
+
+                    if ($('[data-orderline]').length == 0) {
+                        $('body').load(location.href);
+                    }
 
                     var orderSubtotal = $updateBasket.data('order-subtotal');
                     $(orderSubtotal).text(data.SubTotal);
@@ -69,8 +93,6 @@
                     $(orderTotal).text(data.OrderTotal);
 
                     config.$triggerEventSelector.trigger("basket-changed", data.MiniBasketRefresh);
-
-
                 },
                 error: function (err) {
                     console.log("Something went wrong...");

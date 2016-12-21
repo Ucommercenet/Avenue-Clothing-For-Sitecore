@@ -25,6 +25,7 @@ namespace AvenueClothing.Project.Transaction.ViewModels
 		public OrderAddress ShipmentAddress { get; set; }
 		public OrderAddress BillingAddress { get; set; }
         public string RefreshUrl { get; set; }
+        public string RemoveOrderlineUrl { get; set; }
 
         public class OrderlineViewModel
         {

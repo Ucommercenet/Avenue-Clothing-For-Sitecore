@@ -12,15 +12,15 @@ using UCommerce.Transactions;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {
-	public class BasketController : BaseController
-	{
-	    private readonly TransactionLibraryInternal _transactionLibraryInternal;
-	    private readonly IMiniBasketService _miniBasketService;
-	    public BasketController(TransactionLibraryInternal transactionLibraryInternal, IMiniBasketService miniBasketService)
-	    {
-	        _transactionLibraryInternal = transactionLibraryInternal;
-	        _miniBasketService = miniBasketService;
-	    }
+    public class BasketController : BaseController
+    {
+        private readonly TransactionLibraryInternal _transactionLibraryInternal;
+        private readonly IMiniBasketService _miniBasketService;
+        public BasketController(TransactionLibraryInternal transactionLibraryInternal, IMiniBasketService miniBasketService)
+        {
+            _transactionLibraryInternal = transactionLibraryInternal;
+            _miniBasketService = miniBasketService;
+        }
 
         public ActionResult Rendering()
         {
@@ -52,27 +52,40 @@ namespace AvenueClothing.Project.Transaction.Controllers
             basketModel.SubTotal = new Money(basket.SubTotal.GetValueOrDefault(), basket.BillingCurrency).ToString();
 
             basketModel.RefreshUrl = Url.Action("UpdateBasket");
+            basketModel.RemoveOrderlineUrl = Url.Action("RemoveOrderline");
 
             return View(basketModel);
         }
 
-	    [HttpPost]
-	    public ActionResult UpdateBasket(BasketUpdateBasket model)
-	    {
-	        foreach (var updateOrderline in model.RefreshBasket)
-	        {
-	            var newQuantity = updateOrderline.OrderLineQty;
-	            if (newQuantity <= 0)
-                { 
-	                newQuantity = 0;
-	            }
+        [HttpPost]
+        public ActionResult RemoveOrderline(int orderlineId)
+        {
+            _transactionLibraryInternal.UpdateLineItemByOrderLineId(orderlineId, 0);
 
-	        _transactionLibraryInternal.UpdateLineItemByOrderLineId(updateOrderline.OrderLineId, newQuantity);
-	        }
+            return Json(new
+            {
+                orderlineId = orderlineId
+            });
+        }
 
-	        _transactionLibraryInternal.ExecuteBasketPipeline();
 
-	        var basket = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
+        [HttpPost]
+        public ActionResult UpdateBasket(BasketUpdateBasket model)
+        {
+            foreach (var updateOrderline in model.RefreshBasket)
+            {
+                var newQuantity = updateOrderline.OrderLineQty;
+                if (newQuantity <= 0)
+                {
+                    newQuantity = 0;
+                }
+
+                _transactionLibraryInternal.UpdateLineItemByOrderLineId(updateOrderline.OrderLineId, newQuantity);
+            }
+
+            _transactionLibraryInternal.ExecuteBasketPipeline();
+
+            var basket = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
 
             BasketUpdateBasketViewModel updatedBasket = new BasketUpdateBasketViewModel();
 
@@ -95,10 +108,11 @@ namespace AvenueClothing.Project.Transaction.Controllers
             string taxTotal = new Money(basket.TaxTotal.GetValueOrDefault(), basket.BillingCurrency).ToString();
             string subTotal = new Money(basket.SubTotal.GetValueOrDefault(), basket.BillingCurrency).ToString();
 
-	        updatedBasket.OrderTotal = orderTotal;
-	        updatedBasket.DiscountTotal = discountTotal;
-	        updatedBasket.TaxTotal = taxTotal;
-	        updatedBasket.SubTotal = subTotal;
+            updatedBasket.OrderTotal = orderTotal;
+            updatedBasket.DiscountTotal = discountTotal;
+            updatedBasket.TaxTotal = taxTotal;
+            updatedBasket.SubTotal = subTotal;
+
 
             return Json(new
             {
@@ -109,10 +123,10 @@ namespace AvenueClothing.Project.Transaction.Controllers
                 SubTotal = subTotal,
                 OrderLines = updatedBasket.Orderlines
             });
-	    }
+        }
 
 
 
-	}
+    }
 
 }
