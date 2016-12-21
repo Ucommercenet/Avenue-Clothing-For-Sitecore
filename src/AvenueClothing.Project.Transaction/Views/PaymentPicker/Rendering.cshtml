@@ -24,18 +24,16 @@
 					<span>@paymentMethod.Text</span>
 				}
 			</label>
-		}
+        }
 
-		<div class="control-group margin-top">
-		    <div class="controls">
-		        <button type="submit" class="btn btn-primary pull-right" name="review-product">Continue to order preview</button>
-                <a href="/shipping" type="submit" class="btn btn-secondary btn-default pull-left">Back</a>
+        <div class="col-md-6 no-padding-col">
+            <a href="/shipping" type="submit" class="btn btn-secondary btn-default btn-full-width pull-left">Back</a>
+        </div>
+        <div class="col-md-6 no-padding-col">
+        <button type="submit" class="btn btn-primary btn-default btn-full-width pull-right" >Continue to order preview</button>
+        </div>
 
-		    </div>
-          
-		</div>
-		<input type="hidden" name="PaymentMethodId" value="@Model.SelectedPaymentMethodId">
-	}
+      }
 	else
 	{
 		<p class="alert">

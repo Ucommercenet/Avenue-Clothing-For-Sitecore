@@ -81,12 +81,30 @@
         label.addClass('fa-star-o').removeClass('fa-star');
     }
 
+
     /** START OF PUBLIC API **/
 
     var jsReviewForm = {};
     var submitReviewUrl = $('[data-submit-url]').data('submit-url');
     var $reviewForm = $(classSelector);
 
+    // var validated= function validateForm() {
+    //     $reviewForm.each(function () {
+
+    //         $reviewForm.validate({
+    //             errorElement: "span",
+    //             errorClass: "help-inline",
+    //             highlight: function(tag) {
+    //                 $(tag).closest('.control-tag').addClass('error');
+    //                 return false;
+    //             },
+    //             success: function(tag) {
+    //                 tag.closest('.control-tag').addClass('success');
+    //             }
+    //         });
+    //     });
+    //     return true;
+    //     };
 
     jsReviewForm.init = function () {
         wireupRatings(config.$rootSelector.find(classSelector));
@@ -102,7 +120,6 @@
             $.each(serializedFormData, function (i, field) {
                 values[field.name] = field.value;
             });
-
             $.ajax({
                 type: 'POST',
                 url: submitReviewUrl,
@@ -120,6 +137,8 @@
 
                 }
             });
+            // $reviewForm.load(location.href + ' .review-form');
+            $reviewForm[0].reset();
         });
 
     };
