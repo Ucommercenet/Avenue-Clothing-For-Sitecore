@@ -236,6 +236,7 @@
     <Content Include="Views\Sidebar Static Content\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AvenueClothingStartup.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\FooterController.cs" />
     <Compile Include="Extensions\ServiceProviderDependencyResolver.cs" />
