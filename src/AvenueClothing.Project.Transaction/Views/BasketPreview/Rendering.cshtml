@@ -51,93 +51,92 @@
         <div class="row col-lg-12">
             <table class="table table-striped">
                 <thead>
-                    <tr>
-                        <th>Item no. </th>
-                        <th class="span8">Description</th>
-                        <th class="span1 money">Price</th>
-                        <th class="span1 money">VAT</th>
-                        <th class="span1 number">Quantity</th>
-                        <th class="span1 money">Total</th>
-                    </tr>
+                <tr>
+                    <th>Item no. </th>
+                    <th class="span8">Description</th>
+                    <th class="span1 money">Price</th>
+                    <th class="span1 money">VAT</th>
+                    <th class="span1 number">Quantity</th>
+                    <th class="span1 money">Total</th>
+                </tr>
                 </thead>
                 <tbody>
-                    @foreach (var lineItem in @Model.OrderLines)
+                @foreach (var lineItem in @Model.OrderLines)
                 {
-                        <tr>
-                            <td>@lineItem.Sku</td>
-                            <td>@lineItem.ProductName</td>
-                            <td class="money">
-                                @if (lineItem.Discount.HasValue && lineItem.Discount > 0)
-                                {
-                                    <span style="text-decoration: line-through">
+                    <tr>
+                        <td>@lineItem.Sku</td>
+                        <td>@lineItem.ProductName</td>
+                        <td class="money">
+                            @if (lineItem.Discount.HasValue && lineItem.Discount > 0)
+                            {
+                                <span style="text-decoration: line-through">
                                         @lineItem.Price
                                     </span>
-                                    @lineItem.PriceWithDiscount
-                                }
-                                else
-                                {
-                                    @lineItem.Price
-                                }
-                            </td>
-                            <td class="money">@lineItem.Tax</td>
-                            <td class="number">@lineItem.Quantity</td>
-                            <td class="money">@lineItem.Total</td>
-                        </tr>
-                    }
-                    <tr>
-                        <td rowspan="@ViewBag.RowSpan" colspan="2"></td>
-                        <td colspan="3">Sub total: </td>
-                        <td class="money">
-                            @Model.SubTotal
+                                @lineItem.PriceWithDiscount
+                            }
+                            else
+                            {
+                                @lineItem.Price
+                            }
                         </td>
+                        <td class="money">@lineItem.Tax</td>
+                        <td class="number">@lineItem.Quantity</td>
+                        <td class="money">@lineItem.Total</td>
                     </tr>
+                }
+                <tr>
+                    <td rowspan="@ViewBag.RowSpan" colspan="2"></td>
+                    <td colspan="3">Sub total: </td>
+                    <td class="money">
+                        @Model.SubTotal
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">VAT: </td>
+                    <td class="money">
+                        @Model.TaxTotal
+                    </td>
+                </tr>
+                @if (@Model.DiscountAmount != 0)
+                {
                     <tr>
-                        <td colspan="3">VAT: </td>
-                        <td class="money">
-                            @Model.TaxTotal
+                        <td colspan="3">Order discounts: </td>
+                        <td class="money">- @Model.DiscountTotal</td>
+                    </tr>
+                }
+                @if (@Model.ShipmentAmount != 0)
+                {
+                    <tr>
+                        <td colspan="3">
+                            Shipping
+                            <text> (via @Model.ShipmentName)</text>
                         </td>
+                        <td class="money">@Model.ShippingTotal</td>
                     </tr>
-                    @if (@Model.DiscountAmount != 0)
+                }
+                @if (@Model.PaymentAmount != 0)
                 {
-                        <tr>
-                            <td colspan="3">Order discounts: </td>
-                            <td class="money">- @Model.DiscountTotal</td>
-                        </tr>
-                    }
-                    @if (@Model.ShipmentAmount != 0)
-                {
-                        <tr>
-                            <td colspan="3">
-                                Shipping
-                                <text> (via @Model.ShipmentName)</text>
-                            </td>
-                            <td class="money">@Model.ShippingTotal</td>
-                        </tr>
-                    }
-                    @if (@Model.PaymentAmount != 0)
-                {
-                        <tr>
-                            <td colspan="3">
-                                Payment
-                                <text> (@Model.PaymentName)</text>
-                            </td>
-                            <td class="money">@Model.PaymentTotal</td>
-                        </tr>
-                    }
                     <tr>
-                        <td colspan="3">Order total: </td>
-                        <td class="money">@Model.OrderTotal</td>
+                        <td colspan="3">
+                            Payment
+                            <text> (@Model.PaymentName)</text>
+                        </td>
+                        <td class="money">@Model.PaymentTotal</td>
                     </tr>
+                }
+                <tr>
+                    <td colspan="3">Order total: </td>
+                    <td class="money">@Model.OrderTotal</td>
+                </tr>
                 </tbody>
             </table>
         </div>
-        <div class="row">
-            <div class="col-md-6 control-group form-group ">
-                <a href="/payment" type="submit" class="btn btn-secondary btn-default">Back</a>
-            </div>
-            <div class="col-md-6 control-group form-group ">
-                <button name="send-order" class="btn btn-secondary btn-success" type="submit">Complete Order <i class="icon-arrow-right icon-white"></i></button>
-            </div>
+
+        <div class="col-md-6 no-padding-col">
+            <a href="/payment" type="submit" class="btn btn-secondary btn-default btn-full-width pull-left">Back</a>
+        </div>
+        <div class="col-md-6 no-padding-col">
+            <button name="send-order" type="submit" class="btn btn-primary btn-full-width pull-right">Complete Order <i class="icon-arrow-right icon-white"></i></button>
         </div>
     }
 </div>

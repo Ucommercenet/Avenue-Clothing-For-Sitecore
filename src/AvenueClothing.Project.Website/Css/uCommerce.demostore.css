@@ -688,3 +688,23 @@ p.btn-group.view-details {
     }
 
 
+
+/*Responsive Buttons in checkout*/
+.btn-full-width {
+    width: auto;
+}
+.no-padding-col {
+	overflow: hidden;
+    padding-left: 0;
+    padding-right: 0;}
+
+
+@media screen and (max-width: 761px) {
+   .btn-full-width {
+        width: 100%;
+    } 
+    .no-padding-col{
+        margin-bottom: 1vh;
+
+}
+}
