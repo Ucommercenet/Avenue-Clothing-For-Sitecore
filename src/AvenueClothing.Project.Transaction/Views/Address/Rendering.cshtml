@@ -69,9 +69,11 @@
 
                 <label>First name</label>
                 @Html.TextBoxFor(x => x.ShippingAddress.FirstName, new {@class = "col-md-12 form-control required margin-bottom", required = "true"})
+                <label class="error-custom BillingAddressFirstName"></label>
 
                 <label>E-mail</label>
                 @Html.TextBoxFor(x => x.ShippingAddress.EmailAddress, new {@class = "col-md-12 form-control required email margin-bottom"})
+                <label class="error-custom BillingAddressEmailAddress"></label>
 
                 <label>Attention</label>
                 @Html.TextBoxFor(x => x.ShippingAddress.Attention, new {@class = "col-md-12 form-control margin-bottom"})
@@ -91,12 +93,14 @@
 
                 <label>Last name</label>
                 @Html.TextBoxFor(x => x.ShippingAddress.LastName, new {@class = "col-md-12 form-control required margin-bottom"})
+                <label class="error-custom BillingAddressLastName"></label>
 
                 <label>Company</label>
                 @Html.TextBoxFor(x => x.ShippingAddress.CompanyName, new {@class = "col-md-12 form-control margin-bottom"})
 
                 <label>Street</label>
                 @Html.TextBoxFor(x => x.ShippingAddress.Line1, new {@class = "col-md-12 form-control required margin-bottom"})
+                <label class="error-custom BillingAddressLine1"></label>
 
                 <label>City</label>
                 @Html.TextBoxFor(x => x.ShippingAddress.City, new {@class = "col-md-12 form-control margin-bottom"})

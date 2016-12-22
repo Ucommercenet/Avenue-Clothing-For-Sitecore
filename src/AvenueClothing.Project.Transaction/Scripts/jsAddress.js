@@ -5,7 +5,7 @@
     var classSelector = ".js-address";
     var billingClassSelector = ".js-address-billing";
     var shippingClassSelector = ".js-address-shipping";
-    var checkboxClassSelector = ".js-address-checkbox"; 
+    var checkboxClassSelector = ".js-address-checkbox";
     var $form = $(classSelector);
     var submitClassSelector = $form.data('submit-address');
     var saveAddressUrl = $form.data('save-address-url');
@@ -27,16 +27,16 @@
     var jsAddress = {};
 
     jsAddress.init = function () {
-        $(submitClassSelector).off().click(function(e) {
+        $(submitClassSelector).off().click(function (e) {
             e.preventDefault();
 
             $form.validate({
                 errorElement: "span",
                 errorClass: "help-inline",
-                highlight: function(tag) {
+                highlight: function (tag) {
                     $(tag).addClass('error-custom');
                 },
-                success: function(tag) {
+                success: function (tag) {
                     $('tag').addClass('success');
                 }
             });
@@ -46,18 +46,19 @@
                     type: 'POST',
                     url: saveAddressUrl,
                     data: $form.serialize(),
-                    success: function(data) {
-                        if (data.successUrl) {
-                            window.location.href = data.successUrl;
+                    success: function (data) {
+                        if (data.ShippingUrl) {
+                            window.location.href = data.ShippingUrl;
                         }
                         var errors = data.modelStateErrors;
                         for (var i = 0; i < errors.length; i++) {
                             var currentError = errors[i];
-                            
+
                             $form.find('.' + currentError.Key.replace(/\./g, '')).text(currentError.Value[0]);
                         }
                     }
-            });
+
+                });
             }
 
         });

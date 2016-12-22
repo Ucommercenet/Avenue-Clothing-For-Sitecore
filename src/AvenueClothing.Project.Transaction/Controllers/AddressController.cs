@@ -85,8 +85,8 @@ namespace AvenueClothing.Project.Transaction.Controllers
             }
 
             _transactionLibraryInternal.ExecuteBasketPipeline();
-            
-            return Redirect("/shipping");
+
+            return Json(new {ShippingUrl = "/shipping"});
 
         }
 
