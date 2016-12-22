@@ -41,10 +41,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Sitecore.Kernel">
-      <HintPath>..\..\lib\Sitecore\Sitecore.Kernel.dll</HintPath>
+      <HintPath>..\..\lib\Sitecore\8.2\Sitecore.Kernel.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Mvc">
-      <HintPath>..\..\lib\Sitecore\Sitecore.Mvc.dll</HintPath>
+      <HintPath>..\..\lib\Sitecore\8.2\Sitecore.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
