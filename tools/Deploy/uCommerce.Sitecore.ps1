@@ -49,6 +49,9 @@ task CopyUnicornDependenciesToFilesFolder {
     Copy-Item "$src\packages\Rainbow.Core.1.4.1\lib\net452\Rainbow.dll" "$working_dir\files\bin\Rainbow.dll" -Force 
     Copy-Item "$src\packages\Rainbow.Storage.Yaml.1.4.1\lib\net452\Rainbow.Storage.Yaml.dll" "$working_dir\files\bin\Rainbow.Storage.Yaml.dll" -Force 
     Copy-Item "$src\packages\Rainbow.Storage.Sc.1.4.1\lib\net452\Rainbow.Storage.Sc.dll" "$working_dir\files\bin\Rainbow.Storage.Sc.dll" -Force 
+    
+    Copy-Item "$src\..\lib\WebGrease\WebGrease.dll" "$working_dir\files\bin\WebGrease.dll" -Force 
+    Copy-Item "$src\..\lib\WebGrease\System.Web.Optimization.dll" "$working_dir\files\bin\System.Web.Optimization.dll" -Force 
 }
 
 task CopyBinariesToFilesFolder {
