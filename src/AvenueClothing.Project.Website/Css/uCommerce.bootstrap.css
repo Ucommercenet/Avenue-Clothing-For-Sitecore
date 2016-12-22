@@ -827,6 +827,7 @@ table {
   background-color: transparent;
   border-collapse: collapse;
   border-spacing: 0;
+   
 }
 .table {
   width: 100%;
@@ -1087,6 +1088,9 @@ table [class*=span],
 }
 .table-hover tbody tr.info:hover td {
   background-color: #c4e3f3;
+}
+table.table.table-striped {
+     table-layout: fixed;
 }
 form {
   margin: 0 0 20px;

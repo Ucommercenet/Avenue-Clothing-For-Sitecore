@@ -340,6 +340,8 @@ td.money {
     padding-left: 0;
     padding-right: 0;
     margin-left: 0px;
+     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
 div.product.col-sm-4.col-md-4 {
@@ -354,10 +356,14 @@ div.product.col-sm-4.col-md-4 {
     .product-list .product {
         margin-left: 5%;
     }
-
+   
     div.product.col-sm-4.col-md-4 {
         width: 30%;
     }
+   
+a.col-md-3 {
+    width: 28%;
+}
 }
 
 @media(min-width:1200px) {
@@ -378,6 +384,7 @@ div.product.col-sm-4.col-md-4 {
 .product-list .product .product-image {
     position: relative;
     max-width: 300px;
+    margin: 0 auto;
 }
 
     .product-list .product .product-image img {
@@ -710,8 +717,20 @@ p.btn-group.view-details {
 
 .error-custom{
    font-size: small;
-    color: #d9534f!important; 
+   color: #d9534f!important; 
 }
 input.error-input, textarea.error-input{
   border-color: #d9534f;
+}
+
+/*minibasket*/
+.js-mini-basket-not-empty {
+    overflow: hidden;
+}
+
+div#why-buy.well.sidebar-nav > ol > li > img {
+    width: 100%;
+}
+.overflow-hidden {
+    overflow: hidden;
 }
