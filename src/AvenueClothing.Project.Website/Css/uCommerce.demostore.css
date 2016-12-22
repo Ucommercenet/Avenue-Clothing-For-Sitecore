@@ -705,6 +705,13 @@ p.btn-group.view-details {
     } 
     .no-padding-col{
         margin-bottom: 1vh;
-
 }
+}
+
+.error-custom{
+   font-size: small;
+    color: #d9534f!important; 
+}
+input.error-input, textarea.error-input{
+  border-color: #d9534f;
 }
