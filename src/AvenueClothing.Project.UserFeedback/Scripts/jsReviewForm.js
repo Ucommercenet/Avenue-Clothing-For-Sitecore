@@ -99,14 +99,14 @@
             var values = {};
 
             $reviewForm.validate({
-                errorElement: "span",
-                errorClass: "help-inline",
+                errorElement: "label",
+                errorClass: "error-custom",
                 highlight: function (tag) {
-                    $('tag').closest('control-tag').addClass('error');
+                    $(tag).addClass('error-input');
                     return false;
                 },
                 success: function (tag) {
-                    $('tag').closest('control-tag').addClass('success');
+                    $(tag).closest('input').removeClass('error-custom');
                 }
             });
             if ($reviewForm.valid()) {
