@@ -1,7 +1,7 @@
 [CmdletBinding()]
 Param(
 	[Parameter(Mandatory=$False)]
-    [string]$Website = "C:\inetpub\SC8\website"
+    [string]$Website = "C:\inetpub\SC8Test"
 )
 
 function Get-ScriptDirectory { 
