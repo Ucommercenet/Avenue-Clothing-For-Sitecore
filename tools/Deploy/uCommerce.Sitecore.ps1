@@ -85,7 +85,7 @@ task CopyProjectFilesToFilesFolder {
 }
 
 task CopyUnicornItems {
-    Copy-Item "$src\..\Project\AvenueClothing" "$working_dir\files\App_Data\tmp\accelerator\" -Recurse -Force
+    Copy-Item "$src\Project\AvenueClothing" "$working_dir\files\App_Data\tmp\accelerator\" -Recurse -Force
 }
 
 task CopyConfigIncludeFiles {
