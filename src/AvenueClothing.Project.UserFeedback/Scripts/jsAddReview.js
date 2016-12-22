@@ -1,17 +1,11 @@
-﻿define('jsAddReview', ['jquery', 'jsConfig'], function ($, config) {
+﻿define('jsAddReview', ['jquery', 'jsConfig', 'jquery.validate'], function ($, config) {
     'use strict';
 
     var classSelector = '.js-add-review';
     var $reviewForm = $(classSelector);
 
-    //var validemail = function(email) {
-    //    var re =
-    //        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    //    return re.test(email);
-    //};
-  
-
     var reviewAdded = function (event, data) {
+
         $reviewForm.remove('no-reviews');
 
         var $reviewList = event.data.$element;
@@ -53,7 +47,7 @@
     var jsAddReview = {};
 
     jsAddReview.init = function () {
-        config.$rootSelector.find(classSelector).each(function() {
+        config.$rootSelector.find(classSelector).each(function () {
             config.$triggerEventSelector.on("review-added", { $element: $(this) }, reviewAdded);
         });
     };

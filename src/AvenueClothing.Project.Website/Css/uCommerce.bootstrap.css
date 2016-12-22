@@ -1606,6 +1606,10 @@ select:focus:required:invalid:focus {
 .help-inline {
   color: #595959;
 }
+span.help-inline {
+    font-size: small;
+    color: #d9534f;
+}
 .help-block {
   display: block;
   margin-bottom: 10px;

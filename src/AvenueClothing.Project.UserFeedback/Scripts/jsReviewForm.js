@@ -1,4 +1,4 @@
-﻿define('jsReviewForm', ['jquery', 'jsConfig'], function ($, config) {
+﻿define('jsReviewForm', ['jquery', 'jsConfig', 'jquery.validate'], function ($, config) {
     'use strict';
 
     // declared with `var`, must be "private"
@@ -81,30 +81,11 @@
         label.addClass('fa-star-o').removeClass('fa-star');
     }
 
-
     /** START OF PUBLIC API **/
 
     var jsReviewForm = {};
     var submitReviewUrl = $('[data-submit-url]').data('submit-url');
     var $reviewForm = $(classSelector);
-
-    // var validated= function validateForm() {
-    //     $reviewForm.each(function () {
-
-    //         $reviewForm.validate({
-    //             errorElement: "span",
-    //             errorClass: "help-inline",
-    //             highlight: function(tag) {
-    //                 $(tag).closest('.control-tag').addClass('error');
-    //                 return false;
-    //             },
-    //             success: function(tag) {
-    //                 tag.closest('.control-tag').addClass('success');
-    //             }
-    //         });
-    //     });
-    //     return true;
-    //     };
 
     jsReviewForm.init = function () {
         wireupRatings(config.$rootSelector.find(classSelector));
@@ -117,28 +98,40 @@
             var serializedFormData = $reviewForm.serializeArray();
             var values = {};
 
-            $.each(serializedFormData, function (i, field) {
-                values[field.name] = field.value;
-            });
-            $.ajax({
-                type: 'POST',
-                url: submitReviewUrl,
-                data: {
-                    Name: values['Name'],
-                    Email: values['Email'],
-                    CategoryGuid: values['CategoryGuid'],
-                    Comments: values['Comments'],
-                    ProductGuid: values['ProductGuid'],
-                    Rating: parseInt(values['Rating']),
-                    Title: values['Title']
+            $reviewForm.validate({
+                errorElement: "span",
+                errorClass: "help-inline",
+                highlight: function (tag) {
+                    $('tag').closest('control-tag').addClass('error');
+                    return false;
                 },
-                success: function (data) {
-                    config.$triggerEventSelector.trigger("review-added", data);
-
+                success: function (tag) {
+                    $('tag').closest('control-tag').addClass('success');
                 }
             });
-            // $reviewForm.load(location.href + ' .review-form');
-            $reviewForm[0].reset();
+            if ($reviewForm.valid()) {
+                $.each(serializedFormData, function (i, field) {
+                    values[field.name] = field.value;
+                });
+                $.ajax({
+                    type: 'POST',
+                    url: submitReviewUrl,
+                    data: {
+                        Name: values['Name'],
+                        Email: values['Email'],
+                        CategoryGuid: values['CategoryGuid'],
+                        Comments: values['Comments'],
+                        ProductGuid: values['ProductGuid'],
+                        Rating: parseInt(values['Rating']),
+                        Title: values['Title']
+                    },
+                    success: function (data) {
+                        config.$triggerEventSelector.trigger("review-added", data);
+
+                    }
+                });
+                $reviewForm[0].reset();
+            };
         });
 
     };
