@@ -723,14 +723,12 @@ input.error-input, textarea.error-input{
   border-color: #d9534f;
 }
 
-/*minibasket*/
-.js-mini-basket-not-empty {
-    overflow: hidden;
-}
-
 div#why-buy.well.sidebar-nav > ol > li > img {
     width: 100%;
 }
 .overflow-hidden {
     overflow: hidden;
+}
+table.table.table-striped {
+     table-layout: fixed;
 }
