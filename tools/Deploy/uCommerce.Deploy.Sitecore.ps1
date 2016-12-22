@@ -6,9 +6,9 @@ task SetSynchronizeSitecoreItemsPath{
 
   $SynchronizeSitecoreItemsComponent = $xml.configuration.components.component| where {$_.id -eq 'AvenueClothing.InstallationPipeline.SynchronizeSitecoreItems'}
 
-  $path = "$src\..\project\AvenueClothing\serialization";
+  $path = "$src\project\AvenueClothing\serialization";
   if($Apis -eq "CommerceConnect"){
-    $path = "$src\..\project\AvenueClothing-CC\serialization";
+    $path = "$src\project\AvenueClothing-CC\serialization";
   }
   
   $SynchronizeSitecoreItemsComponent.parameters.SynchronizeSitecoreItemsPath = $path;
