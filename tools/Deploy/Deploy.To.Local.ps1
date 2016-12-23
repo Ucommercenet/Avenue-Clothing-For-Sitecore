@@ -1,7 +1,7 @@
 [CmdletBinding()]
 Param(
 	[Parameter(Mandatory=$False)]
-    [string]$Website = "C:\inetpub\SC8\Website"
+    [string]$WebsiteRoot = "C:\inetpub\SC8\Website"
 )
 
 function Get-ScriptDirectory { 
@@ -19,7 +19,7 @@ function Run-It () {
 	"configuration"="Debug"; 
 	"base_dir"="$base_dir";
 	"src"=$src;
-	"working_dir"=$Website;
+	"working_dir"=$WebsiteRoot;
 	"Apis" = "uCommerce";
 	"projects" = @("AvenueClothing.Project.Website", "AvenueClothing.Project.Catalog", "AvenueClothing.Project.DemoStore", "AvenueClothing.Project.Header", "AvenueClothing.Project.Navigation", "AvenueClothing.Project.Transaction", "AvenueClothing.Project.UserFeedback");
 	};
