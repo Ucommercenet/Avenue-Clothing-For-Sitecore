@@ -17,6 +17,7 @@ namespace AvenueClothing.Project.Transaction.ViewModels
         public Address BillingAddress { get; set; }
         public bool IsShippingAddressDifferent { get; set; }
         public IList<SelectListItem> AvailableCountries { get; set; }
+        public string SaveAddressUrl { get; set; }
 
         public class Address
         {

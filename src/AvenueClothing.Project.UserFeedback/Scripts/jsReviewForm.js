@@ -1,4 +1,4 @@
-﻿define('jsReviewForm', ['jquery', 'jsConfig'], function ($, config) {
+﻿define('jsReviewForm', ['jquery', 'jsConfig', 'jquery.validate'], function ($, config) {
     'use strict';
 
     // declared with `var`, must be "private"
@@ -87,7 +87,6 @@
     var submitReviewUrl = $('[data-submit-url]').data('submit-url');
     var $reviewForm = $(classSelector);
 
-
     jsReviewForm.init = function () {
         wireupRatings(config.$rootSelector.find(classSelector));
 
@@ -99,27 +98,40 @@
             var serializedFormData = $reviewForm.serializeArray();
             var values = {};
 
-            $.each(serializedFormData, function (i, field) {
-                values[field.name] = field.value;
-            });
-
-            $.ajax({
-                type: 'POST',
-                url: submitReviewUrl,
-                data: {
-                    Name: values['Name'],
-                    Email: values['Email'],
-                    CategoryGuid: values['CategoryGuid'],
-                    Comments: values['Comments'],
-                    ProductGuid: values['ProductGuid'],
-                    Rating: parseInt(values['Rating']),
-                    Title: values['Title']
+            $reviewForm.validate({
+                errorElement: "label",
+                errorClass: "error-custom",
+                highlight: function (tag) {
+                    $(tag).addClass('error-input');
+                    return false;
                 },
-                success: function (data) {
-                    config.$triggerEventSelector.trigger("review-added", data);
-
+                success: function (tag) {
+                    $(tag).closest('input').removeClass('error-custom');
                 }
             });
+            if ($reviewForm.valid()) {
+                $.each(serializedFormData, function (i, field) {
+                    values[field.name] = field.value;
+                });
+                $.ajax({
+                    type: 'POST',
+                    url: submitReviewUrl,
+                    data: {
+                        Name: values['Name'],
+                        Email: values['Email'],
+                        CategoryGuid: values['CategoryGuid'],
+                        Comments: values['Comments'],
+                        ProductGuid: values['ProductGuid'],
+                        Rating: parseInt(values['Rating']),
+                        Title: values['Title']
+                    },
+                    success: function (data) {
+                        config.$triggerEventSelector.trigger("review-added", data);
+
+                    }
+                });
+                $reviewForm[0].reset();
+            };
         });
 
     };

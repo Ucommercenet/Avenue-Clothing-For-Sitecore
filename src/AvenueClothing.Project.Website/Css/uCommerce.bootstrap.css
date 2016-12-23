@@ -70,6 +70,7 @@ a:hover,
 a:active {
   outline: 0;
 }
+
 sub,
 sup {
   position: relative;
@@ -826,6 +827,7 @@ table {
   background-color: transparent;
   border-collapse: collapse;
   border-spacing: 0;
+   
 }
 .table {
   width: 100%;
@@ -1087,6 +1089,7 @@ table [class*=span],
 .table-hover tbody tr.info:hover td {
   background-color: #c4e3f3;
 }
+
 form {
   margin: 0 0 20px;
 }
@@ -1604,6 +1607,10 @@ select:focus:required:invalid:focus {
 .help-block,
 .help-inline {
   color: #595959;
+}
+span.help-inline {
+    font-size: small;
+    color: #d9534f;
 }
 .help-block {
   display: block;

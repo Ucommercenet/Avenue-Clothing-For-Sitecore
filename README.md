@@ -1,21 +1,33 @@
 How To Install AvenueClothing For Sitecore
 ===========================================
-0. Clone this repo to your favorite location on your computer.
+Clone this repo to your favorite location on your computer.
 
 1. Getting your deploy site up and running
 
-	2.1 You need a clean Sitecore 8.x website with uCommerce installed.
+	1.1 You need a clean Sitecore 8.x website with uCommerce installed.
 	
-2. Getting your development environment up and running
-	
-	3.1 You need to install NPM. You can download it here if you haven't installed it already: https://www.npmjs.com/
-	
-	3.2 Now open a command prompt (in admin mode.) Navigate to the solution so your command prompt is in the right directory next to where your package.json is located.
-	
-	3.3 Once npm is installed you need to run "npm install" against your package.json file, located in the "src" folder. This will restore all front-end dependencies for your development environment.
+2. Getting avenue-clothing installed
 
-	3.4 You need gulp installed globally so you can access the "gulp" command line. To do so, run the following command: "npm install -g gulp"
-	
-	3.5 Now run the command "gulp". This will publish all items to the running website including all items for Sitecore.
+	2.1 Open up the visual studio solution with the 'AvenueClothing.sln' file found under the folder 'src'
 
-#If you experience any errors during each command, try to redo the command but press enter a little harder. This will most likely work!
+	2.2 Modify the "$websiteRoot" paramter found in the top of the 'Deploy.To.Local.ps1' file found under the solution folder 'deploy'. This parameter needs to match the website root path of your running website with Sitecore and uCommerce.
+
+	2.3 Build your solution and refresh your browser to see Avenue-Clothing in action!
+
+3. Generating an installation package (this is only needed if you want to deploy Avenue-Clothing on a computer where the solution is not present like on azure or similar.)
+
+	3.1 Open a powershell promt in windows and navigate the execution path to the following folder relative to your repo: 'tools\deploy'.
+	
+	**NOTE** Typing 'dir' should show you a list of files including 'Deploy.To.Package.ps1'
+	
+	3.2 Now you should just run the command: .\Deploy.To.Package -version x.x.x 
+	
+	**NOTE** You can also use the -configuration and specify either 'debug' or 'release' to build the solution in either ms build configuration.
+	
+	3.3 The package will be put into the folder 'c:\tmp' and you can now use the package to install it on a sitecore + uCommerce environement through the  Sitecore package pages in the Sitecore backend.
+
+4. ??????
+
+5. Profit
+
+#If you experience any errors during the build command, try to redo the command but press your build-shortcut a little harder. This will most likely work! If that is not the case, you're more than welcome to contact us on our support forum http://eureka.ucommerce.net/#!/ and let us know we should engage a small army run by headless monkeys to fix your issue!

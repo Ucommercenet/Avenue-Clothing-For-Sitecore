@@ -21,11 +21,13 @@
                 /* Load jquery from google cdn. On fail, load local file. */
                 jquery: ['//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min', 'jquery-3.0.0.min'],
                 /* Load bootstrap from cdn. On fail, load local file. */
-                bootstrap: [/*'//netdna.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min',*/ 'bootstrap.min']
+                bootstrap: [/*'//netdna.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min',*/ 'bootstrap.min'],
+                jqueryValidate: ['//ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js', 'jquery.validate']
             },
             shim: {
                 /* Set bootstrap dependencies (just jQuery) */
-                'bootstrap': ['jquery']
+                'bootstrap': ['jquery'],
+                'jqueryValidate':['jquery']
             }
         });
     </script>
@@ -69,7 +71,7 @@
 <body class="header-static @(Sitecore.Context.PageMode.IsNormal ? "" : (Sitecore.Context.PageMode.IsExperienceEditor ? "pagemode-edit" : "pagemode-preview"))">
     <div id="main-container" class="container">
         <header>
-
+             
             @Html.Sitecore().Placeholder("header")
 
         </header>
