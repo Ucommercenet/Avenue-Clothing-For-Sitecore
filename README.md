@@ -14,7 +14,7 @@ Clone this repo to your favorite location on your computer.
 
 	2.3 Build your solution and refresh your browser to see Avenue-Clothing in action!
 
-3. Generating an installation package
+3. Generating an installation package (this is only needed if you want to deploy Avenue-Clothing on a computer where the solution is not present like on azure or similar.)
 
 	3.1 Open a powershell promt in windows and navigate the execution path to the following folder relative to your repo: 'tools\deploy'.
 	
