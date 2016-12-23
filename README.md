@@ -1,6 +1,6 @@
 How To Install AvenueClothing For Sitecore
 ===========================================
-0. Clone this repo to your favorite location on your computer.
+Clone this repo to your favorite location on your computer.
 
 1. Getting your deploy site up and running
 
