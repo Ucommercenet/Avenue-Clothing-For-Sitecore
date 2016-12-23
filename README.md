@@ -22,4 +22,4 @@ How To Install AvenueClothing For Sitecore
 	3.3 The package will be put into the folder 'c:\tmp' and you can now use the package to install it on a sitecore + uCommerce environement through the  Sitecore package pages in the Sitecore backend.
 
 
-#If you experience any errors during the build command, try to redo the command but press your build-shortcut a little harder. This will most likely work! If that is not the case, you're more than welcome to contact us on our support forum http://eureka.ucommerce.net/#!/ and let us know we should engage a small army run by headless monkeys to fix your issue! 
+#If you experience any errors during the build command, try to redo the command but press your build-shortcut a little harder. This will most likely work! If that is not the case, you're more than welcome to contact us on our support forum http://eureka.ucommerce.net/#!/ and let us know we should engage a small army run by headless monkeys to fix your issue!
