@@ -18,11 +18,11 @@ Clone this repo to your favorite location on your computer.
 
 	3.1 Open a powershell promt in windows and navigate the execution path to the following folder relative to your repo: 'tools\deploy'.
 	
-	3.1.1 Typing 'dir' should show you a list of files including 'Deploy.To.Package.ps1'
+	**NOTE** Typing 'dir' should show you a list of files including 'Deploy.To.Package.ps1'
 	
 	3.2 Now you should just run the command: .\Deploy.To.Package -version x.x.x 
 	
-	3.2.1 You can also use the -configuration and specify either 'debug' or 'release' to build the solution in either ms build configuration.
+	**NOTE** You can also use the -configuration and specify either 'debug' or 'release' to build the solution in either ms build configuration.
 	
 	3.3 The package will be put into the folder 'c:\tmp' and you can now use the package to install it on a sitecore + uCommerce environement through the  Sitecore package pages in the Sitecore backend.
 
