@@ -130,7 +130,9 @@
     <None Include="package\installer\project" />
     <None Include="package\installer\version" />
     <None Include="sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Initialize\Initialize.config" />
-    <None Include="sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Installation\Installation.config" />
+    <None Include="sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Installation\Installation.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="PackageInformation\Readme.txt" />

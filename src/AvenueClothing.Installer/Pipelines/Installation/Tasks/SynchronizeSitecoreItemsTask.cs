@@ -14,15 +14,8 @@ namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
 {
 	public class SynchronizeSitecoreItemsTask : IPipelineTask<InstallationPipelineArgs>
 	{
-		public string SynchronizeSitecoreItemsPath { get; set; }
-
-		public virtual void ProcessDirectory(DirectoryInfo directory)
+        public virtual void ProcessDirectory()
         {
-            if (directory == null) throw new InvalidOperationException("DirectoryInfo is null");
-
-            if (!directory.Exists) throw new InvalidOperationException("Directory does not exists under the website.");
-
-            var directoryShortName = directory.Name;
             var configurations = UnicornConfigurationManager.Configurations;
 
             if (configurations == null) throw new InvalidOperationException("Could not determine configurations for Unicorn.");
@@ -30,7 +23,7 @@ namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
             var configuration = configurations.FirstOrDefault(c => c.Name.Equals("Project.AvenueClothing.Website.Installer", StringComparison.OrdinalIgnoreCase));
 
 			if (configuration == null) configuration = configurations.FirstOrDefault(c => c.Name.Equals("Project.AvenueClothing.Website", StringComparison.OrdinalIgnoreCase));
-            if (configuration == null) throw new InvalidOperationException("Could not determine configuration for installation serialization with name: {0}".FormatWith(directoryShortName));
+            if (configuration == null) throw new InvalidOperationException("No configuration for unicorn was found under sitecore include folder. Looked for: 'Project.AvenueClothing.Website.Installer' and 'Project.AvenueClothing.Website'");
 
             SynchroniseTargetDataStore(configuration);
         }
@@ -58,56 +51,9 @@ namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
             }
         }
 
-        public virtual string GetTargetDataStorePathFromIConfiguration(IConfiguration configuration)
-        {
-            var targetDataStore = configuration.Resolve<ITargetDataStore>();
-            if (targetDataStore == null)
-                throw new Exception(string.Format("targetDatastore undefined in configuration '{0}'", configuration.Name));
-
-            return targetDataStore.GetConfigurationDetails().First(kvp => kvp.Key.Equals("Physical root path")).Value;
-        }
-
-        private string GetSafeAppRoot()
-        {
-            try
-            {
-                return FileUtil.MapPath("/");
-            }
-            catch (Exception exception)
-            {
-
-            }
-            return AppDomain.CurrentDomain.BaseDirectory;
-        }
-
-        private DirectoryInfo GetItemsDirectory()
-        {
-            var rootPath = GetSafeAppRoot();
-
-            var combinedPath = Path.Combine(rootPath, @"App_Data\tmp\accelerator\AvenueClothing\serialization");
-
-            var itemsDirectory = new DirectoryInfo(combinedPath);
-
-			if (!itemsDirectory.Exists && !string.IsNullOrEmpty(SynchronizeSitecoreItemsPath))
-			{
-				itemsDirectory = new DirectoryInfo(SynchronizeSitecoreItemsPath);
-			}
-
-	        if (!itemsDirectory.Exists)
-            {
-				if(!string.IsNullOrEmpty(SynchronizeSitecoreItemsPath))
-					throw new DirectoryNotFoundException(string.Format("Sitecore items wasn't found in '{0}'. Please make sure that the configured items path is correct.", SynchronizeSitecoreItemsPath));
-				
-                throw new DirectoryNotFoundException(string.Format("Sitecore items wasn't found in '{0}'. Please make sure that the configured items path is correct. Rootpath was: '{1}'", combinedPath, rootPath));
-            }
-
-            return itemsDirectory;
-        }
-
 	    public PipelineExecutionResult Execute(InstallationPipelineArgs subject)
 	    {
-            var itemsDicetory = GetItemsDirectory();
-            ProcessDirectory(itemsDicetory);
+            ProcessDirectory();
 
             return PipelineExecutionResult.Success;
         }
