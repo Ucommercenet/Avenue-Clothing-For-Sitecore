@@ -62,7 +62,7 @@ task CopyConfigurationLocal {
         New-Item -ItemType directory -Path "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Initialize\"
     }
 
-    Copy-Item "$src\AvenueClothing.Installer\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Initialize\Initialize.config" "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Initialize\" -Recurse -Force
+    Copy-Item "$src\AvenueClothing.Installer\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\*" "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\" -Recurse -Force
 }
 
 
