@@ -1,21 +1,23 @@
 task DeploySitecoreLocal -depends SetSynchronizeSitecoreItemsPath, CopyBinariesToLocalFolder,CopyUnicornDependenciesToLocalFolder,CopyConfigurationLocal,CopyProjectFilesToLocalFolder
 
 task SetSynchronizeSitecoreItemsPath{
-  $path = "$src\AvenueClothing.Installer\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Installation\Installation.config"
+  # C:\projects\Avenue Clothing for Sitecore\src\scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config
+
+  $path = "$src\scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config"
   $xml = [xml](Get-Content $path)  
 
-  $SynchronizeSitecoreItemsComponent = $xml.configuration.components.component| where {$_.id -eq 'AvenueClothing.InstallationPipeline.SynchronizeSitecoreItems'}
+  $SynchronizeSitecoreItemsComponent = $xml.configuration.sitecore.unicorn.configurations.configuration.targetDataStore
 
   $path = "$src\project\AvenueClothing\serialization";
   if($Apis -eq "CommerceConnect"){
     $path = "$src\project\AvenueClothing-CC\serialization";
   }
   
-  $SynchronizeSitecoreItemsComponent.parameters.SynchronizeSitecoreItemsPath = $path;
+  $SynchronizeSitecoreItemsComponent.SetAttribute("physicalRootPath", $path)
   if(!(Test-Path -Path "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Installation\")){
         New-Item -ItemType directory -Path "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Installation\"
   }
-  $xml.Save("$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Installation\Installation.config")
+  $xml.Save("$src\scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config")
 }
 
 task CopyUnicornDependenciesToLocalFolder {
