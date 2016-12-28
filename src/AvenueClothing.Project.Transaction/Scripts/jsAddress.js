@@ -29,6 +29,7 @@
     jsAddress.init = function () {
         $(submitClassSelector).off().click(function (e) {
             e.preventDefault();
+            $form.find('.error-custom').text('');
 
             $form.validate({
                 errorElement: "span",
