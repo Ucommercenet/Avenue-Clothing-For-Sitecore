@@ -11,6 +11,7 @@ namespace AvenueClothing.Project.Transaction.ViewModels
         public IList<Variant> Variants { get; set; }
         public string ProductSku { get; set; }
         public string VariantExistsUrl { get; set; }
+        public string GetAvailableCombinationsUrl { get; set; }
 
         public class Variant
         {
