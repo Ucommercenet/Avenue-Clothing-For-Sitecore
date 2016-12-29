@@ -33,7 +33,7 @@
 
             $form.validate({
                 errorElement: "span",
-                errorClass: "help-inline",
+                errorClass: "error-custom",
                 highlight: function (tag) {
                     $(tag).addClass('error-custom');
                 },
