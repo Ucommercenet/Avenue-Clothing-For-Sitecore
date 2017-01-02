@@ -20,7 +20,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 		public ActionResult Rendering()
 		{
 			var cart = GetCart();
-			var basketModel = new PurchaseOrderViewModel();
+			var basketModel = new BasketRenderingViewModel();
 
 			var currency = new Currency()
 			{
@@ -29,7 +29,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 
 			foreach (var cartLine in cart.Lines)
 			{
-				var orderLineViewModel = new OrderlineViewModel();
+				var orderLineViewModel = new BasketRenderingViewModel.OrderlineViewModel();
 
 				orderLineViewModel.Quantity = (int)cartLine.Quantity;
 				orderLineViewModel.ProductName = cartLine.Product.ProductName;
@@ -60,7 +60,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult Index(PurchaseOrderViewModel model)
+		public ActionResult Index(BasketRenderingViewModel model)
 		{
 			var cartServiceProvider = new CartServiceProvider();
 			var cart = GetCart();
