@@ -5,27 +5,27 @@
     Layout = null;
 }
 
-@using(Html.BeginForm("SaveReview", "ReviewForm", FormMethod.Post)) { 
-<h5>Send Us Your Review</h5>
-<div class="control-group">
-    <label class="control-label" for="review-rating">Rating</label>
-    <div class="controls rating">
-        <label><input type="radio" name="Rating" value="1" /><i class="fa fa-star"></i></label>
-        <label><input type="radio" name="Rating" value="2" /><i class="fa fa-star"></i></label>
-        <label><input type="radio" name="Rating" value="3" /><i class="fa fa-star"></i></label>
-        <label><input type="radio" name="Rating" value="4" /><i class="fa fa-star"></i></label>
-        <label><input type="radio" name="Rating" value="5" /><i class="fa fa-star"></i></label>
+@using (Html.BeginForm("SaveReview", "ReviewForm", FormMethod.Post, new { @class = "js-review-form", data_review_form = "", data_submit_button = ".review-submit-button" }))
+{
+    <h5>Send Us Your Review</h5>
+    <div class="control-group">
+        <label class="control-label" for="review-rating">Rating</label>
+        <div class="controls">
+            <label><input type="radio" name="Rating" value="1" /><i class="fa fa-star"></i></label>
+            <label><input type="radio" name="Rating" value="2" /><i class="fa fa-star"></i></label>
+            <label><input type="radio" name="Rating" value="3" /><i class="fa fa-star"></i></label>
+            <label><input type="radio" name="Rating" value="4" /><i class="fa fa-star"></i></label>
+            <label><input type="radio" name="Rating" value="5" /><i class="fa fa-star"></i></label>
+        </div>
     </div>
-</div>
 
-    <div id="review-form" class="">
+    <div id="review-form" class="review-form">
         <div class="control-group margin-top">
-            <br/>
+            <br />
             <tag tag-default="tag-default" class="control-tag tag-default" for="review-name">
                 Your Name
                 <div class="controls">
-                    <input type="text" id="review-name" name="Name" placeholder=""
-                           class="required span12 form-control"/>
+                    <input type="text" id="review-name" name="Name" class="required span12 form-control" required />
                 </div>
             </tag>
         </div>
@@ -33,8 +33,8 @@
             <tag tag-default="tag-default" class="control-tag tag-default" for="review-email">
                 Your Email
                 <div class="controls">
-                    <input type="text" id="review-email" name="Email" placeholder=""
-                           class="required span12 form-control"/>
+                    <input type="email" id="review-email" name="Email" placeholder=""
+                           class="required span12 form-control" data-rule-minlength="7" />
                 </div>
             </tag>
         </div>
@@ -43,7 +43,7 @@
                 Review Title
                 <div class="controls">
                     <input type="text" id="review-headline" name="Title" placeholder=""
-                           class="required span12 form-control"/>
+                           class="required span12 form-control" required />
                 </div>
             </tag>
         </div>
@@ -52,17 +52,17 @@
                 Comments
                 <div class="controls">
                     <textarea rows="3" id="review-text" name="Comments" placeholder="Describe your experience with the product"
-                              class="required span12 form-control"></textarea>
+                              class="required span12 form-control" required data-rule-minlength="5"></textarea>
                 </div>
             </tag>
         </div>
         <div class="control-group margin-top">
             <div class="controls">
-                <button type="submit" class="btn btn-primary" name="review-product">Save</button>
-                <input type="hidden" name="reviewed-product-sku"/>
+                <button type="submit" class="btn btn-primary review-submit-button" name="review-product" data-submit-review data-submit-url="@Model.SubmitReviewUrl">Save</button>
+
             </div>
         </div>
         <input type="hidden" name="ProductGuid" value="@Model.ProductGuid">
-        <input type="hidden" name="CategoryGuid" value="@Model.CategoryGuid"/>
+        <input type="hidden" name="CategoryGuid" value="@Model.CategoryGuid" />
     </div>
 }

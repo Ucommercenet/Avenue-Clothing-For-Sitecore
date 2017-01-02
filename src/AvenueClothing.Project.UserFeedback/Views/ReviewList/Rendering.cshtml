@@ -2,36 +2,38 @@
 @{
     Layout = null;
 }
-
-@if (Model.Reviews.Any())
-{
-    foreach (var review in Model.Reviews)
+<div class="js-add-review">
+    @if (Model.Reviews.Any())
     {
-        <section itemprop="review" itemscope itemtype="http://schema.org/Review" class="review">
-            <header>
-                <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="review-stars">
-                    @DisplayStars(review.Rating)
-                </div>
-                <p itemprop="name" class="review-headline">@review.Title</p>
-            </header>
-            <aside class="review-by">
-                <p>
-                    by <span itemprop="author">@review.Name</span> on
-                    <abbr title="@review.CreatedOn.ToString("u")">@review.CreatedOn.ToString("MMM dd, yyyy")</abbr>
-                </p>
-            </aside>
-            <p itemprop="description">@review.Comments</p>
-            <meta itemprop="ratingValue" content="@review.Rating">
-            <meta itemprop="worstRating" content="1">
-            <meta itemprop="bestRating" content="5">
-            <meta itemprop="datePublished" content="@review.CreatedOn.ToString("yyyy-MM-dd")" />
-        </section>
+        foreach (var review in Model.Reviews)
+        {
+            <section itemprop="review" itemscope itemtype="http://schema.org/Review" class="review">
+                <header>
+                    <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="review-stars">
+                        @DisplayStars(review.Rating)
+                    </div>
+                    <p itemprop="name" class="review-headline">@review.Title</p>
+                </header>
+                <aside class="review-by">
+                    <p>
+                        by <span itemprop="author">@review.Name</span> on
+                        <abbr title="@review.CreatedOn.ToString("u")">@review.CreatedOn.ToString("MMM dd, yyyy")</abbr>
+                    </p>
+                </aside>
+                <p itemprop="description">@review.Comments</p>
+                <meta itemprop="ratingValue" content="@review.Rating">
+                <meta itemprop="worstRating" content="1">
+                <meta itemprop="bestRating" content="5">
+                <meta itemprop="datePublished" content="@review.CreatedOn.ToString("yyyy-MM-dd")" />
+            </section>
+        }
+
     }
-}
-else
-{
-    <p>No-one has reviewed this product yet.</p>
-}
+    else
+    {
+        <p class="no-reviews">No-one has reviewed this product yet.</p>
+    }
+</div>
 
 @helper DisplayStars(double? rating)
 {

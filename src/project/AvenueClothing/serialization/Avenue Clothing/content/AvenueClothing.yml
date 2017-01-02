@@ -28,12 +28,6 @@ SharedFields:
           ph="header content"
           uid="{181FAF15-0FD0-418F-BD42-C0DDC263F082}" />
         <r
-          ds=""
-          id="{749D4A8D-990A-4FFE-BE3A-C74591EBD862}"
-          par=""
-          ph="sidebar"
-          uid="{14E0474C-A7D6-4E58-BA5E-F16667157526}" />
-        <r
           id="{DFCC28D2-F51F-46BC-9FF4-B4945FE2B05E}"
           ph="main"
           uid="{974AC727-34A5-4053-8F04-F70E60D50F98}" />
@@ -45,6 +39,18 @@ SharedFields:
           id="{0314ED58-5A97-41E9-855D-046700380E21}"
           ph="main"
           uid="{66CD58A8-5E9E-49FE-A6A3-8D3CCF8DB476}" />
+        <r
+          id="{F45E27B0-D4C0-4C0C-9CCC-CC9F5203F30D}"
+          ph="footer"
+          uid="{6DD81B95-E37D-4AC6-B2D9-34228FB2FC4C}" />
+        <r
+          id="{749D4A8D-990A-4FFE-BE3A-C74591EBD862}"
+          ph="sidebar"
+          uid="{923D44CD-7474-4B0B-85FD-FC4154DFD486}" />
+        <r
+          id="{51F0AFD0-376F-43B5-B425-CFB19E0A6C7D}"
+          ph="sidebar"
+          uid="{B160EC0F-F3A3-4F57-8C06-9D20E3E34EFC}" />
       </d>
     </r>
 Languages:
@@ -85,12 +91,12 @@ Languages:
       Hint: Products
       Type: Treelist
       Value: |
-        {0303350E-538D-4F6F-B564-5D861F38A52D}
-        {34196200-5452-445D-BFE3-B9E93839788E}
-        {8B98009A-45A1-461D-9027-03EBB0B1DDC1}
+        {0A2D1B36-5A98-4907-8130-9DDC0C5F762F}
+        {C7188F48-304A-4BF5-94D6-37A30DE48910}
+        {EB14A396-FF9C-42A4-A215-A9B8CD3C81D0}
     - ID: "b9baaa2b-d947-4cae-97cf-4e413b57c511"
       Hint: Images
-      Type: Multilist
+      Type: TreelistEx
       Value: |
         {1B0CDD3C-E5DD-4BB8-95A7-3CAAC820E201}
         {8E3609EE-7C0B-4D09-B9AD-88B0C1DF359F}

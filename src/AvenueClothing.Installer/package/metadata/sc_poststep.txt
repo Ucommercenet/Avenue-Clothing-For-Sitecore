@@ -1,0 +1,1 @@
+AvenueClothing.Installer.Postinstallation.PostInstallation,AvenueClothing.Installer

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Security.Policy;
 using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.UserFeedback.ViewModels;
@@ -38,25 +39,25 @@ namespace AvenueClothing.Project.UserFeedback.Controllers
             {
                 viewModel.CategoryGuid = _catalogContext.CurrentCategory.Guid;
             }
-          
+
+	        viewModel.SubmitReviewUrl = Url.Action("SaveReview");
             return View(viewModel);
         }
 
         [HttpPost]
         public ActionResult SaveReview(ReviewFormSaveReviewViewModel viewModel)
         {
-            var product = _productRepository.SingleOrDefault(x => x.Guid == viewModel.ProductGuid);
+            var product = _productRepository.SingleOrDefault(x => x.Guid.ToString() == viewModel.ProductGuid);
 
             var request = System.Web.HttpContext.Current.Request;
             var basket = _orderContext.GetBasket();
 
-            if (request.Form.AllKeys.All(x => x != "review-product"))
-            {
-                //TODO: Should be set in the JsonResult
-                Response.StatusCode = 400;
-                Response.TrySkipIisCustomErrors = true;
-                return Json(new { });
-            }
+            //if (request.Form.AllKeys.All(x => x != "review-product"))
+            //{
+            //    Response.StatusCode = 400;
+            //    Response.TrySkipIisCustomErrors = true;
+            //    return Json(new { });
+            //}
 
             var name = viewModel.Name;
             var email = viewModel.Email;
@@ -101,7 +102,8 @@ namespace AvenueClothing.Project.UserFeedback.Controllers
 
             _productReviewPipeline.Execute(review);
 
-            return Json(new { });
+
+            return Json(new {Rating = review.Rating, ReviewHeadline = review.ReviewHeadline, CreatedBy = review.CreatedBy, CreatedOn = review.CreatedOn.ToString("MMM dd, yyyy"), CreatedOnForMeta=review.CreatedOn.ToString("yyyy-MM-dd"), Comments = review.ReviewText }, JsonRequestBehavior.AllowGet);
         }
     }
 }

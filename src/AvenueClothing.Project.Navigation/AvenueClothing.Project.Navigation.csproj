@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,11 +40,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="paypal_base, Version=5.6.64.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.3.1.16343\lib\net400\paypal_base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Sitecore.Kernel">
-      <HintPath>..\..\lib\Sitecore\Sitecore.Kernel.dll</HintPath>
+      <HintPath>..\..\lib\Sitecore\8.2\Sitecore.Kernel.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Mvc">
-      <HintPath>..\..\lib\Sitecore\Sitecore.Mvc.dll</HintPath>
+      <HintPath>..\..\lib\Sitecore\8.2\Sitecore.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -61,60 +66,67 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="UCommerce, Version=7.2.1.16274, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.2.1.16274\lib\net400\UCommerce.dll</HintPath>
+    <Reference Include="UCommerce, Version=7.3.1.16343, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.3.1.16343\lib\net400\UCommerce.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Admin, Version=7.2.1.16274, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.2.1.16274\lib\net400\UCommerce.Admin.dll</HintPath>
+    <Reference Include="UCommerce.Admin, Version=7.3.1.16343, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.3.1.16343\lib\net400\UCommerce.Admin.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Infrastructure, Version=7.2.1.16274, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.2.1.16274\lib\net400\UCommerce.Infrastructure.dll</HintPath>
+    <Reference Include="UCommerce.Infrastructure, Version=7.3.1.16343, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.3.1.16343\lib\net400\UCommerce.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Installer, Version=7.2.1.16274, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.2.1.16274\lib\net400\UCommerce.Installer.dll</HintPath>
+    <Reference Include="UCommerce.Installer, Version=7.3.1.16343, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.3.1.16343\lib\net400\UCommerce.Installer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Pipelines, Version=7.2.1.16274, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.2.1.16274\lib\net400\UCommerce.Pipelines.dll</HintPath>
+    <Reference Include="UCommerce.Pipelines, Version=7.3.1.16343, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.3.1.16343\lib\net400\UCommerce.Pipelines.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Presentation, Version=7.2.1.16274, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.2.1.16274\lib\net400\UCommerce.Presentation.dll</HintPath>
+    <Reference Include="UCommerce.Presentation, Version=7.3.1.16343, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.3.1.16343\lib\net400\UCommerce.Presentation.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Transactions.Payments, Version=7.2.1.16274, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.2.1.16274\lib\net400\UCommerce.Transactions.Payments.dll</HintPath>
+    <Reference Include="UCommerce.Transactions.Payments, Version=7.3.1.16343, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.3.1.16343\lib\net400\UCommerce.Transactions.Payments.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Web.Api, Version=7.2.1.16274, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.2.1.16274\lib\net400\UCommerce.Web.Api.dll</HintPath>
+    <Reference Include="UCommerce.Web.Api, Version=7.3.1.16343, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.3.1.16343\lib\net400\UCommerce.Web.Api.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
       <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Webpages">
       <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Webpages.Deployment">
       <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Webpages.Razor">
       <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Helpers">
       <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Mvc">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -128,13 +140,13 @@
     <Content Include="Views\Breadcrumb\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\AvenueClothing.Foundation.MvcExtensions\AvenueClothing.Foundation.MvcExtensions.csproj">
       <Project>{f2bab86c-44db-446c-a995-03a33c98855d}</Project>
       <Name>AvenueClothing.Foundation.MvcExtensions</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

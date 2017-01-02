@@ -1,0 +1,122 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+@using System.Web.Optimization
+@using Sitecore.Mvc;
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    @Styles.Render("~/Content/css")
+    @if (!Sitecore.Context.PageMode.IsExperienceEditor)
+    {
+        @Html.Sitecore().Placeholder("head")
+    }
+    @Scripts.Render("~/bundles/require")
+    <script>
+        requirejs.config({
+            baseUrl: '/Scripts',
+            paths: {
+                /* Load jquery from google cdn. On fail, load local file. */
+                jquery: ['//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min', 'jquery-3.0.0.min'],
+                /* Load bootstrap from cdn. On fail, load local file. */
+                bootstrap: [/*'//netdna.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min',*/ 'bootstrap.min'],
+                jqueryValidate: ['//ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js', 'jquery.validate']
+            },
+            shim: {
+                /* Set bootstrap dependencies (just jQuery) */
+                'bootstrap': ['jquery'],
+                'jqueryValidate':['jquery']
+            }
+        });
+    </script>
+    @if (BundleTable.EnableOptimizations && false)
+    {
+        <script>
+            requirejs.config({
+                bundles: {
+                    '@Scripts.Url("~/bundles/jsComponents").ToString()': [
+                        @Html.Raw(string.Join(",", BundleTable.Bundles.GetBundleFor("~/bundles/jsComponents").EnumerateFiles(new BundleContext(this.Context, BundleTable.Bundles, string.Empty)).Select(x=> "'" + x.VirtualFile.Name.Replace(".js", "") + "'")))
+                    ]
+                }
+            });
+        </script>
+    }
+    <script>
+        //Load bootstrap
+        require(['bootstrap'], function (bootstrap) {
+        });
+    </script>
+    <script>
+        //Config
+        define('jsConfig', ['jquery'], function ($) {
+            'use strict';
+
+            /** START OF PUBLIC API **/
+
+            var jsConfig =
+            {
+                $rootSelector: function (){return $(document)}(),
+                $triggerEventSelector: $({})
+            };
+
+            /** END OF PUBLIC API **/
+
+            return jsConfig;
+        });
+    </script>
+    <title></title>
+</head>
+<body class="header-static @(Sitecore.Context.PageMode.IsNormal ? "" : (Sitecore.Context.PageMode.IsExperienceEditor ? "pagemode-edit" : "pagemode-preview"))">
+    <div id="main-container" class="container">
+        <header>
+             
+            @Html.Sitecore().Placeholder("header")
+
+        </header>
+        <section>
+            <div class="container">
+                <div class="col-sm-3 col-md-3">
+                    @Html.Sitecore().Placeholder("sidebar")
+
+                </div>
+                <div class="col-sm-9 col-md-9">
+
+                    @Html.Sitecore().Placeholder("breadcrumb")
+
+                    @Html.Sitecore().Placeholder("main")
+                </div>
+
+            </div>
+        </section>
+        <hr>
+        <footer>
+            @Html.Sitecore().Placeholder("footer")
+        </footer>
+    </div>
+
+
+    @foreach (var jsComponent in BundleTable.Bundles.GetBundleFor("~/bundles/jsComponents").EnumerateFiles(new BundleContext(this.Context, BundleTable.Bundles, string.Empty)).Select(x => x.VirtualFile.Name.Replace(".js", "")))
+    {
+        <script>
+        //@jsComponent
+			require(['@jsComponent'], function (component) {
+				component.init();
+			});
+        </script>
+    }
+    <script>
+		require(['jsConfig'], function (config) {
+			config.$triggerEventSelector.trigger("init-completed", {});
+		});
+    </script>
+</body>
+
+
+
+
+
+
+
+</html>

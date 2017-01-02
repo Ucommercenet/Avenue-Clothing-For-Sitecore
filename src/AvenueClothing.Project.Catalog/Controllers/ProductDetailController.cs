@@ -13,9 +13,11 @@ namespace AvenueClothing.Project.Catalog.Controllers
 		{
 			var productDetailViewModel = new ProductDetailViewModel();
 
-			productDetailViewModel.LongDescription = new HtmlString(FieldRenderer.Render(RenderingContext.Current.ContextItem, "Long description"));
+            productDetailViewModel.LongDescription = new HtmlString(FieldRenderer.Render(RenderingContext.Current.ContextItem, "Long description"));
+            productDetailViewModel.ReviewListRendering = RenderingContext.Current.Rendering.DataSource.Split('|')[0];
+            productDetailViewModel.ReviewFormRendering = RenderingContext.Current.Rendering.DataSource.Split('|')[1];
 
-			return View(productDetailViewModel);
+            return View(productDetailViewModel);
 		}
 	}
 }

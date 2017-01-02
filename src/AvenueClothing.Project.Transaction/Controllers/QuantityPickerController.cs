@@ -1,6 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using System.Web;
+using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Transaction.ViewModels;
+using Sitecore.Mvc.Presentation;
+using Sitecore.Web.UI.WebControls;
 using UCommerce.Runtime;
 
 namespace AvenueClothing.Project.Transaction.Controllers
@@ -20,6 +23,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 
             var viewModel = new QuantityPickerRenderingViewModel
             {
+                QuantityLabel = new HtmlString("Quantity"),
                 ProductSku = currentProduct.Sku,
                 MaxNumberOfItems = 30
             };

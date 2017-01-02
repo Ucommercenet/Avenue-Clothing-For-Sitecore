@@ -1,69 +1,74 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Web.Mvc;
-using AvenueClothing.Project.Catalog.Extensions;
 using AvenueClothing.Project.Catalog.ViewModels;
 using AvenueClothing.Foundation.MvcExtensions;
+using AvenueClothing.Project.Catalog.Services;
 using UCommerce.Api;
 using UCommerce.Runtime;
+using UCommerce.Search;
 using UCommerce.Search.Facets;
 
 namespace AvenueClothing.Project.Catalog.Controllers
 {
-	public class FacetsController : BaseController
+    public class FacetsController : BaseController
     {
-		private readonly ICatalogContext _catalogContext;
+        private readonly ICatalogContext _catalogContext;
+        private readonly SearchLibraryInternal _searchLibraryInternal;
 
-		public FacetsController(ICatalogContext catalogContext)
-		{
-			_catalogContext = catalogContext;
-		}
+        public FacetsController(ICatalogContext catalogContext, SearchLibraryInternal searchLibraryInternal)
+        {
+            _catalogContext = catalogContext;
+            _searchLibraryInternal = searchLibraryInternal;
+        }
 
-		public ActionResult Rendering()
-		{
-			var category = _catalogContext.CurrentCategory;
-			var viewModel = new FacetsRenderingViewModel();
-			IList<Facet> facetsForQuerying = System.Web.HttpContext.Current.Request.QueryString.ToFacets();
-			
-			IList<Facet> facets = SearchLibrary.GetFacetsFor(category, facetsForQuerying);
-			if (facets.Any(x => x.FacetValues.Any(y => y.Hits > 0)))
-			{
-				viewModel.Facets = MapFacets(facets);
-			}
+        public ActionResult Rendering([ModelBinder(typeof(FacetModelBinder))]IList<Facet> facetsForQuerying)
+        {
 
-			return View(viewModel);
-		}
+            var category = _catalogContext.CurrentCategory;
+            var viewModel = new FacetsRenderingViewModel();
 
-		private List<FacetsRenderingViewModel.Facet> MapFacets(IList<Facet> facetsInCategory)
-		{
-			var facets = new List<FacetsRenderingViewModel.Facet>();
+            IList<Facet> facets = _searchLibraryInternal.GetFacetsFor(category, facetsForQuerying);
+            if (facets.Any(x => x.FacetValues.Any(y => y.Hits > 0)))
+            {
+                viewModel.Facets = MapFacets(facets);
+            }
 
-			foreach (var facet in facetsInCategory)
-			{
-			    var facetViewModel = new FacetsRenderingViewModel.Facet
-			    {
-			        Name = facet.Name,
-			        DisplayName = facet.DisplayName
-			    };
+            return View(viewModel);
+        }
 
-			    if (!facet.FacetValues.Any())
-				{
-					continue;
-				}
+        private List<FacetsRenderingViewModel.Facet> MapFacets(IList<Facet> facetsInCategory)
+        {
+            var facets = new List<FacetsRenderingViewModel.Facet>();
 
-				foreach (var value in facet.FacetValues)
-				{
-					if (value.Hits > 0)
-					{
+            foreach (var facet in facetsInCategory)
+            {
+                var facetViewModel = new FacetsRenderingViewModel.Facet
+                {
+                    Name = facet.Name,
+                    DisplayName = facet.DisplayName
+                };
+
+                if (!facet.FacetValues.Any())
+                {
+                    continue;
+                }
+
+                foreach (var value in facet.FacetValues)
+                {
+                    if (value.Hits > 0)
+                    {
                         var facetVal = new FacetsRenderingViewModel.FacetValue(value.Value, value.Hits);
-						facetViewModel.FacetValues.Add(facetVal);
-					}
-				}
+                        facetViewModel.FacetValues.Add(facetVal);
+                    }
+                }
 
-				facets.Add(facetViewModel);
-			}
+                facets.Add(facetViewModel);
+            }
 
-			return facets;
-		}
-	}
+            return facets;
+        }
+    }
 }
