@@ -11,6 +11,7 @@ function Get-ScriptDirectory {
 function Run-It () {
 	$scriptPath = Get-ScriptDirectory;
 	$src = Resolve-Path "$scriptPath\..\..\src";
+	$src = Resolve-Path "$scriptPath\..\..\src";
 	$base_dir = Resolve-Path "$scriptPath\..\.."
 
 	Import-Module "$scriptPath\..\psake\4.3.0.0\psake.psm1"
@@ -20,7 +21,7 @@ function Run-It () {
 	"base_dir"="$base_dir";
 	"src"=$src;
 	"working_dir"=$WebsiteRoot;
-	"Apis" = "uCommerce";
+	"Apis" = "CommerceConnect";
 	"projects" = @("AvenueClothing.Project.Website", "AvenueClothing.Project.Catalog", "AvenueClothing.Project.DemoStore", "AvenueClothing.Project.Header", "AvenueClothing.Project.Navigation", "AvenueClothing.Project.Transaction", "AvenueClothing.Project.UserFeedback");
 	};
     
