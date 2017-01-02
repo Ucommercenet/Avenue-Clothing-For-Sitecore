@@ -12,6 +12,7 @@ properties {
     $target="none"
     $CreatePackage = $True
 	$projects = @("AvenueClothing.Project.Website", "AvenueClothing.Project.Catalog", "AvenueClothing.Project.DemoStore", "AvenueClothing.Project.Header", "AvenueClothing.Project.Navigation", "AvenueClothing.Project.Transaction", "AvenueClothing.Project.UserFeedback")
+    $Apis = $null
 }
 . .\Deploy.Common.ps1
 . .\Validation.ps1
