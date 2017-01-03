@@ -15,7 +15,7 @@ task SetSynchronizeSitecoreItemsPath{
   
   $SynchronizeSitecoreItemsComponent.SetAttribute("physicalRootPath", $path)
 
-  $xml.Save("$src\scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config")
+  $xml.Save("$working_dir\App_Config\Include\AvenueClothing.Serialization.config")
 }
 
 task CopyUnicornDependenciesToLocalFolder {
@@ -58,7 +58,6 @@ task CopyBinariesToLocalFolder {
 task CopyConfigurationLocal {
     Copy-Item "$src\packages\Rainbow.1.4.1\content\App_Config\Include\Rainbow.config" "$working_dir\App_Config\Include\Rainbow.config" -Force 
     Copy-Item "$src\packages\Unicorn.3.3.2\content\App_Config\Include\Unicorn\Unicorn.config" "$working_dir\App_Config\Include\unicorn.config" -Force
-    Copy-Item "$src\scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config" "$working_dir\App_Config\Include\" -Force
     Copy-Item "$src\scripts\Serialization\App_Config\Include\AvenueClothing.Sites.config" "$working_dir\App_Config\Include" -Force
     
     
