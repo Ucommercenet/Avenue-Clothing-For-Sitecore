@@ -113,6 +113,7 @@
     <Compile Include="Helpers\GenericHelpers.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Pipelines\Initialize\RunAvenueClothingInstallerTask.cs" />
+    <Compile Include="Pipelines\Initialize\SynchronizeSitecoreItemsTask.cs" />
     <Compile Include="Pipelines\Installation\InstallationPipeline.cs" />
     <Compile Include="Pipelines\Installation\Tasks\ClearSitecoreCacheTask.cs" />
     <Compile Include="Pipelines\Installation\Tasks\CreateUCommerceCatalogTask.cs" />
@@ -124,12 +125,15 @@
     <Compile Include="Pipelines\Installation\Tasks\UpdateStandardValuesForDefinitionsTask.cs" />
     <Compile Include="Postinstallation\PostInstallation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\SynchronizeSitecoreService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="package\installer\project" />
     <None Include="package\installer\version" />
+    <None Include="sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\AvenueClothing.config" />
     <None Include="sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Initialize\Initialize.config" />
+    <None Include="sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Initialize\SynchronizeSitecoreItems.config.default" />
     <None Include="sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Installation\Installation.config">
       <SubType>Designer</SubType>
     </None>

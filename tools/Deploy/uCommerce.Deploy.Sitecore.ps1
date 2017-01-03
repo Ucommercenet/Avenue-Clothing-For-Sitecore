@@ -14,9 +14,7 @@ task SetSynchronizeSitecoreItemsPath{
   }
   
   $SynchronizeSitecoreItemsComponent.SetAttribute("physicalRootPath", $path)
-  if(!(Test-Path -Path "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Installation\")){
-        New-Item -ItemType directory -Path "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Installation\"
-  }
+
   $xml.Save("$src\scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config")
 }
 
@@ -61,8 +59,10 @@ task CopyConfigurationLocal {
     if(!(Test-Path -Path "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Initialize\")){
         New-Item -ItemType directory -Path "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Initialize\"
     }
-
-    Copy-Item "$src\AvenueClothing.Installer\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\*" "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\" -Recurse -Force
+    if(!(Test-Path -Path "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Installation\")){
+        New-Item -ItemType directory -Path "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Installation\"
+    }
+    Copy-Item "$src\AvenueClothing.Installer\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\*" "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\" -Recurse -Force
 }
 
 
