@@ -1,4 +1,4 @@
-task DeploySitecoreLocal -depends SetSynchronizeSitecoreItemsPath, CopyBinariesToLocalFolder,CopyUnicornDependenciesToLocalFolder,CopyConfigurationLocal,CopyProjectFilesToLocalFolder
+task DeploySitecoreLocal -depends SetSynchronizeSitecoreItemsPath, CopyBinariesToLocalFolder, CopyMicrosoftDependencyInjectionDependenciesToLocal, CopyUnicornDependenciesToLocalFolder, CopyConfigurationLocal, CopyProjectFilesToLocalFolder
 
 task SetSynchronizeSitecoreItemsPath{
   # C:\projects\Avenue Clothing for Sitecore\src\scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config
@@ -24,6 +24,12 @@ task CopyUnicornDependenciesToLocalFolder {
     Copy-Item "$src\packages\Rainbow.Storage.Yaml.1.4.1\lib\net452\Rainbow.Storage.Yaml.dll" "$working_dir\bin\Rainbow.Storage.Yaml.dll" -Force 
     Copy-Item "$src\packages\Rainbow.Storage.Sc.1.4.1\lib\net452\Rainbow.Storage.Sc.dll" "$working_dir\bin\Rainbow.Storage.Sc.dll" -Force 
 }
+
+task CopyMicrosoftDependencyInjectionDependenciesToLocal {
+	Copy-Item "$src\packages\Microsoft.Extensions.DependencyInjection.1.0.0\lib\netstandard1.1\Microsoft.Extensions.DependencyInjection.dll" "$working_dir\bin\Microsoft.Extensions.DependencyInjection.dll" -Force 
+    Copy-Item "$src\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll" "$working_dir\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll" -Force 
+}
+
 
 task CopyBinariesToLocalFolder {
     foreach ($project in $projects) {
