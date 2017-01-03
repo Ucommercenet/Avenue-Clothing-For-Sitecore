@@ -1,0 +1,18 @@
+﻿<configuration>
+	<components>
+		<component
+      id="AvenueClothing.Initialize.SynchronizeSitecoreItems"
+      service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.Pipelines.Initialization.InitializeArgs, UCommerce.Pipelines]], UCommerce"
+      type="AvenueClothing.Installer.Pipelines.Initialize.SynchronizeSitecoreItemsTask, AvenueClothing.Installer" />
+
+		<partial-component id="Initialize">
+			<parameters>
+				<tasks>
+					<array>
+						<value insert="first">${AvenueClothing.Initialize.SynchronizeSitecoreItems}</value>
+					</array>
+				</tasks>
+			</parameters>
+		</partial-component>
+	</components>
+</configuration>
