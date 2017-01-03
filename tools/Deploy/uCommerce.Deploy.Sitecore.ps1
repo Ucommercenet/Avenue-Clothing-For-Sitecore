@@ -1,4 +1,4 @@
-task DeploySitecoreLocal -depends SetSynchronizeSitecoreItemsPath, CopyBinariesToLocalFolder,CopyUnicornDependenciesToLocalFolder,CopyConfigurationLocal,CopyProjectFilesToLocalFolder
+task DeploySitecoreLocal -depends SetSynchronizeSitecoreItemsPath, CopyBinariesToLocalFolder, CopyMicrosoftDependencyInjectionDependenciesToLocal, CopyUnicornDependenciesToLocalFolder, CopyConfigurationLocal, CopyProjectFilesToLocalFolder
 
 task SetSynchronizeSitecoreItemsPath{
   # C:\projects\Avenue Clothing for Sitecore\src\scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config
@@ -14,9 +14,7 @@ task SetSynchronizeSitecoreItemsPath{
   }
   
   $SynchronizeSitecoreItemsComponent.SetAttribute("physicalRootPath", $path)
-  if(!(Test-Path -Path "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Installation\")){
-        New-Item -ItemType directory -Path "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Installation\"
-  }
+
   $xml.Save("$src\scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config")
 }
 
@@ -26,6 +24,12 @@ task CopyUnicornDependenciesToLocalFolder {
     Copy-Item "$src\packages\Rainbow.Storage.Yaml.1.4.1\lib\net452\Rainbow.Storage.Yaml.dll" "$working_dir\bin\Rainbow.Storage.Yaml.dll" -Force 
     Copy-Item "$src\packages\Rainbow.Storage.Sc.1.4.1\lib\net452\Rainbow.Storage.Sc.dll" "$working_dir\bin\Rainbow.Storage.Sc.dll" -Force 
 }
+
+task CopyMicrosoftDependencyInjectionDependenciesToLocal {
+	Copy-Item "$src\packages\Microsoft.Extensions.DependencyInjection.1.0.0\lib\netstandard1.1\Microsoft.Extensions.DependencyInjection.dll" "$working_dir\bin\Microsoft.Extensions.DependencyInjection.dll" -Force 
+    Copy-Item "$src\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll" "$working_dir\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll" -Force 
+}
+
 
 task CopyBinariesToLocalFolder {
     foreach ($project in $projects) {
@@ -61,8 +65,10 @@ task CopyConfigurationLocal {
     if(!(Test-Path -Path "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Initialize\")){
         New-Item -ItemType directory -Path "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Initialize\"
     }
-
-    Copy-Item "$src\AvenueClothing.Installer\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\*" "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\" -Recurse -Force
+    if(!(Test-Path -Path "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Installation\")){
+        New-Item -ItemType directory -Path "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Installation\"
+    }
+    Copy-Item "$src\AvenueClothing.Installer\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\*" "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\" -Recurse -Force
 }
 
 

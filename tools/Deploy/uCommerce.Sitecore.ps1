@@ -1,4 +1,4 @@
-task CreateSitecorePackage -depends ValidateSetup, CleanSitecoreWorkingDirectory, CleanWebBinDirectory, Rebuild, CreateWorkingDir, CopyMetaDataToWorkingDir, CopyBinariesToFilesFolder, CopyUnicornDependenciesToFilesFolder, CopyConfigIncludeFiles, CopyConfigurationFilesForInstaller, CopyProjectFilesToFilesFolder, CopyUnicornItems, CopyConfigurationFiles, CreateSitecoreZipFile, DeleteTempPackage {
+task CreateSitecorePackage -depends ValidateSetup, CleanSitecoreWorkingDirectory, CleanWebBinDirectory, Rebuild, CreateWorkingDir, CopyMetaDataToWorkingDir, CopyBinariesToFilesFolder, CopyMicrosoftDependencyInjectionDependencies, CopyUnicornDependenciesToFilesFolder, CopyConfigIncludeFiles, CopyConfigurationFilesForInstaller, CopyProjectFilesToFilesFolder, CopyUnicornItems, CopyConfigurationFiles, CreateSitecoreZipFile, DeleteTempPackage {
 
 }
 
@@ -42,6 +42,11 @@ task CopyMetaDataToWorkingDir {
 
 task CopyConfigurationFilesForInstaller {
     Copy-Item "$src\AvenueClothing.Installer\sitecore modules\" "$working_dir\files" -Recurse -Force
+}
+
+task CopyMicrosoftDependencyInjectionDependencies {
+	Copy-Item "$src\packages\Microsoft.Extensions.DependencyInjection.1.0.0\lib\netstandard1.1\Microsoft.Extensions.DependencyInjection.dll" "$working_dir\files\bin\Microsoft.Extensions.DependencyInjection.dll" -Force 
+    Copy-Item "$src\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll" "$working_dir\files\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll" -Force 
 }
 
 task CopyUnicornDependenciesToFilesFolder {

@@ -1,9 +1,10 @@
 ﻿using AvenueClothing.Installer.Services;
 using UCommerce.Pipelines;
+using UCommerce.Pipelines.Initialization;
 
-namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
+namespace AvenueClothing.Installer.Pipelines.Initialize
 {
-	public class SynchronizeSitecoreItemsTask : IPipelineTask<InstallationPipelineArgs>
+	public class SynchronizeSitecoreItemsTask : IPipelineTask<InitializeArgs>
 	{
 		private readonly SynchronizeSitecoreService _synchronizeSitecoreService;
 
@@ -12,7 +13,7 @@ namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
 			_synchronizeSitecoreService = synchronizeSitecoreService;
 		}
 
-		public PipelineExecutionResult Execute(InstallationPipelineArgs subject)
+		public PipelineExecutionResult Execute(InitializeArgs subject)
 		{
 			_synchronizeSitecoreService.SynchronizeSitecoreItems();
 
