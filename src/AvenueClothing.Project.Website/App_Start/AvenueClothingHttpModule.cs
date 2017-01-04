@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using UCommerce.Catalog;
 using UCommerce.Content;
 using UCommerce.EntitiesV2;
+using UCommerce.Marketing;
 using UCommerce.Pipelines;
 using UCommerce.Pipelines.GetProduct;
 using UCommerce.Runtime;
@@ -66,6 +67,7 @@ namespace AvenueClothing.Project.Website
         {
             services.AddTransient(p => ObjectFactory.Instance.Resolve<TransactionLibraryInternal>());
             services.AddTransient(p => ObjectFactory.Instance.Resolve<CatalogLibraryInternal>());
+            services.AddTransient(p => ObjectFactory.Instance.Resolve<MarketingLibraryInternal>());
             services.AddTransient(p => ObjectFactory.Instance.Resolve<SearchLibraryInternal>());
             services.AddTransient(p => ObjectFactory.Instance.Resolve<ICatalogContext>());
             services.AddTransient(p => ObjectFactory.Instance.Resolve<IOrderContext>());
