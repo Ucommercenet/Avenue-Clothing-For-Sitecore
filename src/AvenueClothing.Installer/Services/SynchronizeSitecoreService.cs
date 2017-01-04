@@ -15,10 +15,9 @@ namespace AvenueClothing.Installer.Services
 
 			if (configurations == null) throw new InvalidOperationException("Could not determine configurations for Unicorn.");
 
-			var configuration = configurations.FirstOrDefault(c => c.Name.Equals("Project.AvenueClothing.Website.Installer", StringComparison.OrdinalIgnoreCase));
-
-			if (configuration == null) configuration = configurations.FirstOrDefault(c => c.Name.Equals("Project.AvenueClothing.Website", StringComparison.OrdinalIgnoreCase));
-			if (configuration == null) throw new InvalidOperationException("No configuration for unicorn was found under sitecore include folder. Looked for: 'Project.AvenueClothing.Website.Installer' and 'Project.AvenueClothing.Website'");
+			var configuration = configurations.FirstOrDefault(c => c.Name.Equals("Project.AvenueClothing.Website", StringComparison.OrdinalIgnoreCase));
+            
+			if (configuration == null) throw new InvalidOperationException("No configuration for unicorn was found under sitecore include folder. Looked for: 'Project.AvenueClothing.Website'");
 
 			SynchroniseTargetDataStore(configuration);
 		}
