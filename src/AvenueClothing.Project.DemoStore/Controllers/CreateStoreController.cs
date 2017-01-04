@@ -147,7 +147,7 @@ namespace AvenueClothing.Project.DemoStore.Controllers
             {
                 var emailContent = emailProfile.EmailContents.SingleOrDefault(x => x.CultureCode == language.CultureCode && x.EmailType.Name == type) ?? new EmailContent();
 
-                emailContent.ContentId = "C84F1833-9199-49FA-A23A-1E9F3892F5B4";
+                emailContent.ContentId = "0D0C0ED6-7144-4A9A-A7D1-3284C8D459D1";
                 emailContent.CultureCode = language.CultureCode;
                 emailContent.EmailProfile = emailProfile;
                 emailContent.EmailType = orderConfirmationType;
