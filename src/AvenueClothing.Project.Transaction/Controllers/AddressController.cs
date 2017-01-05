@@ -67,8 +67,8 @@ namespace AvenueClothing.Project.Transaction.Controllers
                 this.ModelState.Remove("ShippingAddress.FirstName");
                 this.ModelState.Remove("ShippingAddress.LastName");
                 this.ModelState.Remove("ShippingAddress.EmailAddress");
-                this.ModelState.Remove("Line1");
-                this.ModelState.Remove("PostalCode");
+                this.ModelState.Remove("ShippingAddress.Line1");
+                this.ModelState.Remove("ShippingAddress.PostalCode");
             }
             if (!ModelState.IsValid)
             {
