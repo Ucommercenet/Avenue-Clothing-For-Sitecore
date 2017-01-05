@@ -62,6 +62,14 @@ namespace AvenueClothing.Project.Transaction.Controllers
         [HttpPost]
         public ActionResult Save(AddressSaveViewModel addressRendering)
         {
+            if (!addressRendering.IsShippingAddressDifferent)
+            {
+                this.ModelState.Remove("ShippingAddress.FirstName");
+                this.ModelState.Remove("ShippingAddress.LastName");
+                this.ModelState.Remove("ShippingAddress.EmailAddress");
+                this.ModelState.Remove("Line1");
+                this.ModelState.Remove("PostalCode");
+            }
             if (!ModelState.IsValid)
             {
                 var dictionary = ModelState.ToDictionary(kvp => kvp.Key,
