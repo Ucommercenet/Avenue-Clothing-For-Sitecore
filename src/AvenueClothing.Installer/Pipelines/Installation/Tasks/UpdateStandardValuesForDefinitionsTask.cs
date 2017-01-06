@@ -54,6 +54,7 @@ namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
                         <r id=""{878E2B49-315C-4EFE-8D26-52605F78C3D6}"" ph=""header"" uid=""{6CDEF4F3-4422-4B53-887A-2234F0BB10D6}"" />
                         <r id=""{749D4A8D-990A-4FFE-BE3A-C74591EBD862}"" ph=""sidebar"" uid=""{152C6A81-9F8D-42E0-BA64-1641A45E483A}"" />
                         <r id=""{72BE77A8-379E-469F-B1B8-504B7433A300}"" ph=""sidebar"" uid=""{0DA0A7B0-B03B-4B4A-B936-E5AC9756F6A6}"" />
+                        <r id=""{BA033CD1-9C89-497E-9254-DB1A353BF9BD}"" ph=""main"" uid=""{7BDD1BEF-929C-48BD-A07E-82A1D843E05D}"" />
                         <r id=""{58ECFFD3-2334-4405-B032-EE97F14B2556}"" ph=""main"" uid=""{949573C8-12C8-41C0-9DA8-62064A7F933A}"" />
                         <r ds="""" id=""{EBBE7524-3356-47AC-852A-8EE1DD93CAD6}"" par="""" ph=""header content"" uid=""{E932DB9C-60EC-46AE-95A0-7043A953EBFB}"" />
                         <r id=""{E5C76A34-378F-4808-957B-2C055AE08BCB}"" ph=""header content"" uid=""{F046DE0C-5CC8-4C6D-A921-5F9C5FB9BEA6}"" />
