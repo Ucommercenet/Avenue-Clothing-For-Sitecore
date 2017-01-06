@@ -90,7 +90,6 @@ namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
                 <r id=""{51F0AFD0-376F-43B5-B425-CFB19E0A6C7D}"" ph=""sidebar"" uid=""{1DFFE44A-BBA3-478A-B3CF-A8F11A7E6C06}"" />
                 </d>
                 </r>";
-
         }
     }
 }
