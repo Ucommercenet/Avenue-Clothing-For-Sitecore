@@ -732,3 +732,7 @@ div#why-buy.well.sidebar-nav > ol > li > img, p#powered-by-ucommerce > a >img {
 table.table.table-striped {
      table-layout: fixed;
 }
+
+.carousel {
+    margin-bottom: 1rem;
+}
