@@ -1,22 +1,26 @@
 ﻿@model AvenueClothing.Project.Catalog.ViewModels.CatalogImageCaruselRenderingViewModel
 
-<div id="myCarousel" class="carousel slide">
-    <div class="carousel-inner">
-  
-        @if (Model.ImageUrls.Any())
-        {
-            var first = Model.ImageUrls.First();
-            <div class="item active carousel-item">
-                <img src="@first"/>
+<div class="row">
+    <div class="col-md-12">
+        <div id="myCarousel" class="carousel slide">
+            <div class="carousel-inner">
+
+                @if (Model.ImageUrls.Any())
+                {
+                    var first = Model.ImageUrls.First();
+                    <div class="item active carousel-item">
+                        <img src="@first" />
+                    </div>
+                }
+                @foreach (var url in Model.ImageUrls.Skip(1))
+                {
+                    <div class="item carousel-item">
+                        <img src="@url" />
+                    </div>
+                }
             </div>
-        }
-        @foreach (var url in Model.ImageUrls.Skip(1))
-        {
-            <div class="item carousel-item">
-                <img src="@url" />
-            </div>
-        }
-    </div>
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="icon-prev" aria-hidden="true"></span></a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="icon-next" aria-hidden="true"></span></a>
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="icon-prev" aria-hidden="true"></span></a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="icon-next" aria-hidden="true"></span></a>
+        </div>
+    </div>    
 </div>

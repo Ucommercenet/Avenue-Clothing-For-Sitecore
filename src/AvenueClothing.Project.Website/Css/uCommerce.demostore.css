@@ -733,3 +733,6 @@ table.table.table-striped {
      table-layout: fixed;
 }
 
+.carousel {
+    margin-bottom: 1rem;
+}
