@@ -9,10 +9,7 @@
     <meta name="viewport" content="width=device-width" />
 
     @Styles.Render("~/Content/css")
-    @if (!Sitecore.Context.PageMode.IsExperienceEditor)
-    {
-        @Html.Sitecore().Placeholder("head")
-    }
+    @Html.Sitecore().Placeholder("head")
     @Scripts.Render("~/bundles/require")
     <script>
         requirejs.config({
@@ -68,7 +65,7 @@
     </script>
     <title></title>
 </head>
-<body class="header-static @(Sitecore.Context.PageMode.IsNormal ? "" : (Sitecore.Context.PageMode.IsExperienceEditor ? "pagemode-edit" : "pagemode-preview"))">
+<body class="header-static pagemode-preview">
     <div id="main-container" class="container">
         <header>
              
