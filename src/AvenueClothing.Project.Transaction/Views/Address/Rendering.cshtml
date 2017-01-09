@@ -105,6 +105,7 @@
 
                 <label>City</label>
                 @Html.TextBoxFor(x => x.ShippingAddress.City, new { @class = "col-md-12 form-control margin-bottom" })
+                <label class="error-custom ShippingAddressCity"></label>
 
                 <label>Country</label>
                 @Html.DropDownList("ShippingAddress.CountryId", Model.AvailableCountries, new { @class = "countryDropdownCheckout margin-bottom form-control" })
