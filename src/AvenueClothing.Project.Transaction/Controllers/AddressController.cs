@@ -66,25 +66,6 @@ namespace AvenueClothing.Project.Transaction.Controllers
         [HttpPost]
         public ActionResult Save(AddressSaveViewModel addressRendering)
         {
-            var email = addressRendering.BillingAddress.EmailAddress;
-            if (!string.IsNullOrEmpty(email))
-            {
-                if (email.Contains("@"))
-                {
-                    Tracker.Current.Session.Identify(email);
-
-                    var emails = Tracker.Current.Contact.GetFacet<Sitecore.Analytics.Model.Entities.IContactEmailAddresses>("Emails");
-                    emails.Preferred = "work";
-                    emails.Entries.Create(emails.Preferred);
-                    emails.Entries[emails.Preferred].SmtpAddress = email;
-                    emails.Entries[emails.Preferred].BounceCount = 0;
-
-                    var personalInfo = Tracker.Current.Contact.GetFacet<Sitecore.Analytics.Model.Entities.IContactPersonalInfo>("Personal");
-                    personalInfo.FirstName = addressRendering.BillingAddress.FirstName;
-                    personalInfo.Surname = addressRendering.BillingAddress.LastName;
-                }
-            }
-
             if (!addressRendering.IsShippingAddressDifferent)
             {
                 this.ModelState.Remove("ShippingAddress.FirstName");
@@ -113,6 +94,25 @@ namespace AvenueClothing.Project.Transaction.Controllers
             {
                 EditBillingInformation(addressRendering.BillingAddress);
                 EditShippingInformation(addressRendering.BillingAddress);
+            }
+
+            var email = addressRendering.BillingAddress.EmailAddress;
+            if (!string.IsNullOrEmpty(email))
+            {
+                if (email.Contains("@"))
+                {
+                    Tracker.Current.Session.Identify(email);
+
+                    var emails = Tracker.Current.Contact.GetFacet<Sitecore.Analytics.Model.Entities.IContactEmailAddresses>("Emails");
+                    emails.Preferred = "work";
+                    emails.Entries.Create(emails.Preferred);
+                    emails.Entries[emails.Preferred].SmtpAddress = email;
+                    emails.Entries[emails.Preferred].BounceCount = 0;
+
+                    var personalInfo = Tracker.Current.Contact.GetFacet<Sitecore.Analytics.Model.Entities.IContactPersonalInfo>("Personal");
+                    personalInfo.FirstName = addressRendering.BillingAddress.FirstName;
+                    personalInfo.Surname = addressRendering.BillingAddress.LastName;
+                }
             }
 
             _transactionLibraryInternal.ExecuteBasketPipeline();
