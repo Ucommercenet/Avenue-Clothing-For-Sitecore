@@ -8,10 +8,9 @@
     var showConfirmationMessage = function ($button) {
 
         var confirmationMessageId = $button.data("confirmation-message-id");
-        var confirmationMessageTimeoutInMillisecs = $button.data("confirmation-message-timeout-in-millisecs");
-
         var $message = $("#" + confirmationMessageId);
-
+        var confirmationMessageTimeoutInMillisecs = $message.data("confirmation-message-timeout-in-millisecs");
+        
         $message.slideDown();
 
         clearTimeout(confirmationMessageTimer);
