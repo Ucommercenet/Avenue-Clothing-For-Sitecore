@@ -51,8 +51,9 @@
     <Reference Include="Kamsar.WebConsole">
       <HintPath>..\packages\Kamsar.WebConsole.1.2.2.0\lib\net40\Kamsar.WebConsole.dll</HintPath>
     </Reference>
-    <Reference Include="MicroCHAP">
-      <HintPath>..\packages\MicroCHAP.1.2.1.0\lib\net45\MicroCHAP.dll</HintPath>
+    <Reference Include="MicroCHAP, Version=1.2.2.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicroCHAP.1.2.2.2\lib\net45\MicroCHAP.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -75,17 +76,25 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Rainbow">
-      <HintPath>..\packages\Rainbow.Core.1.3.1\lib\net45\Rainbow.dll</HintPath>
+    <Reference Include="paypal_base, Version=5.6.64.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.3.1.16343\lib\net400\paypal_base.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Rainbow.Storage.Sc">
-      <HintPath>..\packages\Rainbow.Storage.Sc.1.3.1\lib\net45\Rainbow.Storage.Sc.dll</HintPath>
+    <Reference Include="Rainbow, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rainbow.Core.1.4.1\lib\net452\Rainbow.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Rainbow.Storage.Yaml">
-      <HintPath>..\packages\Rainbow.Storage.Yaml.1.3.1\lib\net45\Rainbow.Storage.Yaml.dll</HintPath>
+    <Reference Include="Rainbow.Storage.Sc, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rainbow.Storage.Sc.1.4.1\lib\net452\Rainbow.Storage.Sc.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Sitecore.Mvc">
-      <HintPath>..\..\lib\Sitecore\Sitecore.Mvc.dll</HintPath>
+    <Reference Include="Rainbow.Storage.Yaml, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rainbow.Storage.Yaml.1.4.1\lib\net452\Rainbow.Storage.Yaml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Sitecore.Mvc, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Sitecore\8.2\Sitecore.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
@@ -112,9 +121,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.1.0\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.0\lib\net40\System.Web.Optimization.dll</HintPath>
@@ -143,40 +152,41 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="UCommerce, Version=7.2.1.16274, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.2.1.16274\lib\net400\UCommerce.dll</HintPath>
+    <Reference Include="UCommerce, Version=7.3.1.16343, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.3.1.16343\lib\net400\UCommerce.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Admin, Version=7.2.1.16274, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.2.1.16274\lib\net400\UCommerce.Admin.dll</HintPath>
+    <Reference Include="UCommerce.Admin, Version=7.3.1.16343, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.3.1.16343\lib\net400\UCommerce.Admin.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Infrastructure, Version=7.2.1.16274, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.2.1.16274\lib\net400\UCommerce.Infrastructure.dll</HintPath>
+    <Reference Include="UCommerce.Infrastructure, Version=7.3.1.16343, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.3.1.16343\lib\net400\UCommerce.Infrastructure.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Installer, Version=7.2.1.16274, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.2.1.16274\lib\net400\UCommerce.Installer.dll</HintPath>
+    <Reference Include="UCommerce.Installer, Version=7.3.1.16343, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.3.1.16343\lib\net400\UCommerce.Installer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Pipelines, Version=7.2.1.16274, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.2.1.16274\lib\net400\UCommerce.Pipelines.dll</HintPath>
+    <Reference Include="UCommerce.Pipelines, Version=7.3.1.16343, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.3.1.16343\lib\net400\UCommerce.Pipelines.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Presentation, Version=7.2.1.16274, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.2.1.16274\lib\net400\UCommerce.Presentation.dll</HintPath>
+    <Reference Include="UCommerce.Presentation, Version=7.3.1.16343, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.3.1.16343\lib\net400\UCommerce.Presentation.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Transactions.Payments, Version=7.2.1.16274, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.2.1.16274\lib\net400\UCommerce.Transactions.Payments.dll</HintPath>
+    <Reference Include="UCommerce.Transactions.Payments, Version=7.3.1.16343, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.3.1.16343\lib\net400\UCommerce.Transactions.Payments.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Web.Api, Version=7.2.1.16274, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.2.1.16274\lib\net400\UCommerce.Web.Api.dll</HintPath>
+    <Reference Include="UCommerce.Web.Api, Version=7.3.1.16343, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.3.1.16343\lib\net400\UCommerce.Web.Api.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Unicorn">
-      <HintPath>..\packages\Unicorn.Core.3.2.0\lib\net45\Unicorn.dll</HintPath>
+    <Reference Include="Unicorn, Version=3.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unicorn.Core.3.3.2\lib\net452\Unicorn.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="WebGrease, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.3.0\lib\WebGrease.dll</HintPath>
@@ -195,6 +205,18 @@
     <Content Include="Css\uCommerce.bootstrap.css" />
     <Content Include="Css\uCommerce.demostore.css" />
     <Content Include="Global.asax" />
+    <Content Include="App_Config\Include\Rainbow.config" />
+    <Content Include="App_Config\Include\Unicorn\Unicorn.zSharedSecret.config.example" />
+    <Content Include="App_Config\Include\Unicorn\Unicorn.UI.config" />
+    <Content Include="App_Config\Include\Unicorn\Unicorn.Remote.config.disabled" />
+    <Content Include="App_Config\Include\Unicorn\Unicorn.Deployed.config.disabled" />
+    <Content Include="App_Config\Include\Unicorn\Unicorn.DataProvider.config" />
+    <Content Include="App_Config\Include\Unicorn\Unicorn.CustomSerializationFolder.config.example" />
+    <Content Include="App_Config\Include\Unicorn\Unicorn.Configs.NewItemsOnly.example" />
+    <Content Include="App_Config\Include\Unicorn\Unicorn.Configs.Dependency.config.example" />
+    <Content Include="App_Config\Include\Unicorn\Unicorn.Configs.Default.example" />
+    <Content Include="App_Config\Include\Unicorn\Unicorn.config" />
+    <Content Include="App_Config\Include\Unicorn\Unicorn.AutoPublish.config" />
     <None Include="packages.config" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
@@ -232,8 +254,11 @@
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Views\Footer\Rendering.cshtml" />
     <Content Include="Views\Sidebar Static Content\Rendering.cshtml" />
+    <None Include="Views\Web.config.default" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AvenueClothingHttpModule.cs" />
+    <Compile Include="App_Start\AvenueClothingStartup.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\FooterController.cs" />
     <Compile Include="Extensions\ServiceProviderDependencyResolver.cs" />
@@ -264,16 +289,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>6892</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:6892/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
@@ -285,6 +301,9 @@
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>Powershell.exe -ExecutionPolicy Bypass -file "$(SolutionDir)..\tools\Deploy\Deploy.To.Local.ps1"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

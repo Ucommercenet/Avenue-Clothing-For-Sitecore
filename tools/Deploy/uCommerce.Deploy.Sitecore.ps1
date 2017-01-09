@@ -1,0 +1,80 @@
+task DeploySitecoreLocal -depends SetSynchronizeSitecoreItemsPath, CopyBinariesToLocalFolder, CopyMicrosoftDependencyInjectionDependenciesToLocal, CopyUnicornDependenciesToLocalFolder, CopyConfigurationLocal, CopyProjectFilesToLocalFolder
+
+task SetSynchronizeSitecoreItemsPath{
+  # C:\projects\Avenue Clothing for Sitecore\src\scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config
+
+  $path = "$src\scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config"
+  $xml = [xml](Get-Content $path)  
+
+  $SynchronizeSitecoreItemsComponent = $xml.configuration.sitecore.unicorn.configurations.configuration.targetDataStore
+
+  $path = "$src\project\AvenueClothing\serialization";
+  if($Apis -eq "CommerceConnect"){
+    $path = "$src\project\AvenueClothing-CC\serialization";
+  }
+  
+  $SynchronizeSitecoreItemsComponent.SetAttribute("physicalRootPath", $path)
+
+  $xml.Save("$working_dir\App_Config\Include\AvenueClothing.Serialization.config")
+}
+
+task CopyUnicornDependenciesToLocalFolder {
+    Copy-Item "$src\packages\Unicorn.Core.3.3.2\lib\net452\Unicorn.dll" "$working_dir\bin\Unicorn.dll" -Force 
+    Copy-Item "$src\packages\Rainbow.Core.1.4.1\lib\net452\Rainbow.dll" "$working_dir\bin\Rainbow.dll" -Force 
+    Copy-Item "$src\packages\Rainbow.Storage.Yaml.1.4.1\lib\net452\Rainbow.Storage.Yaml.dll" "$working_dir\bin\Rainbow.Storage.Yaml.dll" -Force 
+    Copy-Item "$src\packages\Rainbow.Storage.Sc.1.4.1\lib\net452\Rainbow.Storage.Sc.dll" "$working_dir\bin\Rainbow.Storage.Sc.dll" -Force 
+}
+
+task CopyMicrosoftDependencyInjectionDependenciesToLocal {
+	Copy-Item "$src\packages\Microsoft.Extensions.DependencyInjection.1.0.0\lib\netstandard1.1\Microsoft.Extensions.DependencyInjection.dll" "$working_dir\bin\Microsoft.Extensions.DependencyInjection.dll" -Force 
+    Copy-Item "$src\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll" "$working_dir\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll" -Force 
+}
+
+
+task CopyBinariesToLocalFolder {
+    foreach ($project in $projects) {
+        Copy-Item "$src\$project\bin\$project.dll" "$working_dir\bin" -Force
+        if ($Configuration -eq "Debug") {
+            Copy-Item "$src\$project\bin\$project.pdb" "$working_dir\bin" -Force            
+        }
+    }
+    
+    #Handle installer project as library with another bin structure!
+    if ($Configuration -eq "Debug") {
+        Copy-Item "$src\AvenueClothing.Installer\bin\Debug\AvenueClothing.Installer.dll" "$working_dir\bin" -Force
+        Copy-Item "$src\AvenueClothing.Installer\bin\Debug\AvenueClothing.Installer.pdb" "$working_dir\bin" -Force
+        Copy-Item "$src\AvenueClothing.Foundation.MvcExtensions\bin\Debug\AvenueClothing.Foundation.MvcExtensions.dll" "$working_dir\bin" -Force
+        Copy-Item "$src\AvenueClothing.Foundation.MvcExtensions\bin\Debug\AvenueClothing.Foundation.MvcExtensions.pdb" "$working_dir\bin" -Force
+    }
+    else {
+        Copy-Item "$src\AvenueClothing.Installer\bin\Release\AvenueClothing.Installer.dll" "$working_dir\bin" -Force   
+        Copy-Item "$src\AvenueClothing.Foundation.MvcExtensions\bin\Release\AvenueClothing.Foundation.MvcExtensions.dll" "$working_dir\bin" -Force   
+    }
+
+    Copy-Item "$src\..\lib\WebGrease\System.Web.Optimization.dll" "$working_dir\bin\System.Web.Optimization.dll" -Force
+    Copy-Item "$src\..\lib\WebGrease\WebGrease.dll" "$working_dir\bin\WebGrease.dll" -Force
+}
+
+task CopyConfigurationLocal {
+    Copy-Item "$src\packages\Rainbow.1.4.1\content\App_Config\Include\Rainbow.config" "$working_dir\App_Config\Include\Rainbow.config" -Force 
+    Copy-Item "$src\packages\Unicorn.3.3.2\content\App_Config\Include\Unicorn\Unicorn.config" "$working_dir\App_Config\Include\unicorn.config" -Force
+    Copy-Item "$src\scripts\Serialization\App_Config\Include\AvenueClothing.Sites.config" "$working_dir\App_Config\Include" -Force
+    
+    
+    if(!(Test-Path -Path "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Initialize\")){
+        New-Item -ItemType directory -Path "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Initialize\"
+    }
+    if(!(Test-Path -Path "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Installation\")){
+        New-Item -ItemType directory -Path "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Installation\"
+    }
+    Copy-Item "$src\AvenueClothing.Installer\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\*" "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\" -Recurse -Force
+}
+
+
+task CopyProjectFilesToLocalFolder {    
+    $options = @("/xf", "*.dll", "/xf", "*.cs", "/xf", "*.csproj", "/xf", "packages.config", "/xf", "*.user", "/xf", "*.cache", "/xd", "obj", "/xd", "bin", "/xf", "global.asax");
+    
+    foreach ($project in $projects) {
+        ROBOCOPY "$src\$project" "$working_dir\" $options /e /s
+    }
+}

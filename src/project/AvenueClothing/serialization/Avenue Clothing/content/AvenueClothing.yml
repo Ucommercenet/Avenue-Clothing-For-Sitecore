@@ -91,12 +91,12 @@ Languages:
       Hint: Products
       Type: Treelist
       Value: |
-        {0A2D1B36-5A98-4907-8130-9DDC0C5F762F}
-        {C7188F48-304A-4BF5-94D6-37A30DE48910}
-        {EB14A396-FF9C-42A4-A215-A9B8CD3C81D0}
+        {E43EFAD8-65B7-4F9A-87DD-B1EEEE469E21}
+        {6DCCB368-4B3A-4075-B989-D4498A4F6C42}
+        {1B27B4B8-C9C2-4CFE-B37A-2CCD86F9CBBB}
     - ID: "b9baaa2b-d947-4cae-97cf-4e413b57c511"
       Hint: Images
-      Type: Multilist
+      Type: TreelistEx
       Value: |
         {1B0CDD3C-E5DD-4BB8-95A7-3CAAC820E201}
         {8E3609EE-7C0B-4D09-B9AD-88B0C1DF359F}

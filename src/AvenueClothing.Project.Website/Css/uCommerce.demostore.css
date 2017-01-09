@@ -426,7 +426,7 @@ a.col-md-3 {
 .product-list .product .view-details a {
     padding: 0 0 0 14px;
     border: 0 none;
-    line-height: 34px;
+    line-height: 33px;
 }
 
 .product-list .product .view-details span {
@@ -731,4 +731,8 @@ div#why-buy.well.sidebar-nav > ol > li > img, p#powered-by-ucommerce > a >img {
 }
 table.table.table-striped {
      table-layout: fixed;
+}
+
+.carousel {
+    margin-bottom: 1rem;
 }
