@@ -769,3 +769,7 @@ footer {
 .white-background {
     background: transparent;
 }
+
+.control-group {
+    overflow: auto;
+}
