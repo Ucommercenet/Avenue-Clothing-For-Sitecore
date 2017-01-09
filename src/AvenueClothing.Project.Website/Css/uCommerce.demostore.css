@@ -736,3 +736,12 @@ table.table.table-striped {
 .carousel {
     margin-bottom: 1rem;
 }
+
+.navbar-fixed-top .row {
+    padding: 0px 45px 0 45px;
+}
+
+.product-list .item-name {
+    height: 40px;
+    overflow: hidden;
+}
