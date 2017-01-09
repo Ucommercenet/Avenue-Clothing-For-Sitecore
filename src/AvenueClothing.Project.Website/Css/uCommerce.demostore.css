@@ -540,15 +540,15 @@ label {
 }
 /* Cart Page
 -------------------------------------------*/
-#cart {
+.cart {
 }
 
-    #cart .qty {
+    .cart .qty {
         text-align: center;
         width: 50px;
     }
 
-    #cart .line-remove {
+    .cart .line-remove {
         float: right;
         font-size: 20px;
         font-weight: bold;
@@ -559,7 +559,7 @@ label {
         filter: alpha(opacity=40);
     }
 
-        #cart .line-remove:hover {
+        .cart .line-remove:hover {
             color: #DA4F49;
             text-decoration: none;
             cursor: pointer;
@@ -567,7 +567,7 @@ label {
             filter: alpha(opacity=80);
         }
 
-    #cart button.line-remove {
+    .cart button.line-remove {
         padding: 0;
         cursor: pointer;
         background: transparent;
@@ -757,4 +757,15 @@ footer {
 
 .product-title {
    border-bottom: 1px solid #ddd;
+}
+
+.cart .span7 {
+    width: 55%;
+}
+
+.cart thead tr th:last-child {
+    width: 5%;
+}
+.white-background {
+    background: transparent;
 }

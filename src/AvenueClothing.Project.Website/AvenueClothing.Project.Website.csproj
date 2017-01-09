@@ -201,8 +201,6 @@
     <Content Include="Css\glyphicons-28-search.png" />
     <Content Include="Css\glyphicons-halflings-regular.svg" />
     <Content Include="Css\tether.min.css" />
-    <Content Include="Css\uCommerce.bootstrap-responsive.css" />
-    <Content Include="Css\uCommerce.bootstrap.css" />
     <Content Include="Css\uCommerce.demostore.css" />
     <Content Include="Global.asax" />
     <Content Include="App_Config\Include\Rainbow.config" />
