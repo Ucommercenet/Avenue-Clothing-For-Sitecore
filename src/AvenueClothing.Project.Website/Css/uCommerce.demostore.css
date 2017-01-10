@@ -623,6 +623,7 @@ label {
 .countryDropdownCheckout {
     width: 100%;
     padding: 1px 0 1px 0;
+        padding: .5rem .75rem;
 }
 
 .col-md-6 .control-group .form-group .error .success > .help-inline {

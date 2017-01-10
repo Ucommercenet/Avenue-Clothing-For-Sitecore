@@ -118,15 +118,20 @@
         </div>
     </div>
     <div class="row">
-        <label for="toggleShippingView" class="display-inline">Use a different address for shipping</label>
-        @Html.CheckBoxFor(x => x.IsShippingAddressDifferent, new { @class = "js-address-checkbox display-inline" })
+        <div class="col-md-12">
+            <label for="toggleShippingView" class="display-inline">Use a different address for shipping</label>
+            @Html.CheckBoxFor(x => x.IsShippingAddressDifferent, new { @class = "js-address-checkbox display-inline" })
+        </div>
     </div>
 
-
-    <div class="col-md-6 no-padding-col">
-        <a href="/cart" type="submit" class="btn btn-secondary btn-default btn-full-width pull-left">Back</a>
-    </div>
-    <div class="col-md-6 no-padding-col">
-        <input type="submit" class="btn btn-primary btn-full-width pull-right submit-address" value="Continue to shipping options" />
+    <div class="control-group margin-top">
+        <div class="controls">
+            <div class="col-md-6 no-padding-col">
+                <a href="/cart" type="submit" class="btn btn-secondary btn-default btn-full-width pull-left">Back</a>
+            </div>
+            <div class="col-md-6 no-padding-col">
+                <input type="submit" class="btn btn-primary btn-full-width pull-right submit-address" value="Continue to shipping options" />
+            </div>
+        </div>
     </div>
 }
