@@ -811,3 +811,7 @@ table thead tr th.span6 {
 .js-voucher-error-message {
     border-radius: 0px;
 }
+
+.footerAddress {
+    text-align: center;
+}
