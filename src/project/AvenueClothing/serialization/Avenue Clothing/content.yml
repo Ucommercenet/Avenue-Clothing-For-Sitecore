@@ -33,7 +33,8 @@ SharedFields:
     {A0C460F4-DBAE-4A5A-8F3A-C4ADFCDACEEA}
 - ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
   Hint: __Security
-  Value: "au|sitecore\ServicesAPI|p*|+item:read|^*|"
+  Value: |
+    au|sitecore\ServicesAPI|p*|+item:read|^*|
 - ID: "f2db8ba1-e477-41f5-8ef5-22eefa8d2f6e"
   Hint: __Enabled Views
   Type: Multilist
@@ -61,7 +62,8 @@ Languages:
       Value: 20151003T031134Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
-      Value: sitecore\admin
+      Value: |
+        sitecore\admin
 - Language: "de-DE"
   Fields:
   - ID: "577f1689-7de4-4ad2-a15f-7fdc1759285f"
@@ -81,7 +83,8 @@ Languages:
       Value: 20151003T030849Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
-      Value: sitecore\admin
+      Value: |
+        sitecore\admin
 - Language: en
   Fields:
   - ID: "577f1689-7de4-4ad2-a15f-7fdc1759285f"
@@ -101,7 +104,8 @@ Languages:
       Value: 20080818T154900
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
-      Value: sitecore\admin
+      Value: |
+        sitecore\admin
 - Language: "ja-JP"
   Fields:
   - ID: "577f1689-7de4-4ad2-a15f-7fdc1759285f"
@@ -121,4 +125,5 @@ Languages:
       Value: 20151003T031014Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
-      Value: sitecore\admin
+      Value: |
+        sitecore\admin

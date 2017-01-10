@@ -133,7 +133,7 @@ namespace AvenueClothing.Installer.Helpers
             {
                 var emailContent = emailProfile.EmailContents.SingleOrDefault(x => x.CultureCode == language.CultureCode && x.EmailType.Name == type) ?? new EmailContent();
 
-                emailContent.ContentId = "0D0C0ED6-7144-4A9A-A7D1-3284C8D459D1";
+                emailContent.ContentId = "0d0c0ed6-7144-4a9a-a7d1-3284c8d459d1";
                 emailContent.CultureCode = language.CultureCode;
                 emailContent.EmailProfile = emailProfile;
                 emailContent.EmailType = orderConfirmationType;
