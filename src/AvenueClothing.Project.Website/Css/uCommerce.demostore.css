@@ -788,3 +788,8 @@ footer {
 .cart thead tr th.span1 {
     width: 8%;
 }
+
+.js-address input[type=text].error-custom {
+   border: 1px solid #d9534f !important;
+       margin-bottom: 0;
+}
