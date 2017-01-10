@@ -806,3 +806,22 @@ table thead tr th.span6 {
 .js-voucher-error-message {
     border-radius: 0px;
 }
+
+.inline-block {
+    display: inline-block;
+}
+
+.table-responsive { overflow: hidden; }
+.table-responsive .span05 { width: 5%; }
+.table-responsive .span1 { width: 11.3%; }
+.table-responsive .span2 { width: 16.6%; }
+.table-responsive .span3 { width: 25%; }
+.table-responsive .span4 { width: 33.3%; }
+.table-responsive .span5 { width: 41.6%; }
+.table-responsive .span6 { width: 50%; }
+.table-responsive .span7 { width: 58%; }
+.table-responsive .span8 { width: 66%; }
+.table-responsive .span9 { width: 75%; }
+.table-responsive .span10 { width: 83%; }
+.table-responsive .span11 { width: 91.6%; }
+.table-responsive .span12 { width: 100%; }
