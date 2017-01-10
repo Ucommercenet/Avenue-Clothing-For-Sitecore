@@ -760,11 +760,11 @@ footer {
    border-bottom: 1px solid #ddd;
 }
 
-.cart .span7 {
+table .span7 {
     width: 55%;
 }
 
-.cart thead tr th:last-child {
+table thead tr th:last-child {
     width: 5%;
 }
 .white-background {
@@ -785,11 +785,20 @@ footer {
     display: block;
 }
 
-.cart thead tr th.span1 {
-    width: 8%;
+table thead tr th.span2 {
+    width: 9%;
+}
+
+table thead tr th.span6 {
+   width: 45%;
 }
 
 .js-address input[type=text].error-custom {
    border: 1px solid #d9534f !important;
        margin-bottom: 0;
+}
+
+.btn-none {
+    border: none;
+    background-color: transparent;
 }
