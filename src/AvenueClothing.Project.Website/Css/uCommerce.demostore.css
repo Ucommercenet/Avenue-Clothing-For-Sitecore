@@ -767,9 +767,23 @@ footer {
     width: 5%;
 }
 .white-background {
-    background: transparent;
+    background: #fff;
 }
 
 .control-group {
     overflow: auto;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+
+.update-basket {
+    background-color: transparent;
+    padding: 0;
+    margin: auto;
+    display: block;
+}
+
+.cart thead tr th.span1 {
+    width: 8%;
 }
