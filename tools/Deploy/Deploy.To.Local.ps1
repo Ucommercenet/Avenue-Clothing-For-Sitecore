@@ -1,7 +1,7 @@
 [CmdletBinding()]
 Param(
 	[Parameter(Mandatory=$False)]
-    [string]$WebsiteRoot = "C:\inetpub\SC8\Website"
+    [string]$WebsiteRoot = "C:\inetpub\sc8\Website"
 )
 
 function Get-ScriptDirectory { 
@@ -22,7 +22,7 @@ function Run-It () {
 	"src"=$src;
 	"working_dir"=$WebsiteRoot;
 	"Apis" = "CommerceConnect";
-	"projects" = @("AvenueClothing.Project.Website", "AvenueClothing.Project.Catalog", "AvenueClothing.Project.DemoStore", "AvenueClothing.Project.Header", "AvenueClothing.Project.Navigation", "AvenueClothing.Project.Transaction", "AvenueClothing.Project.UserFeedback");
+	"projects" = @("AvenueClothing.Project.Website", "AvenueClothing.Project.Catalog", "AvenueClothing.Project.Header", "AvenueClothing.Project.Navigation", "AvenueClothing.Project.Transaction", "AvenueClothing.Project.UserFeedback");
 	};
     
 	Invoke-PSake "$scriptPath\uCommerce.build.ps1" "DeploySitecoreLocal" -properties $properties

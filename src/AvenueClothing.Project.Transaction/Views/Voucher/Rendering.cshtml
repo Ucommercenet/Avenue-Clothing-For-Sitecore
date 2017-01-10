@@ -3,9 +3,16 @@
 	Layout = null;
 }
 
-<div class="input-group js-voucher" data-input-class-selector="@Model.InputClassSelector" data-button-class-selector="@Model.ButtonClassSelector">
-	<input id="@Model.InputClassSelector" type="text" name="voucher" class="form-control " placeholder="Enter code here" />
-	<span class="input-group-btn">
-		<button id="@Model.ButtonClassSelector" name="add-voucher" class="btn btn-secondary btn-nopadding" data-voucher-url="@Model.VoucherUrl" data-input-class-selector="@Model.InputClassSelector"><i class="icon-plus icon-white"></i>Add Voucher</button>
-	</span>
+<div class="margin-top margin-bottom">
+    <div class="input-group js-voucher" data-input-class-selector="@Model.InputClassSelector" data-button-class-selector="@Model.ButtonClassSelector">
+        <input id="@Model.InputClassSelector" type="text" name="voucher" class="form-control " placeholder="Enter your voucher code here" />
+        <span class="input-group-btn">
+            <button id="@Model.ButtonClassSelector" name="add-voucher" class="btn btn-secondary btn-nopadding" data-voucher-url="@Model.VoucherUrl" data-input-class-selector="@Model.InputClassSelector"><i class="icon-plus icon-white"></i>Add Voucher</button>
+        </span>
+    </div>
+    <div>
+        <div id="js-add-to-basket-button-confirmation-message-89fea598-dc11-44a4-af30-2b4dd9f99b15" style="display: none" class="js-voucher-error-message alert alert-danger" role="alert">
+            The voucher you have entered is not valid. Please check the code and try again.
+        </div>
+    </div>
 </div>

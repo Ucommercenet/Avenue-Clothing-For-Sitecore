@@ -1,8 +1,15 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Transaction.ViewModels;
+using Sitecore.Collections;
+using Sitecore.Mvc.Extensions;
+using UCommerce.Api;
+using UCommerce.Catalog;
 using UCommerce.EntitiesV2;
 using UCommerce.Pipelines;
 using UCommerce.Pipelines.GetProduct;
@@ -10,20 +17,22 @@ using UCommerce.Runtime;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {
-	public class VariantPickerController : BaseController
+    public class VariantPickerController : BaseController
     {
         private readonly IPipeline<IPipelineArgs<GetProductRequest, GetProductResponse>> _getProductPipeline;
-	    private readonly ICatalogContext _catalogContext;
+        private readonly ICatalogContext _catalogContext;
+        private readonly CatalogLibraryInternal _catalogLibraryInternal;
 
-	    public VariantPickerController(IPipeline<IPipelineArgs<GetProductRequest, GetProductResponse>> getProductPipeline, ICatalogContext catalogContext)
-	    {
-		    _getProductPipeline = getProductPipeline;
-		    _catalogContext = catalogContext;
-	    }
-
-	    public ActionResult Rendering()
+        public VariantPickerController(IPipeline<IPipelineArgs<GetProductRequest, GetProductResponse>> getProductPipeline, ICatalogContext catalogContext, CatalogLibraryInternal catalogLibraryInternal)
         {
-			var currentProduct = _catalogContext.CurrentProduct;
+            _getProductPipeline = getProductPipeline;
+            _catalogContext = catalogContext;
+            _catalogLibraryInternal = catalogLibraryInternal;
+        }
+
+        public ActionResult Rendering()
+        {
+            var currentProduct = _catalogContext.CurrentProduct;
 
             var viewModel = new VariantPickerRenderingViewModel
             {
@@ -59,8 +68,9 @@ namespace AvenueClothing.Project.Transaction.Controllers
                 }
                 viewModel.Variants.Add(productPropertiesViewModel);
             }
+            viewModel.GetAvailableCombinationsUrl = Url.Action("GetAvailableCombinations");
 
-            
+
             return View(viewModel);
         }
 
@@ -96,5 +106,59 @@ namespace AvenueClothing.Project.Transaction.Controllers
 
             return Json(new { ProductVariantSku = variantSku });
         }
+
+        [HttpPost]
+        public ActionResult GetAvailableCombinations(VariantPickerVariantExistsViewModel viewModel)
+        {
+            var selectedDictionary = viewModel.VariantNameValueDictionary.Where(x => x.Value != "").ToList();
+
+            var currentProduct = _catalogLibraryInternal.GetProduct(viewModel.ProductSku);
+
+            IList<ProductPropertiesViewModel> result = new List<ProductPropertiesViewModel>();
+            IList<Product> possibleVariants = new List<Product>();
+
+            foreach (var kvp in selectedDictionary)
+            {
+
+                var variants = currentProduct.Variants;
+                foreach (var v in variants)
+                {
+                    if (v.ProductProperties.Any(x => x.ProductDefinitionField.Name == kvp.Key && x.Value == kvp.Value))
+                    {
+                        possibleVariants.Add(v);
+                    }
+                }
+
+                foreach (var possibleVariant in possibleVariants)
+                {
+                    var properties = ProductProperty.All()
+                        .Where(x => x.ProductDefinitionField.Name != kvp.Key && x.Value != kvp.Value && x.Product == possibleVariant).Distinct();
+                    foreach (var prop in properties)
+                    {
+                        ProductPropertiesViewModel property = new ProductPropertiesViewModel();
+                        property.PropertyName = prop.ProductDefinitionField.Name;
+                        property.Values.Add(prop.Value);
+
+                        result.Add(property);
+                    }
+
+                }
+
+            }
+
+            return Json(new { properties = result });
+        }
+    }
+
+    public class ProductPropertiesViewModel
+    {
+        public ProductPropertiesViewModel()
+        {
+            Values = new List<string>();
+        }
+        public string PropertyName { get; set; }
+        public IList<string> Values { get; set; }
+
+
     }
 }

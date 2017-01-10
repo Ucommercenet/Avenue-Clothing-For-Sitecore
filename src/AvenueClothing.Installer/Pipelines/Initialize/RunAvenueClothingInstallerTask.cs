@@ -16,6 +16,7 @@ namespace AvenueClothing.Installer.Pipelines.Initialize
     {
         private readonly IRepository<ProductCatalogGroup> _productCatalogGroupRepository;
         private readonly IPipeline<InstallationPipelineArgs> _installationPipeline;
+     
         public RunAvenueClothingInstallerTask(IRepository<ProductCatalogGroup> productCatalogGroupRepository, IPipeline<InstallationPipelineArgs> installationPipeline)
         {
             _productCatalogGroupRepository = productCatalogGroupRepository;

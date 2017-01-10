@@ -1,10 +1,11 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
-using UCommerce;
 using UCommerce.EntitiesV2;
 using UCommerce.Transactions;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Transaction.ViewModels;
+using Constants = UCommerce.Constants;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {
@@ -62,6 +63,15 @@ namespace AvenueClothing.Project.Transaction.Controllers
         [HttpPost]
         public ActionResult Save(AddressSaveViewModel addressRendering)
         {
+            if (!addressRendering.IsShippingAddressDifferent)
+            {
+                this.ModelState.Remove("ShippingAddress.FirstName");
+                this.ModelState.Remove("ShippingAddress.LastName");
+                this.ModelState.Remove("ShippingAddress.EmailAddress");
+                this.ModelState.Remove("ShippingAddress.Line1");
+                this.ModelState.Remove("ShippingAddress.PostalCode");
+                this.ModelState.Remove("ShippingAddress.City");
+            }
             if (!ModelState.IsValid)
             {
                 var dictionary = ModelState.ToDictionary(kvp => kvp.Key,
@@ -83,7 +93,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
                 EditBillingInformation(addressRendering.BillingAddress);
                 EditShippingInformation(addressRendering.BillingAddress);
             }
-
+            
             _transactionLibraryInternal.ExecuteBasketPipeline();
 
             return Json(new {ShippingUrl = "/shipping"});

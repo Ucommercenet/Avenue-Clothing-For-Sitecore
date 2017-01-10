@@ -13,9 +13,10 @@ namespace AvenueClothing.Project.Transaction.Controllers
 		private readonly MarketingLibraryInternal _marketingLibraryInternal;
 		private readonly TransactionLibraryInternal _transactionLibraryInternal;
 
-		public VoucherController(TransactionLibraryInternal transactionLibraryInternal)
+		public VoucherController(TransactionLibraryInternal transactionLibraryInternal, MarketingLibraryInternal marketingLibraryInternal)
 		{
-			_transactionLibraryInternal = transactionLibraryInternal;
+		    _transactionLibraryInternal = transactionLibraryInternal;
+		    _marketingLibraryInternal = marketingLibraryInternal;
 		}
 
 		public ActionResult Rendering()
@@ -33,11 +34,10 @@ namespace AvenueClothing.Project.Transaction.Controllers
 		[HttpPost]
 		public ActionResult AddVoucher(string voucher)
 		{
-			//TODO: user marketing library internal
-			MarketingLibrary.AddVoucher(voucher);
+            bool success = _marketingLibraryInternal.AddVoucher(voucher);
 			_transactionLibraryInternal.ExecuteBasketPipeline();
 
-			return Json(new { voucher });
+			return Json(new { voucher, success });
 		}
 	}
 }

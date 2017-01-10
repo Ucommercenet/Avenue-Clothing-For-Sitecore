@@ -120,6 +120,7 @@
     <Compile Include="Pipelines\Installation\Tasks\CreateUCommerceSettingsTask.cs" />
     <Compile Include="Pipelines\Installation\Tasks\MoveSitecoreConfigurationFilesTask.cs" />
     <Compile Include="Pipelines\Installation\Tasks\PublishMasterDatabaseTask.cs" />
+    <Compile Include="Pipelines\Installation\Tasks\RenameWebConfigIfMissingTask.cs" />
     <Compile Include="Pipelines\Installation\Tasks\RunScratchIndexerTask.cs" />
     <Compile Include="Pipelines\Installation\Tasks\SynchronizeSitecoreItemsTask.cs" />
     <Compile Include="Pipelines\Installation\Tasks\UpdateStandardValuesForDefinitionsTask.cs" />

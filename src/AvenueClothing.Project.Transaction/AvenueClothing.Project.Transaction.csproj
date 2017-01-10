@@ -70,9 +70,9 @@
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.1.0\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
@@ -146,6 +146,7 @@
     <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\MiniBasketController.cs" />
     <Compile Include="Controllers\VariantPickerController.cs" />
+    <Compile Include="Controllers\ConfirmationEmailController.cs" />
     <Compile Include="Controllers\VoucherController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IMiniBasketService.cs" />
@@ -153,6 +154,7 @@
     <Compile Include="ViewModels\AddressSaveViewModel.cs" />
     <Compile Include="ViewModels\BasketUpdateBasket.cs" />
     <Compile Include="ViewModels\BasketUpdateBasketViewModel.cs" />
+    <Compile Include="ViewModels\ConfirmationEmailViewModel.cs" />
     <Compile Include="ViewModels\ConfirmationViewModel.cs" />
     <Compile Include="ViewModels\BasketRenderingViewModel.cs" />
     <Compile Include="ViewModels\AddressRenderingViewModel.cs" />
@@ -178,6 +180,7 @@
     <Content Include="Scripts\jsAddress.js" />
     <Content Include="Scripts\jsMiniBasket.js" />
     <Content Include="Scripts\jsAddToBasketButton.js" />
+    <Content Include="Views\ConfirmationEmail\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jsPaymentPicker.js" />

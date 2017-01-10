@@ -29,10 +29,11 @@
     jsAddress.init = function () {
         $(submitClassSelector).off().click(function (e) {
             e.preventDefault();
+            $form.find('.error-custom').text('');
 
             $form.validate({
                 errorElement: "span",
-                errorClass: "help-inline",
+                errorClass: "error-custom",
                 highlight: function (tag) {
                     $(tag).addClass('error-custom');
                 },
