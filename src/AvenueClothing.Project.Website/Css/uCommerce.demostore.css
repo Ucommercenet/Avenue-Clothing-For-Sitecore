@@ -807,3 +807,7 @@ table thead tr th.span6 {
     border: none;
     background-color: transparent;
 }
+
+.js-voucher-error-message {
+    border-radius: 0px;
+}
