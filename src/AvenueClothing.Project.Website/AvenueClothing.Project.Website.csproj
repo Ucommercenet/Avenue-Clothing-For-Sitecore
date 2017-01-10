@@ -252,6 +252,7 @@
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Views\Footer\Rendering.cshtml" />
     <Content Include="Views\Sidebar Static Content\Rendering.cshtml" />
+    <Content Include="Views\Email.cshtml" />
     <None Include="Views\Web.config.default" />
   </ItemGroup>
   <ItemGroup>

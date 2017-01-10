@@ -789,6 +789,11 @@ table thead tr th.span2 {
     width: 9%;
 }
 
+
+table thead tr th.span3 {
+    width: 10%;
+}
+
 table thead tr th.span6 {
    width: 45%;
 }
