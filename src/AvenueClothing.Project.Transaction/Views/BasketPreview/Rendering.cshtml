@@ -50,12 +50,12 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Item no. </th>
-                <th class="span8">Description</th>
-                <th class="span1 money">Price</th>
-                <th class="span1 money">VAT</th>
-                <th class="span1 number">Quantity</th>
-                <th class="span1 money">Total</th>
+                <th class="span2">Item no. </th>
+                <th class="span6">Description</th>
+                <th class="span2 money">Price</th>
+                <th class="span2 money">VAT</th>
+                <th class="span2 number">Quantity</th>
+                <th class="span2 money">Total</th>
             </tr>
         </thead>
         <tbody>
@@ -83,7 +83,7 @@
                 </tr>
             }
             <tr>
-                <td rowspan="@ViewBag.RowSpan" colspan="2"></td>
+                <td rowspan="@ViewBag.RowSpan" colspan="2" class="white-background"></td>
                 <td colspan="3">Sub total: </td>
                 <td class="money">
                     @Model.SubTotal
