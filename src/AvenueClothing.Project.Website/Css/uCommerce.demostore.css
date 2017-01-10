@@ -788,3 +788,7 @@ footer {
 .cart thead tr th.span1 {
     width: 8%;
 }
+
+.js-voucher-error-message {
+    border-radius: 0px;
+}
