@@ -812,8 +812,18 @@ table thead tr th.span6 {
     border-radius: 0px;
 }
 
+.footerAddress {
+    text-align: center;
+}
+
 .inline-block {
     display: inline-block;
+}
+
+.btn.btn-success:hover {
+    color: #fff;
+    background-color: #449d44;
+    border-color: #419641;
 }
 
 .table-responsive { overflow: hidden; }
