@@ -1,8 +1,8 @@
 ﻿---
-ID: "a56e9c47-09b5-443d-ba4f-26cc617e50ab"
-Parent: "f5cf3be4-c675-4392-8eaf-157117398b3a"
+ID: "e66698c6-aed9-4452-8d37-03e745e6c9e4"
+Parent: "b13990f7-6ecd-4c00-889d-9e21db9f427c"
 Template: "2a3e91a0-7987-44b5-ab34-35c2d9de83b9"
-Path: /sitecore/layout/Renderings/Commerce/Transaction/Basket Preview
+Path: /sitecore/layout/Renderings/Commerce/Email/Confirmation Content
 DB: master
 SharedFields:
 - ID: "ded9e431-3604-4921-a4b3-a6ec7636a5b6"
@@ -10,7 +10,7 @@ SharedFields:
   Value: Rendering
 - ID: "e64ad073-dfcc-4d20-8c0b-fe5aa6226cd7"
   Hint: Controller
-  Value: BasketPreview
+  Value: ConfirmationEmail
 Languages:
 - Language: en
   Versions:
@@ -18,4 +18,4 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20161101T124152Z
+      Value: 20170110T111439Z

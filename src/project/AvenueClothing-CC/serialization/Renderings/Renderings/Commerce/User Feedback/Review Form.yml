@@ -1,8 +1,8 @@
 ﻿---
 ID: "93411b0b-ff7f-4d1e-a2eb-769fca3b4b99"
-Parent: "ea28baf4-62fa-4fa9-80f9-07c39608e5e7"
+Parent: "a1ddb7a9-ed3f-4ada-96e8-30909cfe69b8"
 Template: "2a3e91a0-7987-44b5-ab34-35c2d9de83b9"
-Path: /sitecore/layout/Renderings/Commerce/Catalog/Review Form
+Path: /sitecore/layout/Renderings/Commerce/User Feedback/Review Form
 DB: master
 SharedFields:
 - ID: "ded9e431-3604-4921-a4b3-a6ec7636a5b6"

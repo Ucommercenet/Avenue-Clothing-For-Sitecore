@@ -15,7 +15,7 @@ SharedFields:
         l="{55AD3180-3D79-461F-AC6F-D679AB58A849}">
         <r
           id="{AA92D865-76BA-4A80-ABD9-BC6E7CE83687}"
-          ph="breadcrumb"
+          ph="main"
           uid="{4344B916-9389-4F0A-A59D-41D7BFFC0253}" />
         <r
           id="{878E2B49-315C-4EFE-8D26-52605F78C3D6}"
@@ -45,4 +45,5 @@ Languages:
       Value: 20161006T130827Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
-      Value: sitecore\admin
+      Value: |
+        sitecore\admin

@@ -1,8 +1,8 @@
 ﻿---
-ID: "24a45c2d-adf3-4d38-902f-cc90bdb43088"
-Parent: "7919567a-faa2-4504-9c31-63a2cf67b551"
-Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
-Path: /sitecore/content/AvenueClothing/Sync
+ID: "4a876fb2-985e-4476-b53d-8707a22bceb5"
+Parent: "6aa89888-a32b-4605-a057-09c226df4a8d"
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: /sitecore/templates/Common/Avenue Clothing/Confirmation/Confirmation
 DB: master
 Languages:
 - Language: en
@@ -11,7 +11,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20160930T104604Z
+      Value: 20161111T110057Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: sitecore\admin

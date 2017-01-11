@@ -1,8 +1,8 @@
 ﻿---
 ID: "89a3dfae-e473-4520-aaea-6eea540352bb"
-Parent: "ea28baf4-62fa-4fa9-80f9-07c39608e5e7"
+Parent: "f5cf3be4-c675-4392-8eaf-157117398b3a"
 Template: "2a3e91a0-7987-44b5-ab34-35c2d9de83b9"
-Path: /sitecore/layout/Renderings/Commerce/Catalog/Variant Picker
+Path: /sitecore/layout/Renderings/Commerce/Transaction/Variant Picker
 DB: master
 SharedFields:
 - ID: "308e88f5-cd6e-4f8f-bafe-95a47dedefdc"
