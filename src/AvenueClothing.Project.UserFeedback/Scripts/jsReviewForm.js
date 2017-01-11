@@ -15,7 +15,7 @@
 
     var selected;
     function wireupRatings(radios) {
-        $('#review-form').addClass("display-none");
+        $('.review-form').addClass("display-none");
         $('label', radios).each(function () {
             var t = $(this);
             t.addClass('display-inline');
@@ -60,7 +60,7 @@
                 });
                 parent.addClass('selected');
                 selected = parent;
-                $('#review-form').slideDown();
+                $('.review-form').slideDown();
                 $('label', radios).each(function () {
                     var t = $(this);
                     if (t.hasClass('selected')) {
