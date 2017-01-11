@@ -10,6 +10,22 @@
 
     //	var voucherInput = $("#" + inputSelector);
     //}
+    var confirmationMessageTimer;
+
+    var showErrorMessage = function () {
+
+        var $message = $("#js-add-to-basket-button-confirmation-message-89fea598-dc11-44a4-af30-2b4dd9f99b15");
+        var confirmationMessageTimeoutInMillisecs = 5000;
+
+        $message.slideDown();
+
+        clearTimeout(confirmationMessageTimer);
+
+        confirmationMessageTimer = setTimeout(function () {
+            $message.slideUp();
+        }, confirmationMessageTimeoutInMillisecs);
+    };
+
 
     /** START OF PUBLIC API **/
 
@@ -36,7 +52,12 @@
                     },
                     dataType: "json",
                     success: function (data) {
-                        config.$triggerEventSelector.trigger("basket-changed");
+                        if (data.success) {
+                            config.$triggerEventSelector.trigger("basket-changed");
+                            location.href = location.href;
+                        } else {
+                            showErrorMessage();
+                        }
                     }
                 });
             });

@@ -29,8 +29,9 @@ SharedFields:
           id="{AA92D865-76BA-4A80-ABD9-BC6E7CE83687}"
           ph="main"
           uid="{04ED61B9-8B13-4767-BC7E-EB5DD3CD88A5}" />
-        <r id="{765AF52A-4993-4738-98D3-AD75AD89FCC2}" 
-          ph="main" 
+        <r
+          id="{765AF52A-4993-4738-98D3-AD75AD89FCC2}"
+          ph="main"
           uid="{F02D1614-F034-4A23-9F5A-296E8595F4F7}" />
         <r
           id="{33DD6E2C-D788-4F6B-BCD8-6DBFA912C99E}"
@@ -40,6 +41,14 @@ SharedFields:
           id="{E5C76A34-378F-4808-957B-2C055AE08BCB}"
           ph="header content"
           uid="{D3FED12B-90BD-4190-A9B2-C4625036B60B}" />
+        <r
+          id="{51F0AFD0-376F-43B5-B425-CFB19E0A6C7D}"
+          ph="sidebar"
+          uid="{7CD459F7-6EEE-45EC-BFE0-87B89C96ADBE}" />
+        <r
+          id="{F45E27B0-D4C0-4C0C-9CCC-CC9F5203F30D}"
+          ph="footer"
+          uid="{92322D42-A04A-4F96-8666-8015DAC617C1}" />
       </d>
     </r>
 Languages:
@@ -52,4 +61,5 @@ Languages:
       Value: 20161006T111719Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
-      Value: sitecore\admin
+      Value: |
+        sitecore\admin

@@ -2408,7 +2408,7 @@ fieldset[disabled] a.btn {
   border-color: #5cb85c;
 }
 
-.btn-success:hover {
+.btn.btn-success:hover {
   color: #fff;
   background-color: #449d44;
   border-color: #419641;

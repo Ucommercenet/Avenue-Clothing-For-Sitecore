@@ -34,10 +34,10 @@ namespace AvenueClothing.Project.Transaction.Controllers
 		[HttpPost]
 		public ActionResult AddVoucher(string voucher)
 		{
-            _marketingLibraryInternal.AddVoucher(voucher);
+            bool success = _marketingLibraryInternal.AddVoucher(voucher);
 			_transactionLibraryInternal.ExecuteBasketPipeline();
 
-			return Json(new { voucher });
+			return Json(new { voucher, success });
 		}
 	}
 }

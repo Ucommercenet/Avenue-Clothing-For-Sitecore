@@ -1,0 +1,18 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+@using System.Web.Optimization
+@using Sitecore.Mvc;
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        @Styles.Render("~/Content/css")
+    </head>
+<body>
+    <div class="container">
+        @Html.Sitecore().Placeholder("header")
+        @Html.Sitecore().Placeholder("content")
+        @Html.Sitecore().Placeholder("footer")
+    </div>
+</body>
+</html>

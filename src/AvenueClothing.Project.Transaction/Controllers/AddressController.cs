@@ -5,9 +5,6 @@ using UCommerce.EntitiesV2;
 using UCommerce.Transactions;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Transaction.ViewModels;
-using Sitecore.Analytics;
-using Sitecore.Commerce.Entities.Customers;
-using Sitecore.Commerce.Services.Customers;
 using Constants = UCommerce.Constants;
 
 namespace AvenueClothing.Project.Transaction.Controllers
@@ -73,6 +70,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
                 this.ModelState.Remove("ShippingAddress.EmailAddress");
                 this.ModelState.Remove("ShippingAddress.Line1");
                 this.ModelState.Remove("ShippingAddress.PostalCode");
+                this.ModelState.Remove("ShippingAddress.City");
             }
             if (!ModelState.IsValid)
             {
@@ -95,26 +93,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
                 EditBillingInformation(addressRendering.BillingAddress);
                 EditShippingInformation(addressRendering.BillingAddress);
             }
-
-            var email = addressRendering.BillingAddress.EmailAddress;
-            if (!string.IsNullOrEmpty(email))
-            {
-                if (email.Contains("@"))
-                {
-                    Tracker.Current.Session.Identify(email);
-
-                    var emails = Tracker.Current.Contact.GetFacet<Sitecore.Analytics.Model.Entities.IContactEmailAddresses>("Emails");
-                    emails.Preferred = "work";
-                    emails.Entries.Create(emails.Preferred);
-                    emails.Entries[emails.Preferred].SmtpAddress = email;
-                    emails.Entries[emails.Preferred].BounceCount = 0;
-
-                    var personalInfo = Tracker.Current.Contact.GetFacet<Sitecore.Analytics.Model.Entities.IContactPersonalInfo>("Personal");
-                    personalInfo.FirstName = addressRendering.BillingAddress.FirstName;
-                    personalInfo.Surname = addressRendering.BillingAddress.LastName;
-                }
-            }
-
+            
             _transactionLibraryInternal.ExecuteBasketPipeline();
 
             return Json(new {ShippingUrl = "/shipping"});

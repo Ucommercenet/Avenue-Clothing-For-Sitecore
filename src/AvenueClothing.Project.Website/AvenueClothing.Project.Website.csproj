@@ -201,8 +201,6 @@
     <Content Include="Css\glyphicons-28-search.png" />
     <Content Include="Css\glyphicons-halflings-regular.svg" />
     <Content Include="Css\tether.min.css" />
-    <Content Include="Css\uCommerce.bootstrap-responsive.css" />
-    <Content Include="Css\uCommerce.bootstrap.css" />
     <Content Include="Css\uCommerce.demostore.css" />
     <Content Include="Global.asax" />
     <Content Include="App_Config\Include\Rainbow.config" />
@@ -254,6 +252,7 @@
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Views\Footer\Rendering.cshtml" />
     <Content Include="Views\Sidebar Static Content\Rendering.cshtml" />
+    <Content Include="Views\Email.cshtml" />
     <None Include="Views\Web.config.default" />
   </ItemGroup>
   <ItemGroup>
