@@ -27,6 +27,8 @@ namespace AvenueClothing.Project.Transaction.ViewModels
             [Required(ErrorMessage = "Email is required")]
             [EmailAddress(ErrorMessage = "Invalid Email Address")]
             public string EmailAddress { get; set; }
+
+            [PhoneAttribute(ErrorMessage = "Invalid Phone Number")]
             public string PhoneNumber { get; set; }
             public string MobilePhoneNumber { get; set; }
 

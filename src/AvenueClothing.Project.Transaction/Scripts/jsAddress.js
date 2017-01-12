@@ -51,11 +51,13 @@
                         if (data.ShippingUrl) {
                             window.location.href = data.ShippingUrl;
                         }
-                        var errors = data.modelStateErrors;
-                        for (var i = 0; i < errors.length; i++) {
-                            var currentError = errors[i];
+                        if (data.modelStateErrors){
+                            var errors = data.modelStateErrors;
+                            for (var i = 0; i < errors.length; i++) {
+                                var currentError = errors[i];
 
-                            $form.find('.' + currentError.Key.replace(/\./g, '')).text(currentError.Value[0]);
+                                $form.find('.' + currentError.Key.replace(/\./g, '')).text(currentError.Value[0]);
+                            }
                         }
                     }
 

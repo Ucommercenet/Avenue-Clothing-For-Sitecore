@@ -32,7 +32,7 @@
                 <label class="error-custom BillingAddressPostalCode"></label>
 
                 <label>Phone</label>
-                @Html.TextBoxFor(x => x.BillingAddress.PhoneNumber, new { @class = "col-md-12 form-control margin-bottom" })
+                @Html.TextBoxFor(x => x.BillingAddress.PhoneNumber, new { @class = "col-md-12 form-control number margin-bottom" })
 
             </div>
 
@@ -57,7 +57,7 @@
                 @Html.DropDownList("BillingAddress.CountryId", Model.AvailableCountries, new { @class = "countryDropdownCheckout margin-bottom form-control" })
 
                 <label>Mobile phone</label>
-                @Html.TextBoxFor(x => x.BillingAddress.MobilePhoneNumber, new { @class = "col-md-12 form-control margin-bottom" })
+                @Html.TextBoxFor(x => x.BillingAddress.MobilePhoneNumber, new { @class = "col-md-12 form-control number margin-bottom" })
 
             </div>
 
@@ -86,7 +86,7 @@
                 @Html.TextBoxFor(x => x.ShippingAddress.PostalCode, new { @class = "col-md-12 form-control required margin-bottom" })
 
                 <label>Phone</label>
-                @Html.TextBoxFor(x => x.ShippingAddress.PhoneNumber, new { @class = "col-md-12 form-control margin-bottom" })
+                @Html.TextBoxFor(x => x.ShippingAddress.PhoneNumber, new { @class = "col-md-12 form-control number margin-bottom" })
 
             </div>
 
@@ -111,7 +111,7 @@
                 @Html.DropDownList("ShippingAddress.CountryId", Model.AvailableCountries, new { @class = "countryDropdownCheckout margin-bottom form-control" })
 
                 <label>Mobile phone</label>
-                @Html.TextBoxFor(x => x.ShippingAddress.MobilePhoneNumber, new { @class = "col-md-12 form-control margin-bottom" })
+                @Html.TextBoxFor(x => x.ShippingAddress.MobilePhoneNumber, new { @class = "col-md-12 form-control number margin-bottom" })
 
             </div>
 
