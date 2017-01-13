@@ -176,7 +176,9 @@
     <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="Scripts\jsAddress.js" />
     <Content Include="Scripts\jsMiniBasket.js" />
     <Content Include="Scripts\jsAddToBasketButton.js" />

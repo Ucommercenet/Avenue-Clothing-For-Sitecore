@@ -286,15 +286,15 @@ div.row.well {
         display: block;
     }
 
-#why-buy {
+.why-buy {
 }
 
-    #why-buy ol {
+    .why-buy ol {
         padding: 0;
         margin: 0;
     }
 
-        #why-buy ol li {
+        .why-buy ol li {
             font-size: 1.2em;
             list-style: none;
             padding: 20px 10px;
@@ -303,24 +303,19 @@ div.row.well {
             font-weight: bold;
         }
 
-            #why-buy ol li i {
+            .why-buy ol li i {
                 margin-right: 10px;
             }
 
-    #why-buy p a img {
+    .why-buy p a img {
         height: auto;
         width: 100%;
         min-width: 100px;
         max-width: 230px;
     }
 
-#powered-by-ucommerce {
+.powered-by-ucommerce {
     padding: 20px 20px 10px;
-}
-
-#about,
-#newsletter {
-    padding: 20px;
 }
 
 th.number,
@@ -348,9 +343,7 @@ div.product.col-sm-4.col-md-4 {
     width: 100%;
 }
 
-#homepage-catalog {
-    width: 120%;
-}
+
 
 @media(min-width:768px) {
     .product-list .product {
@@ -724,7 +717,7 @@ input.error-input, textarea.error-input{
   border-color: #d9534f;
 }
 
-div#why-buy.well.sidebar-nav > ol > li > img, p#powered-by-ucommerce > a >img {
+div.why-buy.well.sidebar-nav > ol > li > img, p.powered-by-ucommerce > a >img {
     width: 100%;
 }
 .overflow-hidden {
