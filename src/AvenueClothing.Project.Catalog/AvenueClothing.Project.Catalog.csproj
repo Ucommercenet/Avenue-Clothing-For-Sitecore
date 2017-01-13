@@ -132,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CatalogImageCaruselController.cs" />
+    <Compile Include="Controllers\ItemAddedToBasketController.cs" />
     <Compile Include="Controllers\ProductDetailController.cs" />
     <Compile Include="Controllers\ProductPageController.cs" />
     <Compile Include="Controllers\ProductPrimaryImageController.cs" />
@@ -148,6 +149,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\FacetModelBinder.cs" />
     <Compile Include="ViewModels\CategoryImageViewModel.cs" />
+    <Compile Include="ViewModels\ItemAddedToBasketViewModel.cs" />
     <Compile Include="ViewModels\ProductDetailViewModel.cs" />
     <Compile Include="ViewModels\CatalogImageCaruselRenderingViewModel.cs" />
     <Compile Include="ViewModels\CategoryNavigationRenderingViewModel.cs" />
@@ -170,6 +172,7 @@
     <Content Include="Views\ProductTitle\Rendering.cshtml" />
     <Content Include="Views\ProductWellWithPickersAndButton\Rendering.cshtml" />
     <Content Include="Views\ProductPage\Rendering.cshtml" />
+    <Content Include="Views\ItemAddedToBasket\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jsPriceCalculation.js" />
