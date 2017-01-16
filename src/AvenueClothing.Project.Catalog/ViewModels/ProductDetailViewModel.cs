@@ -7,5 +7,11 @@ namespace AvenueClothing.Project.Catalog.ViewModels
 		public HtmlString LongDescription { get; set; }
 		public string ReviewListRendering { get; set; }
 		public string ReviewFormRendering { get; set; }
-	}
+
+	    public string ProductDetailsDetails { get; set; }
+        public string ProductDetailsDelivery { get; set; }
+        public string ProductDetailsReturns { get; set; }
+        public string ProductDetailsReviews { get; set; }
+
+    }
 }
