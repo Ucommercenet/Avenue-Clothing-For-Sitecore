@@ -2,7 +2,7 @@
 
 namespace AvenueClothing.Project.Catalog.ViewModels
 {
-    public class ItemAddedToBasketViewModel
+    public class BannerMessageViewModel
     {
         public HtmlString Message { get; set; }
     }

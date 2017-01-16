@@ -1,0 +1,21 @@
+﻿---
+ID: "541fdec1-460b-4b26-8d50-92b5cc7cf4e3"
+Parent: "a21265c5-0ae3-4d85-894b-a93f705aa658"
+Template: "8646351d-2312-4d5c-9022-dc9b67fbb45d"
+Path: /sitecore/content/AvenueClothing/Data Sources/Banner Messages/Basket is not empty
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170116T113915Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "fd006497-82ed-43b0-bb6a-8c572ac438e4"
+      Hint: Message
+      Value: If you purchase the basket before 4 p.m. You will get it tomorrow.
