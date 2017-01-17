@@ -9,13 +9,20 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "0d87482c-3b8e-4907-a9d7-a2a8591dbbd8"
+      Hint: Image
+      Value: |
+        <image mediaid="{CE7760D2-2EA4-47B5-A9E3-EECD6E7250B8}" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20170116T113915Z
+    - ID: "34dc4d2d-413d-4a28-abb9-e406814cf48b"
+      Hint: Title
+      Value: Get you order tomorrow
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         sitecore\admin
     - ID: "fd006497-82ed-43b0-bb6a-8c572ac438e4"
       Hint: Message
-      Value: If you purchase the basket before 4 p.m. You will get it tomorrow.
+      Value: Place you order before 4 p.m. and get it tomorrow.

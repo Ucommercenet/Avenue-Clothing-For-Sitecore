@@ -34,6 +34,63 @@ SharedFields:
           <rls>
             <ruleset>
               <rule
+                name="Order is placed"
+                uid="{AECA9ACC-B83B-499C-B723-ED91B0D52E3F}">
+                <conditions>
+                  <and 
+                    uid="105BDEDC5B654B95A48602FCB7169089">
+                    <condition 
+                      id="{BE334DF8-9A0F-4FF3-A6D8-C396EC713809}" 
+                      uid="B3F3813228F5448A826EFA294880D18F" 
+                      PageId="{7FD5DC61-4D6D-4D20-9CBA-5EA98706C57F}" />
+                    <condition 
+                      id="{F534DDB9-D2C7-44B5-AA28-3E03878F4A58}" 
+                      uid="D2A5A4EF3E8740FEA2DA062B03DCE6D4" 
+                      operatorid="{066602E2-ED1D-44C2-A698-7ED27FD3A2CC}" 
+                      TotalProductQuantity="0" />
+                  </and>
+                </conditions>
+                <actions>
+                  <action
+                    id="{7B578B65-BD2F-4C7C-9A24-DAE3E98B4F23}"
+                    uid="FD8A71208A9B4B8EB97ECA7F6E4A70CC"
+                    RenderingItem="{649A6719-B95B-4F33-9174-33AF31790B10}" />
+                  <action
+                    id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    uid="AC5F36C75F5B4883A530DCA8187FD060"
+                    DataSource="{98F1F4CE-EF17-46EE-BD6C-F8906484DD40}" />
+                </actions>
+              </rule>
+              <rule
+                name="Abandoned Checkout"
+                uid="{49E1BBCC-ADC6-461C-A23A-3700111F0A23}">
+                <conditions>
+                  <and 
+                    uid="40BFA9DDA677472BA8BEB14857760411">
+                    <condition 
+                      id="{BE334DF8-9A0F-4FF3-A6D8-C396EC713809}" 
+                      uid="C71C68330BD34311A09D13DEFFBB7866" 
+                      PageId="{2726CC07-8FA0-4F9A-9E89-12146A3FD372}" />
+                    <condition 
+                      id="{F534DDB9-D2C7-44B5-AA28-3E03878F4A58}" 
+                      uid="CB598FAEE6E540C0B7A70E30DA1D3C4E" 
+                      except="true" 
+                      operatorid="{066602E2-ED1D-44C2-A698-7ED27FD3A2CC}" 
+                      TotalProductQuantity="0" />
+                  </and>
+                </conditions>
+                <actions>
+                  <action
+                    id="{7B578B65-BD2F-4C7C-9A24-DAE3E98B4F23}"
+                    uid="93DBC6C3F4CC4F14962DBC0BE39DDEA7"
+                    RenderingItem="{649A6719-B95B-4F33-9174-33AF31790B10}" />
+                  <action
+                    id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    uid="204CE657F87A462C91E3713BA0433E78"
+                    DataSource="{B1A808E4-8EE7-48E0-B458-4332B144026C}" />
+                </actions>
+              </rule>
+              <rule
                 name="basket isn't empty"
                 uid="{64F192AC-568E-4B98-9E65-35E73DDC10E6}">
                 <conditions>

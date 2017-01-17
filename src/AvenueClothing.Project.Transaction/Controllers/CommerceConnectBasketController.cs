@@ -17,7 +17,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 	public class CommerceConnectBasketController : BaseController
 	{
 
-		public ActionResult Rendering()
+		public ActionResult Rendering()         
 		{
 			var cart = GetCart();
 			var basketModel = new BasketRenderingViewModel();
