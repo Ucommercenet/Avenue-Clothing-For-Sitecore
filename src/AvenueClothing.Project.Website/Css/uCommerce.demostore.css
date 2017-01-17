@@ -117,15 +117,16 @@ ul.nav.navbar-nav > li > div {
 }
 
     .btn:hover {
-        color: #fff;
         text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
         text-decoration: none;
-        background-color: #4A95C5;
+     
     }
 .btn-uCommerce {
-     color: #fff;
      border: 1px solid #59B4EE;
      background: #59B4EE; /*6dbe78*/
+}
+.btn-uCommerce:hover {
+       background-color: #4A95C5;
 }
 
 .btn-group > .btn {
@@ -644,6 +645,12 @@ label {
 .no-padding {
     padding: 0;
 }
+.no-padding-left {
+    padding-left: 0;
+}
+.no-padding-right {
+    padding-right: 0;
+}
 
 .alert.alert-info > p {
     margin-top: 1em;
@@ -833,3 +840,7 @@ table thead tr th.span6 {
 .table-responsive .span10 { width: 83%; }
 .table-responsive .span11 { width: 91.6%; }
 .table-responsive .span12 { width: 100%; }
+
+.clearfix {
+    clear: both;
+}
