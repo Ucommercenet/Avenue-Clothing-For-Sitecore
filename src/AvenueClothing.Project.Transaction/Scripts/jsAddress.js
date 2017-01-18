@@ -12,13 +12,35 @@
 
     var toggleShippingAddress = function () {
         var value = $(this).is(":checked");
+        var windowWidth = $(window).width();
         var shippingAddress = $(classSelector).find(shippingClassSelector);
 
-        if (value) {
-            shippingAddress.show();
-        }
-        else {
-            shippingAddress.hide();
+
+        switch (value) {
+            case true:
+                if (windowWidth > 992) {
+                    $(shippingClassSelector).removeClass("col-md-12");
+                    $(shippingClassSelector).addClass("col-md-6");
+
+                    $(billingClassSelector).removeClass("col-md-12");
+                    $(billingClassSelector).addClass("col-md-6");
+                    shippingAddress.show();
+                } else {
+                    $(shippingClassSelector).addClass("col-md-12");
+                    $(shippingClassSelector).removeClass("col-md-6");
+                    shippingAddress.show();
+                }
+                break;
+            case false:
+                if (windowWidth > 992) {
+                    $(billingClassSelector).removeClass("col-md-6");
+                    $(billingClassSelector).addClass("col-md-12");
+                    shippingAddress.hide();
+                } else {
+                    
+                    shippingAddress.hide();
+                }
+                break;
         }
     };
 
@@ -51,7 +73,7 @@
                         if (data.ShippingUrl) {
                             window.location.href = data.ShippingUrl;
                         }
-                        if (data.modelStateErrors){
+                        if (data.modelStateErrors) {
                             var errors = data.modelStateErrors;
                             for (var i = 0; i < errors.length; i++) {
                                 var currentError = errors[i];

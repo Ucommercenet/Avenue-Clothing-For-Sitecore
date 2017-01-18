@@ -844,3 +844,7 @@ table thead tr th.span6 {
 .clearfix {
     clear: both;
 }
+
+.no-vertical-margin{
+    margin: 0 auto;
+}
