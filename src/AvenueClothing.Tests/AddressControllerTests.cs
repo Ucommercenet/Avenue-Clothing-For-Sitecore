@@ -22,6 +22,9 @@ namespace AvenueClothing.Tests
             _transactionLibraryInternal = Substitute.For<TransactionLibraryInternal>(null, null, null, null, null, null, null, null, null, null, null);
             _countries = new List<Country>();
             _controller = new AddressController(_transactionLibraryInternal, _countries.AsQueryable());
+
+            _controller.Url = Substitute.For<UrlHelper>();
+            _controller.Url.Action(Arg.Any<string>()).Returns("ControllerUrl");
         }
 
         [Fact]

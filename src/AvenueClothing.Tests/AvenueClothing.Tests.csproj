@@ -127,9 +127,16 @@
   <ItemGroup>
     <Compile Include="AddressControllerTests.cs" />
     <Compile Include="AddToBasketControllerTests.cs" />
+    <Compile Include="BasketControllerTests.cs" />
+    <Compile Include="FacetsControllerTests.cs" />
     <Compile Include="MiniBasketControllerTests.cs" />
+    <Compile Include="PaymentPickerControllerTests.cs" />
+    <Compile Include="ProductPriceControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuantityPickerControllerTests.cs" />
     <Compile Include="ShippingPickerControllerTests.cs" />
+    <Compile Include="VariantPickerControllerTests.cs" />
+    <Compile Include="VoucherControllerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -141,6 +148,10 @@
     <ProjectReference Include="..\AvenueClothing.Foundation.MvcExtensions\AvenueClothing.Foundation.MvcExtensions.csproj">
       <Project>{F2BAB86C-44DB-446C-A995-03A33C98855D}</Project>
       <Name>AvenueClothing.Foundation.MvcExtensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AvenueClothing.Project.Catalog\AvenueClothing.Project.Catalog.csproj">
+      <Project>{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}</Project>
+      <Name>AvenueClothing.Project.Catalog</Name>
     </ProjectReference>
     <ProjectReference Include="..\AvenueClothing.Project.Transaction\AvenueClothing.Project.Transaction.csproj">
       <Project>{267ea69c-3f72-4f2c-b46e-ca229d71546f}</Project>
