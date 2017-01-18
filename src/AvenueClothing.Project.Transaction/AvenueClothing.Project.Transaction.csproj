@@ -48,6 +48,9 @@
       <HintPath>..\packages\uCommerce.Core.7.3.1.16343\lib\net400\paypal_base.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Sitecore.Analytics">
+      <HintPath>..\..\lib\Sitecore\8.2\Sitecore.Analytics.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.Commerce">
       <HintPath>..\..\lib\Commerce Connect\Sitecore.Commerce.dll</HintPath>
     </Reference>

@@ -30,7 +30,101 @@ SharedFields:
         <r
           id="{DFCC28D2-F51F-46BC-9FF4-B4945FE2B05E}"
           ph="main"
-          uid="{974AC727-34A5-4053-8F04-F70E60D50F98}" />
+          uid="{974AC727-34A5-4053-8F04-F70E60D50F98}">
+          <rls>
+            <ruleset>
+              <rule
+                name="Order is placed"
+                uid="{AECA9ACC-B83B-499C-B723-ED91B0D52E3F}">
+                <conditions>
+                  <and 
+                    uid="105BDEDC5B654B95A48602FCB7169089">
+                    <condition 
+                      id="{BE334DF8-9A0F-4FF3-A6D8-C396EC713809}" 
+                      uid="B3F3813228F5448A826EFA294880D18F" 
+                      PageId="{7FD5DC61-4D6D-4D20-9CBA-5EA98706C57F}" />
+                    <condition 
+                      id="{F534DDB9-D2C7-44B5-AA28-3E03878F4A58}" 
+                      uid="D2A5A4EF3E8740FEA2DA062B03DCE6D4" 
+                      operatorid="{066602E2-ED1D-44C2-A698-7ED27FD3A2CC}" 
+                      TotalProductQuantity="0" />
+                  </and>
+                </conditions>
+                <actions>
+                  <action
+                    id="{7B578B65-BD2F-4C7C-9A24-DAE3E98B4F23}"
+                    uid="FD8A71208A9B4B8EB97ECA7F6E4A70CC"
+                    RenderingItem="{649A6719-B95B-4F33-9174-33AF31790B10}" />
+                  <action
+                    id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    uid="AC5F36C75F5B4883A530DCA8187FD060"
+                    DataSource="{98F1F4CE-EF17-46EE-BD6C-F8906484DD40}" />
+                </actions>
+              </rule>
+              <rule
+                name="Abandoned Checkout"
+                uid="{49E1BBCC-ADC6-461C-A23A-3700111F0A23}">
+                <conditions>
+                  <and 
+                    uid="40BFA9DDA677472BA8BEB14857760411">
+                    <condition 
+                      id="{BE334DF8-9A0F-4FF3-A6D8-C396EC713809}" 
+                      uid="C71C68330BD34311A09D13DEFFBB7866" 
+                      PageId="{2726CC07-8FA0-4F9A-9E89-12146A3FD372}" />
+                    <condition 
+                      id="{F534DDB9-D2C7-44B5-AA28-3E03878F4A58}" 
+                      uid="CB598FAEE6E540C0B7A70E30DA1D3C4E" 
+                      except="true" 
+                      operatorid="{066602E2-ED1D-44C2-A698-7ED27FD3A2CC}" 
+                      TotalProductQuantity="0" />
+                  </and>
+                </conditions>
+                <actions>
+                  <action
+                    id="{7B578B65-BD2F-4C7C-9A24-DAE3E98B4F23}"
+                    uid="93DBC6C3F4CC4F14962DBC0BE39DDEA7"
+                    RenderingItem="{649A6719-B95B-4F33-9174-33AF31790B10}" />
+                  <action
+                    id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    uid="204CE657F87A462C91E3713BA0433E78"
+                    DataSource="{B1A808E4-8EE7-48E0-B458-4332B144026C}" />
+                </actions>
+              </rule>
+              <rule
+                name="basket isn't empty"
+                uid="{64F192AC-568E-4B98-9E65-35E73DDC10E6}">
+                <conditions>
+                  <condition
+                    id="{F534DDB9-D2C7-44B5-AA28-3E03878F4A58}"
+                    uid="FA589893C5E64350B1BDB3A5CE48573B"
+                    except="true"
+                    operatorid="{066602E2-ED1D-44C2-A698-7ED27FD3A2CC}"
+                    TotalProductQuantity="0" />
+                </conditions>
+                <actions>
+                  <action
+                    id="{7B578B65-BD2F-4C7C-9A24-DAE3E98B4F23}"
+                    uid="002E12BA03024C8D8FFE178FF6300AE8"
+                    RenderingItem="{649A6719-B95B-4F33-9174-33AF31790B10}" />
+                  <action
+                    id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    uid="8C5258A37F6C4F9396F9AB37B270356A"
+                    DataSource="{541FDEC1-460B-4B26-8D50-92B5CC7CF4E3}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                name="Default">
+                <conditions>
+                  <condition
+                    id="{4888ABBB-F17D-4485-B14B-842413F88732}"
+                    uid="0EF7A21462474D97B013BA6CBA5C6653" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
         <r
           id="{AA92D865-76BA-4A80-ABD9-BC6E7CE83687}"
           ph="breadcrumb"
@@ -67,15 +161,8 @@ Languages:
           <d
             id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
             <r
-              uid="{0CB4F936-D411-4D6C-B048-181E9B8313A1}">
-              <p:d />
-            </r>
-            <r
               uid="{181FAF15-0FD0-418F-BD42-C0DDC263F082}"
-              p:before="r[@uid='{488D87DD-F566-4C06-AF19-0A052F93340F}']" />
-            <r
-              uid="{14E0474C-A7D6-4E58-BA5E-F16667157526}"
-              p:before="*[1=2]" />
+              p:after="*[1=2]" />
           </d>
         </r>
     - ID: "16efe389-3012-4244-bd53-87fe3f75c0a3"

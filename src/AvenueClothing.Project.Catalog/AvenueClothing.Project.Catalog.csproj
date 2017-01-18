@@ -48,6 +48,9 @@
       <HintPath>..\packages\uCommerce.Core.7.3.1.16343\lib\net400\paypal_base.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Sitecore.Analytics">
+      <HintPath>..\..\lib\Sitecore\8.2\Sitecore.Analytics.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.Kernel">
       <HintPath>..\..\lib\Sitecore\8.2\Sitecore.Kernel.dll</HintPath>
     </Reference>
@@ -132,6 +135,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CatalogImageCaruselController.cs" />
+    <Compile Include="Controllers\BannerMessageController.cs" />
     <Compile Include="Controllers\ProductDetailController.cs" />
     <Compile Include="Controllers\ProductPageController.cs" />
     <Compile Include="Controllers\ProductPrimaryImageController.cs" />
@@ -148,6 +152,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\FacetModelBinder.cs" />
     <Compile Include="ViewModels\CategoryImageViewModel.cs" />
+    <Compile Include="ViewModels\BannerMessageViewModel.cs" />
     <Compile Include="ViewModels\ProductDetailViewModel.cs" />
     <Compile Include="ViewModels\CatalogImageCaruselRenderingViewModel.cs" />
     <Compile Include="ViewModels\CategoryNavigationRenderingViewModel.cs" />
@@ -170,6 +175,7 @@
     <Content Include="Views\ProductTitle\Rendering.cshtml" />
     <Content Include="Views\ProductWellWithPickersAndButton\Rendering.cshtml" />
     <Content Include="Views\ProductPage\Rendering.cshtml" />
+    <Content Include="Views\BannerMessage\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jsPriceCalculation.js" />
