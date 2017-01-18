@@ -844,3 +844,11 @@ table thead tr th.span6 {
 .clearfix {
     clear: both;
 }
+
+.js-address-shippng, .js-address-billing{
+    flex: 1 100%;
+}
+.flex-contain{
+    display: flex; 
+    justify-content: space-between; 
+}
