@@ -138,6 +138,7 @@
     <Compile Include="Controllers\CommerceConnectBasketController.cs" />
     <Compile Include="Controllers\CommerceConnectAddToBasketButtonController.cs" />
     <Compile Include="Controllers\BasketPreviewController.cs" />
+    <Compile Include="Controllers\CommerceConnectPaymentPickerController.cs" />
     <Compile Include="Controllers\CommerceConnectShippingPickerController.cs" />
     <Compile Include="Controllers\ConfirmationController.cs" />
     <Compile Include="Controllers\CommerceConnectMiniBasketController.cs" />
@@ -186,6 +187,7 @@
     <Content Include="Scripts\jsMiniBasket.js" />
     <Content Include="Scripts\jsAddToBasketButton.js" />
     <Content Include="Views\ConfirmationEmail\Rendering.cshtml" />
+    <Content Include="Views\CommerceConnectPaymentPicker\Rendering.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jsPaymentPicker.js" />
