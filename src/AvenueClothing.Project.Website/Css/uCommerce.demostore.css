@@ -96,7 +96,7 @@ ul.nav.navbar-nav > li > div {
     border: 0 none;
 }
 
-#site-search {
+.site-search {
     font-size: 0.8rem;
 }
 
@@ -231,14 +231,14 @@ div.row.well {
 
 /* Common
 -------------------------------------------*/
-#search-form {
+.search-form {
     font-size: 0.8rem;
     display: inline-block;
     width: 33%;
     padding-left: 15px;
 }
 
-    #search-form .btn {
+    .search-form .btn {
         background-color: #fff;
         border: 1px solid #e2e2e2;
         border-left: 0;
@@ -246,49 +246,46 @@ div.row.well {
         margin-left: -5px;
     }
 
-        #search-form .btn > i {
+        .search-form .btn > i {
             opacity: 0.5;
             color: black;
         }
 
-#main-nav {
+.main-nav {
     padding: 5px 0 5px 0;
 }
 
-    #main-nav ul {
+    .main-nav ul {
         list-style-type: none;
         padding-left: 0px;
     }
 
-    #main-nav li {
+    .main-nav li {
         color: #767676;
         list-style-type: none;
     }
 
-        #main-nav li a {
+        .main-nav li a {
             color: #767676;
             padding: 5px 15px;
             text-shadow: none;
         }
 
-        #main-nav li ul li {
+        .main-nav li ul li {
             padding: 0px 15px;
         }
 
-    #main-nav .nav > li > a:hover {
+    .main-nav .nav > li > a:hover {
         text-decoration: underline;
         background-color: transparent;
     }
 
-    #main-nav li.on > a,
-    #main-nav .nav li.on > a:hover {
+    .main-nav li.on > a,
+    .main-nav .nav li.on > a:hover {
         color: #fff;
         background-color: #4a95c5;
         display: block;
     }
-
-.why-buy {
-}
 
     .why-buy ol {
         padding: 0;
@@ -543,10 +540,6 @@ label {
     width: 100%;
 }
 
-#uniqueVariants {
-    margin-bottom: 19px;
-}
-
 .tag-default {
     background-color: transparent;
 }
@@ -587,15 +580,6 @@ label {
         -webkit-appearance: none;
     }
 
-#mini-cart:hover {
-    text-decoration: none;
-    color: #005580;
-}
-
-#voucher-form {
-    margin-top: -191px;
-    padding-left: 0;
-}
 
 .address-line {
     line-height: 1.5rem;
