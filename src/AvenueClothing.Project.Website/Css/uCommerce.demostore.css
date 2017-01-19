@@ -855,3 +855,8 @@ table thead tr th.span6 {
     justify-content: space-between; 
     margin: 0 15px 0 15px;
 }
+
+.sign-up .form-control {
+    width: 79%;
+    float: left;
+}
