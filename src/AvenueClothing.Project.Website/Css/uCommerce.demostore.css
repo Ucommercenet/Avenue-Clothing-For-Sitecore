@@ -344,6 +344,11 @@ div.product.col-sm-4.col-md-4 {
     width: 100%;
 }
 
+@media (min-width: 0px) and (max-width: 767px) { 
+     .flex-contain {
+        flex-wrap: wrap;
+    }
+ }
 
 
 @media(min-width:768px) {
