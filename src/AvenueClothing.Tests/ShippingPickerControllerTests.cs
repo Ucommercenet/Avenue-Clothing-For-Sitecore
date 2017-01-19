@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using AvenueClothing.Project.Transaction.Controllers;
 using AvenueClothing.Project.Transaction.ViewModels;
 using NSubstitute;
-using Sitecore.ApplicationCenter.Applications;
-using Sitecore.Shell.Framework.Commands.Masters;
 using UCommerce;
 using UCommerce.EntitiesV2;
 using UCommerce.Transactions;
@@ -56,11 +49,10 @@ namespace AvenueClothing.Tests
 
             //Act
             var result = _controller.CreateShipment(shipping);
-            //var jsonResult = result as JsonResult;
        
             //Assert
             Assert.NotNull(shipping.SelectedShippingMethodId);
-            //Assert.NotNull(jsonResult);
+            Assert.NotNull(result);
 
             _transactionLibraryInternal.Received().ExecuteBasketPipeline();
             _transactionLibraryInternal.Received().CreateShipment(shipping.SelectedShippingMethodId, Constants.DefaultShipmentAddressName, true);

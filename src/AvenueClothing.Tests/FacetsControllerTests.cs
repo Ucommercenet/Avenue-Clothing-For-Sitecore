@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using NSubstitute;
 using UCommerce.Runtime;
 using UCommerce.Search;
 using AvenueClothing.Project.Catalog.Controllers;
 using AvenueClothing.Project.Catalog.ViewModels;
-using AvenueClothing.Project.Transaction.ViewModels;
 using UCommerce.EntitiesV2;
 using UCommerce.Search.Facets;
 using Xunit;

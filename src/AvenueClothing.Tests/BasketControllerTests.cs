@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using AvenueClothing.Project.Transaction.Controllers;
 using AvenueClothing.Project.Transaction.Services.Impl;
@@ -112,6 +108,8 @@ namespace AvenueClothing.Tests
             var result = _controller.UpdateBasket(model);
 
             // Assert
+            _transactionLibraryInternal.Received().UpdateLineItemByOrderLineId(0, 2);
+            _transactionLibraryInternal.Received().UpdateLineItemByOrderLineId(1, 1);
             _transactionLibraryInternal.Received().UpdateLineItemByOrderLineId(2, 0);
             _transactionLibraryInternal.Received().ExecuteBasketPipeline();
 

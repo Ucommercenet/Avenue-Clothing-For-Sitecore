@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 using AvenueClothing.Project.Transaction.Controllers;
 using AvenueClothing.Project.Transaction.ViewModels;
 using NSubstitute;
-using NSubstitute.Routing.AutoValues;
 using UCommerce.Catalog;
 using UCommerce.EntitiesV2;
 using UCommerce.Pipelines;

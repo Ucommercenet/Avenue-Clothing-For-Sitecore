@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using AvenueClothing.Project.Transaction.Controllers;
 using AvenueClothing.Project.Transaction.ViewModels;
@@ -31,7 +27,6 @@ namespace AvenueClothing.Tests
         public void Rendering_Returns_View_With_Valid_Model()
         {
             // Arrange
-            
             var purchaseOrder = Substitute.For<PurchaseOrder>();
             purchaseOrder.GetShippingAddress(Constants.DefaultShipmentAddressName).Returns(new OrderAddress()
             {
@@ -88,7 +83,7 @@ namespace AvenueClothing.Tests
 
             // Act
             var result = _controller.CreatePayment(viewModel);
-
+            
             // Assert
             _transactionLibraryInternal.Received().CreatePayment(viewModel.SelectedPaymentMethodId, -1m, false, true);
             _transactionLibraryInternal.Received().ExecuteBasketPipeline();
