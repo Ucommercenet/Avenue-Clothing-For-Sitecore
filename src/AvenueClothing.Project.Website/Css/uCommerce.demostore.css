@@ -347,6 +347,9 @@ div.product.col-sm-4.col-md-4 {
 
 
 @media(min-width:768px) {
+    .flex-contain {
+        flex-wrap: wrap;
+    }
     .product-list .product {
         margin-left: 5%;
     }
@@ -361,6 +364,16 @@ a.col-md-3 {
 }
 
 @media(min-width:1200px) {
+    .flex-contain {
+        flex-wrap: nowrap;
+    }
+
+    .js-address-billing{
+        padding-right: 2vw;    }
+
+    .js-address-shipping{
+        padding-left: 2vw;
+    }
     .product-list .product {
         margin-left: 5%;
     }
@@ -845,10 +858,11 @@ table thead tr th.span6 {
     clear: both;
 }
 
-.js-address-shippng, .js-address-billing{
+.js-address-shipping, .js-address-billing{
     flex: 1 100%;
 }
 .flex-contain{
     display: flex; 
     justify-content: space-between; 
+    margin: 0 15px 0 15px;
 }
