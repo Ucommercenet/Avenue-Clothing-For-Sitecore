@@ -51,7 +51,7 @@
                         if (data.ShippingUrl) {
                             window.location.href = data.ShippingUrl;
                         }
-                        if (data.modelStateErrors){
+                        if (data.modelStateErrors) {
                             var errors = data.modelStateErrors;
                             for (var i = 0; i < errors.length; i++) {
                                 var currentError = errors[i];
