@@ -12,35 +12,13 @@
 
     var toggleShippingAddress = function () {
         var value = $(this).is(":checked");
-        var windowWidth = $(window).width();
         var shippingAddress = $(classSelector).find(shippingClassSelector);
 
-
-        switch (value) {
-            case true:
-                if (windowWidth > 992) {
-                    $(shippingClassSelector).removeClass("col-md-12");
-                    $(shippingClassSelector).addClass("col-md-6");
-
-                    $(billingClassSelector).removeClass("col-md-12");
-                    $(billingClassSelector).addClass("col-md-6");
-                    shippingAddress.show();
-                } else {
-                    $(shippingClassSelector).addClass("col-md-12");
-                    $(shippingClassSelector).removeClass("col-md-6");
-                    shippingAddress.show();
-                }
-                break;
-            case false:
-                if (windowWidth > 992) {
-                    $(billingClassSelector).removeClass("col-md-6");
-                    $(billingClassSelector).addClass("col-md-12");
-                    shippingAddress.hide();
-                } else {
-                    
-                    shippingAddress.hide();
-                }
-                break;
+        if (value) {
+            shippingAddress.show();
+        }
+        else {
+            shippingAddress.hide();
         }
     };
 
