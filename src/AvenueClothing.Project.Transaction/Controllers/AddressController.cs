@@ -58,6 +58,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
             viewModel.AvailableCountries = _countries.ToList().Select(x => new SelectListItem() { Text = x.Name, Value = x.CountryId.ToString() }).ToList();
 
             viewModel.SaveAddressUrl = Url.Action("Save");
+
             return View(viewModel);
         }
 

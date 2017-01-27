@@ -66,7 +66,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 				var removeResult = cartService.RemoveShippingInfo(removeRequest);
 			}
 
-			var shippingParty = cart.Parties.FirstOrDefault(x => (string)x.Properties["Name"] == Constants.DefaultShipmentAddressName);
+			var shippingParty = cart.Parties.FirstOrDefault(x => x.PartyId == Constants.DefaultShipmentAddressName);
 			var shippingList = new List<ShippingInfo>
 			{
 				new ShippingInfo()
@@ -105,7 +105,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 		private ReadOnlyCollection<ShippingMethod> GetShippingMethods(ShippingOption shippingOption, Cart cart)
 		{
 			var shippingService = new ShippingServiceProvider();
-			var shippingParty = cart.Parties.FirstOrDefault(x => (string)x.Properties["Name"] == Constants.DefaultShipmentAddressName);
+			var shippingParty = cart.Parties.FirstOrDefault(x => x.PartyId == Constants.DefaultShipmentAddressName);
 			var party = cart.Parties.FirstOrDefault(x => x.PartyId == shippingParty.PartyId);
 
 			var request = new GetShippingMethodsRequest(shippingOption, party);
