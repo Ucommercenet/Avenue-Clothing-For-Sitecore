@@ -148,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Views\web.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AvenueClothing.Foundation.MvcExtensions\AvenueClothing.Foundation.MvcExtensions.csproj">

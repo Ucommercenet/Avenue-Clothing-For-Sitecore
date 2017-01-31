@@ -173,6 +173,7 @@
     <Content Include="Views\ProductTitle\Rendering.cshtml" />
     <Content Include="Views\ProductWellWithPickersAndButton\Rendering.cshtml" />
     <Content Include="Views\ProductPage\Rendering.cshtml" />
+    <Content Include="Views\web.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jsPriceCalculation.js" />
