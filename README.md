@@ -69,4 +69,18 @@ Clone [this](https://bitbucket.org/uCommerce/avenue-clothing-for-sitecore) repos
 
     3.3 The package will be put into the folder 'c:\tmp' and you can now use the package to install it on a sitecore + uCommerce environment through the  Sitecore package pages in the Sitecore backend.
 
+## Enable Commerce Connect APIs ##
+---
+
+1. Start with a fresh installation of Sitecore 8.x and a uCommerce version of 7.5.x. For a detailed guide on how to get Commerce Connect up and running with uCommerce, please refer to our article on Installing Commerce Connect. (http://docs.ucommerce.net/ucommerce/v7.3/sitecore/Commerce-Connect/Installation.html) 
+
+2. Switch to "The Commerce Connect Way" branch of this repository. 
+
+3. In the Deploy.To.Local.ps1 file, make sure that the Apis value in the $properties is set to "Apis" = "CommerceConnect" and that you modify the $WebsiteRoot to the path of your local environment.
+
+3.5. If you've been using the uCommerce APIs previously and you want to switch to Commerce Connect APIs, you need to do this step as well. In your local website, navigate to "{website root}\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Initialize" and remove the .default from "SynchronizeSitecoreItems.config.default" to make sure the configuration will be picked up at the next build. This extra task will recreate all the items in the store. After the first build, change its name back to .default.
+
+4. Build the solution and enjoy your accelerator with Commerce Connect!
+
+
 ## If you need assistance with an issue, you're more than welcome to contact us on our dedicated support forum: [Eureka!](http://eureka.ucommerce.net/#!/) ##
