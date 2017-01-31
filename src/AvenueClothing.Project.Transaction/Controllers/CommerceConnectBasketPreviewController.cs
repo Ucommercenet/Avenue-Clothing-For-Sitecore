@@ -26,12 +26,17 @@ namespace AvenueClothing.Project.Transaction.Controllers
 			
 			basketPreviewViewModel = MapPurchaseOrderToViewModel(purchaseOrder, cart, basketPreviewViewModel);
 
-			return View("/Views/BasketPreview/Rendering.cshtml", basketPreviewViewModel);
+			return View(basketPreviewViewModel);
 		}
 
 		[HttpPost]
 		public ActionResult RequestPayment()
 		{
+			//TODO: Use federated payments, this is a temporary fix.
+			var purchaseOrder = TransactionLibrary.GetBasket(false).PurchaseOrder;
+			var payment  = purchaseOrder.Payments.First();
+			payment.Amount = purchaseOrder.OrderTotal.Value;
+
 			TransactionLibrary.RequestPayments();
 			return Redirect("/confirmation");
 		}

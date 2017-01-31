@@ -80,6 +80,7 @@ namespace AvenueClothing.Project.Website
             services.AddTransient(p => ObjectFactory.Instance.Resolve<IRepository<PurchaseOrder>>());
             services.AddTransient(p => ObjectFactory.Instance.Resolve<IPipeline<ProductReview>>());
             services.AddTransient(p => Country.All());
+	        services.AddTransient(p => ObjectFactory.Instance.Resolve<IRepository<Country>>());
         }
 
         public void ConfigureControllerServices(IServiceCollection services)
