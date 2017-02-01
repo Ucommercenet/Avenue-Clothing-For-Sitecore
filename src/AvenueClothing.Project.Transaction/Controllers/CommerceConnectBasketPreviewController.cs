@@ -6,6 +6,7 @@ using Sitecore;
 using Sitecore.Commerce.Contacts;
 using Sitecore.Commerce.Entities.Carts;
 using Sitecore.Commerce.Services.Carts;
+using Sitecore.Commerce.Services.Orders;
 using UCommerce;
 using UCommerce.Api;
 using UCommerce.EntitiesV2;
@@ -36,9 +37,18 @@ namespace AvenueClothing.Project.Transaction.Controllers
 			var purchaseOrder = TransactionLibrary.GetBasket(false).PurchaseOrder;
 			var payment  = purchaseOrder.Payments.First();
 			payment.Amount = purchaseOrder.OrderTotal.Value;
+            payment.Save();
 
-			TransactionLibrary.RequestPayments();
-			return Redirect("/confirmation");
+
+            var cart = GetCart();
+
+            var orderService = new OrderServiceProvider();
+
+            var request = new SubmitVisitorOrderRequest(cart);
+
+            var result = orderService.SubmitVisitorOrder(request);
+            
+            return Redirect("/confirmation");
 		}
 
 		private BasketPreviewViewModel MapPurchaseOrderToViewModel(PurchaseOrder purchaseOrder, Cart cart, BasketPreviewViewModel basketPreviewViewModel)
