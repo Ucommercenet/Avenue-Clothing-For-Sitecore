@@ -41,13 +41,9 @@ namespace AvenueClothing.Project.Transaction.Controllers
 
 
             var cart = GetCart();
-
             var orderService = new OrderServiceProvider();
-
             var request = new SubmitVisitorOrderRequest(cart);
-
             var result = orderService.SubmitVisitorOrder(request);
-            
             return Redirect("/confirmation");
 		}
 
