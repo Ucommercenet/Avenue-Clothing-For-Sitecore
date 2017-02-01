@@ -255,6 +255,9 @@
     <Content Include="Views\Footer\Rendering.cshtml" />
     <Content Include="Views\Sidebar Static Content\Rendering.cshtml" />
     <Content Include="Views\Email.cshtml" />
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Views\Web.config.default" />
   </ItemGroup>
   <ItemGroup>

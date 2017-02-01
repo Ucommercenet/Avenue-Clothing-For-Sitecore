@@ -190,6 +190,9 @@
     <Content Include="Views\ConfirmationEmail\Rendering.cshtml" />
     <Content Include="Views\CommerceConnectPaymentPicker\Rendering.cshtml" />
     <Content Include="Views\CommerceConnectBasketPreview\Rendering.cshtml" />
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jsPaymentPicker.js" />
