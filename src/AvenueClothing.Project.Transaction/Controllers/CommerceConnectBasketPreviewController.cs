@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Transaction.ViewModels;
@@ -7,9 +8,12 @@ using Sitecore.Commerce.Contacts;
 using Sitecore.Commerce.Entities.Carts;
 using Sitecore.Commerce.Services.Carts;
 using Sitecore.Commerce.Services.Orders;
+using Sitecore.Commerce.Services.Payments;
 using UCommerce;
 using UCommerce.Api;
 using UCommerce.EntitiesV2;
+using UCommerce.Infrastructure;
+using UCommerce.Transactions.Payments;
 using Constants = UCommerce.Constants;
 
 namespace AvenueClothing.Project.Transaction.Controllers
@@ -33,18 +37,52 @@ namespace AvenueClothing.Project.Transaction.Controllers
 		[HttpPost]
 		public ActionResult RequestPayment()
 		{
-			//TODO: Use federated payments, this is a temporary fix.
-			var purchaseOrder = TransactionLibrary.GetBasket(false).PurchaseOrder;
-			var payment  = purchaseOrder.Payments.First();
-			payment.Amount = purchaseOrder.OrderTotal.Value;
-            payment.Save();
+			// If you are OK with calling a uCommerce API at this point, you can simply call:
 
+			// --- BEGIN uCommerce API.
+			
+			// TransactionLibrary.RequestPayments();
+			// return Redirect("/confirmation"); // This line is only required when using the DefaultPaymentMethod for the demo store.
 
-            var cart = GetCart();
-            var orderService = new OrderServiceProvider();
-            var request = new SubmitVisitorOrderRequest(cart);
-            var result = orderService.SubmitVisitorOrder(request);
-            return Redirect("/confirmation");
+			// --- END uCommerce API.
+
+			// If you want to use the FederatedPayment parts of Commerce Connect. This is what you need to do, to make it work
+			var cart = GetCart();
+
+			// For this demo store, it is assumed, that there is only one payment info associated with the order.
+
+			// 1. You need to get the payment service URL for the payment
+			var paymentService = new PaymentServiceProvider();
+			var baseUrl = HttpUtility.UrlDecode(paymentService.GetPaymentServiceUrl(new GetPaymentServiceUrlRequest()).Url) ?? string.Empty;
+
+			// 2. You then need to add the payment method id and the payment id to the Url returned from the service.
+			var paymentInfo = cart.Payment.First();
+			var completeUrl = string.Format(baseUrl, paymentInfo.PaymentMethodID, paymentInfo.ExternalId);
+
+			// 3. In an IFrame set the url to the url from step 2.
+			// Because this is a demo store, there is no actual payment gateway involved
+			// Therefore at this point we need to manually set the status of the payment to Authorized.
+			
+			// ONLY CALLED FOR DEMO PURPOSES
+			SetPaymentStatusToAuthorized(paymentInfo.ExternalId);
+
+			// Note: The steps below should not be placed here. They should be run when you get a signal from the Payment Gateway, that the transaction has been completed.
+			// Perhaps monitoring the status of the IFrame?????
+
+			// 4. When you believe that the transaction has been completed on the hosted page, you need to check if the payment is OK.
+			// In the uCommerce implementation of the Commerce Connect API, this is done by passing the payment id as the access code.
+			var actionResult = paymentService.GetPaymentServiceActionResult(new GetPaymentServiceActionResultRequest() { PaymentAcceptResultAccessCode = paymentInfo.ExternalId });
+			var paymentWasOk = actionResult.AuthorizationResult == "OK";
+
+			// 5. If the payment is OK, then you can Submit the Order. This corresponds to running the "Checkout" pipeline in uCommerce.
+			if (paymentWasOk)
+			{
+				var orderService = new OrderServiceProvider();
+				var request = new SubmitVisitorOrderRequest(cart);
+				orderService.SubmitVisitorOrder(request);
+			}
+
+			return Redirect("/confirmation");
 		}
 
 		private BasketPreviewViewModel MapPurchaseOrderToViewModel(PurchaseOrder purchaseOrder, Cart cart, BasketPreviewViewModel basketPreviewViewModel)
@@ -130,5 +168,17 @@ namespace AvenueClothing.Project.Transaction.Controllers
 
 			return cartServiceProvider.CreateOrResumeCart(createCartRequest).Cart;
 		}
+
+		private void SetPaymentStatusToAuthorized(string paymentInfoExternalId)
+		{
+			var paymentRepository = ObjectFactory.Instance.Resolve<IRepository<Payment>>();
+			var paymentStatusRepository = ObjectFactory.Instance.Resolve<IRepository<PaymentStatus>>();
+
+			var payment = paymentRepository.Get(int.Parse(paymentInfoExternalId));
+			var authorizedStatus = paymentStatusRepository.Get((int) PaymentStatusCode.Authorized);
+			payment.PaymentStatus = authorizedStatus;
+			payment.Save();
+		}
+
 	}
 }

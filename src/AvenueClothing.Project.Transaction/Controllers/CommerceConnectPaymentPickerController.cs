@@ -76,6 +76,10 @@ namespace AvenueClothing.Project.Transaction.Controllers
             var cartService = new CartServiceProvider();
             var cart = GetCart();
 
+			// First remove all the existing payment info's associated with the cart.
+	        var removeRequest = new RemovePaymentInfoRequest(cart, cart.Payment.ToList());
+	        cartService.RemovePaymentInfo(removeRequest);
+
             var paymentList = new List<PaymentInfo>
             {
                 new PaymentInfo()
@@ -85,7 +89,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
             };
 
             var addRequest = new AddPaymentInfoRequest(cart, paymentList);
-            var addResult = cartService.AddPaymentInfo(addRequest);
+            cartService.AddPaymentInfo(addRequest);
 
             return Redirect("/preview");
         }
