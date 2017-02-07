@@ -65,9 +65,19 @@ namespace AvenueClothing.Project.Transaction.Controllers
 			
 			// ONLY CALLED FOR DEMO PURPOSES
 			SetPaymentStatusToAuthorized(paymentInfo.ExternalId);
+			// You should redirect the IFrame to the "completeUrl".
 
-			// Note: The steps below should not be placed here. They should be run when you get a signal from the Payment Gateway, that the transaction has been completed.
-			// Perhaps monitoring the status of the IFrame?????
+			// If you have configured your payment method to run the Checkout pipeline,
+			// upon completion, then you do not need to do anything else.
+			// The uCommerce framework takes care of the rest.
+			// It checks that the transaction was authorized, and it redirects the customer to the accept url.
+			// So you are done!
+
+			// If you insist on doing the payment in the full Commerce Connect experience,
+			// you should configure the uCommerce payment method to not run any pipeline on completion.
+
+			// And in that case, you need to check that the payment was OK, and do the SubmitVisitorOrder calls yourself.
+			// These steps are described below.
 
 			// 4. When you believe that the transaction has been completed on the hosted page, you need to check if the payment is OK.
 			// In the uCommerce implementation of the Commerce Connect API, this is done by passing the payment id as the access code.
@@ -80,7 +90,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 				var orderService = new OrderServiceProvider();
 				var request = new SubmitVisitorOrderRequest(cart);
 				orderService.SubmitVisitorOrder(request);
-			}
+			} 
 
 			return Redirect("/confirmation");
 		}
