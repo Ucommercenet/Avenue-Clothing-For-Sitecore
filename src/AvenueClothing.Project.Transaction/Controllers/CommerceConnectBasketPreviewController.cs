@@ -71,6 +71,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 			// upon completion, then you do not need to do anything else.
 			// The uCommerce framework takes care of the rest.
 			// It checks that the transaction was authorized, and it redirects the customer to the accept url.
+			// And it calls the Commerce Connect. SubmitVisitorOrder pipeline.
 			// So you are done!
 
 			// If you insist on doing the payment in the full Commerce Connect experience,
