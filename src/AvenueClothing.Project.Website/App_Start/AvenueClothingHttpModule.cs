@@ -130,6 +130,10 @@ namespace AvenueClothing.Project.Website
             {
                 return Type.EmptyTypes;
             }
+            catch (TypeLoadException)
+            {
+                return Type.EmptyTypes;
+            }
             catch (ReflectionTypeLoadException ex)
             {
                 // Return the types that could be loaded. Types can contain null values.
