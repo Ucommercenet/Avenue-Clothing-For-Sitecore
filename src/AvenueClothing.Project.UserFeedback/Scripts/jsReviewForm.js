@@ -106,7 +106,7 @@
                     return false;
                 },
                 success: function (tag) {
-                    $(tag).closest('input').removeClass('error-custom');
+                    $(tag).siblings(".error-input").removeClass('error-input');
                 }
             });
             if ($reviewForm.valid()) {

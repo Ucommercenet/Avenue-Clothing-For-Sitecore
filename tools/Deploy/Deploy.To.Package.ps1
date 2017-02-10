@@ -2,14 +2,14 @@
 Param(
     [Parameter(Mandatory=$False)]
     [ValidateSet("Debug", "Release")]
-    [string]$Configuration = "Debug",
+    [string]$Configuration = "Release",
     
     [Parameter(Mandatory=$False)]
     [string]$Version = "current",
 
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory=$False)]
     [ValidateSet("True", "False")]
-    [string]$UpdateAssemblyInfo = "False"
+    [string]$UpdateAssemblyInfo = "True"
 )
 
 function Get-ScriptDirectory { 

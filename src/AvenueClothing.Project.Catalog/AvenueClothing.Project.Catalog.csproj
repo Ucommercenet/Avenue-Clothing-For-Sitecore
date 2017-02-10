@@ -124,6 +124,9 @@
       <HintPath>..\packages\uCommerce.Core.7.3.1.16343\lib\net400\UCommerce.Presentation.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="UCommerce.Sitecore">
+      <HintPath>..\..\lib\uCommerce\7.3.1\UCommerce.Sitecore.dll</HintPath>
+    </Reference>
     <Reference Include="UCommerce.Transactions.Payments, Version=7.3.1.16343, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\uCommerce.Core.7.3.1.16343\lib\net400\UCommerce.Transactions.Payments.dll</HintPath>
       <Private>True</Private>
