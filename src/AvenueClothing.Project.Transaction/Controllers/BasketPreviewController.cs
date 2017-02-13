@@ -50,7 +50,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 					Total = new Money(orderLine.Total.GetValueOrDefault(), orderLine.PurchaseOrder.BillingCurrency).ToString(),
 					Tax = new Money(orderLine.VAT, purchaseOrder.BillingCurrency).ToString(),
 					Price = new Money(orderLine.Price, purchaseOrder.BillingCurrency).ToString(),
-					PriceWithDiscount = new Money(orderLine.Price - orderLine.Discount, purchaseOrder.BillingCurrency).ToString(),
+					PriceWithDiscount = new Money(orderLine.Price - orderLine.UnitDiscount.GetValueOrDefault(), purchaseOrder.BillingCurrency).ToString(),
 					Quantity = orderLine.Quantity,
 					Discount = orderLine.Discount
 				};

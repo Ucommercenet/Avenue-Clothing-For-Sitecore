@@ -40,7 +40,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
                 orderLineViewModel.Tax = new Money(orderLine.VAT, basket.BillingCurrency).ToString();
                 orderLineViewModel.Price = new Money(orderLine.Price, basket.BillingCurrency).ToString();
                 orderLineViewModel.ProductUrl = CatalogLibrary.GetNiceUrlForProduct(CatalogLibrary.GetProduct(orderLine.Sku));
-                orderLineViewModel.PriceWithDiscount = new Money(orderLine.Price - orderLine.Discount, basket.BillingCurrency).ToString();
+                orderLineViewModel.PriceWithDiscount = new Money(orderLine.Price - orderLine.UnitDiscount.GetValueOrDefault(), basket.BillingCurrency).ToString();
                 orderLineViewModel.OrderLineId = orderLine.OrderLineId;
 
                 basketModel.OrderLines.Add(orderLineViewModel);
