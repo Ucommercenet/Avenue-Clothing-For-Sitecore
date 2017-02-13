@@ -18,7 +18,7 @@ Languages:
       Value: 20170117T121953Z
     - ID: "34dc4d2d-413d-4a28-abb9-e406814cf48b"
       Hint: Title
-      Value: Hey <first name>,
+      Value: Hey <first name>!
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -26,4 +26,4 @@ Languages:
     - ID: "fd006497-82ed-43b0-bb6a-8c572ac438e4"
       Hint: Message
       Value: |
-        Complete the checkout and get 10% discount by using the "demo" vourcher.
+        Complete the checkout and get 10% discount by using the "demo" voucher!
