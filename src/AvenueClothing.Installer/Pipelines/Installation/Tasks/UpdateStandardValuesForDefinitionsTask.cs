@@ -58,6 +58,7 @@ namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
                         <r id=""{58ECFFD3-2334-4405-B032-EE97F14B2556}"" ph=""main"" uid=""{949573C8-12C8-41C0-9DA8-62064A7F933A}"" />
                         <r ds="""" id=""{EBBE7524-3356-47AC-852A-8EE1DD93CAD6}"" par="""" ph=""header content"" uid=""{E932DB9C-60EC-46AE-95A0-7043A953EBFB}"" />
                         <r id=""{E5C76A34-378F-4808-957B-2C055AE08BCB}"" ph=""header content"" uid=""{F046DE0C-5CC8-4C6D-A921-5F9C5FB9BEA6}"" />
+                        <r id=""{F45E27B0-D4C0-4C0C-9CCC-CC9F5203F30D}"" ph=""footer"" uid=""{89271689-85DC-41B3-9C49-D704E59400FB}"" />
                     </d>
                 </r>";
 
