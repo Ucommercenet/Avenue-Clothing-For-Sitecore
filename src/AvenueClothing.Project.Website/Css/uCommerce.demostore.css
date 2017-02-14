@@ -446,6 +446,7 @@
         padding: 0 0 0 14px;
         border: 0 none;
         line-height: 33px;
+	    overflow: hidden;
     }
 
     .product-list .product .view-details span {
