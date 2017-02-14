@@ -41,13 +41,13 @@ task CopyBinariesToLocalFolder {
     
     #Handle installer project as library with another bin structure!
     if ($Configuration -eq "Debug") {
-        Copy-Item "$src\AvenueClothing.Installer\bin\Debug\AvenueClothing.Installer.dll" "$working_dir\bin" -Force
-        Copy-Item "$src\AvenueClothing.Installer\bin\Debug\AvenueClothing.Installer.pdb" "$working_dir\bin" -Force
+        Copy-Item "$src\AvenueClothing.Foundation.Installer\bin\Debug\AvenueClothing.Foundation.Installer.dll" "$working_dir\bin" -Force
+        Copy-Item "$src\AvenueClothing.Foundation.Installer\bin\Debug\AvenueClothing.Foundation.Installer.pdb" "$working_dir\bin" -Force
         Copy-Item "$src\AvenueClothing.Foundation.MvcExtensions\bin\Debug\AvenueClothing.Foundation.MvcExtensions.dll" "$working_dir\bin" -Force
         Copy-Item "$src\AvenueClothing.Foundation.MvcExtensions\bin\Debug\AvenueClothing.Foundation.MvcExtensions.pdb" "$working_dir\bin" -Force
     }
     else {
-        Copy-Item "$src\AvenueClothing.Installer\bin\Release\AvenueClothing.Installer.dll" "$working_dir\bin" -Force   
+        Copy-Item "$src\AvenueClothing.Foundation.Installer\bin\Release\AvenueClothing.Foundation.Installer.dll" "$working_dir\bin" -Force   
         Copy-Item "$src\AvenueClothing.Foundation.MvcExtensions\bin\Release\AvenueClothing.Foundation.MvcExtensions.dll" "$working_dir\bin" -Force   
     }
 
@@ -67,7 +67,7 @@ task CopyConfigurationLocal {
     if(!(Test-Path -Path "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Installation\")){
         New-Item -ItemType directory -Path "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Installation\"
     }
-    Copy-Item "$src\AvenueClothing.Installer\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\*" "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\" -Recurse -Force
+    Copy-Item "$src\AvenueClothing.Foundation.Installer\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\*" "$working_dir\sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\" -Recurse -Force
 }
 
 
