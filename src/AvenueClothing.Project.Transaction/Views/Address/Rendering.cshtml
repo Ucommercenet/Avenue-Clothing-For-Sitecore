@@ -71,7 +71,7 @@
 
                 <div class="col-md-6 no-vertical-margin control-group form-group">
                     <label>City</label>
-                    @Html.TextBoxFor(x => x.BillingAddress.City, new { @class = "form-control margin-bottom" })
+                    @Html.TextBoxFor(x => x.BillingAddress.City, new { @class = "form-control required margin-bottom" })
                     <label class="error-custom BillingAddressCity"></label>
                 </div>
             </div>
@@ -115,7 +115,7 @@
             <div class="row">
                 <div class="col-md-6 no-vertical-margin control-group form-group">
                     <label>E-mail</label>
-                    @Html.TextBoxFor(x => x.ShippingAddress.EmailAddress, new { @class = "col-md-12 form-control required email margin-bottom" })
+                    @Html.TextBoxFor(x => x.ShippingAddress.EmailAddress, new { @class = "col-md-12 form-control required margin-bottom" })
                     <label class="error-custom ShippingAddressEmailAddress"></label>
                 </div>
                 <div class="col-md-6 no-vertical-margin control-group form-group">

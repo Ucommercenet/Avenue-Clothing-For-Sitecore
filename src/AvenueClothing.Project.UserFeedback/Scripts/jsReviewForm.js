@@ -87,6 +87,18 @@
     var submitReviewUrl = $('[data-submit-url]').data('submit-url');
     var $reviewForm = $(classSelector);
 
+    function resetReviewForm() {
+        $reviewForm[0].reset();
+        var _radios = config.$rootSelector.find(classSelector);
+
+        $('label', _radios).each(function () {
+            var t = $(this);
+            setStarHoverOutState($('i', t));
+            t.removeClass('selected');
+            selected = null;
+        });
+    }
+
     jsReviewForm.init = function () {
         wireupRatings(config.$rootSelector.find(classSelector));
 
@@ -127,10 +139,9 @@
                     },
                     success: function (data) {
                         config.$triggerEventSelector.trigger("review-added", data);
-
+                        resetReviewForm();
                     }
                 });
-                $reviewForm[0].reset();
             };
         });
 

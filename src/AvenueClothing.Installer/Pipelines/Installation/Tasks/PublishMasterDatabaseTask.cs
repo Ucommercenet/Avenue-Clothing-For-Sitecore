@@ -21,10 +21,12 @@ namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
             var masterDatabase = Factory.GetDatabase("master");
 
             var item = masterDatabase.GetItem(ID.Parse("11111111-1111-1111-1111-111111111111"));
+            var homeItem = masterDatabase.GetItem("/sitecore/content/home");
 
             try
             {
                 PublishItem(item, masterDatabase, loggingService);
+                homeItem.Recycle();
             }
             catch (Exception ex)
             {

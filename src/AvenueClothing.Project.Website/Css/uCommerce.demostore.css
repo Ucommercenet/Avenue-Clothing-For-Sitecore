@@ -822,6 +822,18 @@ table thead tr th.span6 {
     display: inline-block;
 }
 
+button.btn.btn-success:focus,
+button.btn.btn-secondary:focus,
+button.btn-none:focus,
+input.btn.btn-success:focus,
+a.btn.btn-secondary:focus,
+a.btn.btn-primary.btn-uCommerce:focus,
+input.sign-up-submit.btn.btn-secondary:focus,
+button.btn.btn-link.btn-search:focus
+ {
+    outline: 0;
+}
+
 .btn.btn-success:hover {
     color: #fff;
     background-color: #449d44;

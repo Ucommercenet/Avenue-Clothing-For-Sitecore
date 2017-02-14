@@ -38,6 +38,7 @@ namespace AvenueClothing.Project.Transaction.ViewModels
 
             [Required(ErrorMessage = "Postal code is required")]
             public string PostalCode { get; set; }
+
             [Required(ErrorMessage = "City is required")]
             public string City { get; set; }
 			public string State { get; set; }
