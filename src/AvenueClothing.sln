@@ -35,7 +35,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Feature.User
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Foundation.Installer", "AvenueClothing.Foundation.Installer\AvenueClothing.Foundation.Installer.csproj", "{FEF1E765-A680-4A5F-93BC-3E2BA183FC73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Tests", "AvenueClothing.Project.Tests\AvenueClothing.Tests.csproj", "{1D685E2A-96DE-48B0-913A-1FEA7F0B4609}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Feature.Tests", "AvenueClothing.Project.Tests\AvenueClothing.Feature.Tests.csproj", "{1D685E2A-96DE-48B0-913A-1FEA7F0B4609}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
