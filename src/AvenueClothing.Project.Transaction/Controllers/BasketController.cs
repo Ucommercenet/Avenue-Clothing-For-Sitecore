@@ -24,9 +24,15 @@ namespace AvenueClothing.Project.Transaction.Controllers
 
         public ActionResult Rendering()
         {
-            PurchaseOrder basket = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
-            var basketModel = new BasketRenderingViewModel();
+			var basketModel = new BasketRenderingViewModel();
 
+	        if (!_transactionLibraryInternal.HasBasket())
+	        {
+				return View(basketModel);
+	        }
+
+            PurchaseOrder basket = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
+            
             foreach (var orderLine in basket.OrderLines)
             {
                 var orderLineViewModel = new BasketRenderingViewModel.OrderlineViewModel();
