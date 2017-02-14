@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
 
-namespace AvenueClothing.Project.Header.Controllers
+namespace AvenueClothing.Project.Website.Controllers
 {
     public class HeaderController : BaseController
     {

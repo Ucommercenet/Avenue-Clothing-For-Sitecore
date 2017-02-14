@@ -7,7 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Project.Webs
 	ProjectSection(ProjectDependencies) = postProject
 		{1D685E2A-96DE-48B0-913A-1FEA7F0B4609} = {1D685E2A-96DE-48B0-913A-1FEA7F0B4609}
 		{FEF1E765-A680-4A5F-93BC-3E2BA183FC73} = {FEF1E765-A680-4A5F-93BC-3E2BA183FC73}
-		{E3D4ED85-337F-4489-A197-289375D3D1E8} = {E3D4ED85-337F-4489-A197-289375D3D1E8}
 		{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2} = {5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}
 		{FB136DD8-B0C0-41FD-9585-E3C7A1A3F33D} = {FB136DD8-B0C0-41FD-9585-E3C7A1A3F33D}
 		{1DC266FC-7ABA-4B60-B72D-B416845B93DF} = {1DC266FC-7ABA-4B60-B72D-B416845B93DF}
@@ -18,27 +17,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deploy", "deploy", "{1797BC
 		..\tools\Deploy\Deploy.To.Local.ps1 = ..\tools\Deploy\Deploy.To.Local.ps1
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Tests", "AvenueClothing.Tests\AvenueClothing.Tests.csproj", "{1D685E2A-96DE-48B0-913A-1FEA7F0B4609}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Feature.Navigation", "AvenueClothing.Project.Navigation\AvenueClothing.Feature.Navigation.csproj", "{1DC266FC-7ABA-4B60-B72D-B416845B93DF}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Foundation.MvcExtensions", "AvenueClothing.Foundation.MvcExtensions\AvenueClothing.Foundation.MvcExtensions.csproj", "{F2BAB86C-44DB-446C-A995-03A33C98855D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Feature.UserFeedback", "AvenueClothing.Project.UserFeedback\AvenueClothing.Feature.UserFeedback.csproj", "{FB136DD8-B0C0-41FD-9585-E3C7A1A3F33D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Feature.Transaction", "AvenueClothing.Project.Transaction\AvenueClothing.Feature.Transaction.csproj", "{267EA69C-3F72-4F2C-B46E-CA229D71546F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Feature.Header", "AvenueClothing.Project.Header\AvenueClothing.Feature.Header.csproj", "{E3D4ED85-337F-4489-A197-289375D3D1E8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Feature.Catalog", "AvenueClothing.Project.Catalog\AvenueClothing.Feature.Catalog.csproj", "{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Foundation.Installer", "AvenueClothing.Installer\AvenueClothing.Foundation.Installer.csproj", "{FEF1E765-A680-4A5F-93BC-3E2BA183FC73}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{69AE946C-082F-4BDB-9654-AE9779A35FB8}"
 	ProjectSection(SolutionItems) = preProject
 		scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config = scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config
 		scripts\Serialization\App_Config\Include\AvenueClothing.Sites.config = scripts\Serialization\App_Config\Include\AvenueClothing.Sites.config
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Feature.Catalog", "AvenueClothing.Feature.Catalog\AvenueClothing.Feature.Catalog.csproj", "{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Feature.Navigation", "AvenueClothing.Feature.Navigation\AvenueClothing.Feature.Navigation.csproj", "{1DC266FC-7ABA-4B60-B72D-B416845B93DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Feature.Transaction", "AvenueClothing.Feature.Transaction\AvenueClothing.Feature.Transaction.csproj", "{267EA69C-3F72-4F2C-B46E-CA229D71546F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Feature.UserFeedback", "AvenueClothing.Feature.UserFeedback\AvenueClothing.Feature.UserFeedback.csproj", "{FB136DD8-B0C0-41FD-9585-E3C7A1A3F33D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Foundation.Installer", "AvenueClothing.Foundation.Installer\AvenueClothing.Foundation.Installer.csproj", "{FEF1E765-A680-4A5F-93BC-3E2BA183FC73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Tests", "AvenueClothing.Project.Tests\AvenueClothing.Tests.csproj", "{1D685E2A-96DE-48B0-913A-1FEA7F0B4609}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,38 +47,34 @@ Global
 		{F18EC679-469A-4BC0-B845-F6A6698A8344}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F18EC679-469A-4BC0-B845-F6A6698A8344}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F18EC679-469A-4BC0-B845-F6A6698A8344}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1D685E2A-96DE-48B0-913A-1FEA7F0B4609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1D685E2A-96DE-48B0-913A-1FEA7F0B4609}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1D685E2A-96DE-48B0-913A-1FEA7F0B4609}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1D685E2A-96DE-48B0-913A-1FEA7F0B4609}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1DC266FC-7ABA-4B60-B72D-B416845B93DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1DC266FC-7ABA-4B60-B72D-B416845B93DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1DC266FC-7ABA-4B60-B72D-B416845B93DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1DC266FC-7ABA-4B60-B72D-B416845B93DF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F2BAB86C-44DB-446C-A995-03A33C98855D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F2BAB86C-44DB-446C-A995-03A33C98855D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2BAB86C-44DB-446C-A995-03A33C98855D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2BAB86C-44DB-446C-A995-03A33C98855D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FB136DD8-B0C0-41FD-9585-E3C7A1A3F33D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FB136DD8-B0C0-41FD-9585-E3C7A1A3F33D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FB136DD8-B0C0-41FD-9585-E3C7A1A3F33D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FB136DD8-B0C0-41FD-9585-E3C7A1A3F33D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{267EA69C-3F72-4F2C-B46E-CA229D71546F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{267EA69C-3F72-4F2C-B46E-CA229D71546F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{267EA69C-3F72-4F2C-B46E-CA229D71546F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{267EA69C-3F72-4F2C-B46E-CA229D71546F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E3D4ED85-337F-4489-A197-289375D3D1E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E3D4ED85-337F-4489-A197-289375D3D1E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E3D4ED85-337F-4489-A197-289375D3D1E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E3D4ED85-337F-4489-A197-289375D3D1E8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DC266FC-7ABA-4B60-B72D-B416845B93DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DC266FC-7ABA-4B60-B72D-B416845B93DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DC266FC-7ABA-4B60-B72D-B416845B93DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DC266FC-7ABA-4B60-B72D-B416845B93DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{267EA69C-3F72-4F2C-B46E-CA229D71546F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{267EA69C-3F72-4F2C-B46E-CA229D71546F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{267EA69C-3F72-4F2C-B46E-CA229D71546F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{267EA69C-3F72-4F2C-B46E-CA229D71546F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB136DD8-B0C0-41FD-9585-E3C7A1A3F33D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB136DD8-B0C0-41FD-9585-E3C7A1A3F33D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB136DD8-B0C0-41FD-9585-E3C7A1A3F33D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB136DD8-B0C0-41FD-9585-E3C7A1A3F33D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FEF1E765-A680-4A5F-93BC-3E2BA183FC73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FEF1E765-A680-4A5F-93BC-3E2BA183FC73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEF1E765-A680-4A5F-93BC-3E2BA183FC73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEF1E765-A680-4A5F-93BC-3E2BA183FC73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D685E2A-96DE-48B0-913A-1FEA7F0B4609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D685E2A-96DE-48B0-913A-1FEA7F0B4609}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D685E2A-96DE-48B0-913A-1FEA7F0B4609}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D685E2A-96DE-48B0-913A-1FEA7F0B4609}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

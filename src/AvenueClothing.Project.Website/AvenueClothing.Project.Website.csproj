@@ -256,6 +256,7 @@
     <Content Include="Views\Sidebar Static Content\Rendering.cshtml" />
     <Content Include="Views\Email.cshtml" />
     <Content Include="Views\web.config" />
+    <Content Include="Views\Header\Rendering.cshtml" />
     <None Include="Views\Web.config.default" />
   </ItemGroup>
   <ItemGroup>
@@ -263,6 +264,7 @@
     <Compile Include="App_Start\AvenueClothingStartup.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\FooterController.cs" />
+    <Compile Include="Controllers\HeaderController.cs" />
     <Compile Include="Extensions\ServiceProviderDependencyResolver.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -270,13 +272,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AvenueClothing.Feature.Transaction\AvenueClothing.Feature.Transaction.csproj">
+      <Project>{267ea69c-3f72-4f2c-b46e-ca229d71546f}</Project>
+      <Name>AvenueClothing.Feature.Transaction</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AvenueClothing.Foundation.MvcExtensions\AvenueClothing.Foundation.MvcExtensions.csproj">
       <Project>{F2BAB86C-44DB-446C-A995-03A33C98855D}</Project>
       <Name>AvenueClothing.Foundation.MvcExtensions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AvenueClothing.Project.Transaction\AvenueClothing.Feature.Transaction.csproj">
-      <Project>{267ea69c-3f72-4f2c-b46e-ca229d71546f}</Project>
-      <Name>AvenueClothing.Feature.Transaction</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
