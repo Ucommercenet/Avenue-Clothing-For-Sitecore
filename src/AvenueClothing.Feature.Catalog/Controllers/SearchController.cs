@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using AvenueClothing.Project.Catalog.ViewModels;
 using AvenueClothing.Foundation.MvcExtensions;
+using AvenueClothing.Feature.Catalog.ViewModels;
 using Sitecore.Mvc.Presentation;
 using UCommerce.EntitiesV2;
 
-namespace AvenueClothing.Project.Catalog.Controllers
+namespace AvenueClothing.Feature.Catalog.Controllers
 {
 	public class SearchController : BaseController
     {

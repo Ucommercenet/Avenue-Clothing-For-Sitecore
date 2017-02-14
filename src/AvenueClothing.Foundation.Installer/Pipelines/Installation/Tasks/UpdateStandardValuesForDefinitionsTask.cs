@@ -9,7 +9,7 @@ using UCommerce.Infrastructure;
 using UCommerce.Pipelines;
 using UCommerce.Sitecore.Entities;
 
-namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
+namespace AvenueClothing.Foundation.Installer.Pipelines.Installation.Tasks
 {
     public class UpdateStandardValuesForDefinitionsTask : IPipelineTask<InstallationPipelineArgs>
     {

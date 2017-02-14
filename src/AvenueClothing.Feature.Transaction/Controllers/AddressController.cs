@@ -4,10 +4,10 @@ using System.Web.Mvc;
 using UCommerce.EntitiesV2;
 using UCommerce.Transactions;
 using AvenueClothing.Foundation.MvcExtensions;
-using AvenueClothing.Project.Transaction.ViewModels;
+using AvenueClothing.Feature.Transaction.ViewModels;
 using Constants = UCommerce.Constants;
 
-namespace AvenueClothing.Project.Transaction.Controllers
+namespace AvenueClothing.Feature.Transaction.Controllers
 {
     public class AddressController : BaseController
     {

@@ -4,7 +4,7 @@ using UCommerce.Infrastructure;
 using UCommerce.Pipelines;
 using UCommerce.Search.Indexers;
 
-namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
+namespace AvenueClothing.Foundation.Installer.Pipelines.Installation.Tasks
 {
     public class RunScratchIndexerTask : IPipelineTask<InstallationPipelineArgs>
     {

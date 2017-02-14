@@ -5,7 +5,7 @@ using Unicorn.Configuration;
 using Unicorn.Logging;
 using Unicorn.Predicates;
 
-namespace AvenueClothing.Installer.Services
+namespace AvenueClothing.Foundation.Installer.Services
 {
 	public class SynchronizeSitecoreService
 	{

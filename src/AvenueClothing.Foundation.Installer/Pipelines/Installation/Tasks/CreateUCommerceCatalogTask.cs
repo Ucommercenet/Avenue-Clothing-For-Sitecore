@@ -1,9 +1,9 @@
 ﻿using System.Collections.Specialized;
-using AvenueClothing.Installer.Helpers;
+using AvenueClothing.Foundation.Installer.Helpers;
 using Sitecore.Install.Framework;
 using UCommerce.Pipelines;
 
-namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
+namespace AvenueClothing.Foundation.Installer.Pipelines.Installation.Tasks
 {
     public class CreateUCommerceCatalogTask : IPipelineTask<InstallationPipelineArgs>
     {

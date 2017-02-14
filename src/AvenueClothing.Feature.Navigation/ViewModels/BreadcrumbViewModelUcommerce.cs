@@ -1,4 +1,4 @@
-﻿namespace AvenueClothing.Project.Navigation.ViewModels
+﻿namespace AvenueClothing.Feature.Navigation.ViewModels
 {
     public class BreadcrumbViewModelUcommerce
     {

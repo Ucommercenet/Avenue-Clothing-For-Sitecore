@@ -1,7 +1,7 @@
-﻿using AvenueClothing.Installer.Services;
+﻿using AvenueClothing.Foundation.Installer.Services;
 using UCommerce.Pipelines;
 
-namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
+namespace AvenueClothing.Foundation.Installer.Pipelines.Installation.Tasks
 {
 	public class SynchronizeSitecoreItemsTask : IPipelineTask<InstallationPipelineArgs>
 	{

@@ -3,7 +3,7 @@
 		<component
       id="AvenueClothing.Initialize.SynchronizeSitecoreItems"
       service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.Pipelines.Initialization.InitializeArgs, UCommerce.Pipelines]], UCommerce"
-      type="AvenueClothing.Installer.Pipelines.Initialize.SynchronizeSitecoreItemsTask, AvenueClothing.Installer" />
+      type="AvenueClothing.Foundation.Installer.Pipelines.Initialize.SynchronizeSitecoreItemsTask, AvenueClothing.Foundation.Installer" />
 
 		<partial-component id="Initialize">
 			<parameters>

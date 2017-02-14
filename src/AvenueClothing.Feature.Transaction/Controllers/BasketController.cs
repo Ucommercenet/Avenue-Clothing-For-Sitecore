@@ -3,14 +3,14 @@ using System.Linq;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using AvenueClothing.Foundation.MvcExtensions;
-using AvenueClothing.Project.Transaction.Services;
-using AvenueClothing.Project.Transaction.ViewModels;
+using AvenueClothing.Feature.Transaction.Services;
+using AvenueClothing.Feature.Transaction.ViewModels;
 using UCommerce;
 using UCommerce.Api;
 using UCommerce.EntitiesV2;
 using UCommerce.Transactions;
 
-namespace AvenueClothing.Project.Transaction.Controllers
+namespace AvenueClothing.Feature.Transaction.Controllers
 {
     public class BasketController : BaseController
     {

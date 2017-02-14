@@ -1,9 +1,9 @@
 ﻿using System.Linq;
-using AvenueClothing.Project.Transaction.ViewModels;
+using AvenueClothing.Feature.Transaction.ViewModels;
 using UCommerce;
 using UCommerce.Transactions;
 
-namespace AvenueClothing.Project.Transaction.Services.Impl
+namespace AvenueClothing.Feature.Transaction.Services.Impl
 {
 	public class MiniBasketService : IMiniBasketService
 	{

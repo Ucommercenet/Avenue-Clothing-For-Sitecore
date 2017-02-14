@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UCommerce.Infrastructure.Logging;
 using UCommerce.Pipelines;
 
-namespace AvenueClothing.Installer.Pipelines.Installation
+namespace AvenueClothing.Foundation.Installer.Pipelines.Installation
 {
     public class InstallationPipelineArgs
     {

@@ -9,7 +9,7 @@ using UCommerce.Infrastructure;
 using UCommerce.Infrastructure.Logging;
 using UCommerce.Pipelines;
 
-namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
+namespace AvenueClothing.Foundation.Installer.Pipelines.Installation.Tasks
 {
     public class PublishMasterDatabaseTask : IPipelineTask<InstallationPipelineArgs>
     {

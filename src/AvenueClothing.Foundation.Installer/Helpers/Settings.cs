@@ -9,7 +9,7 @@ using UCommerce.Infrastructure;
 using UCommerce.Infrastructure.Globalization;
 using UCommerce.Security;
 
-namespace AvenueClothing.Installer.Helpers
+namespace AvenueClothing.Foundation.Installer.Helpers
 {
     public class Settings
     {

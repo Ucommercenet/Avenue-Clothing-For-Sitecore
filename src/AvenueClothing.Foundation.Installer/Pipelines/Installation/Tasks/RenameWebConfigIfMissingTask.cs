@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Web.Hosting;
 using UCommerce.Pipelines;
 
-namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
+namespace AvenueClothing.Foundation.Installer.Pipelines.Installation.Tasks
 {
     public class RenameWebConfigIfMissingTask : IPipelineTask<InstallationPipelineArgs>
     {

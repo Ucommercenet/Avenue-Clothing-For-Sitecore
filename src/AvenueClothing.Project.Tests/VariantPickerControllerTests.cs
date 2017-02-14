@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
-using AvenueClothing.Project.Transaction.Controllers;
-using AvenueClothing.Project.Transaction.ViewModels;
+using AvenueClothing.Feature.Transaction.Controllers;
+using AvenueClothing.Feature.Transaction.ViewModels;
 using NSubstitute;
 using UCommerce.Catalog;
 using UCommerce.EntitiesV2;
@@ -10,7 +10,7 @@ using UCommerce.Pipelines.GetProduct;
 using UCommerce.Runtime;
 using Xunit;
 
-namespace AvenueClothing.Tests
+namespace AvenueClothing.Feature.Tests
 {
     public class VariantPickerControllerTests
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
-using AvenueClothing.Project.Transaction.ViewModels;
+using AvenueClothing.Feature.Transaction.ViewModels;
 using Sitecore.Collections;
 using Sitecore.Mvc.Extensions;
 using UCommerce.Api;
@@ -15,7 +15,7 @@ using UCommerce.Pipelines;
 using UCommerce.Pipelines.GetProduct;
 using UCommerce.Runtime;
 
-namespace AvenueClothing.Project.Transaction.Controllers
+namespace AvenueClothing.Feature.Transaction.Controllers
 {
     public class VariantPickerController : BaseController
     {

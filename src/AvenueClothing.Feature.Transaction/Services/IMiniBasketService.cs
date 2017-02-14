@@ -1,6 +1,6 @@
-﻿using AvenueClothing.Project.Transaction.ViewModels;
+﻿using AvenueClothing.Feature.Transaction.ViewModels;
 
-namespace AvenueClothing.Project.Transaction.Services
+namespace AvenueClothing.Feature.Transaction.Services
 {
 	public interface IMiniBasketService
 	{

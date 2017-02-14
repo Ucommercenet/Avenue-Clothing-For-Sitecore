@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Web.Mvc;
-using AvenueClothing.Project.Catalog.Controllers;
-using AvenueClothing.Project.Catalog.ViewModels;
+using AvenueClothing.Feature.Catalog.Controllers;
+using AvenueClothing.Feature.Catalog.ViewModels;
 using NSubstitute;
 using UCommerce.Catalog;
 using UCommerce.EntitiesV2;
 using UCommerce.Runtime;
 using Xunit;
 
-namespace AvenueClothing.Tests
+namespace AvenueClothing.Feature.Tests
 {
     public class ProductPriceControllerTests
     {

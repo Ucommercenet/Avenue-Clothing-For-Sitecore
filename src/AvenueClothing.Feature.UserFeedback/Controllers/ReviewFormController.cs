@@ -3,13 +3,13 @@ using System.Linq;
 using System.Security.Policy;
 using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
-using AvenueClothing.Project.UserFeedback.ViewModels;
+using AvenueClothing.Feature.UserFeedback.ViewModels;
 using Sitecore.Mvc.Presentation;
 using UCommerce.EntitiesV2;
 using UCommerce.Pipelines;
 using UCommerce.Runtime;
 
-namespace AvenueClothing.Project.UserFeedback.Controllers
+namespace AvenueClothing.Feature.UserFeedback.Controllers
 {
 	public class ReviewFormController : BaseController
     {

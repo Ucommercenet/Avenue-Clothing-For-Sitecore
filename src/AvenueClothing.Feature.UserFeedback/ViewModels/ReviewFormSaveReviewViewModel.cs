@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AvenueClothing.Project.UserFeedback.ViewModels { 
+namespace AvenueClothing.Feature.UserFeedback.ViewModels { 
     public class ReviewFormSaveReviewViewModel
     {
         public string ProductGuid { get; set; }

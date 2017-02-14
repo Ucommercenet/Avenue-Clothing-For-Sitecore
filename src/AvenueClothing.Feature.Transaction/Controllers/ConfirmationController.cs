@@ -1,13 +1,13 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
-using AvenueClothing.Project.Transaction.ViewModels;
+using AvenueClothing.Feature.Transaction.ViewModels;
 using Sitecore.Data.Fields;
 using Sitecore.Mvc.Presentation;
 using Sitecore.Shell.Applications.ContentEditor;
 using Sitecore.Web.UI.WebControls;
 
-namespace AvenueClothing.Project.Transaction.Controllers
+namespace AvenueClothing.Feature.Transaction.Controllers
 {
 	public class ConfirmationController : BaseController
 	{

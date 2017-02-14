@@ -1,12 +1,12 @@
 ﻿using System.Web.Mvc;
-using AvenueClothing.Project.Transaction.Controllers;
-using AvenueClothing.Project.Transaction.ViewModels;
+using AvenueClothing.Feature.Transaction.Controllers;
+using AvenueClothing.Feature.Transaction.ViewModels;
 using NSubstitute;
 using UCommerce.Marketing;
 using UCommerce.Transactions;
 using Xunit;
 
-namespace AvenueClothing.Tests
+namespace AvenueClothing.Feature.Tests
 {
     public class VoucherControllerTests
     {

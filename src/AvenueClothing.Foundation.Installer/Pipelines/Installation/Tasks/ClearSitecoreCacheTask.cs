@@ -4,7 +4,7 @@ using Sitecore.Configuration;
 using Sitecore.Install.Framework;
 using UCommerce.Pipelines;
 
-namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
+namespace AvenueClothing.Foundation.Installer.Pipelines.Installation.Tasks
 {
     public class ClearSitecoreCacheTask : IPipelineTask<InstallationPipelineArgs>
     {

@@ -2,11 +2,11 @@
 using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
-using AvenueClothing.Project.Transaction.ViewModels;
+using AvenueClothing.Feature.Transaction.ViewModels;
 using UCommerce;
 using UCommerce.Transactions;
 
-namespace AvenueClothing.Project.Transaction.Controllers
+namespace AvenueClothing.Feature.Transaction.Controllers
 {
 	public class ShippingPickerController : BaseController
 	{

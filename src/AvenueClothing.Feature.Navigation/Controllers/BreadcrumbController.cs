@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using AvenueClothing.Project.Navigation.ViewModels;
+using AvenueClothing.Feature.Navigation.ViewModels;
 using AvenueClothing.Foundation.MvcExtensions;
 using Sitecore.Data.Items;
 using Sitecore.Links;
@@ -10,7 +10,7 @@ using UCommerce.EntitiesV2;
 using UCommerce.Extensions;
 using UCommerce.Runtime;
 
-namespace AvenueClothing.Project.Navigation.Controllers
+namespace AvenueClothing.Feature.Navigation.Controllers
 {
     public class BreadcrumbController : BaseController
     {

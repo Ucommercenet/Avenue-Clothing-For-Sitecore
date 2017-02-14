@@ -2,7 +2,7 @@
 using System.Collections.Specialized;
 using Sitecore.Install.Framework;
 
-namespace AvenueClothing.Installer.Postinstallation
+namespace AvenueClothing.Foundation.Installer.Postinstallation
 {
     public class PostInstallation : IPostStep
     {

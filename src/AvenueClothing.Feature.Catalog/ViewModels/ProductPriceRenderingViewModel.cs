@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AvenueClothing.Project.Catalog.ViewModels
+namespace AvenueClothing.Feature.Catalog.ViewModels
 {
     public class ProductPriceRenderingViewModel
     {

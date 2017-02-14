@@ -5,7 +5,7 @@ using System.Web.Hosting;
 using Sitecore.Install.Framework;
 using UCommerce.Pipelines;
 
-namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
+namespace AvenueClothing.Foundation.Installer.Pipelines.Installation.Tasks
 {
     public class MoveSitecoreConfigurationFilesTask : IPipelineTask<InstallationPipelineArgs>
     {

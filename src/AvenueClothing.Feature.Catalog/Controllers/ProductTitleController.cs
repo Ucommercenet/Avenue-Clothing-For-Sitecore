@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
-using AvenueClothing.Project.Catalog.ViewModels;
-using Sitecore.Mvc.Controllers;
+using AvenueClothing.Feature.Catalog.ViewModels;
 using Sitecore.Mvc.Presentation;
 using Sitecore.Web.UI.WebControls;
 
-namespace AvenueClothing.Project.Catalog.Controllers
+namespace AvenueClothing.Feature.Catalog.Controllers
 {
     public class ProductTitleController : BaseController
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UCommerce.EntitiesV2;
 
-namespace AvenueClothing.Project.Transaction.ViewModels
+namespace AvenueClothing.Feature.Transaction.ViewModels
 {
     public class BasketRenderingViewModel
     {

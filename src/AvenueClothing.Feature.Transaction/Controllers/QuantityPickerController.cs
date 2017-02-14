@@ -1,12 +1,12 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
-using AvenueClothing.Project.Transaction.ViewModels;
+using AvenueClothing.Feature.Transaction.ViewModels;
 using Sitecore.Mvc.Presentation;
 using Sitecore.Web.UI.WebControls;
 using UCommerce.Runtime;
 
-namespace AvenueClothing.Project.Transaction.Controllers
+namespace AvenueClothing.Feature.Transaction.Controllers
 {
 	public class QuantityPickerController : BaseController
     {

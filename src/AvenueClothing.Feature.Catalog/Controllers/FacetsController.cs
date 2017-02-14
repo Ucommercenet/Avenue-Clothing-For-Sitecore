@@ -1,17 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Collections.Specialized;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using AvenueClothing.Project.Catalog.ViewModels;
 using AvenueClothing.Foundation.MvcExtensions;
-using AvenueClothing.Project.Catalog.Services;
-using UCommerce.Api;
+using AvenueClothing.Feature.Catalog.Services;
+using AvenueClothing.Feature.Catalog.ViewModels;
 using UCommerce.Runtime;
 using UCommerce.Search;
 using UCommerce.Search.Facets;
 
-namespace AvenueClothing.Project.Catalog.Controllers
+namespace AvenueClothing.Feature.Catalog.Controllers
 {
     public class FacetsController : BaseController
     {

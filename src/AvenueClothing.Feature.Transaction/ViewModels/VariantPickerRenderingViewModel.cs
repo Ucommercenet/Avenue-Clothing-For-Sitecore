@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AvenueClothing.Project.Transaction.ViewModels
+namespace AvenueClothing.Feature.Transaction.ViewModels
 {
     public class VariantPickerRenderingViewModel
     {

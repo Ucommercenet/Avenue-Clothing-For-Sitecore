@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using AvenueClothing.Feature.Catalog.Controllers;
 using NSubstitute;
 using UCommerce.Runtime;
 using UCommerce.Search;
-using AvenueClothing.Project.Catalog.Controllers;
-using AvenueClothing.Project.Catalog.ViewModels;
+using AvenueClothing.Feature.Catalog.ViewModels;
 using UCommerce.EntitiesV2;
 using UCommerce.Search.Facets;
 using Xunit;
 
-namespace AvenueClothing.Tests
+namespace AvenueClothing.Feature.Tests
 {
     public class FacetsControllerTests
     {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UCommerce.Infrastructure;
 using UCommerce.Infrastructure.Globalization;
 
-namespace AvenueClothing.Installer.Helpers
+namespace AvenueClothing.Foundation.Installer.Helpers
 {
     public class GenericHelpers
     {

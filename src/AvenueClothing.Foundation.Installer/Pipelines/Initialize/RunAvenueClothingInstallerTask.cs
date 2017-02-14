@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AvenueClothing.Installer.Pipelines.Installation;
-using AvenueClothing.Installer.Pipelines.Installation.Tasks;
-using Sitecore.Install.Framework;
+﻿using System.Linq;
+using AvenueClothing.Foundation.Installer.Pipelines.Installation;
 using UCommerce.EntitiesV2;
 using UCommerce.Pipelines;
 using UCommerce.Pipelines.Initialization;
 
-namespace AvenueClothing.Installer.Pipelines.Initialize
+namespace AvenueClothing.Foundation.Installer.Pipelines.Initialize
 {
     public class RunAvenueClothingInstallerTask : IPipelineTask<InitializeArgs>
     {

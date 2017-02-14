@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using AvenueClothing.Project.Catalog.ViewModels;
+using AvenueClothing.Feature.Catalog.ViewModels;
 using Sitecore.Mvc.Controllers;
 using Sitecore.Mvc.Presentation;
 
-namespace AvenueClothing.Project.Catalog.Controllers
+namespace AvenueClothing.Feature.Catalog.Controllers
 {
 	public class PromotedProductsController : SitecoreController
     {

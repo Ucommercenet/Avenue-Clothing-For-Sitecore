@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace AvenueClothing.Project.Transaction.ViewModels
+namespace AvenueClothing.Feature.Transaction.ViewModels
 {
     public class ConfirmationViewModel
     {

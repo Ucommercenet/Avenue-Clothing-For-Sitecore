@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Web;
 
-namespace AvenueClothing.Project.Catalog.ViewModels
+namespace AvenueClothing.Feature.Catalog.ViewModels
 {
     public class CategoryRenderingViewModel
     {

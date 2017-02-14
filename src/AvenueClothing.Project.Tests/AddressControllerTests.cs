@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using AvenueClothing.Project.Transaction.Controllers;
-using AvenueClothing.Project.Transaction.ViewModels;
+using AvenueClothing.Feature.Transaction.Controllers;
+using AvenueClothing.Feature.Transaction.ViewModels;
 using NSubstitute;
 using UCommerce.EntitiesV2;
 using UCommerce.Transactions;
 using Xunit;
 
-namespace AvenueClothing.Tests
+namespace AvenueClothing.Feature.Tests
 {
     public class AddressControllerTests
     {

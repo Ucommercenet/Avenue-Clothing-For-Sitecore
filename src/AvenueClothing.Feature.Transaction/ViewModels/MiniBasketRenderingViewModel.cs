@@ -1,6 +1,6 @@
 ﻿using UCommerce;
 
-namespace AvenueClothing.Project.Transaction.ViewModels
+namespace AvenueClothing.Feature.Transaction.ViewModels
 {
 	public class MiniBasketRenderingViewModel
 	{

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UCommerce.EntitiesV2;
 using UCommerce.EntitiesV2.Factories;
 
-namespace AvenueClothing.Installer.Helpers
+namespace AvenueClothing.Foundation.Installer.Helpers
 {
     public class Catalog
     {

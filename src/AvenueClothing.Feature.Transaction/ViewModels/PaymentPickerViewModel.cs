@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 
-namespace AvenueClothing.Project.Transaction.ViewModels
+namespace AvenueClothing.Feature.Transaction.ViewModels
 {
 	public class PaymentPickerViewModel
 	{

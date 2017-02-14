@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using AvenueClothing.Project.Catalog.ViewModels;
 using AvenueClothing.Foundation.MvcExtensions;
-using AvenueClothing.Project.Catalog.Services;
+using AvenueClothing.Feature.Catalog.Services;
+using AvenueClothing.Feature.Catalog.ViewModels;
 using Sitecore.Mvc.Presentation;
 using Sitecore.Web.UI.WebControls;
 using UCommerce.Catalog;
 using UCommerce.EntitiesV2;
-using UCommerce.Extensions;
 using UCommerce.Runtime;
 using UCommerce.Search;
 using UCommerce.Search.Facets;
 
-namespace AvenueClothing.Project.Catalog.Controllers
+namespace AvenueClothing.Feature.Catalog.Controllers
 {
 	public class CategoryController : BaseController
     {

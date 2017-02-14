@@ -1,13 +1,13 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using AvenueClothing.Project.Catalog.ViewModels;
 using AvenueClothing.Foundation.MvcExtensions;
+using AvenueClothing.Feature.Catalog.ViewModels;
 using UCommerce.Api;
 using UCommerce.Catalog;
 using UCommerce.EntitiesV2;
 using UCommerce.Runtime;
 
-namespace AvenueClothing.Project.Catalog.Controllers
+namespace AvenueClothing.Feature.Catalog.Controllers
 {
 	public class ProductPriceController : BaseController
     {
