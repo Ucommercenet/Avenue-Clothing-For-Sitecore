@@ -238,6 +238,11 @@ div.row.well {
     padding-left: 15px;
 }
 
+	.search-form .site-search {
+		border-right-width: 0;
+	}
+
+
     .search-form .btn {
         background-color: #fff;
         border: 1px solid #e2e2e2;
