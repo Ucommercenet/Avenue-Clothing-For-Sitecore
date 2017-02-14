@@ -623,9 +623,10 @@ label {
 }
 
 .countryDropdownCheckout {
-    width: 100%;
-    padding: 1px 0 1px 0;
-        padding: .5rem .75rem;
+	-webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    height: 38px;
 }
 
 .col-md-6 .control-group .form-group .error .success > .help-inline {
