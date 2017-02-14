@@ -119,8 +119,9 @@
         .btn:hover {
             text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
             text-decoration: none;
-     
+	    -webkit-appearance: none;
         }
+
     .btn-uCommerce {
          border: 1px solid #59B4EE;
          background: #59B4EE; /*6dbe78*/
@@ -237,6 +238,11 @@
         width: 33%;
         padding-left: 15px;
     }
+
+	.search-form .site-search {
+		border-right-width: 0;
+	}
+
 
         .search-form .btn {
             background-color: #fff;
