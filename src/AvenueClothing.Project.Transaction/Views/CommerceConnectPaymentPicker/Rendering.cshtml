@@ -7,7 +7,7 @@
 
 @using (Html.BeginForm("CreatePayment", "CommerceConnectPaymentPicker", FormMethod.Post))
 {
-	<h3>Payment method</h3>
+	<legend>Payment method</legend>
 	if (@Model.AvailablePaymentMethods.Count > 0)
 	{
 		foreach (var paymentMethod in @Model.AvailablePaymentMethods)

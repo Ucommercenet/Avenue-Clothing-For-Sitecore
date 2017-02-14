@@ -6,7 +6,7 @@
 }
 @using (Html.BeginForm("CreateShipment", "CommerceConnectShippingPicker", FormMethod.Post))
 {
-	<h3>Shipping method</h3>
+	<legend>Shipping method</legend>
 	<br />
 	if (Model.AvailableShippingMethods.Count > 0)
 	{

@@ -180,8 +180,10 @@
     </div>
     <div class="row margin-bottom margin-top">
         <div class="col-md-12">
-            <label for="toggleShippingView" class="display-inline">Use a different address for shipping</label>
-            @Html.CheckBoxFor(x => x.IsShippingAddressDifferent, new { @class = "js-address-checkbox display-inline" })
+            <label for="toggleShippingView" class="display-checkbox-inline">
+                Use a different address for shipping
+                @Html.CheckBoxFor(x => x.IsShippingAddressDifferent, new { @class = "js-address-checkbox" })
+            </label>
         </div>
     </div>
 
