@@ -7,8 +7,8 @@
     <ProjectGuid>{FEF1E765-A680-4A5F-93BC-3E2BA183FC73}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AvenueClothing.Installer</RootNamespace>
-    <AssemblyName>AvenueClothing.Installer</AssemblyName>
+    <RootNamespace>AvenueClothing.Foundation.Installer</RootNamespace>
+    <AssemblyName>AvenueClothing.Foundation.Installer</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
