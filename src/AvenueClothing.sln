@@ -20,19 +20,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deploy", "deploy", "{1797BC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Tests", "AvenueClothing.Tests\AvenueClothing.Tests.csproj", "{1D685E2A-96DE-48B0-913A-1FEA7F0B4609}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Project.Navigation", "AvenueClothing.Project.Navigation\AvenueClothing.Project.Navigation.csproj", "{1DC266FC-7ABA-4B60-B72D-B416845B93DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Feature.Navigation", "AvenueClothing.Project.Navigation\AvenueClothing.Feature.Navigation.csproj", "{1DC266FC-7ABA-4B60-B72D-B416845B93DF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Foundation.MvcExtensions", "AvenueClothing.Foundation.MvcExtensions\AvenueClothing.Foundation.MvcExtensions.csproj", "{F2BAB86C-44DB-446C-A995-03A33C98855D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Project.UserFeedback", "AvenueClothing.Project.UserFeedback\AvenueClothing.Project.UserFeedback.csproj", "{FB136DD8-B0C0-41FD-9585-E3C7A1A3F33D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Feature.UserFeedback", "AvenueClothing.Project.UserFeedback\AvenueClothing.Feature.UserFeedback.csproj", "{FB136DD8-B0C0-41FD-9585-E3C7A1A3F33D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Project.Transaction", "AvenueClothing.Project.Transaction\AvenueClothing.Project.Transaction.csproj", "{267EA69C-3F72-4F2C-B46E-CA229D71546F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Feature.Transaction", "AvenueClothing.Project.Transaction\AvenueClothing.Feature.Transaction.csproj", "{267EA69C-3F72-4F2C-B46E-CA229D71546F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Project.Header", "AvenueClothing.Project.Header\AvenueClothing.Project.Header.csproj", "{E3D4ED85-337F-4489-A197-289375D3D1E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Feature.Header", "AvenueClothing.Project.Header\AvenueClothing.Feature.Header.csproj", "{E3D4ED85-337F-4489-A197-289375D3D1E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Project.Catalog", "AvenueClothing.Project.Catalog\AvenueClothing.Project.Catalog.csproj", "{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Feature.Catalog", "AvenueClothing.Project.Catalog\AvenueClothing.Feature.Catalog.csproj", "{5C0E229B-F2C2-4A8B-B5EE-B936BA3EFAC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Installer", "AvenueClothing.Installer\AvenueClothing.Installer.csproj", "{FEF1E765-A680-4A5F-93BC-3E2BA183FC73}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvenueClothing.Foundation.Installer", "AvenueClothing.Installer\AvenueClothing.Foundation.Installer.csproj", "{FEF1E765-A680-4A5F-93BC-3E2BA183FC73}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{69AE946C-082F-4BDB-9654-AE9779A35FB8}"
 	ProjectSection(SolutionItems) = preProject
