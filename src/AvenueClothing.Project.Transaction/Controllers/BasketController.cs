@@ -24,9 +24,15 @@ namespace AvenueClothing.Project.Transaction.Controllers
 
         public ActionResult Rendering()
         {
-            PurchaseOrder basket = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
-            var basketModel = new BasketRenderingViewModel();
+			var basketModel = new BasketRenderingViewModel();
 
+	        if (!_transactionLibraryInternal.HasBasket())
+	        {
+				return View(basketModel);
+	        }
+
+            PurchaseOrder basket = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
+            
             foreach (var orderLine in basket.OrderLines)
             {
                 var orderLineViewModel = new BasketRenderingViewModel.OrderlineViewModel();
@@ -40,7 +46,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
                 orderLineViewModel.Tax = new Money(orderLine.VAT, basket.BillingCurrency).ToString();
                 orderLineViewModel.Price = new Money(orderLine.Price, basket.BillingCurrency).ToString();
                 orderLineViewModel.ProductUrl = CatalogLibrary.GetNiceUrlForProduct(CatalogLibrary.GetProduct(orderLine.Sku));
-                orderLineViewModel.PriceWithDiscount = new Money(orderLine.Price - orderLine.Discount, basket.BillingCurrency).ToString();
+                orderLineViewModel.PriceWithDiscount = new Money(orderLine.Price - orderLine.UnitDiscount.GetValueOrDefault(), basket.BillingCurrency).ToString();
                 orderLineViewModel.OrderLineId = orderLine.OrderLineId;
 
                 basketModel.OrderLines.Add(orderLineViewModel);
