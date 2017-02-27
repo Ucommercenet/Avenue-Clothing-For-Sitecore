@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Transaction.ViewModels;
+using Sitecore.Analytics;
 using Sitecore.Data.Fields;
 using Sitecore.Mvc.Presentation;
 using Sitecore.Shell.Applications.ContentEditor;
@@ -16,6 +17,8 @@ namespace AvenueClothing.Project.Transaction.Controllers
             var confirmation= new ConfirmationViewModel();
             confirmation.Headline = new HtmlString(FieldRenderer.Render(RenderingContext.Current.ContextItem, "Headline"));
             confirmation.Message = new HtmlString(FieldRenderer.Render(RenderingContext.Current.ContextItem, "Message"));
+
+		    confirmation.FirstName = Tracker.Current.Session.CustomData["FirstName"].ToString();
             return View(confirmation);
 		}
 	}
