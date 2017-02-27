@@ -175,6 +175,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Scripts\jsSearchbar.js" />
     <Content Include="Views\ProductTitle\Rendering.cshtml" />
     <Content Include="Views\ProductWellWithPickersAndButton\Rendering.cshtml" />
     <Content Include="Views\ProductPage\Rendering.cshtml" />

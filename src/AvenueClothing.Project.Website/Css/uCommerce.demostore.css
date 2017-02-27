@@ -341,13 +341,7 @@ div.product.col-sm-4.col-md-4 {
     width: 100%;
 }
 
-@media (max-width: 847px) { 
-
-     .flex-contain {
-        flex-wrap: wrap;
-    }
-
-   .hide-on-small-screen {
+  .hide-on-small-screen {
         display: none;
     }
     .js-mini-basket .fa{
@@ -369,35 +363,40 @@ div.product.col-sm-4.col-md-4 {
         vertical-align:middle;
         text-align:center;
     }
+
     .search-on-small-screen {
         color: #fff;
         float:right;
         font-size: x-large;
         margin-right: 10px;
         margin-top:-6px;
-    }
-
-    .search-form:focus ~ .search-form:active {
-        width:100%;
         display: inline-block;
     }
 
-    .search-form:active {
-        width:100%;
-        display: inline-block;
-    }
-
-    .search-on-small-screen:focus ~ .search-form {
-        width: 100%;
-                display: inline-block;
-
-    }
+    .site-search:focus, .site-search:hover {
+        border-color: rgb(226, 226, 226);
+        border-radius: .4px;
+        border-right-color: #fff;
+       }
     
 }
+
+@media screen and (max-width: 761px) {
+   .btn-full-width {
+        width: 100%;
+    } 
+    .no-padding-col{
+        margin-bottom: 1vh;
+    }
+    .flex-contain {
+        flex-wrap: wrap;
+    }
+    .hide-on-small-screen{
+        display: none;
+    }
+}
  
-
-
-@media(min-width:848px) and (max-width: 1200px) {
+@media(min-width:762px) and (max-width: 1200px) {
     .flex-contain {
         flex-wrap: wrap;
     }
@@ -410,6 +409,9 @@ div.product.col-sm-4.col-md-4 {
     }
     .hide-on-large-screen {
         display: none;
+    }
+    .hide-on-small-screen{
+        display: inherit;
     }
    
     a.col-md-3 {
@@ -433,6 +435,9 @@ div.product.col-sm-4.col-md-4 {
     }
     .hide-on-large-screen {
         display: none;
+    }
+    .hide-on-small-screen{
+        display: inherit;
     }
 }
 
@@ -690,6 +695,12 @@ label {
     padding: 3px 14px;
 }
 
+.search-form .btn : active, .btn-search:active {
+        border-color: rgb(226, 226, 226);
+        border-radius: .4px;
+        border-left-color: #fff;
+    }
+
 .col-md-6.well.no-left-margin {
     margin-left: 0;
 }
@@ -762,16 +773,6 @@ p.btn-group.view-details {
 	overflow: hidden;
     padding-left: 0;
     padding-right: 0;}
-
-
-@media screen and (max-width: 761px) {
-   .btn-full-width {
-        width: 100%;
-    } 
-    .no-padding-col{
-        margin-bottom: 1vh;
-}
-}
 
 .error-custom{
    color: #d9534f!important; 
