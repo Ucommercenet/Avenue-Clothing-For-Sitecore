@@ -4,7 +4,7 @@
     /** Behaviour on Tablet/Mobile screen**/
     var classSelectorMobile = ".search-on-small-screen.hide-on-large-screen";
     var searchForm = ".search-form";
-    var navbrand = ".navbar-brand";
+    var navbrand = ".navbar-brand span";
     var clicked = false;
 
 
@@ -13,11 +13,15 @@
     jsSearchbar.init = function () {
         $(classSelectorMobile).click(function () {
             if (!clicked) {
-                $(navbrand).innerHTML = "";
-                $(searchForm).css("display", "inline-block");
+                $(navbrand).removeClass("display-inline");
+
+                $(navbrand).addClass("display-none");
+                $(searchForm).addClass("display-inline");
                 clicked = true;
             } else {
-                $(searchForm).css("display", "none");
+                $(searchForm).removeClass("display-inline");
+                $(navbrand).addClass("display-inline");
+                $(searchForm).addClass("display-none");
                 clicked = false;
             }
         });

@@ -62,7 +62,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
-    padding: 5px 10px 0px 10px;
+    padding: 3px 10px 3px 10px;
     z-index: 500;
 }
 
@@ -71,6 +71,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
     background: url("../../img/ucommerce/logo.png") 0 6px no-repeat;
     padding-left: 40px;
     color: #ffffff;
+    min-height: 34px;
 }
 
     .navbar-brand:hover {
@@ -231,6 +232,8 @@ div.row.well {
 
 /* Common
 -------------------------------------------*/
+
+
 .search-form {
     font-size: 0.8rem;
     display: inline-block;
@@ -344,6 +347,12 @@ div.product.col-sm-4.col-md-4 {
   .hide-on-small-screen {
         display: none;
     }
+
+  .js-mini-basket{
+        margin-top: 6px;
+        overflow: hidden;
+    }
+
     .js-mini-basket .fa{
         font-size: x-large;
         color: white;
@@ -369,8 +378,8 @@ div.product.col-sm-4.col-md-4 {
         float:right;
         font-size: x-large;
         margin-right: 10px;
-        margin-top:-6px;
-        display: inline-block;
+/*        margin-top:-6px;
+*/        display: inline-block;
     }
 
     .site-search:focus, .site-search:hover {
@@ -380,6 +389,11 @@ div.product.col-sm-4.col-md-4 {
        }
     
 }
+
+  .search-form {
+            margin-top: 3px;
+  }
+
 
 @media screen and (max-width: 761px) {
    .btn-full-width {
@@ -396,7 +410,13 @@ div.product.col-sm-4.col-md-4 {
     }
 }
  
-@media(min-width:762px) and (max-width: 1200px) {
+@media screen and (min-width: 762px) and (max-width: 1200px) {
+    .navbar-brand span{
+        display: inline-block;
+    }
+    .search-form {
+        display: inline-block;
+    }
     .flex-contain {
         flex-wrap: wrap;
     }
