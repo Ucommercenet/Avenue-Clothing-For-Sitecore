@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using UCommerce.Catalog;
 using UCommerce.Content;
 using UCommerce.EntitiesV2;
+using UCommerce.Infrastructure.Globalization;
 using UCommerce.Marketing;
 using UCommerce.Pipelines;
 using UCommerce.Pipelines.GetProduct;
@@ -79,6 +80,7 @@ namespace AvenueClothing.Project.Website
             services.AddTransient(p => ObjectFactory.Instance.Resolve<IRepository<ProductReviewStatus>>());
             services.AddTransient(p => ObjectFactory.Instance.Resolve<IRepository<PurchaseOrder>>());
             services.AddTransient(p => ObjectFactory.Instance.Resolve<IPipeline<ProductReview>>());
+            services.AddTransient(p => ObjectFactory.Instance.Resolve<ILocalizationContext>());
             services.AddTransient(p => Country.All());
 	        services.AddTransient(p => ObjectFactory.Instance.Resolve<IRepository<Country>>());
         }

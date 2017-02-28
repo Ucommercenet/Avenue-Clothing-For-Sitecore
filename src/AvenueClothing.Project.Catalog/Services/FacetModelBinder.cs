@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using AvenueClothing.Project.Catalog.ViewModels;
-using Sitecore.Data;
 using UCommerce.Search.Facets;
 using DefaultModelBinder = System.Web.ModelBinding.DefaultModelBinder;
 
