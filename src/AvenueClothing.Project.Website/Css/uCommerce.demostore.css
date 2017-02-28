@@ -102,11 +102,6 @@ ul.nav.navbar-nav > li > div {
 }
 
 .btn {
-    /*padding: 3px 14px;*/
-    /*color: #fff;
-        border: 1px solid #59B4EE;
-            background: #59B4EE; /*6dbe78*/
-
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
     filter: none;
     -webkit-border-radius: 0;
@@ -124,7 +119,7 @@ ul.nav.navbar-nav > li > div {
     }
 .btn-uCommerce {
      border: 1px solid #59B4EE;
-     background: #59B4EE; /*6dbe78*/
+     background: #59B4EE; 
 }
 .btn-uCommerce:hover {
        background-color: #4A95C5;
@@ -349,8 +344,7 @@ div.product.col-sm-4.col-md-4 {
     }
 
   .js-mini-basket{
-        margin-top: 6px;
-        overflow: hidden;
+        margin-top: 4px;
     }
 
     .js-mini-basket .fa{
@@ -378,9 +372,12 @@ div.product.col-sm-4.col-md-4 {
         float:right;
         font-size: x-large;
         margin-right: 10px;
-/*        margin-top:-6px;
-*/        display: inline-block;
-    }
+        display: inline-block;
+        margin-top: -2px;
+     }
+        .search-on-small-screen:hover{
+        cursor: pointer;
+         }
 
     .site-search:focus, .site-search:hover {
         border-color: rgb(226, 226, 226);
@@ -395,71 +392,6 @@ div.product.col-sm-4.col-md-4 {
   }
 
 
-@media screen and (max-width: 761px) {
-   .btn-full-width {
-        width: 100%;
-    } 
-    .no-padding-col{
-        margin-bottom: 1vh;
-    }
-    .flex-contain {
-        flex-wrap: wrap;
-    }
-    .hide-on-small-screen{
-        display: none;
-    }
-}
- 
-@media screen and (min-width: 762px) and (max-width: 1200px) {
-    .navbar-brand span{
-        display: inline-block;
-    }
-    .search-form {
-        display: inline-block;
-    }
-    .flex-contain {
-        flex-wrap: wrap;
-    }
-    .product-list .product {
-        margin-left: 5%;
-    }
-   
-    div.product.col-sm-4.col-md-4 {
-        width: 30%;
-    }
-    .hide-on-large-screen {
-        display: none;
-    }
-    .hide-on-small-screen{
-        display: inherit;
-    }
-   
-    a.col-md-3 {
-        width: 28%;
-    }
-}
-
-@media screen and (min-width:1201px) {
-    .flex-contain {
-        flex-wrap: nowrap;
-    }
-
-    .js-address-billing{
-        padding-right: 2vw;    }
-
-    .js-address-shipping{
-        padding-left: 2vw;
-    }
-    .product-list .product {
-        margin-left: 5%;
-    }
-    .hide-on-large-screen {
-        display: none;
-    }
-    .hide-on-small-screen{
-        display: inherit;
-    }
-}
 
 .product-list .product:nth-child(3n+1) {
     clear: left;
@@ -982,4 +914,88 @@ input.js-address-checkbox {
     top: -2px;
 }
 
+/** Media Queries **/
 
+@media screen and (min-width:1201px) {
+    .flex-contain {
+        flex-wrap: nowrap;
+    }
+
+    .js-address-billing{
+        padding-right: 2vw;    }
+
+    .js-address-shipping{
+        padding-left: 2vw;
+    }
+    .product-list .product {
+        margin-left: 5%;
+    }
+    .hide-on-large-screen {
+        display: none;
+    }
+    .hide-on-small-screen{
+        display: inherit;
+    }
+}
+@media screen and (min-width: 762px) and (max-width: 1200px) {
+    .navbar-brand span{
+        display: inline-block;
+    }
+    form.search-form {
+        display: inline-block;
+    }
+    .flex-contain {
+        flex-wrap: wrap;
+    }
+    .product-list .product {
+        margin-left: 5%;
+    }
+   
+    div.product.col-sm-4.col-md-4 {
+        width: 30%;
+    }
+    .hide-on-large-screen {
+        display: none;
+    }
+    .hide-on-small-screen{
+        display: inherit;
+    }
+    a.col-md-3 {
+        width: 28%;
+    }
+}
+@media screen and (max-width: 761px) {
+    a.navbar-brand span{
+        display: inline-block;
+    }
+
+   .btn-full-width {
+        width: 100%;
+    } 
+    .no-padding-col{
+        margin-bottom: 1vh;
+    }
+    .flex-contain {
+        flex-wrap: wrap;
+    }
+    .hide-on-small-screen{
+        display: none;
+    }
+}
+@media screen and (max-width: 544px) {
+    a.navbar-brand span{
+        display: none;
+    }
+    .btn-full-width {
+        width: 100%;
+    } 
+    .no-padding-col{
+        margin-bottom: 1vh;
+    }
+    .flex-contain {
+        flex-wrap: wrap;
+    }
+    .hide-on-small-screen{
+        display: none;
+    }
+}
