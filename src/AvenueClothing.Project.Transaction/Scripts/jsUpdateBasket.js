@@ -34,6 +34,8 @@
                         }
                     }
                 });
+                config.$triggerEventSelector.trigger("basket-changed", data.MiniBasketRefresh);
+
             });
         });
 

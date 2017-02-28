@@ -16,6 +16,7 @@
             if (data.IsEmpty) {
                 $miniBasket.find(notEmptySelector).hide();
                 $miniBasket.find(emptySelector).show();
+
             } else {
                 $miniBasket.find(numberOfItemsSelector).text(data.NumberOfItems);
                 $miniBasket.find(totalSelector).text(data.Total);
