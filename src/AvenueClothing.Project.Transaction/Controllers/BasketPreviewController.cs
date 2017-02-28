@@ -30,8 +30,9 @@ namespace AvenueClothing.Project.Transaction.Controllers
 		[HttpPost]
 		public ActionResult RequestPayment()
 		{
+		    var basket = _transactionLibraryInternal.GetBasket(false);
 			_transactionLibraryInternal.RequestPayments();
-			return Redirect("/confirmation");
+			return Redirect("/confirmation?orderGuid=" + basket.PurchaseOrder.OrderGuid);
 		}
 
 		private BasketPreviewViewModel MapPurchaseOrderToViewModel(PurchaseOrder purchaseOrder, BasketPreviewViewModel basketPreviewViewModel)

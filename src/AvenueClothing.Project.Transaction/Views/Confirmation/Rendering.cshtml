@@ -1,11 +1,18 @@
 ﻿@using Sitecore.Mvc
 @model AvenueClothing.Project.Transaction.ViewModels.ConfirmationViewModel
 @{
-	Layout = null;
+    Layout = null;
 }
 
 <div class="alert alert-info">
-	<h1>@Model.Headline, @Model.FirstName!</h1>
-	<br />
-	<p>@Model.Message</p>
+    <h1>@Model.Headline, @Model.FirstName!</h1>
+    <br />
+    <p>@Model.Message</p>
+
+
+</div>
+
+<div style="vertical-align">
+    <img class="pull-left display-inline confirmation-productImage" src="@Model.FirstOrderProductImage" />
+    <p class="confirmation-text">Your choice of <strong>@Model.FirstOrderProductName</strong> is fantastic and we hope you will enjoy it!</p>
 </div>

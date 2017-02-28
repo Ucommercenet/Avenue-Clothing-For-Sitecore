@@ -9,8 +9,8 @@ namespace AvenueClothing.Project.Transaction.ViewModels
     {
         public HtmlString Headline { get; set; }
         public HtmlString Message { get; set; }
-        
         public string FirstName { get; set; }
-
+        public string FirstOrderProductName { get; set; }
+        public string FirstOrderProductImage { get; set; }
     }
 }
