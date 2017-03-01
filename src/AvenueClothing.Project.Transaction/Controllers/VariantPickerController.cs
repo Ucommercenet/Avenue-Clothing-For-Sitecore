@@ -11,6 +11,7 @@ using Sitecore.Mvc.Extensions;
 using UCommerce.Api;
 using UCommerce.Catalog;
 using UCommerce.EntitiesV2;
+using UCommerce.Infrastructure.Globalization;
 using UCommerce.Pipelines;
 using UCommerce.Pipelines.GetProduct;
 using UCommerce.Runtime;
@@ -22,12 +23,14 @@ namespace AvenueClothing.Project.Transaction.Controllers
         private readonly IPipeline<IPipelineArgs<GetProductRequest, GetProductResponse>> _getProductPipeline;
         private readonly ICatalogContext _catalogContext;
         private readonly CatalogLibraryInternal _catalogLibraryInternal;
+        private readonly ILocalizationContext _localizationContext;
 
-        public VariantPickerController(IPipeline<IPipelineArgs<GetProductRequest, GetProductResponse>> getProductPipeline, ICatalogContext catalogContext, CatalogLibraryInternal catalogLibraryInternal)
+        public VariantPickerController(IPipeline<IPipelineArgs<GetProductRequest, GetProductResponse>> getProductPipeline, ICatalogContext catalogContext, CatalogLibraryInternal catalogLibraryInternal, ILocalizationContext localizationContext)
         {
             _getProductPipeline = getProductPipeline;
             _catalogContext = catalogContext;
             _catalogLibraryInternal = catalogLibraryInternal;
+            _localizationContext = localizationContext;
         }
 
         public ActionResult Rendering()
@@ -55,7 +58,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
                 var productPropertiesViewModel = new VariantPickerRenderingViewModel.Variant
                 {
                     Name = variant.Key.Name,
-                    DisplayName = variant.Key.Name
+                    DisplayName = variant.Key.GetDisplayName(_localizationContext.CurrentCultureCode)
                 };
 
                 foreach (var variantValue in variant.Select(v => v.Value).Distinct())

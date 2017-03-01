@@ -30,8 +30,9 @@ namespace AvenueClothing.Project.Transaction.Controllers
 		[HttpPost]
 		public ActionResult RequestPayment()
 		{
+		    var basket = _transactionLibraryInternal.GetBasket(false);
 			_transactionLibraryInternal.RequestPayments();
-			return Redirect("/confirmation");
+			return Redirect("/confirmation?orderGuid=" + basket.PurchaseOrder.OrderGuid);
 		}
 
 		private BasketPreviewViewModel MapPurchaseOrderToViewModel(PurchaseOrder purchaseOrder, BasketPreviewViewModel basketPreviewViewModel)
@@ -50,7 +51,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 					Total = new Money(orderLine.Total.GetValueOrDefault(), orderLine.PurchaseOrder.BillingCurrency).ToString(),
 					Tax = new Money(orderLine.VAT, purchaseOrder.BillingCurrency).ToString(),
 					Price = new Money(orderLine.Price, purchaseOrder.BillingCurrency).ToString(),
-					PriceWithDiscount = new Money(orderLine.Price - orderLine.Discount, purchaseOrder.BillingCurrency).ToString(),
+					PriceWithDiscount = new Money(orderLine.Price - orderLine.UnitDiscount.GetValueOrDefault(), purchaseOrder.BillingCurrency).ToString(),
 					Quantity = orderLine.Quantity,
 					Discount = orderLine.Discount
 				};

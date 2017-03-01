@@ -5,7 +5,6 @@
 <div>@Model.QuantityLabel</div>
 <div class="dropdown">
         <select class="js-quantity-picker" data-product-sku="@Model.ProductSku">
-            <option class="dropdown-menu" value="">-- Please Select --</option>
              @for (int number = 1; number <= Model.MaxNumberOfItems; number++)
             {
                 <option value="@number">@(number)</option>

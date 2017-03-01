@@ -319,11 +319,14 @@ namespace AvenueClothing.Installer.Helpers
             field.RenderInEditor = true;
             field.Facet = promotoToFacet;
 
-            //Helpers.DoForEachCulture(language =>
-            //    {
-            //        if (field.GetDescription(language) == null)
-            //            field.AddProductDefinitionFieldDescription(new ProductDefinitionFieldDescription { CultureCode = language, DisplayName = displayName, Description = displayName });
-            //    });
+            GenericHelpers.DoForEachCulture(language =>
+                {
+                    if (field.GetDisplayName(language) == name)
+                        // Removes default product definition field descriptions
+                        field.ProductDefinitionFieldDescriptions.Clear();
+                        // adds new product definition field description with proper display name
+                        field.AddProductDefinitionFieldDescription(new ProductDefinitionFieldDescription { CultureCode = language, DisplayName = displayName, Description = displayName });
+                });
 
             definition.AddProductDefinitionField(field);
             definition.Save();

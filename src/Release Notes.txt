@@ -1,0 +1,7 @@
+Change log for vNext.
+
+NEW: Order confirmation message now includes customer name.
+NEW: Product definition fields are now created with friendly display names.
+NEW: Facets now display a friendly display name instead of system name.
+NEW: Product properties on the product page are displayed using a friendly display name.
+FIX: Promoted products are now based off of the uCommerce 'ShowOnHomepage' property instead of a picker in the sitecore backoffice.

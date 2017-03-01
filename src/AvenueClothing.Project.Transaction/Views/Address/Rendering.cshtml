@@ -10,7 +10,7 @@
 @using (Html.BeginForm("Save", "Address", FormMethod.Post, new { @class = "js-address", data_submit_address = ".submit-address", data_save_address_url = @Model.SaveAddressUrl }))
 {
     <div class="flex-contain">
-        <div class="row js-address-billing">
+        <div class="js-address-billing">
             <legend>Billing address</legend>
             <div class="row">
                 <div class="col-md-6 no-vertical-margin control-group form-group">
@@ -95,7 +95,7 @@
 
 
 
-        <div class="row js-address-shipping" style="@showShippingAddress">
+        <div class="js-address-shipping" style="@showShippingAddress">
             <legend>Shipping address</legend>
 
             <div class="row">
@@ -115,7 +115,7 @@
             <div class="row">
                 <div class="col-md-6 no-vertical-margin control-group form-group">
                     <label>E-mail</label>
-                    @Html.TextBoxFor(x => x.ShippingAddress.EmailAddress, new { @class = "col-md-12 form-control required email margin-bottom" })
+                    @Html.TextBoxFor(x => x.ShippingAddress.EmailAddress, new { @class = "col-md-12 form-control required margin-bottom" })
                     <label class="error-custom ShippingAddressEmailAddress"></label>
                 </div>
                 <div class="col-md-6 no-vertical-margin control-group form-group">

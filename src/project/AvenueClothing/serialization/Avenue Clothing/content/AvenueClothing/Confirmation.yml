@@ -57,7 +57,7 @@ Languages:
         sitecore\admin
     - ID: "a7914204-1cb0-42aa-a34c-e9abeee8e564"
       Hint: Headline
-      Value: "Thank you for your order!"
+      Value: "Thank you for your purchase"
     - ID: "d2beac0f-56ee-493d-851d-362ed9f30128"
       Hint: Message
       Value: An order confirmation email has been sent to your email address.
