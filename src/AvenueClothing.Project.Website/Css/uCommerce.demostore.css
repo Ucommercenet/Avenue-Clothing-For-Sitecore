@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 h1 {
-    font-size: 60px;
+    font-size: 58px;
 }
 
 .well, .card .card-block {
@@ -912,6 +912,16 @@ input.js-address-checkbox {
     vertical-align: bottom;
     position: relative;
     top: -2px;
+}
+
+.confirmation-text {
+       position: relative;
+   padding-top: 15%;
+   font-size: 18px;
+}
+
+.confirmation-productImage {
+   margin-right: 10px;
 }
 
 /** Media Queries **/
