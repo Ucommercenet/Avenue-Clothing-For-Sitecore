@@ -10,36 +10,74 @@ using UCommerce.Catalog;
 using UCommerce.Content;
 using UCommerce.EntitiesV2;
 using UCommerce.Infrastructure;
-using UCommerce.Transactions;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {
 	public class ConfirmationController : BaseController
 	{
-	    private readonly TransactionLibraryInternal _transactionLibraryInternal;
-	    private readonly CatalogLibraryInternal _catalogLibraryInternal;
-
-	    public ConfirmationController(TransactionLibraryInternal transactionLibraryInternal, CatalogLibraryInternal catalogLibraryInternal)
+	    private readonly IRepository<PurchaseOrder> _purchaseOrderRepository;
+	    private readonly IRepository<Product> _productRepository;
+	    private readonly IImageService _imageService;
+	    public ConfirmationController(IRepository<PurchaseOrder> purchaseOrderRepository, IRepository<Product> productRepository, IImageService imageService)
 	    {
-            _transactionLibraryInternal = transactionLibraryInternal;
-	        _catalogLibraryInternal = catalogLibraryInternal;
+	        _purchaseOrderRepository = purchaseOrderRepository;
+	        _productRepository = productRepository;
+	        _imageService = imageService;
 	    }
 		public ActionResult Rendering()
-		{
-            var confirmation= new ConfirmationViewModel();
+        {
+            var confirmation = new ConfirmationViewModel();
             confirmation.Headline = new HtmlString(FieldRenderer.Render(RenderingContext.Current.ContextItem, "Headline"));
-		    confirmation.Message = new HtmlString(FieldRenderer.Render(RenderingContext.Current.ContextItem, "Message"));
-		    confirmation.FirstName = Tracker.Current.Session.CustomData["FirstName"].ToString();
+            confirmation.Message = new HtmlString(FieldRenderer.Render(RenderingContext.Current.ContextItem, "Message"));
+            confirmation.FirstName = Tracker.Current.Session.CustomData["FirstName"].ToString();
 
-		    var purchaseOrderGuid = Request.QueryString["orderGuid"];
-		    var purchaseOrder = PurchaseOrder.FirstOrDefault(x => x.OrderGuid.ToString() == purchaseOrderGuid);
+            PurchaseOrder purchaseOrder = GetCurrentPurchaseOrder();
 
-		    var firstProduct = _catalogLibraryInternal.GetProduct(purchaseOrder.OrderLines.First().Sku);
+            var firstOrderLine = purchaseOrder.OrderLines.FirstOrDefault();
+            var firstProduct = _productRepository.SingleOrDefault(x => x.Sku == firstOrderLine.Sku && x.VariantSku == firstOrderLine.VariantSku);
+            var primaryImageMediaId = firstProduct.PrimaryImageMediaId;
+            if (string.IsNullOrEmpty(primaryImageMediaId) && firstProduct.IsVariant)
+            {
+                primaryImageMediaId = firstProduct.ParentProduct.PrimaryImageMediaId;
+            }
+            if (firstOrderLine != null)
+            {
+                confirmation.FirstOrderProductName = firstOrderLine.ProductName;
+                confirmation.FirstOrderProductImage = _imageService.GetImage(primaryImageMediaId).Url;
+            }
 
-		    confirmation.FirstOrderProductName = firstProduct.Name;
-		    confirmation.FirstOrderProductImage =
-		        ObjectFactory.Instance.Resolve<IImageService>().GetImage(firstProduct.PrimaryImageMediaId).Url;
+            // Related product
+            MapRelatedProductInformation(confirmation, purchaseOrder);
             return View(confirmation);
-		}
-	}
+        }
+
+        private void MapRelatedProductInformation(ConfirmationViewModel confirmation, PurchaseOrder purchaseOrder)
+        {
+            foreach (var orderline in purchaseOrder.OrderLines)
+            {
+                var productWithRelation =
+                    _productRepository.SingleOrDefault(x => x.Sku == orderline.Sku && x.ProductRelations.Count > 0);
+
+                if (productWithRelation != null)
+                {
+                    var productRelation = productWithRelation.ProductRelations.FirstOrDefault();
+                    if (productRelation != null)
+                    {
+                        confirmation.RelatedProductName = productRelation.RelatedProduct.Name;
+                        confirmation.ProductWithRelationName = productWithRelation.Name;
+                        confirmation.RelatedProductImageUrl = _imageService.GetImage(productRelation.RelatedProduct.PrimaryImageMediaId).Url;
+                       
+                    }
+                    break;
+                }
+            }
+        }
+
+        private PurchaseOrder GetCurrentPurchaseOrder()
+        {
+            var purchaseOrderGuid = Request.QueryString["orderGuid"];
+            var purchaseOrder = _purchaseOrderRepository.SingleOrDefault(x => x.OrderGuid.ToString() == purchaseOrderGuid);
+            return purchaseOrder;
+        }
+    }
 }

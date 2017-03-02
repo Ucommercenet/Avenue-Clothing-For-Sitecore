@@ -12,5 +12,9 @@ namespace AvenueClothing.Project.Transaction.ViewModels
         public string FirstName { get; set; }
         public string FirstOrderProductName { get; set; }
         public string FirstOrderProductImage { get; set; }
+        public string ProductWithRelationName { get; set; }
+        public string RelatedProductName { get; set; }
+        public string RelatedProductImageUrl { get; set; }
+        public string RelatedProductNiceUrl { get; set; }
     }
 }

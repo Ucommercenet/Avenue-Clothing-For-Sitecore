@@ -953,3 +953,7 @@ input.js-address-checkbox {
 .confirmation-productImage {
     margin-right: 10px;
 }
+
+.clear-both {
+    clear: both;
+}

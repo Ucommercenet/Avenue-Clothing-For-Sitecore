@@ -1,5 +1,4 @@
-﻿@using Sitecore.Mvc
-@model AvenueClothing.Project.Transaction.ViewModels.ConfirmationViewModel
+﻿@model AvenueClothing.Project.Transaction.ViewModels.ConfirmationViewModel
 @{
     Layout = null;
 }
@@ -8,11 +7,17 @@
     <h1>@Model.Headline, @Model.FirstName!</h1>
     <br />
     <p>@Model.Message</p>
-
-
 </div>
 
-<div style="vertical-align">
-    <img class="pull-left display-inline confirmation-productImage" src="@Model.FirstOrderProductImage" />
-    <p class="confirmation-text">Your choice of <strong>@Model.FirstOrderProductName</strong> is fantastic and we hope you will enjoy it!</p>
+<div class="row">
+    <div class="col-md-6"><img class="pull-left display-inline confirmation-productImage" src="@Model.FirstOrderProductImage" /></div>
+    <div class="col-md-6"><p class="confirmation-text">Your choice of <strong>@Model.FirstOrderProductName</strong> is fantastic and we hope you will enjoy it!</p></div>
 </div>
+
+@if (!string.IsNullOrEmpty(Model.ProductWithRelationName))
+{
+    <div class="row">
+        <div class="col-md-7"><p class="confirmation-text">The purchased shirt <strong>(@Model.ProductWithRelationName)</strong> looks great with <strong>@Model.RelatedProductName</strong>! </p><p class="confirmation-text">Get 10% off of it by using the "Thank you" voucher code!</p></div>
+        <div class="col-md-5"><img class="pull-right display-inline confirmation-productImage" src="@Model.RelatedProductImageUrl" /></div>
+    </div>
+}

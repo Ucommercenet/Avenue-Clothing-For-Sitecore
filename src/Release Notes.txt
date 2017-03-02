@@ -1,7 +1,11 @@
 Change log for vNext.
 
 NEW: Order confirmation message now includes customer name.
+NEW: Order confirmation now includes a picture of- and a message about the first product from the order.
+NEW: Order confirmation now includes a picture of- and a voucher code message for a related product.
 NEW: Product definition fields are now created with friendly display names.
 NEW: Facets now display a friendly display name instead of system name.
 NEW: Product properties on the product page are displayed using a friendly display name.
-FIX: Promoted products are now based off of the uCommerce 'ShowOnHomepage' property instead of a picker in the sitecore backoffice.
+NEW: Removed promoted products picker from the installation process.
+NEW: Promoted products are now based off of the uCommerce 'ShowOnHomepage' property instead of a picker in the sitecore backoffice.
+FIX: "ShowOnHomepage" property will now get a default value of false.

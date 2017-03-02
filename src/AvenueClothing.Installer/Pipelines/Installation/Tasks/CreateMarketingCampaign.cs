@@ -15,19 +15,80 @@ namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
         }
         public PipelineExecutionResult Execute(InstallationPipelineArgs subject)
         {
-            if(_campaignRepository.Select(x => x.Name == "Demonstration").FirstOrDefault() != null) return PipelineExecutionResult.Success;
+            if (_campaignRepository.Select(x => x.Name == "Demonstration").FirstOrDefault() != null) return PipelineExecutionResult.Success;
 
             var campaign = CreateCampaign();
 
             var campaignItem = CreateCampaignItem();
             campaign.AddCampaignItem(campaignItem);
+
+            var relatedProductCampaignItem = CreateRelatedProductCampaignItem();
+            
+            campaign.AddCampaignItem(relatedProductCampaignItem);
             campaign.Save();
 
-            CreateAward(campaignItem);
+            CreateRelatedProductCampaignTargets(relatedProductCampaignItem);
+            CreateRelatedProductAward(relatedProductCampaignItem);
 
+            CreateAward(campaignItem);
             CreateVourcherTarget(campaignItem);
 
             return PipelineExecutionResult.Success;
+        }
+
+        private void CreateRelatedProductAward(CampaignItem relatedProductCampaignItem)
+        {
+            var relatedProductAward = new PercentOffOrderLinesAward
+            {
+                CampaignItem = relatedProductCampaignItem,
+                Name = "Amount off related product",
+                PercentOff = 10m
+            };
+            relatedProductAward.Save();
+        }
+
+        private CampaignItem CreateRelatedProductCampaignItem()
+        {
+            var relatedProductCampaignItem = new CampaignItem
+            {
+                AnyTargetAppliesAwards = false,
+                AllowNextCampaignItems = true,
+                Name = "Related product discount",
+                Priority = GetNextPriority(),
+                AnyTargetAdvertises = true,
+                Enabled = true,
+                Definition = Definition.Get(2)
+            };
+
+            return relatedProductCampaignItem;
+        }
+
+        private void CreateRelatedProductCampaignTargets(CampaignItem relatedProductCampaignItem)
+        {
+            var relatedproductTarget = new ProductTarget()
+            {
+                CampaignItem = relatedProductCampaignItem,
+                EnabledForApply = true,
+                Skus = "19849"
+            };
+            relatedproductTarget.Save();
+
+            var relatedVoucherTarget = new VoucherTarget()
+            {
+                CampaignItem = relatedProductCampaignItem,
+                Name = "Thank you",
+                EnabledForApply = true,
+                EnabledForDisplay = false
+            };
+            var relatedVoucherCode = new VoucherCode()
+            {
+                VoucherTarget = relatedVoucherTarget,
+                MaxUses = 100000,
+                NumberUsed = 0,
+                Code = "Thank You"
+            };
+            relatedVoucherTarget.VoucherCodes.Add(relatedVoucherCode);
+            relatedVoucherTarget.Save();
         }
 
         private static void CreateVourcherTarget(CampaignItem campaignItem)
