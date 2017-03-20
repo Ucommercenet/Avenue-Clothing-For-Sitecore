@@ -40,9 +40,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configurat
 		scripts\Serialization\App_Config\Include\AvenueClothing.Sites.config = scripts\Serialization\App_Config\Include\AvenueClothing.Sites.config
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C798915D-D02D-436F-BB30-951CAB92BA49}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{9673FE0A-0872-4EF5-9370-CE789BDE28CD}"
 	ProjectSection(SolutionItems) = preProject
-		Release Notes.txt = Release Notes.txt
+		docs\Release Notes.txt = docs\Release Notes.txt
 	EndProjectSection
 EndProject
 Global
