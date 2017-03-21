@@ -1,7 +1,9 @@
 ﻿using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
+using AvenueClothing.Project.Transaction.Services;
 using AvenueClothing.Project.Transaction.ViewModels;
 using Sitecore;
 using Sitecore.Commerce.Contacts;
@@ -16,8 +18,16 @@ namespace AvenueClothing.Project.Transaction.Controllers
 {
 	public class CommerceConnectBasketController : BaseController
 	{
+        private readonly IMiniBasketService _miniBasketService;
+	    private readonly ICurrencyFormatingService _currencyFormatingService;
 
-		public ActionResult Rendering()         
+	    public CommerceConnectBasketController(IMiniBasketService miniBasketService, ICurrencyFormatingService currencyFormatingService)
+	    {
+	        _miniBasketService = miniBasketService;
+	        _currencyFormatingService = currencyFormatingService;
+	    }
+
+        public ActionResult Rendering()         
 		{
 			var cart = GetCart();
 			var basketModel = new BasketRenderingViewModel();
@@ -49,59 +59,111 @@ namespace AvenueClothing.Project.Transaction.Controllers
 
 				basketModel.OrderLines.Add(orderLineViewModel);
 			}
+            basketModel.RefreshUrl = Url.Action("UpdateBasket");
+            basketModel.RemoveOrderlineUrl = Url.Action("RemoveOrderline");
 
-			basketModel.OrderTotal = new Money(cart.Total.Amount, currency).ToString();
+            basketModel.OrderTotal = new Money(cart.Total.Amount, currency).ToString();
 			basketModel.DiscountTotal = new Money(cart.Adjustments.Sum(x => x.Amount), currency).ToString();
-			if (cart.Total.TaxTotal != null)
+			if (cart.Total.TaxTotal != null) 
 				basketModel.TaxTotal = new Money(cart.Total.TaxTotal.Amount, currency).ToString();
 			basketModel.SubTotal = new Money((cart.Total.Amount - cart.Total.TaxTotal.Amount), currency).ToString();
 
-			return View(basketModel);
+			return View("/Views/Basket/Rendering.cshtml", basketModel);
 		}
 
-		[HttpPost]
-		public ActionResult Index(BasketRenderingViewModel model)
-		{
-			var cartServiceProvider = new CartServiceProvider();
-			var cart = GetCart();
+        [HttpPost]
+        public ActionResult RemoveOrderline(int orderlineId)
+        {
+            var cartServiceProvider = new CartServiceProvider();
+     
+            var request = new RemoveCartLinesRequest(GetCart(), GetCart().Lines.Where(line => line.ExternalCartLineId == orderlineId.ToString()));
+            cartServiceProvider.RemoveCartLines(request);
+          
+            return Json(new
+            {
+                orderlineId = orderlineId
+            });
+        }
 
-			foreach (var orderLine in model.OrderLines)
-			{
-				var newQuantity = orderLine.Quantity;
+        [HttpPost]
+        public ActionResult UpdateBasket(BasketUpdateBasket model)
+        {
+            var cartServiceProvider = new CartServiceProvider();
+            var cart = GetCart();
+      
+            foreach (var updateOrderline in model.RefreshBasket)
+            {
+                var newQuantity = updateOrderline.OrderLineQty;
+                if (newQuantity <= 0)
+                {
+                    var request = new RemoveCartLinesRequest(cart, 
+                        cart.Lines.Where(line => line.ExternalCartLineId == updateOrderline.OrderLineId.ToString()));
+                    cart = cartServiceProvider.RemoveCartLines(request).Cart;
+                }
+                else
+                {
+                    var cartLineToUpdate = cart.Lines.First(i => i.ExternalCartLineId == updateOrderline.OrderLineId.ToString());
+                    cartLineToUpdate.Quantity = (uint)newQuantity;
+                    var updateCartLinesRequest = new UpdateCartLinesRequest(cart, new Collection<CartLine>{cartLineToUpdate});
+                    cart = cartServiceProvider.UpdateCartLines(updateCartLinesRequest).Cart;
+                }
+            }
+            
+            BasketUpdateBasketViewModel updatedBasket = new BasketUpdateBasketViewModel();
+            CultureInfo cultureInfo = CultureInfo.GetCultureInfo(cart.CurrencyCode);
 
-				if (model.RemoveOrderlineId == orderLine.OrderLineId)
-					newQuantity = 0;
+            foreach (var orderLine in cart.Lines)
+            {
+                var orderLineViewModel = new BasketUpdateOrderline();
+                orderLineViewModel.OrderlineId = int.Parse(orderLine.ExternalCartLineId);
+                orderLineViewModel.Quantity = (int)orderLine.Quantity;
 
-				var bmw = cart.Lines.First(i => i.Product.ProductId == orderLine.Sku);
 
-				bmw.Quantity = (uint)newQuantity;
+                orderLineViewModel.Total = _currencyFormatingService.GetFormattedCurrencyString(orderLine.Total.Amount, cultureInfo);
+                orderLineViewModel.Discount = orderLine.Adjustments.Sum(x => x.Amount);
+                orderLineViewModel.Tax = _currencyFormatingService.GetFormattedCurrencyString(orderLine.Total.TaxTotal.Amount, cultureInfo);
+                orderLineViewModel.Price = _currencyFormatingService.GetFormattedCurrencyString(orderLine.Product.Price.Amount, cultureInfo);
 
-				if (newQuantity > 0)
-				{
-					var updateCartLinesRequest = new UpdateCartLinesRequest(cart, new Collection<CartLine> { bmw });
-					cartServiceProvider.UpdateCartLines(updateCartLinesRequest);
-				}
-				else
-				{
-					var request = new RemoveCartLinesRequest(cart, cart.Lines.Where(l => l.Product.ProductId == bmw.Product.ProductId).ToArray());
-					cartServiceProvider.RemoveCartLines(request);
-				}
-			}
+                var priceWithDiscount = orderLine.Product.Price.Amount - orderLine.Adjustments.Sum(x => x.Amount);
+                orderLineViewModel.PriceWithDiscount = _currencyFormatingService.GetFormattedCurrencyString(priceWithDiscount, cultureInfo);
 
-			return Redirect("/Cart");
-		}
+                updatedBasket.Orderlines.Add(orderLineViewModel);
+            }
+            
+            string orderTotal = _currencyFormatingService.GetFormattedCurrencyString(cart.Total.Amount, cultureInfo);
+            string discountTotal = _currencyFormatingService.GetFormattedCurrencyString(cart.Adjustments.Sum(x => x.Amount), cultureInfo);
+            string taxTotal = _currencyFormatingService.GetFormattedCurrencyString(cart.Total.TaxTotal.Amount, cultureInfo);
+            string subTotal = _currencyFormatingService.GetFormattedCurrencyString(cart.Total.Amount - cart.Total.TaxTotal.Amount, cultureInfo);
+      
+            updatedBasket.OrderTotal = orderTotal;
+            updatedBasket.DiscountTotal = discountTotal;
+            updatedBasket.TaxTotal = taxTotal;
+            updatedBasket.SubTotal = subTotal;
 
-		private Cart GetCart()
-		{
-			var cartServiceProvider = new CartServiceProvider();
+            return Json(new
+            {
+                MiniBasketRefresh = _miniBasketService.Refresh(),
+                OrderTotal = orderTotal,
+                DiscountTotal = discountTotal,
+                TaxTotal = taxTotal,
+                SubTotal = subTotal,
+                OrderLines = updatedBasket.Orderlines
+            });
+        }
 
-			var contactFactory = new ContactFactory();
-			string userId = contactFactory.GetContact();
+        private Cart GetCart()
+        {
+            var cartServiceProvider = new CartServiceProvider();
 
-			var createCartRequest = new CreateOrResumeCartRequest(Context.GetSiteName(), userId);
+            var contactFactory = new ContactFactory();
+            string userId = contactFactory.GetContact();
 
-			return cartServiceProvider.CreateOrResumeCart(createCartRequest).Cart;
-		}
-	}
+            var createCartRequest = new CreateOrResumeCartRequest(Context.GetSiteName(), userId);
+
+            return cartServiceProvider.CreateOrResumeCart(createCartRequest).Cart;
+        }
+
+	
+    }
 
 }

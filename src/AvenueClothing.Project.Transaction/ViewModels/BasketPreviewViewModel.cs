@@ -25,6 +25,8 @@ namespace AvenueClothing.Project.Transaction.ViewModels
 		public decimal DiscountAmount { get; set; }
 		public OrderAddress ShipmentAddress { get; set; }
 		public OrderAddress BillingAddress { get; set; }
+        public string ControllerName { get; set; }
+        public string ActionName { get; set; }
 	}
 
 	public class PreviewOrderLine

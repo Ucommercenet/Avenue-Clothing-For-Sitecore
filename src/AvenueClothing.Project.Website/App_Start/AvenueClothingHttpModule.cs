@@ -62,6 +62,7 @@ namespace AvenueClothing.Project.Website
         public void ConfigureAcceleratorServices(ServiceCollection services)
         {
             services.AddTransient<IMiniBasketService, MiniBasketService>();
+            services.AddTransient<ICurrencyFormatingService, CurrencyFormattingService>();
         }
 
         public void ConfigureUCommerceServices(IServiceCollection services)

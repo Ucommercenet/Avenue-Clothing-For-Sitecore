@@ -4,7 +4,7 @@
 @{
     Layout = null;
 }
-@using (Html.BeginForm("RequestPayment", "BasketPreview", FormMethod.Post))
+@using (Html.BeginForm(Model.ActionName, Model.ControllerName, FormMethod.Post))
 {
     <div class="well overflow-hidden">
         <div class="col-md-6">

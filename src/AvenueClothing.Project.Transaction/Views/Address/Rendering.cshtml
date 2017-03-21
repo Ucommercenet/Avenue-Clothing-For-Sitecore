@@ -7,8 +7,9 @@
     var showShippingAddress = Model.IsShippingAddressDifferent ? "display:block;" : "display:none;";
 }
 
-@using (Html.BeginForm("Save", "Address", FormMethod.Post, new { @class = "js-address", data_submit_address = ".submit-address", data_save_address_url = @Model.SaveAddressUrl }))
-{
+@*@using (Html.BeginForm(new { @class = "js-address", data_submit_address = ".submit-address", data_save_address_url = @Model.SaveAddressUrl }))
+{*@
+   <form class="js-address" data-submit-address=".submit-address" data-save-address-url="@Model.SaveAddressUrl">
     <div class="flex-contain">
         <div class="js-address-billing">
             <legend>Billing address</legend>
@@ -188,14 +189,15 @@
     </div>
 
 
-        <div class="control-group margin-top clearfix">
-            <div class="controls">
-                <div class="col-md-6 no-padding-col">
-                    <a href="/cart" type="submit" class="btn btn-secondary btn-default btn-full-width pull-left">Back</a>
-                </div>
-                <div class="col-md-6 no-padding-col">
-                    <input type="submit" class="btn btn-success btn-full-width pull-right submit-address" value="Continue to shipping options" />
-                </div>
+    <div class="control-group margin-top clearfix">
+        <div class="controls">
+            <div class="col-md-6 no-padding-col">
+                <a href="/cart" type="submit" class="btn btn-secondary btn-default btn-full-width pull-left">Back</a>
+            </div>
+            <div class="col-md-6 no-padding-col">
+                <input type="submit" class="btn btn-success btn-full-width pull-right submit-address" value="Continue to shipping options" />
             </div>
         </div>
-}
+    </div>
+    @* } *@
+</form>

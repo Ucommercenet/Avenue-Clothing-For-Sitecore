@@ -22,7 +22,10 @@ namespace AvenueClothing.Project.Transaction.Controllers
 			var purchaseOrder = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
 			var basketPreviewViewModel = new BasketPreviewViewModel();
 
-			basketPreviewViewModel = MapPurchaseOrderToViewModel(purchaseOrder, basketPreviewViewModel);
+            basketPreviewViewModel.ControllerName = ControllerContext.RouteData.Values["controller"].ToString();
+            basketPreviewViewModel.ActionName = ControllerContext.RouteData.Values["action"].ToString();
+
+            basketPreviewViewModel = MapPurchaseOrderToViewModel(purchaseOrder, basketPreviewViewModel);
 
 			return View(basketPreviewViewModel);
 		}

@@ -32,7 +32,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 	        }
 
             PurchaseOrder basket = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
-            
+
             foreach (var orderLine in basket.OrderLines)
             {
                 var orderLineViewModel = new BasketRenderingViewModel.OrderlineViewModel();
