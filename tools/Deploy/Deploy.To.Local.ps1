@@ -21,7 +21,7 @@ function Run-It () {
 	"base_dir"="$base_dir";
 	"src"=$src;
 	"working_dir"=$WebsiteRoot;
-	"Apis" = "CommerceConnect";
+	"Apis" = "uCommerce";
 	"projects" = @("AvenueClothing.Project.Website", "AvenueClothing.Project.Catalog", "AvenueClothing.Project.Header", "AvenueClothing.Project.Navigation", "AvenueClothing.Project.Transaction", "AvenueClothing.Project.UserFeedback");
 	};
     

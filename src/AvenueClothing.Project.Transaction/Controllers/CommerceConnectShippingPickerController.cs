@@ -53,7 +53,6 @@ namespace AvenueClothing.Project.Transaction.Controllers
 			foreach (var availableShippingMethod in shippingMethods)
 			{
 				var shippingMethodPrice = shippingMethodPrices.FirstOrDefault(x => x.MethodId == availableShippingMethod.ExternalId);
-				//var formattedprice = string.Format("{0} {1}", shippingMethodPrice.Amount, shippingMethodPrice.CurrencyCode);
 
                 CultureInfo cultureInfo = new CultureInfo(shippingMethodPrice.CurrencyCode);
 			    var formattedprice = _currencyFormatingService.GetFormattedCurrencyString(shippingMethodPrice.Amount, cultureInfo);
