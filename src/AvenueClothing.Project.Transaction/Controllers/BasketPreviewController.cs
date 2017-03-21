@@ -23,7 +23,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 			var basketPreviewViewModel = new BasketPreviewViewModel();
 
             basketPreviewViewModel.ControllerName = ControllerContext.RouteData.Values["controller"].ToString();
-            basketPreviewViewModel.ActionName = ControllerContext.RouteData.Values["action"].ToString();
+            basketPreviewViewModel.ActionName = "RequestPayment";
 
             basketPreviewViewModel = MapPurchaseOrderToViewModel(purchaseOrder, basketPreviewViewModel);
 

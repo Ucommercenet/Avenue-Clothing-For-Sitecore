@@ -25,17 +25,18 @@ namespace AvenueClothing.Project.Transaction.Controllers
 			var basketPreviewViewModel = new BasketPreviewViewModel();
       
             basketPreviewViewModel.ControllerName = ControllerContext.RouteData.Values["controller"].ToString();
-            basketPreviewViewModel.ActionName = ControllerContext.RouteData.Values["action"].ToString();
-
-            //used to grap addresses
+		    basketPreviewViewModel.ActionName = "RequestPayment";
+            
+            //used to grab addresses
             var purchaseOrder = TransactionLibrary.GetBasket(false).PurchaseOrder;
 			
 			var cart = GetCart();
 			
 			basketPreviewViewModel = MapPurchaseOrderToViewModel(purchaseOrder, cart, basketPreviewViewModel);
 
-			return View(basketPreviewViewModel);
-		}
+			return View("/Views/BasketPreview/Rendering.cshtml", basketPreviewViewModel);
+
+        }
 
 		[HttpPost]
 		public ActionResult RequestPayment()

@@ -191,7 +191,6 @@
     <Content Include="Scripts\jsAddToBasketButton.js" />
     <Content Include="Views\ConfirmationEmail\Rendering.cshtml" />
     <Content Include="Views\CommerceConnectPaymentPicker\Rendering.cshtml" />
-    <Content Include="Views\CommerceConnectBasketPreview\Rendering.cshtml" />
     <Content Include="Views\web.config">
       <SubType>Designer</SubType>
     </Content>
