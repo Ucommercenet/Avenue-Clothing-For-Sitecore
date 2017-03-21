@@ -5,7 +5,7 @@
 	Layout = null;
 }
 
-@using (Html.BeginForm("CreatePayment", "PaymentPicker", FormMethod.Post))
+@using (Html.BeginForm(Model.ActionName, Model.ControllerName, FormMethod.Post))
 {
 	<legend>Payment method</legend>
 	if (@Model.AvailablePaymentMethods.Count > 0)

@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
+using AvenueClothing.Project.Transaction.Services;
 using AvenueClothing.Project.Transaction.ViewModels;
 using Sitecore;
 using Sitecore.Commerce.Contacts;
 using Sitecore.Commerce.Entities.Carts;
 using Sitecore.Commerce.Entities.Payments;
-using Sitecore.Commerce.Entities.Shipping;
 using Sitecore.Commerce.Services.Carts;
 using Sitecore.Commerce.Services.Payments;
-using Sitecore.Commerce.Services.Shipping;
-using Sitecore.Configuration;
-using UCommerce;
 using UCommerce.Transactions;
 using Constants = UCommerce.Constants;
 
@@ -22,23 +20,24 @@ namespace AvenueClothing.Project.Transaction.Controllers
 {
     public class CommerceConnectPaymentPickerController : BaseController
     {
-        private readonly TransactionLibraryInternal _transactionLibraryInternal;
+        private readonly ICurrencyFormatingService _currencyFormatingService;
 
-        public CommerceConnectPaymentPickerController(TransactionLibraryInternal transactionLibraryInternal)
+        public CommerceConnectPaymentPickerController(ICurrencyFormatingService currencyFormatingService)
         {
-            _transactionLibraryInternal = transactionLibraryInternal;
+            _currencyFormatingService = currencyFormatingService;
         }
 
-        public ActionResult Rendering()
+     public ActionResult Rendering()
         {
             var paymentPickerViewModel = new PaymentPickerViewModel();
 
+            paymentPickerViewModel.ControllerName = ControllerContext.RouteData.Values["controller"].ToString();
+            paymentPickerViewModel.ActionName = "CreatePayment";
 
             var cart = GetCart();
             var paymentOption = GetPaymentOptions(cart.ShopName).FirstOrDefault();
             var paymentMethods = GetPaymentMethods(paymentOption, cart);
             var paymentMethodPrices = GetPaymentMethodPrices(paymentMethods, cart);
-
 
             var payment = cart.Payment.FirstOrDefault();
 
@@ -57,8 +56,9 @@ namespace AvenueClothing.Project.Transaction.Controllers
                 var paymentPrice = paymentMethodPrices.First(x => x.MethodId == paymentMethod.ExternalId);
                 decimal feePercent = (decimal)paymentPrice.GetPropertyValue("FeePercent");
                 var fee = paymentPrice.Amount;
-                var formattedFee = string.Format("{0} {1}", fee, paymentPrice.CurrencyCode);
 
+                CultureInfo cultureInfo = CultureInfo.GetCultureInfo(cart.CurrencyCode);
+                var formattedFee = _currencyFormatingService.GetFormattedCurrencyString(fee, cultureInfo);
                 option.Text = String.Format(" {0} ({1} + {2}%)", paymentMethod.Name, formattedFee,
                     feePercent.ToString("0.00"));
                 option.Value = paymentMethod.ExternalId;
@@ -67,7 +67,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
                 paymentPickerViewModel.AvailablePaymentMethods.Add(option);
             }
 
-            return View(paymentPickerViewModel);
+            return View("/Views/PaymentPicker/Rendering.cshtml", paymentPickerViewModel);
         }
 
         [HttpPost]

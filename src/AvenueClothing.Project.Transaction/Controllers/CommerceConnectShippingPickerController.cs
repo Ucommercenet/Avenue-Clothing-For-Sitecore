@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
+using AvenueClothing.Project.Transaction.Services;
 using AvenueClothing.Project.Transaction.ViewModels;
 using Sitecore;
 using Sitecore.Commerce.Contacts;
@@ -18,6 +20,13 @@ namespace AvenueClothing.Project.Transaction.Controllers
 {
 	public class CommerceConnectShippingPickerController : BaseController
 	{
+	    private readonly ICurrencyFormatingService _currencyFormatingService;
+
+	    public CommerceConnectShippingPickerController(ICurrencyFormatingService currencyFormatingService)
+	    {
+	        _currencyFormatingService = currencyFormatingService;
+	    }
+
 		public ActionResult Rendering()
 		{
 			var shipmentPickerViewModel = new ShippingPickerViewModel();
@@ -27,7 +36,10 @@ namespace AvenueClothing.Project.Transaction.Controllers
 			var shippingMethods = GetShippingMethods(shippingOption, cart);
 			var shippingMethodPrices = GetShippingMethodPrices(shippingMethods, cart);
 
-			var shipping = cart.Shipping.FirstOrDefault();
+		    shipmentPickerViewModel.ControllerName = ControllerContext.RouteData.Values["controller"].ToString();
+		    shipmentPickerViewModel.ActionName = "CreateShipment";
+
+            var shipping = cart.Shipping.FirstOrDefault();
 
 			if (shipping != null)
 			{
@@ -41,8 +53,10 @@ namespace AvenueClothing.Project.Transaction.Controllers
 			foreach (var availableShippingMethod in shippingMethods)
 			{
 				var shippingMethodPrice = shippingMethodPrices.FirstOrDefault(x => x.MethodId == availableShippingMethod.ExternalId);
-				var formattedprice = string.Format("{0} {1}", shippingMethodPrice.Amount, shippingMethodPrice.CurrencyCode);
+				//var formattedprice = string.Format("{0} {1}", shippingMethodPrice.Amount, shippingMethodPrice.CurrencyCode);
 
+                CultureInfo cultureInfo = new CultureInfo(shippingMethodPrice.CurrencyCode);
+			    var formattedprice = _currencyFormatingService.GetFormattedCurrencyString(shippingMethodPrice.Amount, cultureInfo);
 				shipmentPickerViewModel.AvailableShippingMethods.Add(new SelectListItem()
 				{
 					Selected = shipmentPickerViewModel.SelectedShippingMethodId.ToString() == availableShippingMethod.ExternalId,
@@ -51,8 +65,8 @@ namespace AvenueClothing.Project.Transaction.Controllers
 				});
 			}
 
-			return View(shipmentPickerViewModel);
-		}
+			return View("/Views/ShippingPicker/Rendering.cshtml", shipmentPickerViewModel);
+        }
 
 		[HttpPost]
 		public ActionResult CreateShipment(ShippingPickerViewModel createShipmentViewModel)

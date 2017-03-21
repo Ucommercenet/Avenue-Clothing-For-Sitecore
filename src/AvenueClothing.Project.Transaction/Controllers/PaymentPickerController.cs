@@ -21,7 +21,10 @@ namespace AvenueClothing.Project.Transaction.Controllers
 		{
 			var paymentPickerViewModel = new PaymentPickerViewModel();
 
-			var basket = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
+            paymentPickerViewModel.ControllerName = ControllerContext.RouteData.Values["controller"].ToString();
+            paymentPickerViewModel.ActionName = "CreatePayment";
+
+            var basket = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
 			var shippingCountry = basket.GetShippingAddress(Constants.DefaultShipmentAddressName).Country;
 
 			paymentPickerViewModel.ShippingCountry = shippingCountry.Name;

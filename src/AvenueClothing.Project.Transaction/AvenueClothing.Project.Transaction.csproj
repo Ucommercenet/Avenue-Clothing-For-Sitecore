@@ -190,7 +190,6 @@
     <Content Include="Scripts\jsMiniBasket.js" />
     <Content Include="Scripts\jsAddToBasketButton.js" />
     <Content Include="Views\ConfirmationEmail\Rendering.cshtml" />
-    <Content Include="Views\CommerceConnectPaymentPicker\Rendering.cshtml" />
     <Content Include="Views\web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -239,9 +238,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\QuantityPicker\Rendering.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\CommerceConnectShippingPicker\Rendering.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -20,7 +20,10 @@ namespace AvenueClothing.Project.Transaction.Controllers
 		{
 			var shipmentPickerViewModel = new ShippingPickerViewModel();
 
-			var basket = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
+            shipmentPickerViewModel.ControllerName = ControllerContext.RouteData.Values["controller"].ToString();
+            shipmentPickerViewModel.ActionName = "CreateShipment";
+
+            var basket = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
 			var shippingCountry = basket.GetAddress(Constants.DefaultShipmentAddressName).Country;
 
 			shipmentPickerViewModel.ShippingCountry = shippingCountry.Name;

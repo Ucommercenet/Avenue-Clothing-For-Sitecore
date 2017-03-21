@@ -4,7 +4,8 @@
 @{
 	Layout = null;
 }
-@using (Html.BeginForm("CreateShipment", "ShippingPicker", FormMethod.Post))
+
+@using (Html.BeginForm(Model.ActionName, Model.ControllerName, FormMethod.Post))
 {
 	<legend>Shipping method</legend>
 	if (Model.AvailableShippingMethods.Count > 0)

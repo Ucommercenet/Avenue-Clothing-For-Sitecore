@@ -13,5 +13,7 @@ namespace AvenueClothing.Project.Transaction.ViewModels
 		public IList<SelectListItem> AvailablePaymentMethods { get; set; }
 		public int SelectedPaymentMethodId { get; set; }
 		public string ShippingCountry { get; set; }
+        public string ControllerName { get; set; }
+        public string ActionName { get; set; }
 	}
 }
