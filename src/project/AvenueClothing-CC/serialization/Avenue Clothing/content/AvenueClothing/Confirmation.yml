@@ -1,0 +1,63 @@
+﻿---
+ID: "7fd5dc61-4d6d-4d20-9cba-5ea98706c57f"
+Parent: "7919567a-faa2-4504-9c31-63a2cf67b551"
+Template: "6aa89888-a32b-4605-a057-09c226df4a8d"
+Path: /sitecore/content/AvenueClothing/Confirmation
+DB: master
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{55AD3180-3D79-461F-AC6F-D679AB58A849}">
+        <r
+          id="{878E2B49-315C-4EFE-8D26-52605F78C3D6}"
+          ph="header"
+          uid="{3514E18D-EC0C-4519-B512-9FFEBD84369F}" />
+        <r
+          id="{E5C76A34-378F-4808-957B-2C055AE08BCB}"
+          ph="header content"
+          uid="{A38550B0-00FC-4629-A2DB-092270F65B2F}" />
+        <r
+          id="{514E5AAF-527A-4D2B-9124-9C3FADC8EA2D}"
+          ph="main"
+          uid="{36DCAA04-7643-469B-926F-1936B279E24E}" />
+        <r
+          id="{749D4A8D-990A-4FFE-BE3A-C74591EBD862}"
+          ph="sidebar"
+          uid="{87292D9B-68EF-4BCF-8C0B-20266685C809}" />
+        <r
+          id="{51F0AFD0-376F-43B5-B425-CFB19E0A6C7D}"
+          ph="sidebar"
+          uid="{36688D14-DDEA-42DE-9431-D8035B998837}" />
+        <r
+          id="{F45E27B0-D4C0-4C0C-9CCC-CC9F5203F30D}"
+          ph="footer"
+          uid="{B35ADAEF-EE60-4985-8C43-3B8E7E30E8B3}" />
+        <r
+          id="{EBBE7524-3356-47AC-852A-8EE1DD93CAD6}"
+          ph="header content"
+          uid="{5E7D6A4F-95FA-4151-ABEE-0D0755D40C2D}" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20161111T110519Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "a7914204-1cb0-42aa-a34c-e9abeee8e564"
+      Hint: Headline
+      Value: "Thank you for your order!"
+    - ID: "d2beac0f-56ee-493d-851d-362ed9f30128"
+      Hint: Message
+      Value: An order confirmation email has been sent to your email address.

@@ -1,0 +1,29 @@
+﻿---
+ID: "98f1f4ce-ef17-46ee-bd6c-f8906484dd40"
+Parent: "a21265c5-0ae3-4d85-894b-a93f705aa658"
+Template: "8646351d-2312-4d5c-9022-dc9b67fbb45d"
+Path: /sitecore/content/AvenueClothing/Data Sources/Banner Messages/Order is placed
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0d87482c-3b8e-4907-a9d7-a2a8591dbbd8"
+      Hint: Image
+      Value: |
+        <image mediaid="{8817B249-8714-47C1-8CE3-C17CFCF15408}" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170117T123824Z
+    - ID: "34dc4d2d-413d-4a28-abb9-e406814cf48b"
+      Hint: Title
+      Value: Thanks for the order.
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "fd006497-82ed-43b0-bb6a-8c572ac438e4"
+      Hint: Message
+      Value: |
+        Come back and get 10% discount on your next order  by using the "demo" vourcher.

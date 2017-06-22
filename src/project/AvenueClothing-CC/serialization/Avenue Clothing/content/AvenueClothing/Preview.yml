@@ -1,0 +1,61 @@
+﻿---
+ID: "3282f847-2d83-4c2e-9fe1-1905f45af3a2"
+Parent: "7919567a-faa2-4504-9c31-63a2cf67b551"
+Template: "3870177d-3bc6-46dc-9594-13860b542060"
+Path: /sitecore/content/AvenueClothing/Preview
+DB: master
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{55AD3180-3D79-461F-AC6F-D679AB58A849}">
+        <r
+          id="{878E2B49-315C-4EFE-8D26-52605F78C3D6}"
+          ph="header"
+          uid="{031D6E95-9B4F-40FA-86D3-E96AC28D337A}" />
+        <r
+          id="{EBBE7524-3356-47AC-852A-8EE1DD93CAD6}"
+          ph="header content"
+          uid="{DE147494-E9D2-4C7E-9633-08105D027EDF}" />
+        <r
+          id="{749D4A8D-990A-4FFE-BE3A-C74591EBD862}"
+          ph="sidebar"
+          uid="{9F71F427-F6A4-447E-AA67-466576246C12}" />
+        <r
+          id="{AA92D865-76BA-4A80-ABD9-BC6E7CE83687}"
+          ph="main"
+          uid="{828C9432-9363-424B-8191-7AD66CC41902}" />
+        <r
+          id="{A56E9C47-09B5-443D-BA4F-26CC617E50AB}"
+          ph="main"
+          uid="{14A4BF28-E51A-40AA-9730-F4DD4A1628F9}" />
+        <r
+          id="{E5C76A34-378F-4808-957B-2C055AE08BCB}"
+          ph="header content"
+          uid="{D4BAFA4E-0554-4264-B028-D09338390832}" />
+        <r
+          id="{51F0AFD0-376F-43B5-B425-CFB19E0A6C7D}"
+          ph="sidebar"
+          uid="{EA2AEDF7-B0FD-4EE6-8D50-916842D4D220}" />
+        <r
+          id="{F45E27B0-D4C0-4C0C-9CCC-CC9F5203F30D}"
+          ph="footer"
+          uid="{7937EA72-99F3-49BB-8B2E-09168A173B37}" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20161006T125647Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

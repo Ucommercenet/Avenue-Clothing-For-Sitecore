@@ -48,6 +48,12 @@
       <HintPath>..\packages\uCommerce.Core.7.3.1.16343\lib\net400\paypal_base.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Sitecore.Analytics">
+      <HintPath>..\..\lib\Sitecore\8.2\Sitecore.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Commerce">
+      <HintPath>..\..\lib\Commerce Connect\Sitecore.Commerce.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.Kernel">
       <HintPath>..\..\lib\Sitecore\8.2\Sitecore.Kernel.dll</HintPath>
     </Reference>
@@ -128,14 +134,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AddressController.cs" />
+    <Compile Include="Controllers\CommerceConnectBasketPreviewController.cs" />
+    <Compile Include="Controllers\CommerceConnectBasketController.cs" />
+    <Compile Include="Controllers\CommerceConnectAddToBasketButtonController.cs" />
     <Compile Include="Controllers\BasketPreviewController.cs" />
+    <Compile Include="Controllers\CommerceConnectPaymentPickerController.cs" />
+    <Compile Include="Controllers\CommerceConnectShippingPickerController.cs" />
     <Compile Include="Controllers\ConfirmationController.cs" />
+    <Compile Include="Controllers\CommerceConnectMiniBasketController.cs" />
     <Compile Include="Controllers\QuantityPickerController.cs" />
     <Compile Include="Controllers\ShippingPickerController.cs" />
     <Compile Include="Controllers\PaymentPickerController.cs" />
     <Compile Include="Controllers\AddToBasketButtonController.cs" />
     <Compile Include="Controllers\BasketController.cs" />
-    <Compile Include="Controllers\AddressController.cs" />
+    <Compile Include="Controllers\CommerceConnectAddressController.cs" />
     <Compile Include="Controllers\MiniBasketController.cs" />
     <Compile Include="Controllers\VariantPickerController.cs" />
     <Compile Include="Controllers\ConfirmationEmailController.cs" />
@@ -175,7 +188,11 @@
     <Content Include="Scripts\jsMiniBasket.js" />
     <Content Include="Scripts\jsAddToBasketButton.js" />
     <Content Include="Views\ConfirmationEmail\Rendering.cshtml" />
-    <Content Include="Views\web.config" />
+    <Content Include="Views\CommerceConnectPaymentPicker\Rendering.cshtml" />
+    <Content Include="Views\CommerceConnectBasketPreview\Rendering.cshtml" />
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jsPaymentPicker.js" />
@@ -221,6 +238,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\QuantityPicker\Rendering.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CommerceConnectBasket\Rendering.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CommerceConnectShippingPicker\Rendering.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

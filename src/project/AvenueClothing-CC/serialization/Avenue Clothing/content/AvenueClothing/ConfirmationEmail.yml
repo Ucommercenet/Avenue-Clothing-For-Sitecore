@@ -1,0 +1,41 @@
+﻿---
+ID: "0d0c0ed6-7144-4a9a-a7d1-3284c8d459d1"
+Parent: "7919567a-faa2-4504-9c31-63a2cf67b551"
+Template: "3870177d-3bc6-46dc-9594-13860b542060"
+Path: /sitecore/content/AvenueClothing/ConfirmationEmail
+DB: master
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{F1CCF3F0-2DA2-45E0-873E-3752048FB522}">
+        <r
+          id="{878E2B49-315C-4EFE-8D26-52605F78C3D6}"
+          ph="header"
+          uid="{AEBB6C69-1A60-4557-895E-86746B026682}" />
+        <r
+          id="{E66698C6-AED9-4452-8D37-03E745E6C9E4}"
+          ph="content"
+          uid="{9CE16183-BE7D-478E-A7F8-40969BDFC4B1}" />
+        <r
+          id="{F45E27B0-D4C0-4C0C-9CCC-CC9F5203F30D}"
+          ph="footer"
+          uid="{31EADF72-01A6-4B82-B2C0-CFFFCEA88266}" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20161006T134112Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

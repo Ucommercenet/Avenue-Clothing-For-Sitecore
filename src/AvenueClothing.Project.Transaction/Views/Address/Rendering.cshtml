@@ -40,11 +40,11 @@
             <div class="row">
                 <div class="col-md-6 no-vertical-margin control-group form-group">
                     <label>Mobile phone</label>
-                    @Html.TextBoxFor(x => x.BillingAddress.MobilePhoneNumber, new { @class = "form-control number margin-bottom" })
+                    @Html.TextBoxFor(x => x.BillingAddress.MobilePhoneNumber, new { @class = "form-control margin-bottom" })
                 </div>
                 <div class="col-md-6 no-vertical-margin control-group form-group">
                     <label>Phone</label>
-                    @Html.TextBoxFor(x => x.ShippingAddress.PhoneNumber, new { @class = "form-control number margin-bottom" })
+                    @Html.TextBoxFor(x => x.ShippingAddress.PhoneNumber, new { @class = "form-control margin-bottom" })
 
 
                 </div>
@@ -71,7 +71,7 @@
 
                 <div class="col-md-6 no-vertical-margin control-group form-group">
                     <label>City</label>
-                    @Html.TextBoxFor(x => x.BillingAddress.City, new { @class = "form-control margin-bottom" })
+                    @Html.TextBoxFor(x => x.BillingAddress.City, new { @class = "form-control required margin-bottom" })
                     <label class="error-custom BillingAddressCity"></label>
                 </div>
             </div>
@@ -128,11 +128,11 @@
             <div class="row">
                 <div class="col-md-6 no-vertical-margin control-group form-group">
                     <label>Mobile phone</label>
-                    @Html.TextBoxFor(x => x.ShippingAddress.MobilePhoneNumber, new { @class = "col-md-12 form-control number margin-bottom" })
+                    @Html.TextBoxFor(x => x.ShippingAddress.MobilePhoneNumber, new { @class = "col-md-12 form-control margin-bottom" })
                 </div>
                 <div class="col-md-6 no-vertical-margin control-group form-group">
                     <label>Phone</label>
-                    @Html.TextBoxFor(x => x.ShippingAddress.PhoneNumber, new { @class = "col-md-12 form-control number margin-bottom" })
+                    @Html.TextBoxFor(x => x.ShippingAddress.PhoneNumber, new { @class = "col-md-12 form-control margin-bottom" })
 
                 </div>
             </div>
@@ -180,8 +180,10 @@
     </div>
     <div class="row margin-bottom margin-top">
         <div class="col-md-12">
-            <label for="toggleShippingView" class="display-inline">Use a different address for shipping</label>
-            @Html.CheckBoxFor(x => x.IsShippingAddressDifferent, new { @class = "js-address-checkbox display-inline" })
+            <label for="toggleShippingView" class="display-checkbox-inline">
+                Use a different address for shipping
+                @Html.CheckBoxFor(x => x.IsShippingAddressDifferent, new { @class = "js-address-checkbox" })
+            </label>
         </div>
     </div>
 

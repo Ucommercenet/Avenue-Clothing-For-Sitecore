@@ -5,6 +5,7 @@ using UCommerce.EntitiesV2;
 using UCommerce.Transactions;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Transaction.ViewModels;
+using Sitecore.Analytics;
 using Constants = UCommerce.Constants;
 
 namespace AvenueClothing.Project.Transaction.Controllers
@@ -57,6 +58,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
             viewModel.AvailableCountries = _countries.ToList().Select(x => new SelectListItem() { Text = x.Name, Value = x.CountryId.ToString() }).ToList();
 
             viewModel.SaveAddressUrl = Url.Action("Save");
+
             return View(viewModel);
         }
 
@@ -93,6 +95,8 @@ namespace AvenueClothing.Project.Transaction.Controllers
                 EditBillingInformation(addressRendering.BillingAddress);
                 EditShippingInformation(addressRendering.BillingAddress);
             }
+
+            Tracker.Current.Session.CustomData["FirstName"] = addressRendering.BillingAddress.FirstName;
             
             _transactionLibraryInternal.ExecuteBasketPipeline();
 

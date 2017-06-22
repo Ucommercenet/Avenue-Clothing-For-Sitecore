@@ -1,0 +1,65 @@
+﻿---
+ID: "af0c58ab-f7b9-40f7-93b8-2bd0b7b9b4e1"
+Parent: "7919567a-faa2-4504-9c31-63a2cf67b551"
+Template: "3870177d-3bc6-46dc-9594-13860b542060"
+Path: /sitecore/content/AvenueClothing/Cart
+DB: master
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{55AD3180-3D79-461F-AC6F-D679AB58A849}">
+        <r
+          id="{878E2B49-315C-4EFE-8D26-52605F78C3D6}"
+          ph="header"
+          uid="{44B9FE56-176D-4C7B-BCAD-491D49BACF3A}" />
+        <r
+          id="{EBBE7524-3356-47AC-852A-8EE1DD93CAD6}"
+          ph="header content"
+          uid="{F3DCAFAB-B473-47F3-9C13-F8B76EB4378D}" />
+        <r
+          id="{749D4A8D-990A-4FFE-BE3A-C74591EBD862}"
+          ph="sidebar"
+          uid="{5B92BE73-85D1-4D0C-8110-5F4C3649E0B1}" />
+        <r
+          id="{AA92D865-76BA-4A80-ABD9-BC6E7CE83687}"
+          ph="main"
+          uid="{04ED61B9-8B13-4767-BC7E-EB5DD3CD88A5}" />
+        <r
+          id="{765AF52A-4993-4738-98D3-AD75AD89FCC2}"
+          ph="main"
+          uid="{F02D1614-F034-4A23-9F5A-296E8595F4F7}" />
+        <r
+          id="{33DD6E2C-D788-4F6B-BCD8-6DBFA912C99E}"
+          ph="main"
+          uid="{E6CD0C68-FA5D-4C0D-A330-44BDB7B4B828}" />
+        <r
+          id="{E5C76A34-378F-4808-957B-2C055AE08BCB}"
+          ph="header content"
+          uid="{D3FED12B-90BD-4190-A9B2-C4625036B60B}" />
+        <r
+          id="{51F0AFD0-376F-43B5-B425-CFB19E0A6C7D}"
+          ph="sidebar"
+          uid="{7CD459F7-6EEE-45EC-BFE0-87B89C96ADBE}" />
+        <r
+          id="{F45E27B0-D4C0-4C0C-9CCC-CC9F5203F30D}"
+          ph="footer"
+          uid="{92322D42-A04A-4F96-8666-8015DAC617C1}" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20161006T111719Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

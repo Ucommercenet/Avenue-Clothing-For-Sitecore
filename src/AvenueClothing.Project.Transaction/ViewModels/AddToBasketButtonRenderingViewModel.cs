@@ -7,6 +7,9 @@
         public int ConfirmationMessageTimeoutInMillisecs { get; set; }
         public string ConfirmationMessageClientId { get; set; }
         public string ProductSku { get; set; }
-        public bool IsProductFamily { get; set; }
+		public bool IsProductFamily { get; set; }
+
+		//Commerce Connect
+		public string Price { get; set; }
     }
 }

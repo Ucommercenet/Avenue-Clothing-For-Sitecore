@@ -99,7 +99,9 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Views\Header\Rendering.cshtml" />
-    <Content Include="Views\web.config" />
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HeaderController.cs" />
