@@ -115,6 +115,7 @@
     <Compile Include="Pipelines\Initialize\RunAvenueClothingInstallerTask.cs" />
     <Compile Include="Pipelines\Initialize\SynchronizeSitecoreItemsTask.cs" />
     <Compile Include="Pipelines\Installation\InstallationPipeline.cs" />
+    <Compile Include="Pipelines\Installation\Tasks\AddClientDependencyBundlesToIgnoreUrlPrefixesTask.cs" />
     <Compile Include="Pipelines\Installation\Tasks\ClearSitecoreCacheTask.cs" />
     <Compile Include="Pipelines\Installation\Tasks\CreateMarketingCampaign.cs" />
     <Compile Include="Pipelines\Installation\Tasks\CreateUCommerceCatalogTask.cs" />
