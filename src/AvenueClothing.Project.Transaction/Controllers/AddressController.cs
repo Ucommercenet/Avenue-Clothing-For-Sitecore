@@ -96,7 +96,8 @@ namespace AvenueClothing.Project.Transaction.Controllers
                 EditShippingInformation(addressRendering.BillingAddress);
             }
 
-            Tracker.Current.Session.CustomData["FirstName"] = addressRendering.BillingAddress.FirstName;
+            if(Tracker.Current != null)
+                Tracker.Current.Session.CustomData["FirstName"] = addressRendering.BillingAddress.FirstName;
             
             _transactionLibraryInternal.ExecuteBasketPipeline();
 
