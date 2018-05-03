@@ -1,16 +1,13 @@
-﻿using System.Collections.Specialized;
-using Sitecore.Install.Framework;
-using UCommerce.Infrastructure;
-using UCommerce.Pipelines;
+﻿using UCommerce.Pipelines;
 using UCommerce.Search.Indexers;
 
 namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
 {
     public class RunScratchIndexerTask : IPipelineTask<InstallationPipelineArgs>
     {
-        private readonly ScratchIndexer _scratchIndexer;
+        private readonly IScratchIndexer _scratchIndexer;
 
-        public RunScratchIndexerTask(ScratchIndexer scratchIndexer)
+        public RunScratchIndexerTask(IScratchIndexer scratchIndexer)
         {
             _scratchIndexer = scratchIndexer;
         }
