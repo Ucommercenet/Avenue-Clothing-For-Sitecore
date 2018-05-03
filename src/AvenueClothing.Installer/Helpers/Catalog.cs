@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using UCommerce.EntitiesV2;
@@ -378,8 +379,15 @@ namespace AvenueClothing.Installer.Helpers
                         });
                 });
 
-            if (!product.PriceGroupPrices.Any())
-                product.AddPriceGroupPrice(new PriceGroupPrice { Price = price, PriceGroup = category.ProductCatalog.PriceGroup });
+            Type priceGroupPriceType = Type.GetType("UCommerce.EntitiesV2.PriceGroupPrice, Ucommerce");
+            if (priceGroupPriceType != null)
+            {
+                CreatePriceGroupPricesForProduct(category, price, priceGroupPriceType, product);
+            }
+            else
+            {
+                CreateProductPricesForProduct(category, price, product);
+            }
 
             // uCommerce checks whether the product already exists in the create
             // when creating the new relation.
@@ -388,6 +396,31 @@ namespace AvenueClothing.Installer.Helpers
             product.Save();
 
             return product;
+        }
+
+        private void CreatePriceGroupPricesForProduct(Category category, decimal price, Type priceGroupPriceType,
+            Product product)
+        {
+            dynamic dynamicProduct = product;
+            dynamic priceGroupPrice = Activator.CreateInstance(priceGroupPriceType);
+            priceGroupPrice.Price = price;
+            priceGroupPrice.PriceGroup = category.ProductCatalog.PriceGroup;
+            if (dynamicProduct.PriceGroupPrices.Count == 0)
+            {
+                dynamicProduct.AddPriceGroupPrice(priceGroupPrice);
+            }
+        }
+
+        private void CreateProductPricesForProduct(Category category, decimal amount, Product product)
+        {
+            var price = new Price() { Amount = amount, Guid = Guid.NewGuid(), PriceGroup = category.ProductCatalog.PriceGroup };
+            product.ProductPrices.Add(new ProductPrice()
+            {
+                Guid = Guid.NewGuid(),
+                MinimumQuantity = 1,
+                Price = price,
+                Product = product
+            });
         }
 
         private Product CreateVariantOnProduct(Product product, string variantSku, string name, string imageId)
