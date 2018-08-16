@@ -1,8 +1,10 @@
 ﻿using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Transaction.ViewModels;
 using UCommerce;
+using UCommerce.Api;
 using UCommerce.EntitiesV2;
 using UCommerce.Transactions;
 
@@ -30,8 +32,15 @@ namespace AvenueClothing.Project.Transaction.Controllers
 		[HttpPost]
 		public ActionResult RequestPayment()
 		{
-			_transactionLibraryInternal.RequestPayments();
-			return Redirect("/confirmation");
+		    var payment = _transactionLibraryInternal.GetBasket().PurchaseOrder.Payments.First();
+		    if (payment.PaymentMethod.PaymentMethodServiceName == null)
+		    {
+		        return Redirect("/confirmation");
+            }
+
+		    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            string paymentUrl = _transactionLibraryInternal.GetPaymentPageUrl(payment);
+		    return Redirect(paymentUrl);
 		}
 
 		private BasketPreviewViewModel MapPurchaseOrderToViewModel(PurchaseOrder purchaseOrder, BasketPreviewViewModel basketPreviewViewModel)
