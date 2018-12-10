@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using UCommerce.EntitiesV2;
 using UCommerce.EntitiesV2.Factories;
+using UCommerce.Infrastructure;
+using UCommerce.Security;
 
 namespace AvenueClothing.Installer.Helpers
 {
@@ -28,6 +30,7 @@ namespace AvenueClothing.Installer.Helpers
             EnablePaymentMethodForCatalog(catalogGroup);
             EnableShippingMethodForCatalog(catalogGroup);
             CreateCatalogue(catalog);
+            ObjectFactory.Instance.Resolve<IEnsureRolesAreUpToDateService>().EnsureRolesAreUpToDate();
         }
 
         private void DeleteOldStore()
