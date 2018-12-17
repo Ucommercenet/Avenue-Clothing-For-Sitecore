@@ -215,7 +215,8 @@ namespace AvenueClothing.Installer.Helpers
                     acceptUrl.SetValue("/confirmation");
             }
 
-
+            paymentMethod.PaymentMethodServiceName = "Default Payment Method Service";
+            paymentMethod.Pipeline = "Checkout";
             paymentMethod.Save();
             return paymentMethod;
         }
