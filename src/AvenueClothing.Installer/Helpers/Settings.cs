@@ -204,6 +204,18 @@ namespace AvenueClothing.Installer.Helpers
             {
                 paymentMethod.AddEligibleCountry(country);
             }
+
+            var defaultPaymentMethodService = Definition.SingleOrDefault(x => x.Name == "Default Payment Method Service");
+            if (defaultPaymentMethodService != null)
+            {
+                paymentMethod.Definition = defaultPaymentMethodService;
+                var acceptUrl = paymentMethod.GetProperty("AcceptUrl");
+
+                if (acceptUrl != null)
+                    acceptUrl.SetValue("/confirmation");
+            }
+
+
             paymentMethod.Save();
             return paymentMethod;
         }
