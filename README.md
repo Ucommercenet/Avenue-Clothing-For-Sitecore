@@ -15,6 +15,10 @@ When installing Avenue Clothing you get:
 + Full-text search
 + Product review system
 
+## Compatibility ##
+---
+Ucommerce v7.18.0.18185 and higher
+
 ## Overall System Architecture ##
 ---
 
@@ -38,7 +42,7 @@ For example:
 
 The projects can also contain JavaScript modules in the /Scripts folders. These are client-side logical modules created, bundled and served using the [Require.js library](http://requirejs.org/).
 
-These modules are not interrelated but can communicate using JavaScript events. Every Require.js module that starts with the prefix ‚Äújs‚Äù and placed in the "/Scripts" folder will be automatically bundled.
+These modules are not interrelated but can communicate using JavaScript events. Every Require.js module that starts with the prefix ìjsî and placed in the "/Scripts" folder will be automatically bundled.
 
 ## How To Install Avenue Clothing For Sitecore ##
 ---
