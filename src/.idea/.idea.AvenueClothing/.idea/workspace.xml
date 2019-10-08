@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="73a6f405-ae06-45ba-b401-2b6edd26a62e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/AvenueClothing.Installer/package/metadata/sc_name.txt" beforeDir="false" afterPath="$PROJECT_DIR$/AvenueClothing.Installer/package/metadata/sc_name.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AvenueClothing.Installer/package/metadata/sc_version.txt" beforeDir="false" afterPath="$PROJECT_DIR$/AvenueClothing.Installer/package/metadata/sc_version.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AvenueClothing.Project.Website/AvenueClothing.Project.Website.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AvenueClothing.Project.Website/AvenueClothing.Project.Website.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tools/Deploy/Compile.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/../tools/Deploy/Compile.ps1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tools/Deploy/Deploy.To.Package.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/../tools/Deploy/Deploy.To.Package.ps1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tools/Deploy/uCommerce.Sitecore.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/../tools/Deploy/uCommerce.Sitecore.ps1" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>msbuild</find>
+    </findStrings>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/AvenueClothing.Project.Website/App_Start/AvenueClothingHttpModule.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/824E19D8-B53A-48D8-867D-85FEB58265D3/04/aba84cd8/ServiceCollectionContainerBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/.idea.AvenueClothing/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/.idea.AvenueClothing/.idea/indexLayout.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="2580" />
+    <option name="height" value="1380" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="AssemblyExplorer" />
+      <pane id="SolutionExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="AvenueClothing" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="AvenueClothing" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="deploy" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="AvenueClothing" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="deploy" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Configuration" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="AvenueClothing" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="AvenueClothing.Project.Website" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="AvenueClothing" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="AvenueClothing.Project.Website" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="References" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="AvenueClothing" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="AvenueClothing.Project.Website" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="References" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Assemblies" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="AvenueClothing" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="AvenueClothing.Project.Website" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Properties" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-all-files" value="false" />
+      </pane>
+      <pane id="FileSystemExplorer" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="None" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="73a6f405-ae06-45ba-b401-2b6edd26a62e" name="Default Changelist" comment="" />
+      <created>1570181681952</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1570181681952</updated>
+      <workItem from="1570181685183" duration="3143000" />
+      <workItem from="1570436774721" duration="10000" />
+      <workItem from="1570528456592" duration="2018000" />
+      <workItem from="1570533613408" duration="2670000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="7841000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="2576" height="1375" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25596184" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3293556" />
+      <window_info anchor="bottom" id="NuGet" order="7" weight="0.3293556" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3293556" />
+      <window_info anchor="bottom" id="Database Changes" order="10" />
+      <window_info anchor="bottom" id="Unit Tests" order="11" weight="0.3293556" />
+      <window_info anchor="bottom" id="REST Client" order="12" weight="0.3293556" />
+      <window_info anchor="bottom" id="Terminal" order="13" weight="0.3293556" />
+      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.50039744" side_tool="true" visible="true" weight="0.3293556" />
+      <window_info anchor="bottom" id="Build" order="15" sideWeight="0.49960256" visible="true" weight="0.3293556" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Errors In Solution" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" suspend="NONE" type="DotNet Exception Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://C:/Program Files (x86)/Microsoft Visual Studio/2017/Enterprise/MSBuild/15.0/Bin/Microsoft.Common.CurrentVersion.targets">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="617">
+          <caret line="2069" column="70" selection-start-line="2069" selection-start-column="70" selection-end-line="2069" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/824E19D8-B53A-48D8-867D-85FEB58265D3/04/aba84cd8/ServiceCollectionContainerBuilderExtensions.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AvenueClothing.Project.Website/App_Start/AvenueClothingHttpModule.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="57" column="62" selection-start-line="57" selection-start-column="62" selection-end-line="57" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#752#0" expanded="true" />
+            <marker date="1543919077730" expanded="true" signature="852:6155" ph="{...}" />
+            <marker date="1543919077730" expanded="true" signature="1009:1310" ph="{...}" />
+            <marker date="1543919077730" expanded="true" signature="1049:1300" ph="{...}" />
+            <marker date="1543919077730" expanded="true" signature="1148:1268" ph="{...}" />
+            <marker date="1543919077730" expanded="true" signature="1338:1782" ph="{...}" />
+            <marker date="1543919077730" expanded="true" signature="1860:1956" ph="{...}" />
+            <marker date="1543919077730" expanded="true" signature="2033:3617" ph="{...}" />
+            <marker date="1543919077730" expanded="true" signature="3695:3924" ph="{...}" />
+            <marker date="1543919077730" expanded="true" signature="3841:3914" ph="{...}" />
+            <marker date="1543919077730" expanded="true" signature="4006:4710" ph="{...}" />
+            <marker date="1543919077730" expanded="true" signature="4078:4204" ph="{...}" />
+            <marker date="1543919077730" expanded="true" signature="4780:6085" ph="{...}" />
+            <marker date="1543919077730" expanded="true" signature="4806:4886" ph="{...}" />
+            <marker date="1543919077730" expanded="true" signature="4928:5174" ph="{...}" />
+            <marker date="1543919077730" expanded="true" signature="4959:5120" ph="/* A type load exception would typically happen on an Anonymously Hosted DynamicMethods ... */" />
+            <marker date="1543919077730" expanded="true" signature="5216:5284" ph="{...}" />
+            <marker date="1543919077730" expanded="true" signature="5322:5390" ph="{...}" />
+            <marker date="1543919077730" expanded="true" signature="5428:5496" ph="{...}" />
+            <marker date="1543919077730" expanded="true" signature="5547:5725" ph="{...}" />
+            <marker date="1543919077730" expanded="true" signature="5758:6075" ph="{...}" />
+            <marker date="1543919077730" expanded="true" signature="6116:6149" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AvenueClothing.sln">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="887">
+          <caret line="75" column="46" lean-forward="true" selection-start-line="75" selection-start-column="46" selection-end-line="75" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="hg4idea.settings">
+    <option name="CHECK_INCOMING_OUTGOING" value="true" />
+    <option name="RECENT_HG_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+</project>

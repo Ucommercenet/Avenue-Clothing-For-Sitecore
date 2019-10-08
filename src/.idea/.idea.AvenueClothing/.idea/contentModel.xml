@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\projects\AvenueClothing For Sitecore\src" t="IncludeFlat">
+      <e p="AvenueClothing.Foundation.MvcExtensions" t="IncludeRecursive">
+        <e p="AvenueClothing.Foundation.MvcExtensions.csproj" t="IncludeRecursive" />
+        <e p="BaseController.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="AvenueClothing.Installer" t="IncludeRecursive">
+        <e p="AvenueClothing.Installer.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Helpers" t="Include">
+          <e p="Catalog.cs" t="Include" />
+          <e p="GenericHelpers.cs" t="Include" />
+          <e p="Settings.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="package" t="Include">
+          <e p="installer" t="Include">
+            <e p="project" t="Include" />
+            <e p="version" t="Include" />
+          </e>
+          <e p="metadata" t="Include">
+            <e p="sc_author.txt" t="Include" />
+            <e p="sc_comment.txt" t="Include" />
+            <e p="sc_license.txt" t="Include" />
+            <e p="sc_name.txt" t="Include" />
+            <e p="sc_packageid.txt" t="Include" />
+            <e p="sc_poststep.txt" t="Include" />
+            <e p="sc_publisher.txt" t="Include" />
+            <e p="sc_readme.txt" t="Include" />
+            <e p="sc_revision.txt" t="Include" />
+            <e p="sc_version.txt" t="Include" />
+          </e>
+        </e>
+        <e p="PackageInformation" t="Include">
+          <e p="Readme.txt" t="Include" />
+        </e>
+        <e p="packages.config" t="Include" />
+        <e p="Pipelines" t="Include">
+          <e p="Initialize" t="Include">
+            <e p="RunAvenueClothingInstallerTask.cs" t="Include" />
+            <e p="SynchronizeSitecoreItemsTask.cs" t="Include" />
+          </e>
+          <e p="Installation" t="Include">
+            <e p="InstallationPipeline.cs" t="Include" />
+            <e p="Tasks" t="Include">
+              <e p="AddClientDependencyBundlesToIgnoreUrlPrefixesTask.cs" t="Include" />
+              <e p="ClearSitecoreCacheTask.cs" t="Include" />
+              <e p="CreateMarketingCampaign.cs" t="Include" />
+              <e p="CreateUCommerceCatalogTask.cs" t="Include" />
+              <e p="CreateUCommerceSettingsTask.cs" t="Include" />
+              <e p="MoveSitecoreConfigurationFilesTask.cs" t="Include" />
+              <e p="PublishMasterDatabaseTask.cs" t="Include" />
+              <e p="RenameWebConfigIfMissingTask.cs" t="Include" />
+              <e p="RunScratchIndexerTask.cs" t="Include" />
+              <e p="SynchronizeSitecoreItemsTask.cs" t="Include" />
+              <e p="UpdateStandardValuesForDefinitionsTask.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Postinstallation" t="Include">
+          <e p="PostInstallation.cs" t="Include" />
+        </e>
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Services" t="Include">
+          <e p="SynchronizeSitecoreService.cs" t="Include" />
+        </e>
+        <e p="sitecore modules" t="Include">
+          <e p="Shell" t="Include">
+            <e p="uCommerce" t="Include">
+              <e p="Apps" t="Include">
+                <e p="Avenue Clothing" t="Include">
+                  <e p="AvenueClothing.config" t="Include" />
+                  <e p="Pipelines" t="Include">
+                    <e p="Initialize" t="Include">
+                      <e p="Initialize.config" t="Include" />
+                      <e p="SynchronizeSitecoreItems.config.default" t="Include" />
+                    </e>
+                    <e p="Installation" t="Include">
+                      <e p="Installation.config" t="Include" />
+                    </e>
+                  </e>
+                </e>
+              </e>
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="AvenueClothing.Project.Catalog" t="IncludeRecursive">
+        <e p="AvenueClothing.Project.Catalog.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="BannerMessageController.cs" t="Include" />
+          <e p="CatalogImageCaruselController.cs" t="Include" />
+          <e p="CategoryController.cs" t="Include" />
+          <e p="CategoryImageController.cs" t="Include" />
+          <e p="CategoryNavigationController.cs" t="Include" />
+          <e p="FacetsController.cs" t="Include" />
+          <e p="ProductCardController.cs" t="Include" />
+          <e p="ProductDetailController.cs" t="Include" />
+          <e p="ProductPageController.cs" t="Include" />
+          <e p="ProductPriceController.cs" t="Include" />
+          <e p="ProductPrimaryImageController.cs" t="Include" />
+          <e p="ProductTitleController.cs" t="Include" />
+          <e p="ProductWellWithPickersAndButtonController.cs" t="Include" />
+          <e p="PromotedProductsController.cs" t="Include" />
+          <e p="SearchController.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="jsFacets.js" t="Include" />
+          <e p="jsPriceCalculation.js" t="Include" />
+          <e p="jsSearchbar.js" t="Include" />
+        </e>
+        <e p="Services" t="Include">
+          <e p="FacetModelBinder.cs" t="Include" />
+        </e>
+        <e p="ViewModels" t="Include">
+          <e p="BannerMessageViewModel.cs" t="Include" />
+          <e p="CatalogImageCaruselRenderingViewModel.cs" t="Include" />
+          <e p="CategoryImageViewModel.cs" t="Include" />
+          <e p="CategoryNavigationRenderingViewModel.cs" t="Include" />
+          <e p="CategoryRenderingViewModel.cs" t="Include" />
+          <e p="FacetsRenderingViewModel.cs" t="Include" />
+          <e p="HomepageCatalogViewModel.cs" t="Include" />
+          <e p="ProductCardRenderingViewModel.cs" t="Include" />
+          <e p="ProductDetailViewModel.cs" t="Include" />
+          <e p="ProductPriceCalculatePriceForVariantViewModel.cs" t="Include" />
+          <e p="ProductPriceCalculatePriceViewModel.cs" t="Include" />
+          <e p="ProductPriceRenderingViewModel.cs" t="Include" />
+          <e p="ProductPrimaryImageViewModel.cs" t="Include" />
+          <e p="ProductTitleViewModel.cs" t="Include" />
+          <e p="PromotedProductsViewModel.cs" t="Include" />
+          <e p="ReviewFormRenderingViewModel.cs" t="Include" />
+          <e p="ReviewFormSaveReviewViewModel.cs" t="Include" />
+          <e p="ReviewListRenderingViewModel.cs" t="Include" />
+        </e>
+        <e p="Views" t="Include">
+          <e p="BannerMessage" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="CatalogImageCarusel" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="Category" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="CategoryImage" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="CategoryNavigation" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="Facets" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="ProductCard" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="ProductDetail" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="ProductList.cshtml" t="Include" />
+          <e p="ProductPage" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="ProductPrice" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="ProductPrimaryImage" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="ProductTitle" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="ProductWellWithPickersAndButton" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="PromotedProducts" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="Renderings" t="Include">
+            <e p="Searchbar.cshtml" t="Include" />
+          </e>
+          <e p="Search" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="web.config" t="Include" />
+        </e>
+      </e>
+      <e p="AvenueClothing.Project.Header" t="IncludeRecursive">
+        <e p="AvenueClothing.Project.Header.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="HeaderController.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="roslyn" t="Include" />
+        <e p="ViewModels" t="Include" />
+        <e p="Views" t="Include">
+          <e p="Header" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="web.config" t="Include" />
+        </e>
+      </e>
+      <e p="AvenueClothing.Project.Navigation" t="IncludeRecursive">
+        <e p="AvenueClothing.Project.Navigation.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="BreadcrumbController.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="ViewModels" t="Include">
+          <e p="BreadcrumbViewModel.cs" t="Include" />
+          <e p="BreadcrumbViewModelUcommerce.cs" t="Include" />
+          <e p="BreadcrumbWrapper.cs" t="Include" />
+        </e>
+        <e p="Views" t="Include">
+          <e p="Breadcrumb" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="web.config" t="Include" />
+        </e>
+      </e>
+      <e p="AvenueClothing.Project.Transaction" t="IncludeRecursive">
+        <e p="AvenueClothing.Project.Transaction.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="AddressController.cs" t="Include" />
+          <e p="AddToBasketButtonController.cs" t="Include" />
+          <e p="BasketController.cs" t="Include" />
+          <e p="BasketPreviewController.cs" t="Include" />
+          <e p="CommerceConnectAddressController.cs" t="Include" />
+          <e p="CommerceConnectAddToBasketButtonController.cs" t="Include" />
+          <e p="CommerceConnectBasketController.cs" t="Include" />
+          <e p="CommerceConnectBasketPreviewController.cs" t="Include" />
+          <e p="CommerceConnectMiniBasketController.cs" t="Include" />
+          <e p="CommerceConnectPaymentPickerController.cs" t="Include" />
+          <e p="CommerceConnectShippingPickerController.cs" t="Include" />
+          <e p="ConfirmationController.cs" t="Include" />
+          <e p="ConfirmationEmailController.cs" t="Include" />
+          <e p="MiniBasketController.cs" t="Include" />
+          <e p="PaymentPickerController.cs" t="Include" />
+          <e p="QuantityPickerController.cs" t="Include" />
+          <e p="ShippingPickerController.cs" t="Include" />
+          <e p="VariantPickerController.cs" t="Include" />
+          <e p="VoucherController.cs" t="Include" />
+        </e>
+        <e p="extensions" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="jsAddress.js" t="Include" />
+          <e p="jsAddToBasketButton.js" t="Include" />
+          <e p="jsMiniBasket.js" t="Include" />
+          <e p="jsPaymentPicker.js" t="Include" />
+          <e p="jsQuantityPicker.js" t="Include" />
+          <e p="jsShippingPicker.js" t="Include" />
+          <e p="jsUpdateBasket.js" t="Include" />
+          <e p="jsVariantPicker.js" t="Include" />
+          <e p="jsVoucher.js" t="Include" />
+        </e>
+        <e p="Services" t="Include">
+          <e p="IMiniBasketService.cs" t="Include" />
+          <e p="Impl" t="Include">
+            <e p="MiniBasketService.cs" t="Include" />
+          </e>
+        </e>
+        <e p="ViewModels" t="Include">
+          <e p="AddressRenderingViewModel.cs" t="Include" />
+          <e p="AddressSaveViewModel.cs" t="Include" />
+          <e p="AddToBasketButtonAddToBasketViewModel.cs" t="Include" />
+          <e p="AddToBasketButtonRenderingViewModel.cs" t="Include" />
+          <e p="BasketPreviewViewModel.cs" t="Include" />
+          <e p="BasketRenderingViewModel.cs" t="Include" />
+          <e p="BasketUpdateBasket.cs" t="Include" />
+          <e p="BasketUpdateBasketViewModel.cs" t="Include" />
+          <e p="ConfirmationEmailViewModel.cs" t="Include" />
+          <e p="ConfirmationViewModel.cs" t="Include" />
+          <e p="CreatePaymentViewModel.cs" t="Include" />
+          <e p="CreateShipmentViewModel.cs" t="Include" />
+          <e p="MiniBasketRefreshViewModel.cs" t="Include" />
+          <e p="MiniBasketRenderingViewModel.cs" t="Include" />
+          <e p="PaymentPickerViewModel.cs" t="Include" />
+          <e p="QuantityPickerRenderingViewModel.cs" t="Include" />
+          <e p="ShippingPickerViewModel.cs" t="Include" />
+          <e p="VariantPickerRenderingViewModel.cs" t="Include" />
+          <e p="VariantPickerVariantExistsViewModel.cs" t="Include" />
+          <e p="VoucherViewModel.cs" t="Include" />
+        </e>
+        <e p="Views" t="Include">
+          <e p="Address" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="AddToBasketButton" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="Basket" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="BasketPreview" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="CommerceConnectBasket" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="CommerceConnectBasketPreview" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="CommerceConnectPaymentPicker" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="CommerceConnectShippingPicker" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="Confirmation" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="ConfirmationEmail" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="MiniBasket" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="PaymentPicker" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="QuantityPicker" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="ShippingPicker" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="VariantPicker" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="Voucher" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="web.config" t="Include" />
+        </e>
+      </e>
+      <e p="AvenueClothing.Project.UserFeedback" t="IncludeRecursive">
+        <e p="AvenueClothing.Project.UserFeedback.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="ReviewFormController.cs" t="Include" />
+          <e p="ReviewListController.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="roslyn" t="Include" />
+        <e p="Scripts" t="Include">
+          <e p="jquery.validate-vsdoc.js" t="Include" />
+          <e p="jquery.validate.js" t="Include" />
+          <e p="jquery.validate.min.js" t="Include" />
+          <e p="jsAddReview.js" t="Include" />
+          <e p="jsReviewForm.js" t="Include" />
+        </e>
+        <e p="ViewModels" t="Include">
+          <e p="ReviewFormRenderingViewModel.cs" t="Include" />
+          <e p="ReviewFormSaveReviewViewModel.cs" t="Include" />
+          <e p="ReviewListRenderingViewModel.cs" t="Include" />
+        </e>
+        <e p="Views" t="Include">
+          <e p="ReviewForm" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="ReviewList" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="web.config" t="Include" />
+        </e>
+      </e>
+      <e p="AvenueClothing.Project.Website" t="IncludeRecursive">
+        <e p="App_Config" t="Include">
+          <e p="Include" t="Include">
+            <e p="Rainbow.config" t="Include" />
+            <e p="Unicorn" t="Include">
+              <e p="Unicorn.AutoPublish.config" t="Include" />
+              <e p="Unicorn.config" t="Include" />
+              <e p="Unicorn.Configs.Default.example" t="Include" />
+              <e p="Unicorn.Configs.Dependency.config.example" t="Include" />
+              <e p="Unicorn.Configs.NewItemsOnly.example" t="Include" />
+              <e p="Unicorn.CustomSerializationFolder.config.example" t="Include" />
+              <e p="Unicorn.DataProvider.config" t="Include" />
+              <e p="Unicorn.Deployed.config.disabled" t="Include" />
+              <e p="Unicorn.Remote.config.disabled" t="Include" />
+              <e p="Unicorn.UI.config" t="Include" />
+              <e p="Unicorn.zSharedSecret.config.example" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="App_Start" t="Include">
+          <e p="AvenueClothingHttpModule.cs" t="Include" />
+          <e p="AvenueClothingStartup.cs" t="Include" />
+          <e p="BundleConfig.cs" t="Include" />
+        </e>
+        <e p="AvenueClothing.Project.Website.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Content" t="Include">
+          <e p="bootstrap.css" t="Include" />
+          <e p="bootstrap.css.map" t="Include" />
+          <e p="bootstrap.min.css" t="Include" />
+          <e p="bootstrap.min.css.map" t="Include" />
+        </e>
+        <e p="Controllers" t="Include">
+          <e p="FooterController.cs" t="Include" />
+        </e>
+        <e p="Css" t="Include">
+          <e p="font-awesome.min.css" t="Include" />
+          <e p="fontawesome-webfont.eot" t="Include" />
+          <e p="fontawesome-webfont.svg" t="Include" />
+          <e p="fontawesome-webfont.ttf" t="Include" />
+          <e p="fontawesome-webfont.woff" t="Include" />
+          <e p="fontawesome-webfont.woff2" t="Include" />
+          <e p="FontAwesome.otf" t="Include" />
+          <e p="glyphicons-28-search.png" t="Include" />
+          <e p="glyphicons-halflings-regular.eot" t="Include" />
+          <e p="glyphicons-halflings-regular.svg" t="Include" />
+          <e p="glyphicons-halflings-regular.ttf" t="Include" />
+          <e p="glyphicons-halflings-regular.woff" t="Include" />
+          <e p="tether.min.css" t="Include" />
+          <e p="uCommerce.demostore.css" t="Include" />
+        </e>
+        <e p="extensions" t="Include">
+          <e p="ServiceProviderDependencyResolver.cs" t="Include" />
+        </e>
+        <e p="Global.asax" t="Include" />
+        <e p="Global.asax.cs" t="Include" />
+        <e p="Img" t="Include">
+          <e p="uCommerce" t="Include">
+            <e p="cards.png" t="Include" />
+            <e p="homepage-banner-black-wonderland.jpg" t="Include" />
+            <e p="homepage-banner-blue-kittens.jpg" t="Include" />
+            <e p="homepage-banner-purple-wonderland.jpg" t="Include" />
+            <e p="logo.png" t="Include" />
+            <e p="return.png" t="Include" />
+            <e p="ucommerce.glyphicons-halflings-white.png" t="Include" />
+            <e p="ucommerce.glyphicons-halflings.png" t="Include" />
+            <e p="ucommerce.png" t="Include" />
+          </e>
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="roslyn" t="Include" />
+        <e p="Scripts" t="Include">
+          <e p="bootstrap.js" t="Include" />
+          <e p="bootstrap.min.js" t="Include" />
+          <e p="jquery-3.0.0.intellisense.js" t="Include" />
+          <e p="jquery-3.0.0.js" t="Include" />
+          <e p="jquery-3.0.0.min.js" t="Include" />
+          <e p="jquery-3.0.0.min.map" t="Include" />
+          <e p="jquery-3.0.0.slim.js" t="Include" />
+          <e p="jquery-3.0.0.slim.min.js" t="Include" />
+          <e p="jquery-3.0.0.slim.min.map" t="Include" />
+          <e p="jquery.validate-vsdoc.js" t="Include" />
+          <e p="jquery.validate.js" t="Include" />
+          <e p="jquery.validate.min.js" t="Include" />
+          <e p="require-2.3.2.js" t="Include" />
+          <e p="require-2.3.2.min.js" t="Include" />
+        </e>
+        <e p="Views" t="Include">
+          <e p="Email.cshtml" t="Include" />
+          <e p="Footer" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="Layout.cshtml" t="Include" />
+          <e p="Sidebar Static Content" t="Include">
+            <e p="Rendering.cshtml" t="Include" />
+          </e>
+          <e p="web.config" t="Include" />
+          <e p="Web.config.default" t="Include" />
+        </e>
+      </e>
+      <e p="AvenueClothing.sln" t="IncludeFlat" />
+      <e p="AvenueClothing.Tests" t="IncludeRecursive">
+        <e p="AddressControllerTests.cs" t="Include" />
+        <e p="AddToBasketControllerTests.cs" t="Include" />
+        <e p="app.config" t="Include" />
+        <e p="AvenueClothing.Tests.csproj" t="IncludeRecursive" />
+        <e p="BasketControllerTests.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="FacetsControllerTests.cs" t="Include" />
+        <e p="MiniBasketControllerTests.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="PaymentPickerControllerTests.cs" t="Include" />
+        <e p="ProductPriceControllerTests.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="QuantityPickerControllerTests.cs" t="Include" />
+        <e p="ShippingPickerControllerTests.cs" t="Include" />
+        <e p="VariantPickerControllerTests.cs" t="Include" />
+        <e p="VoucherControllerTests.cs" t="Include" />
+      </e>
+      <e p="deploy" t="Include">
+        <e p="Configuration" t="Include" />
+      </e>
+      <e p="packages" t="ExcludeRecursive">
+        <e p="Microsoft.Net.Compilers.1.0.0\tools\csc.exe" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0\tools\Microsoft.Build.Tasks.CodeAnalysis.dll" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0\tools\Microsoft.CodeAnalysis.CSharp.dll" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0\tools\Microsoft.CodeAnalysis.dll" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0\tools\Microsoft.CodeAnalysis.VisualBasic.dll" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0\tools\Microsoft.CSharp.Core.targets" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0\tools\Microsoft.VisualBasic.Core.targets" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0\tools\System.Collections.Immutable.dll" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0\tools\System.Reflection.Metadata.dll" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0\tools\vbc.exe" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0\tools\VBCSCompiler.exe" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0\tools\VBCSCompiler.exe.config" t="Include" />
+        <e p="xunit.core.2.1.0\build\_desktop\xunit.execution.desktop.dll" t="Include" />
+      </e>
+      <e p="Scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config" t="Include" />
+      <e p="Scripts\Serialization\App_Config\Include\AvenueClothing.Sites.config" t="Include" />
+    </e>
+    <e p="C:\projects\AvenueClothing For Sitecore\tools\deploy\Deploy.To.Local.ps1" t="Include" />
+    <e p="C:\Users\mortenskjoldager\.Rider2019.1\config\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\mortenskjoldager\.Rider2019.1\config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\mortenskjoldager\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\mortenskjoldager\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_AvenueClothing.-28919622.00" t="ExcludeRecursive" />
+  </component>
+</project>
