@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Rainbow.Model;
 using Unicorn;
 using Unicorn.Configuration;
 using Unicorn.Logging;
@@ -34,9 +35,8 @@ namespace AvenueClothing.Installer.Services
 
 				var pathResolver = configuration.Resolve<PredicateRootPathResolver>();
 
-				var roots = pathResolver.GetRootSerializedItems();
-
-				helper.SyncTree(configuration, null, roots);
+				IItemData[] roots = pathResolver.GetRootSerializedItems();
+				helper.SyncTree(configuration);
 			}
 			catch (Exception ex)
 			{

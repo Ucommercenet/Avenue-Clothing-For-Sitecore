@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73a6f405-ae06-45ba-b401-2b6edd26a62e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AvenueClothing/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AvenueClothing/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AvenueClothing/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AvenueClothing/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AvenueClothing.Installer/AvenueClothing.Installer.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AvenueClothing.Installer/AvenueClothing.Installer.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AvenueClothing.Installer/Services/SynchronizeSitecoreService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AvenueClothing.Installer/Services/SynchronizeSitecoreService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AvenueClothing.Installer/package/metadata/sc_name.txt" beforeDir="false" afterPath="$PROJECT_DIR$/AvenueClothing.Installer/package/metadata/sc_name.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AvenueClothing.Installer/package/metadata/sc_version.txt" beforeDir="false" afterPath="$PROJECT_DIR$/AvenueClothing.Installer/package/metadata/sc_version.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AvenueClothing.Installer/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/AvenueClothing.Installer/packages.config" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AvenueClothing.Project.Website/AvenueClothing.Project.Website.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AvenueClothing.Project.Website/AvenueClothing.Project.Website.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tools/Deploy/Compile.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/../tools/Deploy/Compile.ps1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tools/Deploy/Deploy.To.Package.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/../tools/Deploy/Deploy.To.Package.ps1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AvenueClothing.Project.Website/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/AvenueClothing.Project.Website/packages.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tools/Deploy/Deploy.To.Local.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/../tools/Deploy/Deploy.To.Local.ps1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tools/Deploy/uCommerce.Deploy.Sitecore.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/../tools/Deploy/uCommerce.Deploy.Sitecore.ps1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../tools/Deploy/uCommerce.Sitecore.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/../tools/Deploy/uCommerce.Sitecore.ps1" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,7 +22,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -24,8 +30,25 @@
     </findStrings>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/AvenueClothing.Project.Website/packages.config" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AvenueClothing.Installer/sitecore modules/Shell/uCommerce/Apps/Avenue Clothing/Pipelines/Installation/Installation.config" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AvenueClothing.Project.Website/App_Start/AvenueClothingHttpModule.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/824E19D8-B53A-48D8-867D-85FEB58265D3/04/aba84cd8/ServiceCollectionContainerBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AvenueClothing.Installer/Services/SynchronizeSitecoreService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AvenueClothing.Installer/sitecore modules/Shell/uCommerce/Apps/Avenue Clothing/Pipelines/Initialize/Initialize.config" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AvenueClothing.Installer/Postinstallation/PostInstallation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AvenueClothing.Installer/sitecore modules/Shell/uCommerce/Apps/Avenue Clothing/AvenueClothing.config" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AvenueClothing.Installer/App_Config/Include/Unicorn/Unicorn.config" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AvenueClothing.Installer/App_Config/Include/Rainbow.config" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/AvenueClothing.Project.Website/packages.config" />
+        <option value="$PROJECT_DIR$/AvenueClothing.Installer/AvenueClothing.Installer.csproj" />
+        <option value="$PROJECT_DIR$/AvenueClothing.Installer/Services/SynchronizeSitecoreService.cs" />
+      </list>
+    </option>
   </component>
   <component name="ProjectConfigurationFiles">
     <option name="files">
@@ -48,6 +71,7 @@
     </navigator>
     <panes>
       <pane id="AssemblyExplorer" />
+      <pane id="FileSystemExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -58,44 +82,35 @@
             <path>
               <item name="" type="784c90a0:SolutionExplorerRootNode" />
               <item name="AvenueClothing" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="deploy" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="AvenueClothing.Installer" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
               <item name="" type="784c90a0:SolutionExplorerRootNode" />
               <item name="AvenueClothing" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="deploy" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Configuration" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="AvenueClothing.Installer" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="App_Config" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
               <item name="" type="784c90a0:SolutionExplorerRootNode" />
               <item name="AvenueClothing" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="AvenueClothing.Project.Website" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="AvenueClothing" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="AvenueClothing.Project.Website" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="References" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="AvenueClothing" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="AvenueClothing.Project.Website" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="References" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Assemblies" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="AvenueClothing.Installer" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="App_Config" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Include" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
               <item name="" type="784c90a0:SolutionExplorerRootNode" />
               <item name="AvenueClothing" type="24d0babc:SolutionExplorerModelNode" />
               <item name="AvenueClothing.Project.Website" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Properties" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
             </path>
           </expand>
           <select />
         </subPane>
         <option name="show-all-files" value="false" />
       </pane>
-      <pane id="FileSystemExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -150,11 +165,12 @@
       <workItem from="1570436774721" duration="10000" />
       <workItem from="1570528456592" duration="2018000" />
       <workItem from="1570533613408" duration="2670000" />
+      <workItem from="1570611141310" duration="7059000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7841000" />
+    <option name="totallyTimeSpent" value="14900000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -166,9 +182,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1375" extended-state="6" />
+    <frame x="-8" y="-8" width="1696" height="858" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25596184" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.39669928" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -178,15 +194,15 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3293556" />
-      <window_info anchor="bottom" id="NuGet" order="7" weight="0.3293556" />
+      <window_info anchor="bottom" id="NuGet" order="7" sideWeight="0.6565978" weight="0.34618834" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3293556" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="Unit Tests" order="11" weight="0.3293556" />
       <window_info anchor="bottom" id="REST Client" order="12" weight="0.3293556" />
       <window_info anchor="bottom" id="Terminal" order="13" weight="0.3293556" />
-      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.50039744" side_tool="true" visible="true" weight="0.3293556" />
-      <window_info anchor="bottom" id="Build" order="15" sideWeight="0.49960256" visible="true" weight="0.3293556" />
+      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.502445" side_tool="true" visible="true" weight="0.49594596" />
+      <window_info anchor="bottom" id="Build" order="15" sideWeight="0.49755502" visible="true" weight="0.49594596" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -206,6 +222,19 @@
           <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AvenueClothing.Installer/Services/SynchronizeSitecoreService.cs</url>
+          <line>14</line>
+          <properties documentPath="$PROJECT_DIR$/AvenueClothing.Installer/Services/SynchronizeSitecoreService.cs" initialLine="14">
+            <startOffsets>
+              <option value="294" />
+            </startOffsets>
+            <endOffsets>
+              <option value="358" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -224,12 +253,89 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AvenueClothing.sln">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="887">
+          <caret line="75" column="46" lean-forward="true" selection-start-line="75" selection-start-column="46" selection-end-line="75" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AvenueClothing.Installer/packages.config">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AvenueClothing.Installer/Postinstallation/PostInstallation.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding>
+            <marker date="1484060367986" expanded="false" signature="6:105" ph="..." />
+            <marker date="1484060367986" expanded="true" signature="158:327" ph="{...}" />
+            <marker date="1484060367986" expanded="true" signature="206:325" ph="{...}" />
+            <marker date="1484060367986" expanded="true" signature="286:319" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AvenueClothing.Installer/sitecore modules/Shell/uCommerce/Apps/Avenue Clothing/AvenueClothing.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AvenueClothing.Installer/Services/SynchronizeSitecoreService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="38" column="47" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
+          <folding>
+            <marker date="1570614283784" expanded="true" signature="6:146" ph="..." />
+            <marker date="1570614283784" expanded="true" signature="191:1440" ph="{...}" />
+            <marker date="1570614283784" expanded="true" signature="234:1438" ph="{...}" />
+            <marker date="1570614283784" expanded="true" signature="286:872" ph="{...}" />
+            <marker date="1570614283784" expanded="true" signature="952:1435" ph="{...}" />
+            <marker date="1570614283784" expanded="true" signature="1076:1364" ph="{...}" />
+            <marker date="1570614283784" expanded="true" signature="1388:1431" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AvenueClothing.Installer/App_Config/Include/Unicorn/Unicorn.config">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AvenueClothing.Project.Website/packages.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AvenueClothing.Installer/AvenueClothing.Installer.csproj">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AvenueClothing.Installer/sitecore modules/Shell/uCommerce/Apps/Avenue Clothing/Pipelines/Installation/Installation.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="71" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AvenueClothing.Installer/sitecore modules/Shell/uCommerce/Apps/Avenue Clothing/Pipelines/Initialize/Initialize.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AvenueClothing.Installer/App_Config/Include/Rainbow.config">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/AvenueClothing.Project.Website/App_Start/AvenueClothingHttpModule.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="57" column="62" selection-start-line="57" selection-start-column="62" selection-end-line="57" selection-end-column="62" />
+        <state relative-caret-position="63">
+          <caret line="50" column="12" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
           <folding>
-            <element signature="e#0#752#0" expanded="true" />
+            <marker date="1543919077730" expanded="true" signature="6:752" ph="..." />
+            <marker date="1543919077730" expanded="true" signature="794:6157" ph="{...}" />
             <marker date="1543919077730" expanded="true" signature="852:6155" ph="{...}" />
             <marker date="1543919077730" expanded="true" signature="1009:1310" ph="{...}" />
             <marker date="1543919077730" expanded="true" signature="1049:1300" ph="{...}" />
@@ -252,13 +358,6 @@
             <marker date="1543919077730" expanded="true" signature="5758:6075" ph="{...}" />
             <marker date="1543919077730" expanded="true" signature="6116:6149" ph="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AvenueClothing.sln">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="887">
-          <caret line="75" column="46" lean-forward="true" selection-start-line="75" selection-start-column="46" selection-end-line="75" selection-end-column="46" />
         </state>
       </provider>
     </entry>

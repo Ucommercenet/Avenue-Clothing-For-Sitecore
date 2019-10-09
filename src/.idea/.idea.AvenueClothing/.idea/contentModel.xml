@@ -13,6 +13,27 @@
         </e>
       </e>
       <e p="AvenueClothing.Installer" t="IncludeRecursive">
+        <e p="App_Config" t="Include">
+          <e p="Include" t="Include">
+            <e p="Rainbow.config" t="Include" />
+            <e p="Unicorn" t="Include">
+              <e p="Unicorn.AutoPublish.config" t="Include" />
+              <e p="Unicorn.config" t="Include" />
+              <e p="Unicorn.Configs.Default.example" t="Include" />
+              <e p="Unicorn.Configs.Dependency.config.example" t="Include" />
+              <e p="Unicorn.Configs.NewItemsOnly.example" t="Include" />
+              <e p="Unicorn.CustomSerializationFolder.config.example" t="Include" />
+              <e p="Unicorn.DataProvider.config" t="Include" />
+              <e p="Unicorn.Dilithium.config.example" t="Include" />
+              <e p="Unicorn.PowerShell.config" t="Include" />
+              <e p="Unicorn.Remote.config.disabled" t="Include" />
+              <e p="Unicorn.UI.config" t="Include" />
+              <e p="Unicorn.UI.DeployedContentEditorWarnings.config.disabled" t="Include" />
+              <e p="Unicorn.UI.IdentityServer.config.disabled" t="Include" />
+              <e p="Unicorn.zSharedSecret.config.example" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="AvenueClothing.Installer.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Helpers" t="Include">
@@ -401,24 +422,6 @@
         </e>
       </e>
       <e p="AvenueClothing.Project.Website" t="IncludeRecursive">
-        <e p="App_Config" t="Include">
-          <e p="Include" t="Include">
-            <e p="Rainbow.config" t="Include" />
-            <e p="Unicorn" t="Include">
-              <e p="Unicorn.AutoPublish.config" t="Include" />
-              <e p="Unicorn.config" t="Include" />
-              <e p="Unicorn.Configs.Default.example" t="Include" />
-              <e p="Unicorn.Configs.Dependency.config.example" t="Include" />
-              <e p="Unicorn.Configs.NewItemsOnly.example" t="Include" />
-              <e p="Unicorn.CustomSerializationFolder.config.example" t="Include" />
-              <e p="Unicorn.DataProvider.config" t="Include" />
-              <e p="Unicorn.Deployed.config.disabled" t="Include" />
-              <e p="Unicorn.Remote.config.disabled" t="Include" />
-              <e p="Unicorn.UI.config" t="Include" />
-              <e p="Unicorn.zSharedSecret.config.example" t="Include" />
-            </e>
-          </e>
-        </e>
         <e p="App_Start" t="Include">
           <e p="AvenueClothingHttpModule.cs" t="Include" />
           <e p="AvenueClothingStartup.cs" t="Include" />

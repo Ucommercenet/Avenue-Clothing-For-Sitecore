@@ -45,13 +45,20 @@ task CopyConfigurationFilesForInstaller {
 }
 
 task CopyUnicornDependenciesToFilesFolder {
-    Copy-Item "$src\packages\Unicorn.Core.3.3.2\lib\net452\Unicorn.dll" "$working_dir\files\bin\Unicorn.dll" -Force 
-    Copy-Item "$src\packages\Rainbow.Core.1.4.1\lib\net452\Rainbow.dll" "$working_dir\files\bin\Rainbow.dll" -Force 
-    Copy-Item "$src\packages\Rainbow.Storage.Yaml.1.4.1\lib\net452\Rainbow.Storage.Yaml.dll" "$working_dir\files\bin\Rainbow.Storage.Yaml.dll" -Force 
-    Copy-Item "$src\packages\Rainbow.Storage.Sc.1.4.1\lib\net452\Rainbow.Storage.Sc.dll" "$working_dir\files\bin\Rainbow.Storage.Sc.dll" -Force 
+    Copy-Item "$src\packages\Unicorn.Core.4.1.1\lib\net452\Unicorn.dll" "$working_dir\files\bin\Unicorn.dll" -Force 
+    Copy-Item "$src\packages\Rainbow.Core.2.1.1\lib\net452\Rainbow.dll" "$working_dir\files\bin\Rainbow.dll" -Force 
+    Copy-Item "$src\packages\Rainbow.Storage.Yaml.2.1.1\lib\net452\Rainbow.Storage.Yaml.dll" "$working_dir\files\bin\Rainbow.Storage.Yaml.dll" -Force 
+    Copy-Item "$src\packages\Rainbow.Storage.Sc.2.1.1\lib\net452\Rainbow.Storage.Sc.dll" "$working_dir\files\bin\Rainbow.Storage.Sc.dll" -Force 
     
+	Copy-Item "$src\packages\Kamsar.WebConsole.2.0.1\lib\net40\Kamsar.WebConsole.dll" "$working_dir\files\bin\Kamsar.WebConsole.dll" -Force
+	
+	Copy-Item "$src\packages\Configy.1.0.0\lib\net45\Configy.dll" "$working_dir\files\bin\Configy.dll" -Force
+	Copy-Item "$src\packages\MicroCHAP.1.2.2.2\lib\net45\MicroCHAP.dll" "$working_dir\files\bin\MicroCHAP.dll" -Force
+	
     Copy-Item "$src\..\lib\WebGrease\WebGrease.dll" "$working_dir\files\bin\WebGrease.dll" -Force 
     Copy-Item "$src\..\lib\WebGrease\System.Web.Optimization.dll" "$working_dir\files\bin\System.Web.Optimization.dll" -Force 
+	
+	Copy-Item "$src\AvenueClothing.Installer\App_Config\" "$working_dir\files" -Recurse -Force
 }
 
 task CopyBinariesToFilesFolder {
@@ -77,7 +84,7 @@ task CopyBinariesToFilesFolder {
 
 task CopyProjectFilesToFilesFolder {
     
-    $options = @("/xf", "*.dll", "/xf", "*.cs", "/xf", "*.csproj", "/xf", "packages.config", "/xf", "*.user", "/xf", "*.cache", "/xd", "obj", "/xd", "bin", "/xf", "global.asax");
+    $options = @("/xf", "*.dll", "/xf", "*.cs", "/xf", "*.csproj", "/xf", "packages.config", "/xf", "*.user", "/xf", "*.cache", "/xd", "obj", "/xd", "bin", "/xf", "global.asax", "/xf", "web.config", "/xf", "web.Debug.config", "/xf", "Web.Release.config");
     
     foreach ($project in $projects) {
         ROBOCOPY "$src\$project" "$working_dir\files" $options /e /s
@@ -93,8 +100,8 @@ task CopyConfigIncludeFiles {
 }
 
 task CopyConfigurationFiles {
-    Copy-Item "$src\packages\Rainbow.1.4.1\content\App_Config\Include\Rainbow.config" "$working_dir\files\App_Config\Include\Rainbow.config" -Force 
-    Copy-Item "$src\packages\Unicorn.3.3.2\content\App_Config\Include\Unicorn\Unicorn.config" "$working_dir\files\App_Config\Include\unicorn.config" -Force
+    Copy-Item "$src\packages\Rainbow.2.1.1\content\App_Config\Include\Rainbow.config" "$working_dir\files\App_Config\Include\Rainbow.config" -Force 
+    Copy-Item "$src\packages\Unicorn.4.1.1\content\App_Config\Include\Unicorn\Unicorn.config" "$working_dir\files\App_Config\Include\unicorn.config" -Force
     Copy-Item "$src\scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config" "$working_dir\files\App_Config\Include\AvenueClothing.Serialization.Installation.config" -Force 
     Copy-Item "$src\scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config" "$working_dir\files\sitecore modules\Shell\ucommerce\install\config_include\" -Force
     Copy-Item "$src\scripts\Serialization\App_Config\Include\AvenueClothing.Sites.config" "$working_dir\files\sitecore modules\Shell\ucommerce\install\config_include\" -Force
