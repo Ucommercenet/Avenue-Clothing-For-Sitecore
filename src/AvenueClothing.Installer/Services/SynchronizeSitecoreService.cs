@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
+using Kamsar.WebConsole;
 using Rainbow.Model;
+using Sitecore.Data.Items;
 using Unicorn;
 using Unicorn.Configuration;
 using Unicorn.Logging;
@@ -8,6 +10,30 @@ using Unicorn.Predicates;
 
 namespace AvenueClothing.Installer.Services
 {
+	public class DummyProgress : IProgressStatus
+	{
+		public void Report(int percent)
+		{
+		}
+
+		public void ReportException(Exception exception)
+		{
+		}
+
+		public void ReportStatus(string statusMessage, params object[] formatParameters)
+		{
+		}
+
+		public void ReportStatus(string statusMessage, MessageType type, params object[] formatParameters)
+		{
+		}
+
+		public void ReportTransientStatus(string statusMessage, params object[] formatParameters)
+		{
+		}
+
+		public int Progress { get; }
+	}
 	public class SynchronizeSitecoreService
 	{
 		public virtual void SynchronizeSitecoreItems()
@@ -35,8 +61,10 @@ namespace AvenueClothing.Installer.Services
 
 				var pathResolver = configuration.Resolve<PredicateRootPathResolver>();
 
-				IItemData[] roots = pathResolver.GetRootSerializedItems();
-				helper.SyncTree(configuration);
+				using (new EnforceVersionPresenceDisabler())
+				{
+					helper.SyncTree(configuration);
+				}
 			}
 			catch (Exception ex)
 			{

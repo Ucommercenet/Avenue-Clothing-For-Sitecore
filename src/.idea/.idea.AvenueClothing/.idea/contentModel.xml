@@ -422,6 +422,12 @@
         </e>
       </e>
       <e p="AvenueClothing.Project.Website" t="IncludeRecursive">
+        <e p="App_Config" t="Include">
+          <e p="Include" t="Include">
+            <e p="AvenueClothing.CreateClientResourceBundles.config" t="Include" />
+            <e p="AvenueClothing.IgnoreRoutesProcessor.config" t="Include" />
+          </e>
+        </e>
         <e p="App_Start" t="Include">
           <e p="AvenueClothingHttpModule.cs" t="Include" />
           <e p="AvenueClothingStartup.cs" t="Include" />
@@ -467,6 +473,7 @@
             <e p="homepage-banner-purple-wonderland.jpg" t="Include" />
             <e p="logo.png" t="Include" />
             <e p="return.png" t="Include" />
+            <e p="spinner.gif" t="Include" />
             <e p="ucommerce.glyphicons-halflings-white.png" t="Include" />
             <e p="ucommerce.glyphicons-halflings.png" t="Include" />
             <e p="ucommerce.png" t="Include" />
@@ -474,6 +481,10 @@
         </e>
         <e p="obj" t="ExcludeRecursive" />
         <e p="packages.config" t="Include" />
+        <e p="Pipelines" t="Include">
+          <e p="CreateClientResourceBundles.cs" t="Include" />
+          <e p="ProcessPatchedIgnores.cs" t="Include" />
+        </e>
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
@@ -551,6 +562,10 @@
       <e p="Scripts\Serialization\App_Config\Include\AvenueClothing.Sites.config" t="Include" />
     </e>
     <e p="C:\projects\AvenueClothing For Sitecore\tools\deploy\Deploy.To.Local.ps1" t="Include" />
+    <e p="C:\projects\AvenueClothing For Sitecore\tools\deploy\Deploy.To.Package.ps1" t="Include" />
+    <e p="C:\projects\AvenueClothing For Sitecore\tools\deploy\uCommerce.build.ps1" t="Include" />
+    <e p="C:\projects\AvenueClothing For Sitecore\tools\deploy\uCommerce.Deploy.Sitecore.ps1" t="Include" />
+    <e p="C:\projects\AvenueClothing For Sitecore\tools\deploy\uCommerce.Sitecore.ps1" t="Include" />
     <e p="C:\Users\mortenskjoldager\.Rider2019.1\config\consoles\db" t="IncludeRecursive" />
     <e p="C:\Users\mortenskjoldager\.Rider2019.1\config\extensions" t="IncludeRecursive" />
     <e p="C:\Users\mortenskjoldager\.Rider2019.1\system\extResources" t="IncludeRecursive" />

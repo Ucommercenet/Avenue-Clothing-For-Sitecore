@@ -3,6 +3,10 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$/../.." />
     <content url="file://$MODULE_DIR$/../../../tools/Deploy/Deploy.To.Local.ps1" />
+    <content url="file://$MODULE_DIR$/../../../tools/Deploy/Deploy.To.Package.ps1" />
+    <content url="file://$MODULE_DIR$/../../../tools/Deploy/uCommerce.Deploy.Sitecore.ps1" />
+    <content url="file://$MODULE_DIR$/../../../tools/Deploy/uCommerce.Sitecore.ps1" />
+    <content url="file://$MODULE_DIR$/../../../tools/Deploy/uCommerce.build.ps1" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

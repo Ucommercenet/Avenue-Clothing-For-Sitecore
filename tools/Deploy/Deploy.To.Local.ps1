@@ -1,7 +1,7 @@
 [CmdletBinding()]
 Param(
 	[Parameter(Mandatory=$False)]
-    [string]$WebsiteRoot = "C:\inetpub\sc92\Website"
+    [string]$WebsiteRoot = "C:\inetpub\sc92\Website\sc92sc.dev.local\"
 )
 
 function Get-ScriptDirectory { 
@@ -14,7 +14,7 @@ function Run-It () {
 	$src = Resolve-Path "$scriptPath\..\..\src";
 	$base_dir = Resolve-Path "$scriptPath\..\.."
 
-	Import-Module "$scriptPath\..\psake\4.3.0.0\psake.psm1"
+	Import-Module "$scriptPath\..\psake\4.9.0\psake.psm1"
     
 	$properties = @{
 	"configuration"="Debug"; 

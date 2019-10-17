@@ -71,6 +71,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Sitecore.Kernel, Version=13.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\..\..\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\root\6bca0b5c\5abee479\assembly\dl3\eec65738\00ef4c31_1907d501\Sitecore.Kernel.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.Mvc, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Sitecore\8.2\Sitecore.Mvc.dll</HintPath>
@@ -159,6 +162,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Config\Include\AvenueClothing.CreateClientResourceBundles.config" />
+    <Content Include="App_Config\Include\AvenueClothing.IgnoreRoutesProcessor.config" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Css\font-awesome.min.css" />
@@ -179,6 +184,7 @@
     <Content Include="Img\uCommerce\homepage-banner-purple-wonderland.jpg" />
     <Content Include="Img\uCommerce\logo.png" />
     <Content Include="Img\uCommerce\return.png" />
+    <Content Include="Img\uCommerce\spinner.gif" />
     <Content Include="Img\uCommerce\ucommerce.glyphicons-halflings-white.png" />
     <Content Include="Img\uCommerce\ucommerce.glyphicons-halflings.png" />
     <Content Include="Img\uCommerce\ucommerce.png" />
@@ -222,6 +228,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Pipelines\CreateClientResourceBundles.cs" />
+    <Compile Include="Pipelines\ProcessPatchedIgnores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -234,7 +242,6 @@
       <Name>AvenueClothing.Project.Transaction</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

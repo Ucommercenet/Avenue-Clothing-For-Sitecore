@@ -84,7 +84,7 @@ task CopyBinariesToFilesFolder {
 
 task CopyProjectFilesToFilesFolder {
     
-    $options = @("/xf", "*.dll", "/xf", "*.cs", "/xf", "*.csproj", "/xf", "packages.config", "/xf", "*.user", "/xf", "*.cache", "/xd", "obj", "/xd", "bin", "/xf", "global.asax", "/xf", "web.config", "/xf", "web.Debug.config", "/xf", "Web.Release.config");
+    $options = @("/xf", "*.dll", "/xf", "*.cs", "/xf", "*.csproj", "/xf", "packages.config", "/xf", "*.user", "/xf", "*.cache", "/xd", "obj", "/xd", "bin", "/xf", "global.asax", "/xf", "Web.config", "/xf", "web.Debug.config", "/xf", "Web.Release.config");
     
     foreach ($project in $projects) {
         ROBOCOPY "$src\$project" "$working_dir\files" $options /e /s
@@ -96,7 +96,7 @@ task CopyUnicornItems {
 }
 
 task CopyConfigIncludeFiles {
-    Copy-Item "$src\scripts\Serialization\App_Config\Include\AvenueClothing.Sites.config" "$working_dir\files\App_Config\Include\AvenueClothing.Sites.config"
+    Copy-Item "$src\scripts\Serialization\App_Config\Include\AvenueClothing.Sites.config" "$working_dir\files\App_Config\Include\AvenueClothing.Sites.config" -Force
 }
 
 task CopyConfigurationFiles {
