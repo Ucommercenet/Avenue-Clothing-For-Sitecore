@@ -147,7 +147,6 @@
     <None Include="package\installer\version" />
     <None Include="sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\AvenueClothing.config" />
     <None Include="sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Initialize\Initialize.config" />
-    <None Include="sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Initialize\SynchronizeSitecoreItems.config.default" />
     <None Include="sitecore modules\Shell\uCommerce\Apps\Avenue Clothing\Pipelines\Installation\Installation.config">
       <SubType>Designer</SubType>
     </None>

@@ -10,30 +10,7 @@ using Unicorn.Predicates;
 
 namespace AvenueClothing.Installer.Services
 {
-	public class DummyProgress : IProgressStatus
-	{
-		public void Report(int percent)
-		{
-		}
-
-		public void ReportException(Exception exception)
-		{
-		}
-
-		public void ReportStatus(string statusMessage, params object[] formatParameters)
-		{
-		}
-
-		public void ReportStatus(string statusMessage, MessageType type, params object[] formatParameters)
-		{
-		}
-
-		public void ReportTransientStatus(string statusMessage, params object[] formatParameters)
-		{
-		}
-
-		public int Progress { get; }
-	}
+	
 	public class SynchronizeSitecoreService
 	{
 		public virtual void SynchronizeSitecoreItems()

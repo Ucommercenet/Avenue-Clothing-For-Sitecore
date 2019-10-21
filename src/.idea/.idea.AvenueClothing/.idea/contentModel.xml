@@ -104,7 +104,6 @@
                   <e p="Pipelines" t="Include">
                     <e p="Initialize" t="Include">
                       <e p="Initialize.config" t="Include" />
-                      <e p="SynchronizeSitecoreItems.config.default" t="Include" />
                     </e>
                     <e p="Installation" t="Include">
                       <e p="Installation.config" t="Include" />

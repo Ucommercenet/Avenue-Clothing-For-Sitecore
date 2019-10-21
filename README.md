@@ -1,5 +1,13 @@
 # Avenue Clothing - Sitecore  #
 
+# # Installation # #
+
+To install avenue clothing you need to follow two simple steps. 
+
+1. Install the package as downloaded on ucommerce.net 
+
+2. After installation you need to run Unicorn sync. This is done by accessing /unicorn.aspx and clicking on the sync button. When this is done, you should now be able to access the front page and start browsing around.
+
 ## What do I get? ##
 ---
 
