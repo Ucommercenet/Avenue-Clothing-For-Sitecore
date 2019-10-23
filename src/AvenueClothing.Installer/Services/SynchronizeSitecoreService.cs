@@ -36,7 +36,7 @@ namespace AvenueClothing.Installer.Services
 
 				var roots = pathResolver.GetRootSerializedItems();
 
-				helper.SyncTree(configuration, null, roots);
+				helper.SyncTree(configuration);
 			}
 			catch (Exception ex)
 			{
