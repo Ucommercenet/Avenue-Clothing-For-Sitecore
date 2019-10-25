@@ -158,37 +158,37 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="UCommerce, Version=8.1.0.19093, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.19093\lib\net45\UCommerce.dll</HintPath>
+    <Reference Include="UCommerce, Version=8.3.1.19271, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.8.3.1.19271\lib\net45\UCommerce.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Admin, Version=8.1.0.19093, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.19093\lib\net45\UCommerce.Admin.dll</HintPath>
+    <Reference Include="UCommerce.Admin, Version=8.3.1.19271, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.8.3.1.19271\lib\net45\UCommerce.Admin.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Infrastructure, Version=8.1.0.19093, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.19093\lib\net45\UCommerce.Infrastructure.dll</HintPath>
+    <Reference Include="UCommerce.Infrastructure, Version=8.3.1.19271, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.8.3.1.19271\lib\net45\UCommerce.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Installer, Version=8.1.0.19093, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.19093\lib\net45\UCommerce.Installer.dll</HintPath>
+    <Reference Include="UCommerce.Installer, Version=8.3.1.19271, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.8.3.1.19271\lib\net45\UCommerce.Installer.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.NHibernate, Version=8.1.0.19093, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.19093\lib\net45\UCommerce.NHibernate.dll</HintPath>
+    <Reference Include="UCommerce.NHibernate, Version=8.3.1.19271, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.8.3.1.19271\lib\net45\UCommerce.NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Pipelines, Version=8.1.0.19093, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.19093\lib\net45\UCommerce.Pipelines.dll</HintPath>
+    <Reference Include="UCommerce.Pipelines, Version=8.3.1.19271, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.8.3.1.19271\lib\net45\UCommerce.Pipelines.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Presentation, Version=8.1.0.19093, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.19093\lib\net45\UCommerce.Presentation.dll</HintPath>
+    <Reference Include="UCommerce.Presentation, Version=8.3.1.19271, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.8.3.1.19271\lib\net45\UCommerce.Presentation.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.SystemHttp, Version=8.1.0.19093, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.19093\lib\net45\UCommerce.SystemHttp.dll</HintPath>
+    <Reference Include="UCommerce.SystemHttp, Version=8.3.1.19271, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.8.3.1.19271\lib\net45\UCommerce.SystemHttp.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.SystemWeb, Version=8.1.0.19093, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.19093\lib\net45\UCommerce.SystemWeb.dll</HintPath>
+    <Reference Include="UCommerce.SystemWeb, Version=8.3.1.19271, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.8.3.1.19271\lib\net45\UCommerce.SystemWeb.dll</HintPath>
     </Reference>
     <Reference Include="Unicorn, Version=4.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Unicorn.Core.4.1.1\lib\net452\Unicorn.dll</HintPath>
     </Reference>
-    <Reference Include="WebGrease, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="WebGrease">
       <HintPath>..\packages\WebGrease.1.3.0\lib\WebGrease.dll</HintPath>
     </Reference>
   </ItemGroup>
@@ -263,13 +263,6 @@
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <None Include="Views\Web.config.default" />
-    <Content Include="web.config" />
-    <None Include="web.Debug.config">
-      <DependentUpon>web.config</DependentUpon>
-    </None>
-    <None Include="web.Release.config">
-      <DependentUpon>web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AvenueClothingHttpModule.cs" />
