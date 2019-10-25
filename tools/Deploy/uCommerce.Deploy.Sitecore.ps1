@@ -1,4 +1,4 @@
-task DeploySitecoreLocal -depends SetSynchronizeSitecoreItemsPath, CopyBinariesToLocalFolder, CopyMicrosoftDependencyInjectionDependenciesToLocal, CopyUnicornDependenciesToLocalFolder, CopyConfigurationLocal, CopyProjectFilesToLocalFolder
+task DeploySitecoreLocal -depends SetSynchronizeSitecoreItemsPath, CopyBinariesToLocalFolder, CopyUnicornDependenciesToLocalFolder, CopyConfigurationLocal, CopyProjectFilesToLocalFolder
 
 task SetSynchronizeSitecoreItemsPath{
   # C:\projects\Avenue Clothing for Sitecore\src\scripts\Serialization\App_Config\Include\AvenueClothing.Serialization.config
@@ -19,15 +19,13 @@ task SetSynchronizeSitecoreItemsPath{
 }
 
 task CopyUnicornDependenciesToLocalFolder {
-    Copy-Item "$src\packages\Unicorn.Core.3.3.2\lib\net452\Unicorn.dll" "$working_dir\bin\Unicorn.dll" -Force 
-    Copy-Item "$src\packages\Rainbow.Core.1.4.1\lib\net452\Rainbow.dll" "$working_dir\bin\Rainbow.dll" -Force 
-    Copy-Item "$src\packages\Rainbow.Storage.Yaml.1.4.1\lib\net452\Rainbow.Storage.Yaml.dll" "$working_dir\bin\Rainbow.Storage.Yaml.dll" -Force 
-    Copy-Item "$src\packages\Rainbow.Storage.Sc.1.4.1\lib\net452\Rainbow.Storage.Sc.dll" "$working_dir\bin\Rainbow.Storage.Sc.dll" -Force 
-}
-
-task CopyMicrosoftDependencyInjectionDependenciesToLocal {
-	Copy-Item "$src\packages\Microsoft.Extensions.DependencyInjection.1.0.0\lib\netstandard1.1\Microsoft.Extensions.DependencyInjection.dll" "$working_dir\bin\Microsoft.Extensions.DependencyInjection.dll" -Force 
-    Copy-Item "$src\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll" "$working_dir\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll" -Force 
+    Copy-Item "$src\AvenueClothing.Project.Website\bin\Unicorn.dll" "$working_dir\bin\Unicorn.dll" -Force 
+    Copy-Item "$src\AvenueClothing.Project.Website\bin\Configy.dll" "$working_dir\bin\Configy.dll" -Force 
+    Copy-Item "$src\AvenueClothing.Project.Website\bin\MicroCHAP.dll" "$working_dir\bin\MicroCHAP.dll" -Force 
+    Copy-Item "$src\AvenueClothing.Project.Website\bin\Kamsar.WebConsole.dll" "$working_dir\bin" -Force 
+    Copy-Item "$src\AvenueClothing.Project.Website\bin\Rainbow.dll" "$working_dir\bin\Rainbow.dll" -Force 
+    Copy-Item "$src\AvenueClothing.Project.Website\bin\Rainbow.Storage.Yaml.dll" "$working_dir\bin\Rainbow.Storage.Yaml.dll" -Force 
+    Copy-Item "$src\AvenueClothing.Project.Website\bin\\Rainbow.Storage.Sc.dll" "$working_dir\bin\Rainbow.Storage.Sc.dll" -Force 
 }
 
 
@@ -53,11 +51,13 @@ task CopyBinariesToLocalFolder {
 
     Copy-Item "$src\..\lib\WebGrease\System.Web.Optimization.dll" "$working_dir\bin\System.Web.Optimization.dll" -Force
     Copy-Item "$src\..\lib\WebGrease\WebGrease.dll" "$working_dir\bin\WebGrease.dll" -Force
+
 }
 
 task CopyConfigurationLocal {
-    Copy-Item "$src\packages\Rainbow.1.4.1\content\App_Config\Include\Rainbow.config" "$working_dir\App_Config\Include\Rainbow.config" -Force 
-    Copy-Item "$src\packages\Unicorn.3.3.2\content\App_Config\Include\Unicorn\Unicorn.config" "$working_dir\App_Config\Include\unicorn.config" -Force
+	Write-Host "Copying app_config to $working_dir"
+	Copy-Item "$src\AvenueClothing.Installer\App_Config" "$working_dir" -Recurse -Force
+
     Copy-Item "$src\scripts\Serialization\App_Config\Include\AvenueClothing.Sites.config" "$working_dir\App_Config\Include" -Force
     
     
@@ -72,7 +72,7 @@ task CopyConfigurationLocal {
 
 
 task CopyProjectFilesToLocalFolder {    
-    $options = @("/xf", "*.dll", "/xf", "*.cs", "/xf", "*.csproj", "/xf", "packages.config", "/xf", "*.user", "/xf", "*.cache", "/xd", "obj", "/xd", "bin", "/xf", "global.asax");
+    $options = @("/xf", "*.dll", "/xf", "*.cs", "/xf", "*.csproj", "/xf", "packages.config", "/xf", "*.user", "/xf", "*.cache", "/xd", "obj", "/xd", "bin", "/xf", "global.asax", "/xf", "web.debug.config", "/xf", "web.release.config", "/xf", "web.config");
     
     foreach ($project in $projects) {
         ROBOCOPY "$src\$project" "$working_dir\" $options /e /s

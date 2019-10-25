@@ -26,7 +26,7 @@ function Run-It () {
         $src = Resolve-Path "$scriptPath\..\..\src";
         $base_dir = Resolve-Path "$scriptPath\..\.."
 
-	    Import-Module "$scriptPath\..\psake\4.3.0.0\psake.psm1"
+	    Import-Module "$scriptPath\..\psake\4.9.0\psake.psm1"
     
         $properties = @{
                 "UpdateAssemblyInfo"="$UpdateAssemblyInfo";
