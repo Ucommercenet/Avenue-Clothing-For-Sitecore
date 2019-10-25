@@ -4,12 +4,19 @@ using Unicorn;
 using Unicorn.Configuration;
 using Unicorn.Logging;
 using Unicorn.Predicates;
+using Sitecore;
+using UCommerce.Infrastructure.Components.Windsor;
+using UCommerce.Security;
 
 namespace AvenueClothing.Installer.Services
 {
 	public class SynchronizeSitecoreService
 	{
-		public virtual void SynchronizeSitecoreItems()
+        [Mandatory]
+        public ICurrentUserNameService UserNameService { get; set; }
+
+
+        public virtual void SynchronizeSitecoreItems()
 		{
 			var configurations = UnicornConfigurationManager.Configurations;
 
@@ -30,14 +37,19 @@ namespace AvenueClothing.Installer.Services
 			try
 			{
 				logger.Info(string.Empty);
-				logger.Info("Unicorn.Bootstrap is syncing " + configuration.Name);
+				logger.Warn("Unicorn.Bootstrap is syncing " + configuration.Name);
+                logger.Warn(UserNameService.CurrentUserName);
 
 				var pathResolver = configuration.Resolve<PredicateRootPathResolver>();
 
 				var roots = pathResolver.GetRootSerializedItems();
+                
+                using (new Sitecore.SecurityModel.SecurityDisabler())
+                {
+                   helper.SyncTree(configuration);
+                }
 
-				helper.SyncTree(configuration);
-			}
+            }
 			catch (Exception ex)
 			{
 				logger.Error(ex);
