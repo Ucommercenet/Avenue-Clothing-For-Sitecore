@@ -72,9 +72,6 @@
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="paypal_base, Version=5.6.64.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.18.0.18185\lib\net45\paypal_base.dll</HintPath>
-    </Reference>
     <Reference Include="Rainbow, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Rainbow.Core.2.1.1\lib\net452\Rainbow.dll</HintPath>
     </Reference>
@@ -158,32 +155,41 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="UCommerce, Version=8.3.1.19271, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.3.1.19271\lib\net45\UCommerce.dll</HintPath>
+    <Reference Include="UCommerce, Version=8.4.0.19337, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.8.4.0.19337\lib\net45\UCommerce.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Admin, Version=8.3.1.19271, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.3.1.19271\lib\net45\UCommerce.Admin.dll</HintPath>
+    <Reference Include="UCommerce.Admin, Version=8.4.0.19337, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.8.4.0.19337\lib\net45\UCommerce.Admin.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Infrastructure, Version=8.3.1.19271, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.3.1.19271\lib\net45\UCommerce.Infrastructure.dll</HintPath>
+    <Reference Include="UCommerce.Infrastructure, Version=8.4.0.19337, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.8.4.0.19337\lib\net45\UCommerce.Infrastructure.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Installer, Version=8.3.1.19271, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.3.1.19271\lib\net45\UCommerce.Installer.dll</HintPath>
+    <Reference Include="UCommerce.Installer, Version=8.4.0.19337, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.8.4.0.19337\lib\net45\UCommerce.Installer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.NHibernate, Version=8.3.1.19271, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.3.1.19271\lib\net45\UCommerce.NHibernate.dll</HintPath>
+    <Reference Include="UCommerce.NHibernate, Version=8.4.0.19337, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.8.4.0.19337\lib\net45\UCommerce.NHibernate.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Pipelines, Version=8.3.1.19271, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.3.1.19271\lib\net45\UCommerce.Pipelines.dll</HintPath>
+    <Reference Include="UCommerce.Pipelines, Version=8.4.0.19337, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.8.4.0.19337\lib\net45\UCommerce.Pipelines.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Presentation, Version=8.3.1.19271, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.3.1.19271\lib\net45\UCommerce.Presentation.dll</HintPath>
+    <Reference Include="UCommerce.Presentation, Version=8.4.0.19337, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.8.4.0.19337\lib\net45\UCommerce.Presentation.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.SystemHttp, Version=8.3.1.19271, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.3.1.19271\lib\net45\UCommerce.SystemHttp.dll</HintPath>
+    <Reference Include="UCommerce.SystemHttp, Version=8.4.0.19337, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.8.4.0.19337\lib\net45\UCommerce.SystemHttp.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.SystemWeb, Version=8.3.1.19271, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.3.1.19271\lib\net45\UCommerce.SystemWeb.dll</HintPath>
+    <Reference Include="UCommerce.SystemWeb, Version=8.4.0.19337, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.8.4.0.19337\lib\net45\UCommerce.SystemWeb.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Unicorn, Version=4.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Unicorn.Core.4.1.1\lib\net452\Unicorn.dll</HintPath>
