@@ -1,27 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Collections.Specialized;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Project.Catalog.ViewModels;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Catalog.Services;
-using UCommerce.Api;
-using UCommerce.Runtime;
-using UCommerce.Search;
-using UCommerce.Search.Facets;
+using Ucommerce.Api;
+using Ucommerce.Search.Extensions;
+using Ucommerce.Search.Facets;
 
 namespace AvenueClothing.Project.Catalog.Controllers
 {
     public class FacetsController : BaseController
     {
         private readonly ICatalogContext _catalogContext;
-        private readonly SearchLibraryInternal _searchLibraryInternal;
+        private readonly ICatalogLibrary _catalogLibrary;
 
-        public FacetsController(ICatalogContext catalogContext, SearchLibraryInternal searchLibraryInternal)
+        public FacetsController(ICatalogContext catalogContext, ICatalogLibrary catalogLibrary)
         {
             _catalogContext = catalogContext;
-            _searchLibraryInternal = searchLibraryInternal;
+            _catalogLibrary = catalogLibrary;
         }
 
         public ActionResult Rendering([ModelBinder(typeof(FacetModelBinder))]IList<Facet> facetsForQuerying)
@@ -30,8 +27,8 @@ namespace AvenueClothing.Project.Catalog.Controllers
             var category = _catalogContext.CurrentCategory;
             var viewModel = new FacetsRenderingViewModel();
 
-            IList<Facet> facets = _searchLibraryInternal.GetFacetsFor(category, facetsForQuerying);
-            if (facets.Any(x => x.FacetValues.Any(y => y.Hits > 0)))
+            IList<Facet> facets = _catalogLibrary.GetFacets(category.Guid, facetsForQuerying.ToFacetDictionary());
+            if (facets.Any(x => x.FacetValues.Any(y => y.Count > 0)))
             {
                 viewModel.Facets = MapFacets(facets);
             }
@@ -58,9 +55,9 @@ namespace AvenueClothing.Project.Catalog.Controllers
 
                 foreach (var value in facet.FacetValues)
                 {
-                    if (value.Hits > 0)
+                    if (value.Count > 0)
                     {
-                        var facetVal = new FacetsRenderingViewModel.FacetValue(value.Value, value.Hits);
+                        var facetVal = new FacetsRenderingViewModel.FacetValue(value.Value, (int) value.Count);
                         facetViewModel.FacetValues.Add(facetVal);
                     }
                 }

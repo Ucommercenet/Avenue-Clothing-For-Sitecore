@@ -2,7 +2,8 @@
 using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.UserFeedback.ViewModels;
-using UCommerce.Runtime;
+using Ucommerce.Api;
+using Ucommerce.EntitiesV2;
 
 namespace AvenueClothing.Project.UserFeedback.Controllers
 {
@@ -19,9 +20,10 @@ namespace AvenueClothing.Project.UserFeedback.Controllers
 	    {
 	        var viewModel = new ReviewListRenderingViewModel();
 
-            var currentProduct = _catalogContext.CurrentProduct;
+	        var currentProduct = _catalogContext.CurrentProduct;
+	        var currentProductV2 = Product.FirstOrDefault(x => x.Sku == currentProduct.Sku);
 
-            viewModel.Reviews = currentProduct.ProductReviews.Select(review => new ReviewListRenderingViewModel.Review
+            viewModel.Reviews = currentProductV2.ProductReviews.Select(review => new ReviewListRenderingViewModel.Review
             {
 	            Name = review.Customer.FirstName + " " + review.Customer.LastName,
 	            Email = review.Customer.EmailAddress,

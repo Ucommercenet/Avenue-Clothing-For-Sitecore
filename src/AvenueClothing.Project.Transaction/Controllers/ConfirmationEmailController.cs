@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Transaction.ViewModels;
-using UCommerce;
-using UCommerce.EntitiesV2;
+using Ucommerce;
+using Ucommerce.EntitiesV2;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {

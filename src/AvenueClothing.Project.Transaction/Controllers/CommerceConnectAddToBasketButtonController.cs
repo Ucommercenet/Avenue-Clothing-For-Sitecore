@@ -9,8 +9,9 @@ using Sitecore.Commerce.Contacts;
 using Sitecore.Commerce.Entities.Carts;
 using Sitecore.Commerce.Entities.Prices;
 using Sitecore.Commerce.Services.Carts;
-using UCommerce.Api;
-using UCommerce.Runtime;
+using Ucommerce.Api;
+using Ucommerce.Api.PriceCalculation;
+using Ucommerce.Search.Models;
 using Convert = System.Convert;
 
 namespace AvenueClothing.Project.Transaction.Controllers
@@ -37,9 +38,16 @@ namespace AvenueClothing.Project.Transaction.Controllers
 				ConfirmationMessageTimeoutInMillisecs = (int)TimeSpan.FromSeconds(5).TotalMilliseconds,
 				ConfirmationMessageClientId = "js-add-to-basket-button-confirmation-message-" + Guid.NewGuid(),
 				ProductSku = product.Sku,
-				IsProductFamily = product.ProductDefinition.IsProductFamily(),
-				Price = CatalogLibrary.CalculatePrice(product).YourPrice.Amount.ToString()
+				IsProductFamily = product.ProductType == ProductType.ProductFamily,
 			};
+
+			var taxRate = _catalogContext.CurrentPriceGroup.TaxRate;
+			var currencyIsoCode = _catalogContext.CurrentPriceGroup.CurrencyISOCode;
+
+			if (product.UnitPrices.TryGetValue(_catalogContext.CurrentPriceGroup.Name, out var unitPrice))
+			{
+				viewModel.Price = new Money(unitPrice * (1.0M + taxRate), currencyIsoCode).ToString();
+			}
 			return View("/Views/AddToBasketButton/Rendering.cshtml", viewModel);
 		}
 

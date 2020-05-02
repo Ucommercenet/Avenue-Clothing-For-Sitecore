@@ -12,7 +12,7 @@ using Sitecore.Commerce.Entities.Shipping;
 using Sitecore.Commerce.Services.Carts;
 using Sitecore.Commerce.Services.Shipping;
 using Sitecore.Configuration;
-using Constants = UCommerce.Constants;
+using Constants = Ucommerce.Constants;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {
@@ -71,7 +71,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 			{
 				new ShippingInfo()
 				{
-					ShippingMethodID = createShipmentViewModel.SelectedShippingMethodId.ToString(), 
+					ShippingMethodID = createShipmentViewModel.SelectedShippingMethodId.ToString(),
 					PartyID = shippingParty.PartyId
 				}
 			};

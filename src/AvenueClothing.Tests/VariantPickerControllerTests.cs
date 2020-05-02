@@ -3,12 +3,14 @@ using System.Web.Mvc;
 using AvenueClothing.Project.Transaction.Controllers;
 using AvenueClothing.Project.Transaction.ViewModels;
 using NSubstitute;
-using UCommerce.Catalog;
-using UCommerce.EntitiesV2;
-using UCommerce.Pipelines;
-using UCommerce.Pipelines.GetProduct;
-using UCommerce.Runtime;
+using Ucommerce.Api;
+using Ucommerce.EntitiesV2;
+using Ucommerce.Pipelines;
+using Ucommerce.Pipelines.GetProduct;
+using Ucommerce.Search;
+using Ucommerce.Search.Models;
 using Xunit;
+using Product = Ucommerce.EntitiesV2.Product;
 
 namespace AvenueClothing.Tests
 {
@@ -16,16 +18,18 @@ namespace AvenueClothing.Tests
     {
         private readonly IPipeline<IPipelineArgs<GetProductRequest, GetProductResponse>> _getProductPipeline;
         private readonly ICatalogContext _catalogContext;
-        private readonly CatalogLibraryInternal _catalogLibraryInternal;
+        private readonly ICatalogLibrary _catalogLibrary;
         private readonly VariantPickerController _controller;
+        private readonly IIndex<Ucommerce.Search.Models.Product> _productIndex;
 
         public VariantPickerControllerTests()
         {
             _getProductPipeline = Substitute.For<IPipeline<IPipelineArgs<GetProductRequest, GetProductResponse>>>();
             _catalogContext = Substitute.For<ICatalogContext>();
-            _catalogLibraryInternal = Substitute.For<CatalogLibraryInternal>(null, null, null, null, null, null, null, null, null, null, null);
+            _catalogLibrary = Substitute.For<ICatalogLibrary>(null, null, null, null, null, null, null, null, null, null, null);
+            _productIndex = Substitute.For<IIndex<Ucommerce.Search.Models.Product>>();
 
-            _controller = new VariantPickerController(_getProductPipeline, _catalogContext, _catalogLibraryInternal);
+            _controller = new VariantPickerController(_getProductPipeline, _catalogContext, _catalogLibrary, _productIndex);
 
             _controller.Url = Substitute.For<UrlHelper>();
             _controller.Url.Action(Arg.Any<string>()).Returns("ControllerUrl");
@@ -35,10 +39,10 @@ namespace AvenueClothing.Tests
         public void Rendering_Should_Return_NonEmpty_ViewModel()
         {
             // Arrange
-            _catalogContext.CurrentProduct = new Product();
+            _catalogContext.CurrentProduct = new Ucommerce.Search.Models.Product();
             _catalogContext.CurrentProduct.Sku = "PRD-01";
-            _catalogContext.CurrentProduct.ProductDefinition = Substitute.For<ProductDefinition>();
-            _catalogContext.CurrentProduct.ProductDefinition.IsProductFamily().Returns(true);
+            _catalogContext.CurrentProduct.ProductDefinition = Guid.NewGuid();
+            _catalogContext.CurrentProduct.ProductType = ProductType.ProductFamily;
 
             var variant = new Product
             {
@@ -46,7 +50,7 @@ namespace AvenueClothing.Tests
                 Name = "Variant 1",
                 Sku = "Variant-01"
             };
-            
+
             variant.ProductProperties.Add(new ProductProperty()
             {
                 Value = "DisplayOnSite",
@@ -55,8 +59,8 @@ namespace AvenueClothing.Tests
                     DisplayOnSite = true
                 }
             });
-            
-            _catalogContext.CurrentProduct.Variants.Add(variant);
+
+            _catalogContext.CurrentProduct.Variants.Add(variant.Guid);
 
             // Act
             var result = _controller.Rendering();
@@ -70,6 +74,6 @@ namespace AvenueClothing.Tests
             Assert.NotNull(model.GetAvailableCombinationsUrl);
         }
 
-      
+
     }
 }

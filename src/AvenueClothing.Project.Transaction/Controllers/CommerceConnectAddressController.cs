@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using UCommerce.EntitiesV2;
-using UCommerce.Transactions;
+using Ucommerce.EntitiesV2;
+using Ucommerce.Transactions;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Transaction.ViewModels;
 using Sitecore;
@@ -11,26 +11,27 @@ using Sitecore.Commerce.Contacts;
 using Sitecore.Commerce.Entities;
 using Sitecore.Commerce.Entities.Carts;
 using Sitecore.Commerce.Services.Carts;
-using Constants = UCommerce.Constants;
+using Ucommerce.Api;
+using Constants = Ucommerce.Constants;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {
     public class CommerceConnectAddressController : BaseController
     {
-        private readonly TransactionLibraryInternal _transactionLibraryInternal;
+        private readonly ITransactionLibrary _transactionLibrary;
 		private readonly IRepository<Country> _countries;
 
-		public CommerceConnectAddressController(TransactionLibraryInternal transactionLibraryInternal, IRepository<Country> countries)
+		public CommerceConnectAddressController(ITransactionLibrary transactionLibrary, IRepository<Country> countries)
         {
-            _transactionLibraryInternal = transactionLibraryInternal;
+            _transactionLibrary = transactionLibrary;
             _countries = countries;
         }
         public ActionResult Rendering()
         {
             var viewModel = new AddressRenderingViewModel();
 
-            var shippingInformation = _transactionLibraryInternal.GetBasket().PurchaseOrder.GetShippingAddress(Constants.DefaultShipmentAddressName) ?? new OrderAddress();
-            var billingInformation = _transactionLibraryInternal.GetBasket().PurchaseOrder.BillingAddress ?? new OrderAddress();
+            var shippingInformation = _transactionLibrary.GetBasket().GetShippingAddress(Constants.DefaultShipmentAddressName) ?? new OrderAddress();
+            var billingInformation = _transactionLibrary.GetBasket().BillingAddress ?? new OrderAddress();
 
             viewModel.BillingAddress.FirstName = billingInformation.FirstName;
             viewModel.BillingAddress.LastName = billingInformation.LastName;
@@ -102,8 +103,8 @@ namespace AvenueClothing.Project.Transaction.Controllers
             }
 
             Tracker.Current.Session.CustomData["FirstName"] = addressRendering.BillingAddress.FirstName;
-            
-            _transactionLibraryInternal.ExecuteBasketPipeline();
+
+            _transactionLibrary.ExecuteBasketPipeline();
 
             return Json(new {ShippingUrl = "/shipping"});
 

@@ -2,25 +2,24 @@
 using AvenueClothing.Project.Transaction.Controllers;
 using AvenueClothing.Project.Transaction.ViewModels;
 using NSubstitute;
-using UCommerce.Marketing;
-using UCommerce.Transactions;
+using Ucommerce.Api;
 using Xunit;
 
 namespace AvenueClothing.Tests
 {
     public class VoucherControllerTests
     {
-        private readonly MarketingLibraryInternal _marketingLibraryInternal;
-        private readonly TransactionLibraryInternal _transactionLibraryInternal;
+        private readonly IMarketingLibrary _marketingLibrary;
+        private readonly ITransactionLibrary _transactionLibrary;
         private readonly VoucherController _controller;
 
         public VoucherControllerTests()
         {
-            _transactionLibraryInternal = Substitute.For<TransactionLibraryInternal>(null, null, null, null, null, null,
+            _transactionLibrary = Substitute.For<ITransactionLibrary>(null, null, null, null, null, null,
                  null, null, null, null, null);
-            _marketingLibraryInternal = Substitute.For<MarketingLibraryInternal>(null, null, null);
-      
-            _controller = new VoucherController(_transactionLibraryInternal, _marketingLibraryInternal);
+            _marketingLibrary = Substitute.For<IMarketingLibrary>(null, null, null);
+
+            _controller = new VoucherController(_transactionLibrary, _marketingLibrary);
 
             _controller.Url = Substitute.For<UrlHelper>();
             _controller.Url.Action(Arg.Any<string>()).Returns("ControllerUrl");
@@ -58,8 +57,8 @@ namespace AvenueClothing.Tests
             var viewResult = result as JsonResult;
             Assert.NotNull(viewResult);
 
-            _marketingLibraryInternal.Received().AddVoucher(voucher);
-            _transactionLibraryInternal.Received().ExecuteBasketPipeline();
+            _marketingLibrary.Received().AddVoucher(voucher);
+            _transactionLibrary.Received().ExecuteBasketPipeline();
 
         }
     }

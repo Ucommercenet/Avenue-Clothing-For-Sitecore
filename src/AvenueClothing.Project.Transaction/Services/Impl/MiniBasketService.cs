@@ -1,17 +1,17 @@
 ﻿using System.Linq;
 using AvenueClothing.Project.Transaction.ViewModels;
-using UCommerce;
-using UCommerce.Transactions;
+using Ucommerce;
+using Ucommerce.Api;
 
 namespace AvenueClothing.Project.Transaction.Services.Impl
 {
 	public class MiniBasketService : IMiniBasketService
 	{
-		private readonly TransactionLibraryInternal _transactionLibraryInternal;
+		private readonly ITransactionLibrary _transactionLibrary;
 
-		public MiniBasketService(TransactionLibraryInternal transactionLibraryInternal)
+		public MiniBasketService(ITransactionLibrary transactionLibrary)
 		{
-			_transactionLibraryInternal = transactionLibraryInternal;
+			_transactionLibrary = transactionLibrary;
 		}
 
 		public MiniBasketRefreshViewModel Refresh()
@@ -21,12 +21,12 @@ namespace AvenueClothing.Project.Transaction.Services.Impl
 				IsEmpty = true
 			};
 
-			if (!_transactionLibraryInternal.HasBasket())
+			if (!_transactionLibrary.HasBasket())
 			{
 				return viewModel;
 			}
 
-			var purchaseOrder = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
+			var purchaseOrder = _transactionLibrary.GetBasket();
 
 			var quantity = purchaseOrder.OrderLines.Sum(x => x.Quantity);
 

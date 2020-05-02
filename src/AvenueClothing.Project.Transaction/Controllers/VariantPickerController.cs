@@ -8,12 +8,16 @@ using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Transaction.ViewModels;
 using Sitecore.Collections;
 using Sitecore.Mvc.Extensions;
-using UCommerce.Api;
-using UCommerce.Catalog;
-using UCommerce.EntitiesV2;
-using UCommerce.Pipelines;
-using UCommerce.Pipelines.GetProduct;
-using UCommerce.Runtime;
+using Sitecore.Web.UI.WebControls;
+using Ucommerce.Api;
+using Ucommerce.Catalog;
+using Ucommerce.EntitiesV2;
+using Ucommerce.Extensions;
+using Ucommerce.Pipelines;
+using Ucommerce.Pipelines.GetProduct;
+using Ucommerce.Search;
+using Ucommerce.Search.Models;
+using Product = Ucommerce.EntitiesV2.Product;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {
@@ -21,13 +25,20 @@ namespace AvenueClothing.Project.Transaction.Controllers
     {
         private readonly IPipeline<IPipelineArgs<GetProductRequest, GetProductResponse>> _getProductPipeline;
         private readonly ICatalogContext _catalogContext;
-        private readonly CatalogLibraryInternal _catalogLibraryInternal;
+        private readonly ICatalogLibrary _catalogLibrary;
+        private readonly IIndex<Ucommerce.Search.Models.Product> _productIndex;
 
-        public VariantPickerController(IPipeline<IPipelineArgs<GetProductRequest, GetProductResponse>> getProductPipeline, ICatalogContext catalogContext, CatalogLibraryInternal catalogLibraryInternal)
+        public VariantPickerController(
+            IPipeline<IPipelineArgs<GetProductRequest,
+            GetProductResponse>> getProductPipeline,
+            ICatalogContext catalogContext,
+            ICatalogLibrary catalogLibrary,
+            IIndex<Ucommerce.Search.Models.Product> productIndex)
         {
             _getProductPipeline = getProductPipeline;
             _catalogContext = catalogContext;
-            _catalogLibraryInternal = catalogLibraryInternal;
+            _catalogLibrary = catalogLibrary;
+            _productIndex = productIndex;
         }
 
         public ActionResult Rendering()
@@ -40,32 +51,35 @@ namespace AvenueClothing.Project.Transaction.Controllers
                 VariantExistsUrl = Url.Action("VariantExists")
             };
 
-            if (!currentProduct.ProductDefinition.IsProductFamily())
+            if (currentProduct.ProductType != ProductType.ProductFamily)
             {
                 return View(viewModel);
             }
 
-            var uniqueVariants = currentProduct.Variants.SelectMany(p => p.ProductProperties)
-                .Where(v => v.ProductDefinitionField.DisplayOnSite)
-                .GroupBy(v => v.ProductDefinitionField)
-                .Select(g => g);
+            var variants = _catalogLibrary.GetVariants(currentProduct);
 
-            foreach (var variant in uniqueVariants)
+            var uniqueVariantProperties =
+                from v in variants.SelectMany(p => p.GetUserDefinedFields())
+                group v by v.Key
+                into g
+                select g;
+
+            foreach (var variantProperty in uniqueVariantProperties)
             {
                 var productPropertiesViewModel = new VariantPickerRenderingViewModel.Variant
                 {
-                    Name = variant.Key.Name,
-                    DisplayName = variant.Key.Name
+                    Name =  variantProperty.Key,
+                    DisplayName = variantProperty.Key
                 };
 
-                foreach (var variantValue in variant.Select(v => v.Value).Distinct())
+                foreach (var value in variantProperty.Select(p => p.Value).Distinct())
                 {
-                    productPropertiesViewModel.VaraintItems.Add(new VariantPickerRenderingViewModel.Variant.VaraintValue
-                    {
-                        Name = variantValue,
-                        DisplayName = variantValue
+                    productPropertiesViewModel.VaraintItems.Add(new VariantPickerRenderingViewModel.Variant.VaraintValue{
+                        Name = value.ToString(),
+                        DisplayName = value.ToString()
                     });
                 }
+
                 viewModel.Variants.Add(productPropertiesViewModel);
             }
             viewModel.GetAvailableCombinationsUrl = Url.Action("GetAvailableCombinations");
@@ -77,15 +91,18 @@ namespace AvenueClothing.Project.Transaction.Controllers
         [HttpPost]
         public ActionResult VariantExists(VariantPickerVariantExistsViewModel viewModel)
         {
-            var getProductResponse = new GetProductResponse();
-            if (_getProductPipeline.Execute(new GetProductPipelineArgs(new GetProductRequest(new ProductIdentifier(viewModel.ProductSku, null)), getProductResponse)) == PipelineExecutionResult.Error)
+            // TODO: Updated for bolt but IFFY!!
+            Ucommerce.Search.Models.Product product;
+            try
             {
-                return Json(new { ProductVariantSku = "" });
+                product = _catalogLibrary.GetProduct(viewModel.ProductSku);
+            }
+            catch (Exception e)
+            {
+                return Json(new {ProductVariantSku = ""});
             }
 
-            var product = getProductResponse.Product;
-
-            if (!product.ProductDefinition.IsProductFamily())
+            if (product.ProductType != ProductType.ProductFamily)
             {
                 return Json(new { ProductVariantSku = "" });
             }
@@ -94,13 +111,15 @@ namespace AvenueClothing.Project.Transaction.Controllers
                 return Json(new { ProductVariantSku = "" });
             }
 
-            var variant = product.Variants.FirstOrDefault(v => v.ProductProperties
-                      .Where(pp => pp.ProductDefinitionField.DisplayOnSite)
-                      .Where(pp => pp.ProductDefinitionField.IsVariantProperty)
-                      .Where(pp => !pp.ProductDefinitionField.Deleted)
-                      .All(p => viewModel.VariantNameValueDictionary
-                            .Any(kv => kv.Key.Equals(p.ProductDefinitionField.Name, StringComparison.InvariantCultureIgnoreCase) && kv.Value.Equals(p.Value, StringComparison.InvariantCultureIgnoreCase)))
-                      );
+            var variant =
+                _catalogLibrary
+                    .GetVariants(product)
+                    .FirstOrDefault(v => v.VariantsProperties
+                                        .All(variantProperty => viewModel.VariantNameValueDictionary
+                                            .Any(kvp =>
+                                                    kvp.Key.Equals(variantProperty.Key, StringComparison.InvariantCultureIgnoreCase)
+                                                    && kvp.Value.Equals(variantProperty.Value.ToString(), StringComparison.InvariantCultureIgnoreCase))));
+
             var variantSku = variant != null ? variant.VariantSku : "";
 
 
@@ -112,27 +131,30 @@ namespace AvenueClothing.Project.Transaction.Controllers
         {
             var selectedDictionary = viewModel.VariantNameValueDictionary.Where(x => x.Value != "").ToList();
 
-            var currentProduct = _catalogLibraryInternal.GetProduct(viewModel.ProductSku);
+            var currentProduct = _catalogLibrary.GetProduct(viewModel.ProductSku);
 
             IList<ProductPropertiesViewModel> result = new List<ProductPropertiesViewModel>();
-            IList<Product> possibleVariants = new List<Product>();
+            IList<Ucommerce.Search.Models.Product> possibleVariants = new List<Ucommerce.Search.Models.Product>();
 
             foreach (var kvp in selectedDictionary)
             {
+                var variants = _catalogLibrary.GetVariants(currentProduct);
 
-                var variants = currentProduct.Variants;
                 foreach (var v in variants)
                 {
-                    if (v.ProductProperties.Any(x => x.ProductDefinitionField.Name == kvp.Key && x.Value == kvp.Value))
+                    if (v.GetUserDefinedFields().Any(x => x.Key.ToLower() == kvp.Key.ToLower() && x.Value == kvp.Value))
                     {
                         possibleVariants.Add(v);
                     }
                 }
 
+                // TODO: Bolt enable (still uses ProductProperty.All().
                 foreach (var possibleVariant in possibleVariants)
                 {
                     var properties = ProductProperty.All()
-                        .Where(x => x.ProductDefinitionField.Name != kvp.Key && x.Value != kvp.Value && x.Product == possibleVariant).Distinct();
+                        .Where(x => x.ProductDefinitionField.Name != kvp.Key
+                                    && x.Value != kvp.Value
+                                    && x.Product.Guid == possibleVariant.Guid).Distinct();
                     foreach (var prop in properties)
                     {
                         ProductPropertiesViewModel property = new ProductPropertiesViewModel();
@@ -158,7 +180,5 @@ namespace AvenueClothing.Project.Transaction.Controllers
         }
         public string PropertyName { get; set; }
         public IList<string> Values { get; set; }
-
-
     }
 }

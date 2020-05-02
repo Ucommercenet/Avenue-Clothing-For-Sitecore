@@ -4,9 +4,8 @@ using Unicorn;
 using Unicorn.Configuration;
 using Unicorn.Logging;
 using Unicorn.Predicates;
-using Sitecore;
-using UCommerce.Infrastructure.Components.Windsor;
-using UCommerce.Security;
+using Ucommerce.Infrastructure.Components.Windsor;
+using Ucommerce.Security;
 
 namespace AvenueClothing.Installer.Services
 {
@@ -23,7 +22,7 @@ namespace AvenueClothing.Installer.Services
 			if (configurations == null) throw new InvalidOperationException("Could not determine configurations for Unicorn.");
 
 			var configuration = configurations.FirstOrDefault(c => c.Name.Equals("Project.AvenueClothing.Website", StringComparison.OrdinalIgnoreCase));
-            
+
 			if (configuration == null) throw new InvalidOperationException("No configuration for unicorn was found under sitecore include folder. Looked for: 'Project.AvenueClothing.Website'");
 
 			SynchroniseTargetDataStore(configuration);
@@ -43,7 +42,7 @@ namespace AvenueClothing.Installer.Services
 				var pathResolver = configuration.Resolve<PredicateRootPathResolver>();
 
 				var roots = pathResolver.GetRootSerializedItems();
-                
+
                 using (new Sitecore.SecurityModel.SecurityDisabler())
                 {
                    helper.SyncTree(configuration);

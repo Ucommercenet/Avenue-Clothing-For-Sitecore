@@ -3,25 +3,25 @@ using System.Net;
 using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Transaction.ViewModels;
-using UCommerce;
-using UCommerce.Api;
-using UCommerce.EntitiesV2;
-using UCommerce.Transactions;
+using Ucommerce;
+using Ucommerce.Api;
+using Ucommerce.EntitiesV2;
+using Ucommerce.Transactions;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {
 	public class BasketPreviewController : BaseController
 	{
-		private readonly TransactionLibraryInternal _transactionLibraryInternal;
+		private readonly ITransactionLibrary _transactionLibrary;
 
-		public BasketPreviewController(TransactionLibraryInternal transactionLibraryInternal)
+		public BasketPreviewController(ITransactionLibrary transactionLibrary)
 		{
-			_transactionLibraryInternal = transactionLibraryInternal;
+			_transactionLibrary = transactionLibrary;
 		}
 
 		public ActionResult Rendering()
 		{
-			var purchaseOrder = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
+			var purchaseOrder = _transactionLibrary.GetBasket();
 			var basketPreviewViewModel = new BasketPreviewViewModel();
 
 			basketPreviewViewModel = MapPurchaseOrderToViewModel(purchaseOrder, basketPreviewViewModel);
@@ -32,14 +32,14 @@ namespace AvenueClothing.Project.Transaction.Controllers
 		[HttpPost]
 		public ActionResult RequestPayment()
 		{
-		    var payment = _transactionLibraryInternal.GetBasket().PurchaseOrder.Payments.First();
+		    var payment = _transactionLibrary.GetBasket().Payments.First();
 		    if (payment.PaymentMethod.PaymentMethodServiceName == null)
 		    {
 		        return Redirect("/confirmation");
             }
 
 		    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            string paymentUrl = _transactionLibraryInternal.GetPaymentPageUrl(payment);
+            string paymentUrl = _transactionLibrary.GetPaymentPageUrl(payment);
 		    return Redirect(paymentUrl);
 		}
 

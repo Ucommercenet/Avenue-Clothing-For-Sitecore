@@ -1,7 +1,5 @@
-﻿using System.Collections.Specialized;
-using AvenueClothing.Installer.Helpers;
-using Sitecore.Install.Framework;
-using UCommerce.Pipelines;
+﻿using AvenueClothing.Installer.Helpers;
+using Ucommerce.Pipelines;
 
 namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
 {

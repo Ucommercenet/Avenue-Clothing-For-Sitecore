@@ -4,8 +4,9 @@ using AvenueClothing.Project.Transaction.Controllers;
 using AvenueClothing.Project.Transaction.Services.Impl;
 using AvenueClothing.Project.Transaction.ViewModels;
 using NSubstitute;
-using UCommerce.EntitiesV2;
-using UCommerce.Transactions;
+using Ucommerce.Api;
+using Ucommerce.EntitiesV2;
+using Ucommerce.Search.Slugs;
 using Xunit;
 
 namespace AvenueClothing.Tests
@@ -13,17 +14,23 @@ namespace AvenueClothing.Tests
     public class BasketControllerTests
     {
         private readonly BasketController _controller;
-        private readonly TransactionLibraryInternal _transactionLibraryInternal;
+        private readonly ITransactionLibrary _transactionLibraryInternal;
         private readonly MiniBasketService _miniBasketService;
+        private readonly IUrlService _urlService;
+        private readonly ICatalogLibrary _catalogLibrary;
+        private readonly ICatalogContext _catalogContext;
 
         public BasketControllerTests()
         {
             // Create
-            _transactionLibraryInternal = Substitute.For<TransactionLibraryInternal>(null, null, null, null, null, null,
+            _transactionLibraryInternal = Substitute.For<ITransactionLibrary>(null, null, null, null, null, null,
                 null, null, null, null, null);
             _miniBasketService = Substitute.For<MiniBasketService>(_transactionLibraryInternal);
+            _urlService = Substitute.For<IUrlService>();
+            _catalogContext = Substitute.For<ICatalogContext>();
+            _catalogLibrary = Substitute.For<ICatalogLibrary>();
 
-            _controller = new BasketController(_transactionLibraryInternal, _miniBasketService);
+            _controller = new BasketController(_transactionLibraryInternal, _miniBasketService, _urlService, _catalogContext, _catalogLibrary);
 
             _controller.Url = Substitute.For<UrlHelper>();
             _controller.Url.Action(Arg.Any<string>()).Returns("anything");
@@ -33,13 +40,13 @@ namespace AvenueClothing.Tests
         public void Rendering_When_BasketModel_IsNotNull_Should_Return_View_With_Non_Empty_Model()
         {
             // Arrange
-            _transactionLibraryInternal.GetBasket(false).Returns(new Basket(new PurchaseOrder
+            _transactionLibraryInternal.GetBasket().Returns(new PurchaseOrder
             {
                 BillingCurrency = new Currency
                 {
                     ISOCode = "USD"
                 }
-            }));
+            });
 
 
             // Act
@@ -79,13 +86,13 @@ namespace AvenueClothing.Tests
         public void UpdateOrderline_Removes_Orderline_If_Quantity_Is_Negative_Or_Zero_And_Json_Result_IsNotNull()
         {
             //Arrange
-            _transactionLibraryInternal.GetBasket(false).Returns(new Basket(new PurchaseOrder
+            _transactionLibraryInternal.GetBasket().Returns(new PurchaseOrder
             {
                 BillingCurrency = new Currency
                 {
                     ISOCode = "USD"
                 }
-            }));
+            });
             BasketUpdateBasket model = new BasketUpdateBasket();
             model.RefreshBasket = new List<BasketUpdateBasket.UpdateOrderLine>();
             model.RefreshBasket.Add(new BasketUpdateBasket.UpdateOrderLine()

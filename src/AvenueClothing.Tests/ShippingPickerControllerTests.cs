@@ -2,9 +2,9 @@
 using AvenueClothing.Project.Transaction.Controllers;
 using AvenueClothing.Project.Transaction.ViewModels;
 using NSubstitute;
-using UCommerce;
-using UCommerce.EntitiesV2;
-using UCommerce.Transactions;
+using Ucommerce;
+using Ucommerce.Api;
+using Ucommerce.EntitiesV2;
 using Xunit;
 
 namespace AvenueClothing.Tests
@@ -12,12 +12,12 @@ namespace AvenueClothing.Tests
     public class ShippingPickerControllerTests
     {
         private readonly ShippingPickerController _controller;
-        private readonly TransactionLibraryInternal _transactionLibraryInternal;
+        private readonly ITransactionLibrary _transactionLibrary;
 
         public ShippingPickerControllerTests()
         {
-            _transactionLibraryInternal = Substitute.For<TransactionLibraryInternal>(null, null, null, null, null, null, null, null, null, null, null);
-            _controller = new ShippingPickerController(_transactionLibraryInternal);
+            _transactionLibrary = Substitute.For<ITransactionLibrary>(null, null, null, null, null, null, null, null, null, null, null);
+            _controller = new ShippingPickerController(_transactionLibrary);
         }
 
         [Fact]
@@ -28,7 +28,7 @@ namespace AvenueClothing.Tests
             var orderaddress = new OrderAddress { AddressName = Constants.DefaultShipmentAddressName, Country = new Country() };
             purchaseOrder.OrderAddresses.Add(orderaddress);
             purchaseOrder.OrderStatus = new OrderStatus();
-            _transactionLibraryInternal.GetBasket(false).Returns(new Basket(purchaseOrder));
+            _transactionLibrary.GetBasket().Returns(purchaseOrder);
 
             //Act
             var result = _controller.Rendering();
@@ -49,13 +49,13 @@ namespace AvenueClothing.Tests
 
             //Act
             var result = _controller.CreateShipment(shipping);
-       
+
             //Assert
             Assert.NotNull(shipping.SelectedShippingMethodId);
             Assert.NotNull(result);
 
-            _transactionLibraryInternal.Received().ExecuteBasketPipeline();
-            _transactionLibraryInternal.Received().CreateShipment(shipping.SelectedShippingMethodId, Constants.DefaultShipmentAddressName, true);
+            _transactionLibrary.Received().ExecuteBasketPipeline();
+            _transactionLibrary.Received().CreateShipment(shipping.SelectedShippingMethodId, Constants.DefaultShipmentAddressName, true);
 
       }
     }

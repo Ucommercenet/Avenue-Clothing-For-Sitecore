@@ -1,6 +1,6 @@
 ﻿using AvenueClothing.Installer.Services;
-using UCommerce.Pipelines;
-using UCommerce.Pipelines.Initialization;
+using Ucommerce.Pipelines;
+using Ucommerce.Pipelines.Initialization;
 
 namespace AvenueClothing.Installer.Pipelines.Initialize
 {

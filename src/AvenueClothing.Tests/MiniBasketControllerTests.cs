@@ -3,8 +3,9 @@ using AvenueClothing.Project.Transaction.Controllers;
 using AvenueClothing.Project.Transaction.Services.Impl;
 using AvenueClothing.Project.Transaction.ViewModels;
 using NSubstitute;
-using UCommerce.EntitiesV2;
-using UCommerce.Transactions;
+using Ucommerce.Api;
+using Ucommerce.EntitiesV2;
+using Ucommerce.Transactions;
 using Xunit;
 
 namespace AvenueClothing.Tests
@@ -12,13 +13,13 @@ namespace AvenueClothing.Tests
     public class MiniBasketControllerTests
     {
         private readonly MiniBasketController _controller;
-        private readonly TransactionLibraryInternal _transactionLibraryInternal;
+        private readonly ITransactionLibrary _transactionLibraryInternal;
 	    private MiniBasketService _miniBasketService;
 
 	    public MiniBasketControllerTests()
         {
             //Create
-            _transactionLibraryInternal = Substitute.For<TransactionLibraryInternal>(null, null, null, null, null, null, null, null, null, null, null);
+            _transactionLibraryInternal = Substitute.For<ITransactionLibrary>(null, null, null, null, null, null, null, null, null, null, null);
 			_miniBasketService = Substitute.For<MiniBasketService>(_transactionLibraryInternal);
 
 			_controller = new MiniBasketController(_transactionLibraryInternal, _miniBasketService);
@@ -52,10 +53,10 @@ namespace AvenueClothing.Tests
         {
             //Arrange
             _transactionLibraryInternal.HasBasket().Returns(true);
-            _transactionLibraryInternal.GetBasket(false).Returns(new Basket(new PurchaseOrder
+            _transactionLibraryInternal.GetBasket().Returns(new PurchaseOrder
             {
                 BillingCurrency = new Currency()
-            }));
+            });
 
             //Act
             var result = _controller.Rendering();
@@ -95,10 +96,10 @@ namespace AvenueClothing.Tests
         {
             //Arrange
             _transactionLibraryInternal.HasBasket().Returns(true);
-            _transactionLibraryInternal.GetBasket(false).Returns(new Basket(new PurchaseOrder
+            _transactionLibraryInternal.GetBasket().Returns(new PurchaseOrder
             {
                 BillingCurrency = new Currency()
-            }));
+            });
 
             //Act
             var result = _controller.Refresh();

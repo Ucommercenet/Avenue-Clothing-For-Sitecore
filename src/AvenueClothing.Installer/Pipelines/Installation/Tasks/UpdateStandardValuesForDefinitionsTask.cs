@@ -1,13 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Linq;
 using Sitecore;
-using Sitecore.Install.Framework;
-using UCommerce.EntitiesV2;
-using UCommerce.Extensions;
-using UCommerce.Infrastructure;
-using UCommerce.Pipelines;
-using UCommerce.Sitecore.Entities;
+using Ucommerce.EntitiesV2;
+using Ucommerce.Extensions;
+using Ucommerce.Infrastructure;
+using Ucommerce.Pipelines;
+using Ucommerce.Sitecore.Entities;
 
 namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
 {

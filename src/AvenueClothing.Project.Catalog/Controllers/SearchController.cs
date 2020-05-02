@@ -5,7 +5,7 @@ using System.Web.Mvc;
 using AvenueClothing.Project.Catalog.ViewModels;
 using AvenueClothing.Foundation.MvcExtensions;
 using Sitecore.Mvc.Presentation;
-using UCommerce.EntitiesV2;
+using Ucommerce.EntitiesV2;
 
 namespace AvenueClothing.Project.Catalog.Controllers
 {

@@ -7,17 +7,28 @@ using Sitecore;
 using Sitecore.Commerce.Contacts;
 using Sitecore.Commerce.Entities.Carts;
 using Sitecore.Commerce.Services.Carts;
-using UCommerce;
-using UCommerce.Api;
-using UCommerce.EntitiesV2;
+using Ucommerce;
+using Ucommerce.Api;
+using Ucommerce.EntitiesV2;
+using Ucommerce.Search.Slugs;
 using Convert = System.Convert;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {
 	public class CommerceConnectBasketController : BaseController
 	{
+		private readonly IUrlService _urlService;
+		private readonly ICatalogContext _catalogContext;
+		private readonly ICatalogLibrary _catalogLibrary;
 
-		public ActionResult Rendering()         
+		public CommerceConnectBasketController(IUrlService urlService, ICatalogContext catalogContext, ICatalogLibrary catalogLibrary)
+		{
+			_urlService = urlService;
+			_catalogContext = catalogContext;
+			_catalogLibrary = catalogLibrary;
+		}
+
+		public ActionResult Rendering()
 		{
 			var cart = GetCart();
 			var basketModel = new BasketRenderingViewModel();
@@ -43,7 +54,8 @@ namespace AvenueClothing.Project.Transaction.Controllers
 				if (cartLine.Total.TaxTotal != null)
 					orderLineViewModel.Tax = new Money(cartLine.Total.TaxTotal.Amount, currency).ToString();
 				orderLineViewModel.Price = new Money(cartLine.Product.Price.Amount, currency).ToString();
-				orderLineViewModel.ProductUrl = CatalogLibrary.GetNiceUrlForProduct(CatalogLibrary.GetProduct(cartLine.Product.ProductId));
+				orderLineViewModel.ProductUrl = _urlService.GetUrl(_catalogContext.CurrentCatalog,
+					_catalogLibrary.GetProduct(cartLine.Product.ProductId));
 				orderLineViewModel.PriceWithDiscount = new Money((cartLine.Product.Price.Amount - cartLine.Adjustments.Sum(x => x.Amount)), currency).ToString();
 				orderLineViewModel.OrderLineId = Convert.ToInt32(cartLine.ExternalCartLineId);
 

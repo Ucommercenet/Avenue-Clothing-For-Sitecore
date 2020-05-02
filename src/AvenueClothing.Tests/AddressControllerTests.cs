@@ -4,8 +4,8 @@ using System.Web.Mvc;
 using AvenueClothing.Project.Transaction.Controllers;
 using AvenueClothing.Project.Transaction.ViewModels;
 using NSubstitute;
-using UCommerce.EntitiesV2;
-using UCommerce.Transactions;
+using Ucommerce.Api;
+using Ucommerce.EntitiesV2;
 using Xunit;
 
 namespace AvenueClothing.Tests
@@ -13,13 +13,13 @@ namespace AvenueClothing.Tests
     public class AddressControllerTests
     {
         private readonly AddressController _controller;
-        private readonly TransactionLibraryInternal _transactionLibraryInternal;
+        private readonly ITransactionLibrary _transactionLibraryInternal;
         private readonly List<Country> _countries;
 
         public AddressControllerTests()
         {
             //Create
-            _transactionLibraryInternal = Substitute.For<TransactionLibraryInternal>(null, null, null, null, null, null, null, null, null, null, null);
+            _transactionLibraryInternal = Substitute.For<ITransactionLibrary>(null, null, null, null, null, null, null, null, null, null, null);
             _countries = new List<Country>();
             _controller = new AddressController(_transactionLibraryInternal, _countries.AsQueryable());
 
@@ -32,7 +32,7 @@ namespace AvenueClothing.Tests
         {
             //Arrange
             _countries.Add(new Country());
-            _transactionLibraryInternal.GetBasket().Returns(new Basket(new PurchaseOrder()));
+            _transactionLibraryInternal.GetBasket().Returns(new PurchaseOrder());
 
             //Act
             var result = _controller.Rendering();

@@ -3,19 +3,20 @@ using System.Web.Mvc;
 using AvenueClothing.Project.Transaction.Services;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Transaction.ViewModels;
-using UCommerce;
-using UCommerce.Transactions;
+using Ucommerce;
+using Ucommerce.Api;
+using Ucommerce.Transactions;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {
 	public class MiniBasketController : BaseController
     {
-	    private readonly TransactionLibraryInternal _transactionLibraryInternal;
+	    private readonly ITransactionLibrary _transactionLibrary;
 		private readonly IMiniBasketService _miniBasketService;
 
-		public MiniBasketController(TransactionLibraryInternal transactionLibraryInternal, IMiniBasketService miniBasketService)
+		public MiniBasketController(ITransactionLibrary transactionLibrary, IMiniBasketService miniBasketService)
 		{
-			_transactionLibraryInternal = transactionLibraryInternal;
+			_transactionLibrary = transactionLibrary;
 			_miniBasketService = miniBasketService;
 		}
 
@@ -23,16 +24,16 @@ namespace AvenueClothing.Project.Transaction.Controllers
 		{
 			var miniBasketViewModel = new MiniBasketRenderingViewModel
 			{
-				IsEmpty = true, 
+				IsEmpty = true,
 				RefreshUrl = Url.Action("Refresh")
 			};
 
-			if (!_transactionLibraryInternal.HasBasket())
+			if (!_transactionLibrary.HasBasket())
 			{
 				return View(miniBasketViewModel);
 			}
 
-			var purchaseOrder = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
+			var purchaseOrder = _transactionLibrary.GetBasket();
 
 			miniBasketViewModel.NumberOfItems = purchaseOrder.OrderLines.Sum(x => x.Quantity);
 			miniBasketViewModel.IsEmpty = miniBasketViewModel.NumberOfItems == 0;

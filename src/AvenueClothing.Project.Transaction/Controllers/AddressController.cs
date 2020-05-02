@@ -1,31 +1,32 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
-using UCommerce.EntitiesV2;
-using UCommerce.Transactions;
+using Ucommerce.EntitiesV2;
+using Ucommerce.Transactions;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Transaction.ViewModels;
 using Sitecore.Analytics;
-using Constants = UCommerce.Constants;
+using Ucommerce.Api;
+using Constants = Ucommerce.Constants;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {
     public class AddressController : BaseController
     {
-        private readonly TransactionLibraryInternal _transactionLibraryInternal;
+        private readonly ITransactionLibrary _transactionLibrary;
         private readonly IQueryable<Country> _countries;
 
-        public AddressController(TransactionLibraryInternal transactionLibraryInternal, IQueryable<Country> countries)
+        public AddressController(ITransactionLibrary transactionLibrary, IQueryable<Country> countries)
         {
-            _transactionLibraryInternal = transactionLibraryInternal;
+            _transactionLibrary = transactionLibrary;
             _countries = countries;
         }
         public ActionResult Rendering()
         {
             var viewModel = new AddressRenderingViewModel();
 
-            var shippingInformation = _transactionLibraryInternal.GetBasket().PurchaseOrder.GetShippingAddress(Constants.DefaultShipmentAddressName) ?? new OrderAddress();
-            var billingInformation = _transactionLibraryInternal.GetBasket().PurchaseOrder.BillingAddress ?? new OrderAddress();
+            var shippingInformation = _transactionLibrary.GetBasket().GetShippingAddress(Constants.DefaultShipmentAddressName) ?? new OrderAddress();
+            var billingInformation = _transactionLibrary.GetBasket().BillingAddress ?? new OrderAddress();
 
             viewModel.BillingAddress.FirstName = billingInformation.FirstName;
             viewModel.BillingAddress.LastName = billingInformation.LastName;
@@ -98,8 +99,8 @@ namespace AvenueClothing.Project.Transaction.Controllers
 
             if(Tracker.Current != null)
                 Tracker.Current.Session.CustomData["FirstName"] = addressRendering.BillingAddress.FirstName;
-            
-            _transactionLibraryInternal.ExecuteBasketPipeline();
+
+            _transactionLibrary.ExecuteBasketPipeline();
 
             return Json(new {ShippingUrl = "/shipping"});
 
@@ -107,7 +108,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 
         private void EditShippingInformation(AddressSaveViewModel.Address shippingAddress)
         {
-            _transactionLibraryInternal.EditShipmentInformation(
+            _transactionLibrary.EditShipmentInformation(
                 Constants.DefaultShipmentAddressName,
                 shippingAddress.FirstName,
                 shippingAddress.LastName,
@@ -126,7 +127,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 
         private void EditBillingInformation(AddressSaveViewModel.Address billingAddress)
         {
-            _transactionLibraryInternal.EditBillingInformation(
+            _transactionLibrary.EditBillingInformation(
                billingAddress.FirstName,
                billingAddress.LastName,
                billingAddress.EmailAddress,

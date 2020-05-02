@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Hosting;
-using UCommerce.Pipelines;
+using Ucommerce.Pipelines;
 
 namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
 {
@@ -13,7 +9,7 @@ namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
     {
         public RenameWebConfigIfMissingTask()
         {
-            
+
         }
 
         public PipelineExecutionResult Execute(InstallationPipelineArgs subject)
@@ -25,7 +21,7 @@ namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
                 return PipelineExecutionResult.Success;
             }
 
-            new UCommerce.Installer.FileMover(
+            new Ucommerce.Installer.FileMover(
                 new FileInfo(HostingEnvironment.MapPath("~/Views/Web.config.default")),
                 new FileInfo(HostingEnvironment.MapPath("~/Views/Web.config"))).Move(false, (Exception ex) => { throw ex; });
 

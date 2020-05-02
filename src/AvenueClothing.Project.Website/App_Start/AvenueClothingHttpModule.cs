@@ -12,16 +12,14 @@ using AvenueClothing.Project.Transaction.Services;
 using AvenueClothing.Project.Transaction.Services.Impl;
 using AvenueClothing.Project.Website.Extensions;
 using Microsoft.Extensions.DependencyInjection;
-using UCommerce.Catalog;
-using UCommerce.Content;
-using UCommerce.EntitiesV2;
-using UCommerce.Marketing;
-using UCommerce.Pipelines;
-using UCommerce.Pipelines.GetProduct;
-using UCommerce.Runtime;
-using UCommerce.Search;
-using UCommerce.Transactions;
-using ObjectFactory = UCommerce.Infrastructure.ObjectFactory;
+using Ucommerce.Api;
+using Ucommerce.Content;
+using Ucommerce.EntitiesV2;
+using Ucommerce.Pipelines;
+using Ucommerce.Pipelines.GetProduct;
+using Ucommerce.Search;
+using Ucommerce.Search.Slugs;
+using ObjectFactory = Ucommerce.Infrastructure.ObjectFactory;
 
 namespace AvenueClothing.Project.Website
 {
@@ -65,10 +63,9 @@ namespace AvenueClothing.Project.Website
 
         public void ConfigureUCommerceServices(IServiceCollection services)
         {
-            services.AddTransient(p => ObjectFactory.Instance.Resolve<TransactionLibraryInternal>());
-            services.AddTransient(p => ObjectFactory.Instance.Resolve<CatalogLibraryInternal>());
-            services.AddTransient(p => ObjectFactory.Instance.Resolve<MarketingLibraryInternal>());
-            services.AddTransient(p => ObjectFactory.Instance.Resolve<SearchLibraryInternal>());
+            services.AddTransient(p => ObjectFactory.Instance.Resolve<ITransactionLibrary>());
+            services.AddTransient(p => ObjectFactory.Instance.Resolve<ICatalogLibrary>());
+            services.AddTransient(p => ObjectFactory.Instance.Resolve<IMarketingLibrary>());
             services.AddTransient(p => ObjectFactory.Instance.Resolve<ICatalogContext>());
             services.AddTransient(p => ObjectFactory.Instance.Resolve<IOrderContext>());
             services.AddTransient(p => ObjectFactory.Instance.Resolve<IPipeline<IPipelineArgs<GetProductRequest, GetProductResponse>>>());
@@ -81,6 +78,8 @@ namespace AvenueClothing.Project.Website
             services.AddTransient(p => ObjectFactory.Instance.Resolve<IPipeline<ProductReview>>());
             services.AddTransient(p => Country.All());
 	        services.AddTransient(p => ObjectFactory.Instance.Resolve<IRepository<Country>>());
+            services.AddTransient(p => ObjectFactory.Instance.Resolve<IIndex<Product>>());
+            services.AddTransient(p => ObjectFactory.Instance.Resolve<IUrlService>());
         }
 
         public void ConfigureControllerServices(IServiceCollection services)
@@ -119,7 +118,7 @@ namespace AvenueClothing.Project.Website
             }
             catch (NotSupportedException)
             {
-                // A type load exception would typically happen on an Anonymously Hosted DynamicMethods 
+                // A type load exception would typically happen on an Anonymously Hosted DynamicMethods
                 // Assembly and it would be safe to skip this exception.
                 return Type.EmptyTypes;
             }
@@ -150,7 +149,7 @@ namespace AvenueClothing.Project.Website
 
         public void Dispose()
         {
-            
+
         }
     }
 }

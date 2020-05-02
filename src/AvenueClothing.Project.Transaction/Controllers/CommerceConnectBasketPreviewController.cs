@@ -9,26 +9,33 @@ using Sitecore.Commerce.Entities.Carts;
 using Sitecore.Commerce.Services.Carts;
 using Sitecore.Commerce.Services.Orders;
 using Sitecore.Commerce.Services.Payments;
-using UCommerce;
-using UCommerce.Api;
-using UCommerce.EntitiesV2;
-using UCommerce.Infrastructure;
-using UCommerce.Transactions.Payments;
-using Constants = UCommerce.Constants;
+using Ucommerce;
+using Ucommerce.Api;
+using Ucommerce.EntitiesV2;
+using Ucommerce.Infrastructure;
+using Ucommerce.Transactions.Payments;
+using Constants = Ucommerce.Constants;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {
 	public class CommerceConnectBasketPreviewController : BaseController
 	{
+		private readonly ITransactionLibrary _transactionLibrary;
+
+		public CommerceConnectBasketPreviewController(ITransactionLibrary transactionLibrary)
+		{
+			_transactionLibrary = transactionLibrary;
+		}
+
 		public ActionResult Rendering()
 		{
 			var basketPreviewViewModel = new BasketPreviewViewModel();
 
 			//used to grap addresses
-			var purchaseOrder = TransactionLibrary.GetBasket(false).PurchaseOrder;
-			
+			var purchaseOrder = _transactionLibrary.GetBasket();
+
 			var cart = GetCart();
-			
+
 			basketPreviewViewModel = MapPurchaseOrderToViewModel(purchaseOrder, cart, basketPreviewViewModel);
 
 			return View(basketPreviewViewModel);
@@ -40,7 +47,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 			// If you are OK with calling a uCommerce API at this point, you can simply call:
 
 			// --- BEGIN uCommerce API.
-			
+
 			// TransactionLibrary.RequestPayments();
 			// return Redirect("/confirmation"); // This line is only required when using the DefaultPaymentMethod for the demo store.
 
@@ -62,7 +69,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 			// 3. In an IFrame set the url to the url from step 2.
 			// Because this is a demo store, there is no actual payment gateway involved
 			// Therefore at this point we need to manually set the status of the payment to Authorized.
-			
+
 			// ONLY CALLED FOR DEMO PURPOSES
 			SetPaymentStatusToAuthorized(paymentInfo.ExternalId);
 			// You should redirect the IFrame to the "completeUrl".
@@ -91,7 +98,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 				var orderService = new OrderServiceProvider();
 				var request = new SubmitVisitorOrderRequest(cart);
 				orderService.SubmitVisitorOrder(request);
-			} 
+			}
 
 			return Redirect("/confirmation");
 		}
@@ -100,12 +107,12 @@ namespace AvenueClothing.Project.Transaction.Controllers
 		{
 			basketPreviewViewModel.BillingAddress = purchaseOrder.BillingAddress ?? new OrderAddress();
 			basketPreviewViewModel.ShipmentAddress = purchaseOrder.GetShippingAddress(Constants.DefaultShipmentAddressName) ?? new OrderAddress();
-			
+
 			var currency = new Currency()
 			{
 				ISOCode = cart.CurrencyCode
 			};
-			
+
 			foreach (var cartLine in cart.Lines)
 			{
 				var orderLineViewModel = new PreviewOrderLine

@@ -1,5 +1,5 @@
 ﻿using AvenueClothing.Installer.Helpers;
-using UCommerce.Pipelines;
+using Ucommerce.Pipelines;
 
 namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
 {
