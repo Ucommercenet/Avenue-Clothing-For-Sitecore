@@ -78,7 +78,7 @@ namespace AvenueClothing.Project.Website
             services.AddTransient(p => ObjectFactory.Instance.Resolve<IPipeline<ProductReview>>());
             services.AddTransient(p => Country.All());
 	        services.AddTransient(p => ObjectFactory.Instance.Resolve<IRepository<Country>>());
-            services.AddTransient(p => ObjectFactory.Instance.Resolve<IIndex<Product>>());
+            services.AddTransient(p => ObjectFactory.Instance.Resolve<IIndex<Ucommerce.Search.Models.Product>>());
             services.AddTransient(p => ObjectFactory.Instance.Resolve<IUrlService>());
         }
 
