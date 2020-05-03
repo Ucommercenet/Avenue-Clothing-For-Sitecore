@@ -77,17 +77,17 @@
 
     var jsPriceCalculation = {};
     jsPriceCalculation.init = function () {
-        var $priceCalc = $(classSelector);
-        for (var i = 0; i < $priceCalc.length; i++) {
-
-            var productSku = $priceCalc[i].dataset.productSku;
-            var categoryGuid = $priceCalc[i].dataset.categoryGuid;
-            var catalogGuid = $priceCalc[i].dataset.catalogGuid;
-            var calculatePriceUrl = $priceCalc[i].dataset.priceCalculationUrl;
-            var productId = $priceCalc[i].dataset.productId;
-
-            requestPrice('.' + $priceCalc[i].className.replace(" ", "."), productVariantChanged, productSku, catalogGuid, categoryGuid, calculatePriceUrl, productId);
-        }
+        // var $priceCalc = $(classSelector);
+        // for (var i = 0; i < $priceCalc.length; i++) {
+        //
+        //     var productSku = $priceCalc[i].dataset.productSku;
+        //     var categoryGuid = $priceCalc[i].dataset.categoryGuid;
+        //     var catalogGuid = $priceCalc[i].dataset.catalogGuid;
+        //     var calculatePriceUrl = $priceCalc[i].dataset.priceCalculationUrl;
+        //     var productId = $priceCalc[i].dataset.productId;
+        //
+        //     requestPrice('.' + $priceCalc[i].className.replace(" ", "."), productVariantChanged, productSku, catalogGuid, categoryGuid, calculatePriceUrl, productId);
+        // }
     };
 
     /** END OF PUBLIC API **/

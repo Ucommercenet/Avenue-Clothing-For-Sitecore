@@ -16,17 +16,8 @@
     </p>
 
 	<aside class="js-price-calculation @Model.ProductPriceRenderingViewModel.ProductGuid" data-price-calculation-url="@Model.ProductPriceRenderingViewModel.CalculatePriceUrl" data-variant-price-calculation-url="@Model.ProductPriceRenderingViewModel.CalculateVariantPriceUrl" data-product-sku="@Model.ProductPriceRenderingViewModel.Sku" data-product-id="@Model.ProductPriceRenderingViewModel.ProductGuid" data-category-guid="@Model.ProductPriceRenderingViewModel.CategoryGuid" data-catalog-guid="@Model.ProductPriceRenderingViewModel.CatalogGuid" itemprop="offers" itemscope itemtype="http://schema.org/Offer" data>
-		<div class="spinner @Model.ProductPriceRenderingViewModel.ProductGuid">
-			<img src="/sitecore modules/Shell/uCommerce/Images/Spinner/spinner.gif" alt="Smiley face" >
-		</div>
 		<p class="item-price @Model.ProductPriceRenderingViewModel.ProductGuid" itemprop="price">@Model.ProductPriceRenderingViewModel.Price</p>
-
 		<p class="discount @Model.ProductPriceRenderingViewModel.ProductGuid" itemprop="discount"></p>
-
-		<p class="item-tax">
-			@Model.ProductPriceRenderingViewModel.Tax
-			<small class="tax">Incl. </small>
-		</p>
 	</aside>
 
 	<p class="btn-group view-details">
