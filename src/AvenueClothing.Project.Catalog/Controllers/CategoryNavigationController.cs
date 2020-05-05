@@ -24,16 +24,17 @@ namespace AvenueClothing.Project.Catalog.Controllers
 
 		public ActionResult Rendering()
 		{
-		    var categoryNavigation = new CategoryNavigationRenderingViewModel
-		    {
-		        Categories = MapCategories(_catalogLibrary.GetRootCategories().ToList())
-		    };
+			var categoryNavigation = new CategoryNavigationRenderingViewModel();
+
+			IEnumerable<Category> rootCategories = _catalogLibrary.GetRootCategories().ToList();
+
+			categoryNavigation.Categories = MapCategories(rootCategories);
 
 
 			return View(categoryNavigation);
 		}
 
-		private List<CategoryNavigationRenderingViewModel.Category> MapCategories(IList<Category> categoriesToMap)
+		private List<CategoryNavigationRenderingViewModel.Category> MapCategories(IEnumerable<Category> categoriesToMap)
 		{
             var categoriesToReturn = new List<CategoryNavigationRenderingViewModel.Category>();
 
