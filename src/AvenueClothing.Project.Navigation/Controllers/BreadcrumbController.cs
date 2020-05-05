@@ -6,6 +6,7 @@ using AvenueClothing.Foundation.MvcExtensions;
 using Sitecore.Data.Items;
 using Sitecore.Links;
 using Ucommerce.Api;
+using Ucommerce.Extensions;
 using Ucommerce.Search.Slugs;
 
 namespace AvenueClothing.Project.Navigation.Controllers
@@ -45,7 +46,7 @@ namespace AvenueClothing.Project.Navigation.Controllers
                 BreadcrumbViewModelUcommerce crumb = new BreadcrumbViewModelUcommerce
                 {
                     BreadcrumbNameUcommerce = category.DisplayName,
-                    BreadcrumbUrlUcommerce = _urlService.GetUrl(_catalogContext.CurrentCatalog, new []{category})
+                    BreadcrumbUrlUcommerce = _urlService.GetUrl(_catalogContext.CurrentCatalog, new []{category}.Compact().ToArray())
                 };
                 lastCategory = category;
                 breadcrumbs.UcommerceBreadcrumbs.Add(crumb);
@@ -56,7 +57,7 @@ namespace AvenueClothing.Project.Navigation.Controllers
                 var breadcrumb = new BreadcrumbViewModelUcommerce
                 {
                     BreadcrumbNameUcommerce = product.DisplayName,
-                    BreadcrumbUrlUcommerce = _urlService.GetUrl(_catalogContext.CurrentCatalog, new []{ lastCategory }, product)
+                    BreadcrumbUrlUcommerce = _urlService.GetUrl(_catalogContext.CurrentCatalog, new []{ lastCategory }.Compact().ToArray(), product)
                 };
                 breadcrumbs.UcommerceBreadcrumbs.Add(breadcrumb);
             }
