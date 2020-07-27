@@ -39,7 +39,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 				var option = new SelectListItem();
 				decimal feePercent = availablePaymentMethod.FeePercent;
 				var fee = availablePaymentMethod.GetFeeForCurrency(basket.BillingCurrency);
-				var formattedFee = new Money((fee == null ? 0 : fee.Fee), basket.BillingCurrency);
+				var formattedFee = new Money((fee == null ? 0 : fee.Fee), basket.BillingCurrency.ISOCode);
 
 				option.Text = String.Format(" {0} ({1} + {2}%)", availablePaymentMethod.Name, formattedFee,
 					feePercent.ToString("0.00"));

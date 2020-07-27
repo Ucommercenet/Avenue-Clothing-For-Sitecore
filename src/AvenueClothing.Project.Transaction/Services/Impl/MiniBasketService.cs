@@ -31,8 +31,8 @@ namespace AvenueClothing.Project.Transaction.Services.Impl
 			var quantity = purchaseOrder.OrderLines.Sum(x => x.Quantity);
 
 			var total = purchaseOrder.OrderTotal.HasValue
-				? new Money(purchaseOrder.OrderTotal.Value, purchaseOrder.BillingCurrency)
-				: new Money(0, purchaseOrder.BillingCurrency);
+				? new Money(purchaseOrder.OrderTotal.Value, purchaseOrder.BillingCurrency.ISOCode)
+				: new Money(0, purchaseOrder.BillingCurrency.ISOCode);
 
 			viewModel.NumberOfItems = quantity.ToString();
 			viewModel.IsEmpty = quantity == 0;

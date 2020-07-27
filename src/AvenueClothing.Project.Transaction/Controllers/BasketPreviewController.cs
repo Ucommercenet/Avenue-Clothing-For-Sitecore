@@ -56,10 +56,10 @@ namespace AvenueClothing.Project.Transaction.Controllers
 					ProductName = orderLine.ProductName,
 					Sku = orderLine.Sku,
 					VariantSku = orderLine.VariantSku,
-					Total = new Money(orderLine.Total.GetValueOrDefault(), orderLine.PurchaseOrder.BillingCurrency).ToString(),
-					Tax = new Money(orderLine.VAT, purchaseOrder.BillingCurrency).ToString(),
-					Price = new Money(orderLine.Price, purchaseOrder.BillingCurrency).ToString(),
-					PriceWithDiscount = new Money(orderLine.Price - orderLine.UnitDiscount.GetValueOrDefault(), purchaseOrder.BillingCurrency).ToString(),
+					Total = new Money(orderLine.Total.GetValueOrDefault(), orderLine.PurchaseOrder.BillingCurrency.ISOCode).ToString(),
+					Tax = new Money(orderLine.VAT, purchaseOrder.BillingCurrency.ISOCode).ToString(),
+					Price = new Money(orderLine.Price, purchaseOrder.BillingCurrency.ISOCode).ToString(),
+					PriceWithDiscount = new Money(orderLine.Price - orderLine.UnitDiscount.GetValueOrDefault(), purchaseOrder.BillingCurrency.ISOCode).ToString(),
 					Quantity = orderLine.Quantity,
 					Discount = orderLine.Discount
 				};
@@ -67,13 +67,13 @@ namespace AvenueClothing.Project.Transaction.Controllers
 				basketPreviewViewModel.OrderLines.Add(orderLineModel);
 			}
 
-			basketPreviewViewModel.DiscountTotal = new Money(purchaseOrder.DiscountTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency).ToString();
+			basketPreviewViewModel.DiscountTotal = new Money(purchaseOrder.DiscountTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency.ISOCode).ToString();
 			basketPreviewViewModel.DiscountAmount = purchaseOrder.DiscountTotal.GetValueOrDefault();
-			basketPreviewViewModel.SubTotal = new Money(purchaseOrder.SubTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency).ToString();
-			basketPreviewViewModel.OrderTotal = new Money(purchaseOrder.OrderTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency).ToString();
-			basketPreviewViewModel.TaxTotal = new Money(purchaseOrder.TaxTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency).ToString();
-			basketPreviewViewModel.ShippingTotal = new Money(purchaseOrder.ShippingTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency).ToString();
-			basketPreviewViewModel.PaymentTotal = new Money(purchaseOrder.PaymentTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency).ToString();
+			basketPreviewViewModel.SubTotal = new Money(purchaseOrder.SubTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency.ISOCode).ToString();
+			basketPreviewViewModel.OrderTotal = new Money(purchaseOrder.OrderTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency.ISOCode).ToString();
+			basketPreviewViewModel.TaxTotal = new Money(purchaseOrder.TaxTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency.ISOCode).ToString();
+			basketPreviewViewModel.ShippingTotal = new Money(purchaseOrder.ShippingTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency.ISOCode).ToString();
+			basketPreviewViewModel.PaymentTotal = new Money(purchaseOrder.PaymentTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency.ISOCode).ToString();
 
 
 			var shipment = purchaseOrder.Shipments.FirstOrDefault();

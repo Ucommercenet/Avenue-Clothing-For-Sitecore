@@ -120,28 +120,28 @@ namespace AvenueClothing.Project.Transaction.Controllers
 					Quantity = (int)cartLine.Quantity,
 					ProductName = cartLine.Product.ProductName,
 					Sku = cartLine.Product.ProductId,
-					Total = new Money(cartLine.Total.Amount, currency).ToString(),
-					Discount = new Money(cartLine.Adjustments.Sum(x => x.Amount), currency).Value,
-					Price = new Money(cartLine.Product.Price.Amount, currency).ToString(),
-					PriceWithDiscount = new Money((cartLine.Product.Price.Amount - cartLine.Adjustments.Sum(x => x.Amount)), currency).ToString(),
+					Total = new Money(cartLine.Total.Amount, currency.ISOCode).ToString(),
+					Discount = new Money(cartLine.Adjustments.Sum(x => x.Amount), currency.ISOCode).Value,
+					Price = new Money(cartLine.Product.Price.Amount, currency.ISOCode).ToString(),
+					PriceWithDiscount = new Money((cartLine.Product.Price.Amount - cartLine.Adjustments.Sum(x => x.Amount)), currency.ISOCode).ToString(),
 				};
 
 				if (cartLine.GetPropertyValue("VariantSku") != null)
 					orderLineViewModel.VariantSku = cartLine.GetPropertyValue("VariantSku").ToString();
 				if (cartLine.Total.TaxTotal != null)
-					orderLineViewModel.Tax = new Money(cartLine.Total.TaxTotal.Amount, currency).ToString();
+					orderLineViewModel.Tax = new Money(cartLine.Total.TaxTotal.Amount, currency.ISOCode).ToString();
 
 				basketPreviewViewModel.OrderLines.Add(orderLineViewModel);
 			}
 
-			basketPreviewViewModel.DiscountTotal = new Money(cart.Adjustments.Sum(x => x.Amount), currency).ToString();
+			basketPreviewViewModel.DiscountTotal = new Money(cart.Adjustments.Sum(x => x.Amount), currency.ISOCode).ToString();
 			basketPreviewViewModel.DiscountAmount = cart.Adjustments.Sum(x => x.Amount);
-			basketPreviewViewModel.SubTotal = new Money((cart.Total.Amount - cart.Total.TaxTotal.Amount), currency).ToString();
-			basketPreviewViewModel.OrderTotal = new Money(cart.Total.Amount, currency).ToString();
+			basketPreviewViewModel.SubTotal = new Money((cart.Total.Amount - cart.Total.TaxTotal.Amount), currency.ISOCode).ToString();
+			basketPreviewViewModel.OrderTotal = new Money(cart.Total.Amount, currency.ISOCode).ToString();
 			if (cart.Total.TaxTotal != null)
-				basketPreviewViewModel.TaxTotal = new Money(cart.Total.TaxTotal.Amount, currency).ToString();
-			basketPreviewViewModel.ShippingTotal = new Money(purchaseOrder.ShippingTotal.GetValueOrDefault(), currency).ToString();
-			basketPreviewViewModel.PaymentTotal = new Money(purchaseOrder.PaymentTotal.GetValueOrDefault(), currency).ToString();
+				basketPreviewViewModel.TaxTotal = new Money(cart.Total.TaxTotal.Amount, currency.ISOCode).ToString();
+			basketPreviewViewModel.ShippingTotal = new Money(purchaseOrder.ShippingTotal.GetValueOrDefault(), currency.ISOCode).ToString();
+			basketPreviewViewModel.PaymentTotal = new Money(purchaseOrder.PaymentTotal.GetValueOrDefault(), currency.ISOCode).ToString();
 
 
 			var shipment = purchaseOrder.Shipments.FirstOrDefault();

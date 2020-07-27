@@ -9,6 +9,7 @@ using Sitecore.Commerce.Contacts;
 using Sitecore.Commerce.Entities.Carts;
 using Sitecore.Commerce.Entities.Prices;
 using Sitecore.Commerce.Services.Carts;
+using Ucommerce;
 using Ucommerce.Api;
 using Ucommerce.Api.PriceCalculation;
 using Ucommerce.Search.Models;

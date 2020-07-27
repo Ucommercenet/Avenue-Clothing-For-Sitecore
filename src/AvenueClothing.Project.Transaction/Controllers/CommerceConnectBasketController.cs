@@ -49,24 +49,24 @@ namespace AvenueClothing.Project.Transaction.Controllers
 				{
 					orderLineViewModel.VariantSku = cartLine.GetPropertyValue("VariantSku").ToString();
 				}
-				orderLineViewModel.Total = new Money(cartLine.Total.Amount, currency).ToString();
-				orderLineViewModel.Discount = new Money(cartLine.Adjustments.Sum(x => x.Amount), currency).Value;
+				orderLineViewModel.Total = new Money(cartLine.Total.Amount, currency.ISOCode).ToString();
+				orderLineViewModel.Discount = new Money(cartLine.Adjustments.Sum(x => x.Amount), currency.ISOCode).Value;
 				if (cartLine.Total.TaxTotal != null)
-					orderLineViewModel.Tax = new Money(cartLine.Total.TaxTotal.Amount, currency).ToString();
-				orderLineViewModel.Price = new Money(cartLine.Product.Price.Amount, currency).ToString();
+					orderLineViewModel.Tax = new Money(cartLine.Total.TaxTotal.Amount, currency.ISOCode).ToString();
+				orderLineViewModel.Price = new Money(cartLine.Product.Price.Amount, currency.ISOCode).ToString();
 				orderLineViewModel.ProductUrl = _urlService.GetUrl(_catalogContext.CurrentCatalog,
 					_catalogLibrary.GetProduct(cartLine.Product.ProductId));
-				orderLineViewModel.PriceWithDiscount = new Money((cartLine.Product.Price.Amount - cartLine.Adjustments.Sum(x => x.Amount)), currency).ToString();
+				orderLineViewModel.PriceWithDiscount = new Money((cartLine.Product.Price.Amount - cartLine.Adjustments.Sum(x => x.Amount)), currency.ISOCode).ToString();
 				orderLineViewModel.OrderLineId = Convert.ToInt32(cartLine.ExternalCartLineId);
 
 				basketModel.OrderLines.Add(orderLineViewModel);
 			}
 
-			basketModel.OrderTotal = new Money(cart.Total.Amount, currency).ToString();
-			basketModel.DiscountTotal = new Money(cart.Adjustments.Sum(x => x.Amount), currency).ToString();
+			basketModel.OrderTotal = new Money(cart.Total.Amount, currency.ISOCode).ToString();
+			basketModel.DiscountTotal = new Money(cart.Adjustments.Sum(x => x.Amount), currency.ISOCode).ToString();
 			if (cart.Total.TaxTotal != null)
-				basketModel.TaxTotal = new Money(cart.Total.TaxTotal.Amount, currency).ToString();
-			basketModel.SubTotal = new Money((cart.Total.Amount - cart.Total.TaxTotal.Amount), currency).ToString();
+				basketModel.TaxTotal = new Money(cart.Total.TaxTotal.Amount, currency.ISOCode).ToString();
+			basketModel.SubTotal = new Money((cart.Total.Amount - cart.Total.TaxTotal.Amount), currency.ISOCode).ToString();
 
 			return View(basketModel);
 		}

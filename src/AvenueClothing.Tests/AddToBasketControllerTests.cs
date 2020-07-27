@@ -20,7 +20,7 @@ namespace AvenueClothing.Tests
 	    public AddToBasketControllerTests()
         {
             //Create
-            _transactionLibraryInternal = Substitute.For<ITransactionLibrary>(null, null, null, null, null, null, null, null, null, null, null);
+            _transactionLibraryInternal = Substitute.For<ITransactionLibrary>();
             _catalogContext = Substitute.For<ICatalogContext>();
 			_miniBasketService = Substitute.For<MiniBasketService>(_transactionLibraryInternal);
 

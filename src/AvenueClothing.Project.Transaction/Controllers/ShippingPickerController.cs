@@ -33,7 +33,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 			foreach (var availableShippingMethod in availableShippingMethods)
 			{
 				var price = availableShippingMethod.GetPriceForCurrency(basket.BillingCurrency);
-				var formattedprice = new Money((price == null ? 0 : price.Price), basket.BillingCurrency);
+				var formattedprice = new Money((price == null ? 0 : price.Price), basket.BillingCurrency.ISOCode);
 
 				shipmentPickerViewModel.AvailableShippingMethods.Add(new SelectListItem()
 				{

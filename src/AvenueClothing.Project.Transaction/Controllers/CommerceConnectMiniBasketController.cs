@@ -46,7 +46,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 
 			miniBasketViewModel.NumberOfItems = (int) cart.Lines.Sum(x => x.Quantity);
 			miniBasketViewModel.IsEmpty = miniBasketViewModel.NumberOfItems == 0;
-			miniBasketViewModel.Total = cart.Total != null ? new Money(cart.Total.Amount, currency) : new Money(0, currency);
+			miniBasketViewModel.Total = cart.Total != null ? new Money(cart.Total.Amount, currency.ISOCode) : new Money(0, currency.ISOCode);
 
 			return View("/Views/MiniBasket/Rendering.cshtml", miniBasketViewModel);
 		}
