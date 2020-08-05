@@ -1,23 +1,14 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Transaction.ViewModels;
-using Sitecore.Collections;
-using Sitecore.Mvc.Extensions;
-using Sitecore.Web.UI.WebControls;
 using Ucommerce.Api;
-using Ucommerce.Catalog;
-using Ucommerce.EntitiesV2;
-using Ucommerce.Extensions;
 using Ucommerce.Pipelines;
 using Ucommerce.Pipelines.GetProduct;
 using Ucommerce.Search;
 using Ucommerce.Search.Models;
-using Product = Ucommerce.EntitiesV2.Product;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {
@@ -91,7 +82,6 @@ namespace AvenueClothing.Project.Transaction.Controllers
         [HttpPost]
         public ActionResult VariantExists(VariantPickerVariantExistsViewModel viewModel)
         {
-            // TODO: Updated for bolt but IFFY!!
             Ucommerce.Search.Models.Product product;
             try
             {
@@ -114,7 +104,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
             var variant =
                 _catalogLibrary
                     .GetVariants(product)
-                    .FirstOrDefault(v => v.VariantsProperties
+                    .FirstOrDefault(v => v.GetUserDefinedFields()
                                         .All(variantProperty => viewModel.VariantNameValueDictionary
                                             .Any(kvp =>
                                                     kvp.Key.Equals(variantProperty.Key, StringComparison.InvariantCultureIgnoreCase)
@@ -142,24 +132,25 @@ namespace AvenueClothing.Project.Transaction.Controllers
 
                 foreach (var v in variants)
                 {
-                    if (v.GetUserDefinedFields().Any(x => x.Key.ToLower() == kvp.Key.ToLower() && x.Value == kvp.Value))
+                    if (v.GetUserDefinedFields().Any(x =>
+                        x.Key.Equals(kvp.Key, StringComparison.InvariantCultureIgnoreCase)
+                        && x.Value.ToString().Equals(kvp.Value, StringComparison.InvariantCultureIgnoreCase)))
                     {
                         possibleVariants.Add(v);
                     }
                 }
 
-                // TODO: Bolt enable (still uses ProductProperty.All().
                 foreach (var possibleVariant in possibleVariants)
                 {
-                    var properties = ProductProperty.All()
-                        .Where(x => x.ProductDefinitionField.Name != kvp.Key
-                                    && x.Value != kvp.Value
-                                    && x.Product.Guid == possibleVariant.Guid).Distinct();
+                    var properties = possibleVariant.GetUserDefinedFields()
+                        .Where(property => !property.Key.ToString().Equals(kvp.Key.ToString(), StringComparison.InvariantCultureIgnoreCase)
+                                           && !property.Value.ToString().Equals(kvp.Value.ToString(), StringComparison.InvariantCultureIgnoreCase));
+
                     foreach (var prop in properties)
                     {
                         ProductPropertiesViewModel property = new ProductPropertiesViewModel();
-                        property.PropertyName = prop.ProductDefinitionField.Name;
-                        property.Values.Add(prop.Value);
+                        property.PropertyName = prop.Key;
+                        property.Values.Add(prop.Value.ToString());
 
                         result.Add(property);
                     }
