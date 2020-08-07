@@ -1,17 +1,22 @@
 ﻿using System.Web.Mvc;
 using AvenueClothing.Project.Catalog.ViewModels;
 using AvenueClothing.Foundation.MvcExtensions;
+using Ucommerce;
 using Ucommerce.Api;
+using Ucommerce.Search;
+using Ucommerce.Search.Models;
 
 namespace AvenueClothing.Project.Catalog.Controllers
 {
 	public class ProductPriceController : BaseController
     {
         private readonly ICatalogContext _catalogContext;
+        private readonly IIndex<Product> _productIndex;
 
-        public ProductPriceController(ICatalogContext catalogContext)
+        public ProductPriceController(ICatalogContext catalogContext, IIndex<Product> productIndex)
         {
             _catalogContext = catalogContext;
+            _productIndex = productIndex;
         }
 
         public ActionResult Rendering()
@@ -39,33 +44,33 @@ namespace AvenueClothing.Project.Catalog.Controllers
         [HttpPost]
 		public ActionResult CalculatePrice(ProductCardRenderingViewModel priceCalculationDetails)
         {
-   //          var taxRate = _catalogContext.CurrentPriceGroup.TaxRate;
-   //          var currencyIsoCode = _catalogContext.CurrentPriceGroup.CurrencyISOCode;
-   //
-   //          var product = _productRepository.Select(x => x.Sku == priceCalculationDetails.ProductSku && x.ParentProduct == null).FirstOrDefault();
-   //          var catalog = _catalogLibraryInternal.GetCatalog(priceCalculationDetails.CatalogId);
-   //          PriceCalculation priceCalculation = new PriceCalculation(product, catalog);
-   //
-   //          var yourPrice = priceCalculation.YourPrice.Amount.ToString();
-   //          var yourTax = priceCalculation.YourTax.ToString();
-			// var discount = priceCalculation.Discount.Amount.ToString();
-   //
-   //          return Json(new {YourPrice = yourPrice, Tax = yourTax, Discount = discount});
-            return Json("");
+            var product = _productIndex.Find().Where(x => x.Sku == priceCalculationDetails.ProductSku && x.VariantSku == null).SingleOrDefault();
+
+            product.UnitPrices.TryGetValue(_catalogContext.CurrentPriceGroup.Name, out decimal unitPrice);
+            string currencyIsoCode = _catalogContext.CurrentPriceGroup.CurrencyISOCode;
+            decimal taxRate = _catalogContext.CurrentPriceGroup.TaxRate;
+
+            var yourTax = unitPrice > 0 ? new Money(unitPrice * taxRate, currencyIsoCode).ToString() : "";
+            var yourPrice = unitPrice > 0 ? new Money(unitPrice * (1.0M + taxRate), currencyIsoCode).ToString() : "";
+
+            return Json(new {YourPrice = yourPrice, Tax = yourTax, Discount = 0});
         }
 
         [HttpPost]
 		public ActionResult CalculatePriceForVariant(ProductPriceCalculatePriceForVariantViewModel variantPriceCalculationDetails)
         {
-            // Product variant = _productRepository.Select(x => x.VariantSku == variantPriceCalculationDetails.ProductVariantSku && x.Sku == variantPriceCalculationDetails.ProductSku).FirstOrDefault();
-            // var catalog = _catalogLibraryInternal.GetCatalog(variantPriceCalculationDetails.CatalogId);
-            // PriceCalculation priceCalculation = new PriceCalculation(variant, catalog);
-            //
-            // var yourPrice = priceCalculation.YourPrice.Amount.ToString();
-            // var yourTax = priceCalculation.YourTax.ToString();
-            //
-            // return Json(new {YourPrice = yourPrice, Tax = yourTax});
-            return Json("");
+            var product = _productIndex.Find().Where(x =>
+                x.Sku == variantPriceCalculationDetails.ProductSku &&
+                x.VariantSku == variantPriceCalculationDetails.ProductVariantSku).SingleOrDefault();
+
+            product.UnitPrices.TryGetValue(_catalogContext.CurrentPriceGroup.Name, out decimal unitPrice);
+            string currencyIsoCode = _catalogContext.CurrentPriceGroup.CurrencyISOCode;
+            decimal taxRate = _catalogContext.CurrentPriceGroup.TaxRate;
+
+            var yourTax = unitPrice > 0 ? new Money(unitPrice * taxRate, currencyIsoCode).ToString() : "";
+            var yourPrice = unitPrice > 0 ? new Money(unitPrice * (1.0M + taxRate), currencyIsoCode).ToString() : "";
+
+             return Json(new {YourPrice = yourPrice, Tax = yourTax});
         }
     }
 }
