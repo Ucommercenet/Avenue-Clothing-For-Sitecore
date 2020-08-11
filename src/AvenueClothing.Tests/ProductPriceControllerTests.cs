@@ -4,6 +4,7 @@ using AvenueClothing.Project.Catalog.Controllers;
 using AvenueClothing.Project.Catalog.ViewModels;
 using NSubstitute;
 using Ucommerce.Api;
+using Ucommerce.Catalog;
 using Ucommerce.Search;
 using Xunit;
 
@@ -14,13 +15,15 @@ namespace AvenueClothing.Tests
         private readonly ICatalogContext _catalogContext;
         private readonly ProductPriceController _controller;
         private readonly IIndex<Ucommerce.Search.Models.Product> _productIndex;
+        private readonly IProductPriceCalculationService _productPriceCalculationService;
 
         public ProductPriceControllerTests()
         {
             _catalogContext = Substitute.For<ICatalogContext>();
             _productIndex = Substitute.For<IIndex<Ucommerce.Search.Models.Product>>();
+            _productPriceCalculationService = Substitute.For<IProductPriceCalculationService>();
 
-            _controller = new ProductPriceController(_catalogContext, _productIndex);
+            _controller = new ProductPriceController(_catalogContext, _productIndex, _productPriceCalculationService);
 
             _controller.Url = Substitute.For<UrlHelper>();
             _controller.Url.Action(Arg.Any<string>()).Returns("ControllerUrl");

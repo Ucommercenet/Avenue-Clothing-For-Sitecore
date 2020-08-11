@@ -1,8 +1,14 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Web.Mvc;
 using AvenueClothing.Project.Catalog.ViewModels;
 using AvenueClothing.Foundation.MvcExtensions;
 using Ucommerce;
 using Ucommerce.Api;
+using Ucommerce.Catalog;
+using Ucommerce.Catalog.Models;
 using Ucommerce.Search;
 using Ucommerce.Search.Models;
 
@@ -12,11 +18,13 @@ namespace AvenueClothing.Project.Catalog.Controllers
     {
         private readonly ICatalogContext _catalogContext;
         private readonly IIndex<Product> _productIndex;
+        private readonly IProductPriceCalculationService _productPriceCalculationService;
 
-        public ProductPriceController(ICatalogContext catalogContext, IIndex<Product> productIndex)
+        public ProductPriceController(ICatalogContext catalogContext, IIndex<Product> productIndex, IProductPriceCalculationService productPriceCalculationService)
         {
             _catalogContext = catalogContext;
             _productIndex = productIndex;
+            _productPriceCalculationService = productPriceCalculationService;
         }
 
         public ActionResult Rendering()
@@ -46,12 +54,16 @@ namespace AvenueClothing.Project.Catalog.Controllers
         {
             var product = _productIndex.Find().Where(x => x.Sku == priceCalculationDetails.ProductSku && x.VariantSku == null).SingleOrDefault();
 
-            product.UnitPrices.TryGetValue(_catalogContext.CurrentPriceGroup.Name, out decimal unitPrice);
-            string currencyIsoCode = _catalogContext.CurrentPriceGroup.CurrencyISOCode;
-            decimal taxRate = _catalogContext.CurrentPriceGroup.TaxRate;
+            var price = _productPriceCalculationService.GetPrices(new ProductPriceCalculationArgs
+            {
+                ProductGuids = new List<Guid>{product.Guid},
+                PriceGroupGuids = new List<Guid>{_catalogContext.CurrentPriceGroup.Guid},
 
-            var yourTax = unitPrice > 0 ? new Money(unitPrice * taxRate, currencyIsoCode).ToString() : "";
-            var yourPrice = unitPrice > 0 ? new Money(unitPrice * (1.0M + taxRate), currencyIsoCode).ToString() : "";
+            }).Items.SingleOrDefault();
+            string currencyIsoCode = _catalogContext.CurrentPriceGroup.CurrencyISOCode;
+
+            var yourPrice = new Money(price.PriceInclTax, currencyIsoCode).ToString();
+            var yourTax = new Money(price.PriceTax, currencyIsoCode).ToString();
 
             return Json(new {YourPrice = yourPrice, Tax = yourTax, Discount = 0});
         }
@@ -63,12 +75,17 @@ namespace AvenueClothing.Project.Catalog.Controllers
                 x.Sku == variantPriceCalculationDetails.ProductSku &&
                 x.VariantSku == variantPriceCalculationDetails.ProductVariantSku).SingleOrDefault();
 
-            product.UnitPrices.TryGetValue(_catalogContext.CurrentPriceGroup.Name, out decimal unitPrice);
-            string currencyIsoCode = _catalogContext.CurrentPriceGroup.CurrencyISOCode;
-            decimal taxRate = _catalogContext.CurrentPriceGroup.TaxRate;
+            var price = _productPriceCalculationService.GetPrices(new ProductPriceCalculationArgs
+            {
+                ProductGuids = new List<Guid>{product.Guid},
+                PriceGroupGuids = new List<Guid>{_catalogContext.CurrentPriceGroup.Guid},
 
-            var yourTax = unitPrice > 0 ? new Money(unitPrice * taxRate, currencyIsoCode).ToString() : "";
-            var yourPrice = unitPrice > 0 ? new Money(unitPrice * (1.0M + taxRate), currencyIsoCode).ToString() : "";
+            }).Items.SingleOrDefault();
+
+            string currencyIsoCode = _catalogContext.CurrentPriceGroup.CurrencyISOCode;
+
+            var yourPrice = new Money(price.PriceInclTax, currencyIsoCode).ToString();
+            var yourTax = new Money(price.PriceTax, currencyIsoCode).ToString();
 
              return Json(new {YourPrice = yourPrice, Tax = yourTax});
         }

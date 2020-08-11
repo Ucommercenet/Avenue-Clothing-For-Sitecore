@@ -13,12 +13,13 @@ using AvenueClothing.Project.Transaction.Services.Impl;
 using AvenueClothing.Project.Website.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 using Ucommerce.Api;
+using Ucommerce.Catalog;
 using Ucommerce.Content;
 using Ucommerce.EntitiesV2;
 using Ucommerce.Pipelines;
 using Ucommerce.Pipelines.GetProduct;
 using Ucommerce.Search;
-using Ucommerce.Search.Slugs;
+using IUrlService = Ucommerce.Search.Slugs.IUrlService;
 using ObjectFactory = Ucommerce.Infrastructure.ObjectFactory;
 
 namespace AvenueClothing.Project.Website
@@ -80,6 +81,7 @@ namespace AvenueClothing.Project.Website
 	        services.AddTransient(p => ObjectFactory.Instance.Resolve<IRepository<Country>>());
             services.AddTransient(p => ObjectFactory.Instance.Resolve<IIndex<Ucommerce.Search.Models.Product>>());
             services.AddTransient(p => ObjectFactory.Instance.Resolve<IUrlService>());
+            services.AddTransient(p => ObjectFactory.Instance.Resolve<IProductPriceCalculationService>());
         }
 
         public void ConfigureControllerServices(IServiceCollection services)
