@@ -19,7 +19,7 @@ namespace AvenueClothing.Tests
         public AddressControllerTests()
         {
             //Create
-            _transactionLibraryInternal = Substitute.For<ITransactionLibrary>(null, null, null, null, null, null, null, null, null, null, null);
+            _transactionLibraryInternal = Substitute.For<ITransactionLibrary>();
             _countries = new List<Country>();
             _controller = new AddressController(_transactionLibraryInternal, _countries.AsQueryable());
 

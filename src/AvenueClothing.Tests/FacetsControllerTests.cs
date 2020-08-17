@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
-using NSubstitute;
 using AvenueClothing.Project.Catalog.Controllers;
 using AvenueClothing.Project.Catalog.ViewModels;
+using NSubstitute;
 using Ucommerce.Api;
-using Ucommerce.EntitiesV2;
 using Ucommerce.Search.Facets;
+using Ucommerce.Search.Models;
 using Xunit;
-using Category = Ucommerce.Search.Models.Category;
 
 namespace AvenueClothing.Tests
 {
@@ -20,6 +20,7 @@ namespace AvenueClothing.Tests
         public FacetsControllerTests()
         {
             _catalogContext = Substitute.For<ICatalogContext>();
+            _catalogLibrary = Substitute.For<ICatalogLibrary>();
             _controller = new FacetsController(_catalogContext, _catalogLibrary);
         }
 
@@ -30,27 +31,27 @@ namespace AvenueClothing.Tests
             IList<Facet> facetsForQuerying = new List<Facet>();
 
             var facetValues = new List<FacetValue>();
-            facetValues.Add(new FacetValue()
+            facetValues.Add(new FacetValue
             {
                 Value = "122",
                 Count = 2
             });
-            facetValues.Add(new FacetValue()
+            facetValues.Add(new FacetValue
             {
                 Value = "127",
                 Count = 0
             });
 
-            facetsForQuerying.Add(new Facet()
+            facetsForQuerying.Add(new Facet
             {
                 Name = "Price",
                 DisplayName = "Price",
                 FacetValues = facetValues
             });
 
-            _catalogContext.CurrentCategory = Substitute.For<Ucommerce.Search.Models.Category>();
+            _catalogContext.CurrentCategory = Substitute.For<Category>();
             var returnedFacets = new List<Facet>();
-            var facetValue = new FacetValue()
+            var facetValue = new FacetValue
             {
                 Value = "177",
                 Count = 4
@@ -58,12 +59,14 @@ namespace AvenueClothing.Tests
             var facetValueList = new List<FacetValue>();
             facetValueList.Add(facetValue);
 
-            returnedFacets.Add(new Facet()
+            returnedFacets.Add(new Facet
             {
                 Name = "Price",
                 DisplayName = "Price",
                 FacetValues = facetValueList
             });
+
+            _catalogLibrary.GetFacets(Guid.Empty, new FacetDictionary()).ReturnsForAnyArgs(returnedFacets);
 
             // Act
             var result = _controller.Rendering(facetsForQuerying);
@@ -83,18 +86,18 @@ namespace AvenueClothing.Tests
             IList<Facet> facetsForQuerying = new List<Facet>();
 
             var facetValues = new List<FacetValue>();
-            facetValues.Add(new FacetValue()
+            facetValues.Add(new FacetValue
             {
                 Value = "122",
                 Count = 2
             });
-            facetValues.Add(new FacetValue()
+            facetValues.Add(new FacetValue
             {
                 Value = "127",
                 Count = 0
             });
 
-            facetsForQuerying.Add(new Facet()
+            facetsForQuerying.Add(new Facet
             {
                 Name = "Price",
                 DisplayName = "Price",
@@ -103,7 +106,7 @@ namespace AvenueClothing.Tests
 
             _catalogContext.CurrentCategory = Substitute.For<Category>();
             var returnedFacets = new List<Facet>();
-            var facetValue = new FacetValue()
+            var facetValue = new FacetValue
             {
                 Value = "177",
                 Count = 4
@@ -111,7 +114,7 @@ namespace AvenueClothing.Tests
             var facetValueList = new List<FacetValue>();
             facetValueList.Add(facetValue);
 
-            returnedFacets.Add(new Facet()
+            returnedFacets.Add(new Facet
             {
                 Name = "Price",
                 DisplayName = "Price",

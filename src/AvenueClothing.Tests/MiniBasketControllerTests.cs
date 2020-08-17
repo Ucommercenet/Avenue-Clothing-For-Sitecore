@@ -19,7 +19,7 @@ namespace AvenueClothing.Tests
 	    public MiniBasketControllerTests()
         {
             //Create
-            _transactionLibraryInternal = Substitute.For<ITransactionLibrary>(null, null, null, null, null, null, null, null, null, null, null);
+            _transactionLibraryInternal = Substitute.For<ITransactionLibrary>();
 			_miniBasketService = Substitute.For<MiniBasketService>(_transactionLibraryInternal);
 
 			_controller = new MiniBasketController(_transactionLibraryInternal, _miniBasketService);
@@ -56,6 +56,9 @@ namespace AvenueClothing.Tests
             _transactionLibraryInternal.GetBasket().Returns(new PurchaseOrder
             {
                 BillingCurrency = new Currency()
+                {
+                    ISOCode = "EUR"
+                }
             });
 
             //Act
@@ -98,7 +101,10 @@ namespace AvenueClothing.Tests
             _transactionLibraryInternal.HasBasket().Returns(true);
             _transactionLibraryInternal.GetBasket().Returns(new PurchaseOrder
             {
-                BillingCurrency = new Currency()
+                BillingCurrency = new Currency
+                {
+                    ISOCode = "EUR"
+                }
             });
 
             //Act

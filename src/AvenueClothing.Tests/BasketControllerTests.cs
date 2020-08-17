@@ -23,8 +23,7 @@ namespace AvenueClothing.Tests
         public BasketControllerTests()
         {
             // Create
-            _transactionLibraryInternal = Substitute.For<ITransactionLibrary>(null, null, null, null, null, null,
-                null, null, null, null, null);
+            _transactionLibraryInternal = Substitute.For<ITransactionLibrary>();
             _miniBasketService = Substitute.For<MiniBasketService>(_transactionLibraryInternal);
             _urlService = Substitute.For<IUrlService>();
             _catalogContext = Substitute.For<ICatalogContext>();
@@ -47,6 +46,7 @@ namespace AvenueClothing.Tests
                     ISOCode = "USD"
                 }
             });
+            _transactionLibraryInternal.HasBasket().Returns(true);
 
 
             // Act

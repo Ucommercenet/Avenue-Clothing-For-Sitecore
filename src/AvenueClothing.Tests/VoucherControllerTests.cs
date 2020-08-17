@@ -15,9 +15,8 @@ namespace AvenueClothing.Tests
 
         public VoucherControllerTests()
         {
-            _transactionLibrary = Substitute.For<ITransactionLibrary>(null, null, null, null, null, null,
-                 null, null, null, null, null);
-            _marketingLibrary = Substitute.For<IMarketingLibrary>(null, null, null);
+            _transactionLibrary = Substitute.For<ITransactionLibrary>();
+            _marketingLibrary = Substitute.For<IMarketingLibrary>();
 
             _controller = new VoucherController(_transactionLibrary, _marketingLibrary);
 

@@ -1,16 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using AvenueClothing.Project.Transaction.Controllers;
 using AvenueClothing.Project.Transaction.ViewModels;
 using NSubstitute;
 using Ucommerce.Api;
-using Ucommerce.EntitiesV2;
 using Ucommerce.Pipelines;
 using Ucommerce.Pipelines.GetProduct;
 using Ucommerce.Search;
 using Ucommerce.Search.Models;
 using Xunit;
-using Product = Ucommerce.EntitiesV2.Product;
 
 namespace AvenueClothing.Tests
 {
@@ -20,14 +19,14 @@ namespace AvenueClothing.Tests
         private readonly ICatalogContext _catalogContext;
         private readonly ICatalogLibrary _catalogLibrary;
         private readonly VariantPickerController _controller;
-        private readonly IIndex<Ucommerce.Search.Models.Product> _productIndex;
+        private readonly IIndex<Product> _productIndex;
 
         public VariantPickerControllerTests()
         {
             _getProductPipeline = Substitute.For<IPipeline<IPipelineArgs<GetProductRequest, GetProductResponse>>>();
             _catalogContext = Substitute.For<ICatalogContext>();
-            _catalogLibrary = Substitute.For<ICatalogLibrary>(null, null, null, null, null, null, null, null, null, null, null);
-            _productIndex = Substitute.For<IIndex<Ucommerce.Search.Models.Product>>();
+            _catalogLibrary = Substitute.For<ICatalogLibrary>();
+            _productIndex = Substitute.For<IIndex<Product>>();
 
             _controller = new VariantPickerController(_getProductPipeline, _catalogContext, _catalogLibrary, _productIndex);
 
@@ -39,28 +38,26 @@ namespace AvenueClothing.Tests
         public void Rendering_Should_Return_NonEmpty_ViewModel()
         {
             // Arrange
-            _catalogContext.CurrentProduct = new Ucommerce.Search.Models.Product();
+            _catalogContext.CurrentProduct = new Product();
             _catalogContext.CurrentProduct.Sku = "PRD-01";
             _catalogContext.CurrentProduct.ProductDefinition = Guid.NewGuid();
             _catalogContext.CurrentProduct.ProductType = ProductType.ProductFamily;
 
             var variant = new Product
             {
-                Guid = new Guid(),
+                Guid = Guid.NewGuid(),
                 Name = "Variant 1",
                 Sku = "Variant-01"
             };
+            variant["DisplayOnSite"] = true;
 
-            variant.ProductProperties.Add(new ProductProperty()
-            {
-                Value = "DisplayOnSite",
-                ProductDefinitionField = new ProductDefinitionField()
-                {
-                    DisplayOnSite = true
-                }
-            });
-
+            _catalogContext.CurrentProduct.Variants = new List<Guid>();
             _catalogContext.CurrentProduct.Variants.Add(variant.Guid);
+
+            var variants = new ResultSet<Product>(new List<Product> {variant}, 1);
+
+            _catalogLibrary.GetVariants(_catalogContext.CurrentProduct).Returns(variants);
+
 
             // Act
             var result = _controller.Rendering();

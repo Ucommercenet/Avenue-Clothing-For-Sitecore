@@ -37,7 +37,9 @@ namespace AvenueClothing.Project.Transaction.Controllers
 
 			miniBasketViewModel.NumberOfItems = purchaseOrder.OrderLines.Sum(x => x.Quantity);
 			miniBasketViewModel.IsEmpty = miniBasketViewModel.NumberOfItems == 0;
-			miniBasketViewModel.Total = purchaseOrder.OrderTotal.HasValue ? new Money(purchaseOrder.OrderTotal.Value, purchaseOrder.BillingCurrency.ISOCode) : new Money(0, purchaseOrder.BillingCurrency.ISOCode);
+			miniBasketViewModel.Total = purchaseOrder.OrderTotal.HasValue ?
+				new Money(purchaseOrder.OrderTotal.Value, purchaseOrder.BillingCurrency.ISOCode)
+				: new Money(0, purchaseOrder.BillingCurrency.ISOCode);
 
 			return View(miniBasketViewModel);
 		}

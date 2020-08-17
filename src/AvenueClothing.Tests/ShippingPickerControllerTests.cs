@@ -16,7 +16,7 @@ namespace AvenueClothing.Tests
 
         public ShippingPickerControllerTests()
         {
-            _transactionLibrary = Substitute.For<ITransactionLibrary>(null, null, null, null, null, null, null, null, null, null, null);
+            _transactionLibrary = Substitute.For<ITransactionLibrary>();
             _controller = new ShippingPickerController(_transactionLibrary);
         }
 

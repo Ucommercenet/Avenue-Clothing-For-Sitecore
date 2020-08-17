@@ -18,8 +18,7 @@ namespace AvenueClothing.Tests
 
         public PaymentPickerControllerTests()
         {
-            _transactionLibraryInternal = Substitute.For<ITransactionLibrary>(null, null, null, null, null, null,
-                null, null, null, null, null);
+            _transactionLibraryInternal = Substitute.For<ITransactionLibrary>();
 
             _controller = new PaymentPickerController(_transactionLibraryInternal);
         }
@@ -45,10 +44,11 @@ namespace AvenueClothing.Tests
 
             _transactionLibraryInternal.GetPaymentMethods(
                 purchaseOrder.GetShippingAddress(Constants.DefaultShipmentAddressName).Country)
-                .Returns(paymentMethods);
+                .ReturnsForAnyArgs(paymentMethods);
 
 
-            var basket = Substitute.For<PurchaseOrder>(purchaseOrder);
+            var basket = Substitute.For<PurchaseOrder>();
+            basket.BillingCurrency.ISOCode = "EUR";
             _transactionLibraryInternal.GetBasket().Returns(basket);
 
             // Act
@@ -62,8 +62,6 @@ namespace AvenueClothing.Tests
             Assert.NotNull(viewResult);
             Assert.NotNull(model.SelectedPaymentMethodId);
             Assert.True(model.AvailablePaymentMethods.Count == 1);
-
-            _transactionLibraryInternal.Received().GetPaymentMethods(purchaseOrder.GetShippingAddress(Constants.DefaultShipmentAddressName).Country);
         }
 
         [Fact]
