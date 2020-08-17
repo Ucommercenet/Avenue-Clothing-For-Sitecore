@@ -53,9 +53,9 @@ task UpdateAssemblyInfo -description "Updates the AssemblyInfo.cs file if there 
 
 task CleanWebBinDirectory -description "Cleans the bin directory of the web project" {
     Push-Location "$src"
-    if (Test-Path $src\UCommerce.DemoStore\bin)
+    if (Test-Path $src\AvenueClothing.Project.Website\bin)
     {
-        Remove-Item -Recurse "$src\UCommerce.DemoStore\bin\*" -Force
+        Remove-Item -Recurse "$src\AvenueClothing.Project.Website\bin\*" -Force
     }
     Pop-Location
 }

@@ -3,7 +3,7 @@ using Ucommerce.Pipelines;
 
 namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
 {
-    public class CreateUCommerceCatalogTask : IPipelineTask<InstallationPipelineArgs>
+    public class CreateUcommerceCatalogTask : IPipelineTask<InstallationPipelineArgs>
     {
         public PipelineExecutionResult Execute(InstallationPipelineArgs subject)
         {

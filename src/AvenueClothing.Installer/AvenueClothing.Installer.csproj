@@ -99,8 +99,8 @@
       <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.Search.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Sitecore">
-      <HintPath>..\..\lib\Ucommerce\UCommerce.Sitecore.dll</HintPath>
+    <Reference Include="Ucommerce.Sitecore">
+      <HintPath>..\..\lib\Ucommerce\Ucommerce.Sitecore.dll</HintPath>
     </Reference>
     <Reference Include="Ucommerce.SqlMultiReaderConnector, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.SqlMultiReaderConnector.dll</HintPath>
@@ -128,8 +128,8 @@
     <Compile Include="Pipelines\Installation\Tasks\AddClientDependencyBundlesToIgnoreUrlPrefixesTask.cs" />
     <Compile Include="Pipelines\Installation\Tasks\ClearSitecoreCacheTask.cs" />
     <Compile Include="Pipelines\Installation\Tasks\CreateMarketingCampaign.cs" />
-    <Compile Include="Pipelines\Installation\Tasks\CreateUCommerceCatalogTask.cs" />
-    <Compile Include="Pipelines\Installation\Tasks\CreateUCommerceSettingsTask.cs" />
+    <Compile Include="Pipelines\Installation\Tasks\CreateUcommerceCatalogTask.cs" />
+    <Compile Include="Pipelines\Installation\Tasks\CreateUcommerceSettingsTask.cs" />
     <Compile Include="Pipelines\Installation\Tasks\MoveSitecoreConfigurationFilesTask.cs" />
     <Compile Include="Pipelines\Installation\Tasks\PublishMasterDatabaseTask.cs" />
     <Compile Include="Pipelines\Installation\Tasks\RenameWebConfigIfMissingTask.cs" />
@@ -181,7 +181,7 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

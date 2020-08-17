@@ -47,7 +47,7 @@ namespace AvenueClothing.Project.Website
         {
             var services = new ServiceCollection();
 
-            ConfigureUCommerceServices(services);
+            ConfigureUcommerceServices(services);
             ConfigureControllerServices(services);
             ConfigureAcceleratorServices(services);
 
@@ -62,7 +62,7 @@ namespace AvenueClothing.Project.Website
             services.AddTransient<IMiniBasketService, MiniBasketService>();
         }
 
-        public void ConfigureUCommerceServices(IServiceCollection services)
+        public void ConfigureUcommerceServices(IServiceCollection services)
         {
             services.AddTransient(p => ObjectFactory.Instance.Resolve<ITransactionLibrary>());
             services.AddTransient(p => ObjectFactory.Instance.Resolve<ICatalogLibrary>());
