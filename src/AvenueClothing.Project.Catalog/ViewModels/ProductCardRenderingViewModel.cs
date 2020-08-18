@@ -6,7 +6,6 @@ namespace AvenueClothing.Project.Catalog.ViewModels
 	{
 		public string Url { get; set; }
 		public string ProductSku { get; set; }
-		public string Amount { get; set; }
 		public HtmlString DisplayName { get; set; }
 		public string CatalogId { get; set; }
 		public HtmlString ThumbnailImage { get; set; }

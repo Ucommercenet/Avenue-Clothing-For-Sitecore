@@ -2,9 +2,7 @@
 using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Transaction.ViewModels;
-using Sitecore.Mvc.Presentation;
-using Sitecore.Web.UI.WebControls;
-using UCommerce.Runtime;
+using Ucommerce.Api;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {

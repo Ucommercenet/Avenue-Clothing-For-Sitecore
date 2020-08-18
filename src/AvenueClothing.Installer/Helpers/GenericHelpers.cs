@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UCommerce.Infrastructure;
-using UCommerce.Infrastructure.Globalization;
+using Sitecore.Globalization;
+using Ucommerce.Infrastructure;
+using Ucommerce.Infrastructure.Globalization;
+using Language = Ucommerce.Infrastructure.Globalization.Language;
 
 namespace AvenueClothing.Installer.Helpers
 {

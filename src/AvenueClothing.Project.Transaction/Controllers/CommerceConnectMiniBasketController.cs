@@ -7,20 +7,20 @@ using Sitecore;
 using Sitecore.Commerce.Contacts;
 using Sitecore.Commerce.Entities.Carts;
 using Sitecore.Commerce.Services.Carts;
-using UCommerce;
-using UCommerce.EntitiesV2;
-using UCommerce.Transactions;
+using Ucommerce;
+using Ucommerce.Api;
+using Ucommerce.EntitiesV2;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {
 	public class CommerceConnectMiniBasketController : BaseController
     {
-	    private readonly TransactionLibraryInternal _transactionLibraryInternal;
+	    private readonly ITransactionLibrary _transactionLibrary;
 		private readonly IMiniBasketService _miniBasketService;
 
-		public CommerceConnectMiniBasketController(TransactionLibraryInternal transactionLibraryInternal, IMiniBasketService miniBasketService)
+		public CommerceConnectMiniBasketController(ITransactionLibrary transactionLibrary, IMiniBasketService miniBasketService)
 		{
-			_transactionLibraryInternal = transactionLibraryInternal;
+			_transactionLibrary = transactionLibrary;
 			_miniBasketService = miniBasketService;
 		}
 
@@ -28,11 +28,11 @@ namespace AvenueClothing.Project.Transaction.Controllers
 		{
 			var miniBasketViewModel = new MiniBasketRenderingViewModel
 			{
-				IsEmpty = true, 
+				IsEmpty = true,
 				RefreshUrl = Url.Action("Refresh")
 			};
 
-			if (!_transactionLibraryInternal.HasBasket())
+			if (!_transactionLibrary.HasBasket())
 			{
 				return View("/Views/MiniBasket/Rendering.cshtml", miniBasketViewModel);
 			}
@@ -43,10 +43,10 @@ namespace AvenueClothing.Project.Transaction.Controllers
 			{
 				ISOCode = cart.CurrencyCode
 			};
-			
+
 			miniBasketViewModel.NumberOfItems = (int) cart.Lines.Sum(x => x.Quantity);
 			miniBasketViewModel.IsEmpty = miniBasketViewModel.NumberOfItems == 0;
-			miniBasketViewModel.Total = cart.Total != null ? new Money(cart.Total.Amount, currency) : new Money(0, currency);
+			miniBasketViewModel.Total = cart.Total != null ? new Money(cart.Total.Amount, currency.ISOCode) : new Money(0, currency.ISOCode);
 
 			return View("/Views/MiniBasket/Rendering.cshtml", miniBasketViewModel);
 		}

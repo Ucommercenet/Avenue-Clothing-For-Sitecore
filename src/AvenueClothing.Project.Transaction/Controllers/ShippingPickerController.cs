@@ -3,28 +3,29 @@ using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Transaction.ViewModels;
-using UCommerce;
-using UCommerce.Transactions;
+using Ucommerce;
+using Ucommerce.Api;
+using Ucommerce.Transactions;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {
 	public class ShippingPickerController : BaseController
 	{
-		private readonly TransactionLibraryInternal _transactionLibraryInternal;
+		private readonly ITransactionLibrary _transactionLibrary;
 
-		public ShippingPickerController(TransactionLibraryInternal transactionLibraryInternal)
+		public ShippingPickerController(ITransactionLibrary transactionLibrary)
 		{
-			_transactionLibraryInternal = transactionLibraryInternal;
+			_transactionLibrary = transactionLibrary;
        }
 		public ActionResult Rendering()
 		{
 			var shipmentPickerViewModel = new ShippingPickerViewModel();
 
-			var basket = _transactionLibraryInternal.GetBasket(false).PurchaseOrder;
+			var basket = _transactionLibrary.GetBasket();
 			var shippingCountry = basket.GetAddress(Constants.DefaultShipmentAddressName).Country;
 
 			shipmentPickerViewModel.ShippingCountry = shippingCountry.Name;
-			var availableShippingMethods = _transactionLibraryInternal.GetShippingMethods(shippingCountry);
+			var availableShippingMethods = _transactionLibrary.GetShippingMethods(shippingCountry);
 
 			shipmentPickerViewModel.SelectedShippingMethodId = basket.Shipments.FirstOrDefault() != null
 				? basket.Shipments.FirstOrDefault().ShippingMethod.ShippingMethodId : -1;
@@ -32,7 +33,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 			foreach (var availableShippingMethod in availableShippingMethods)
 			{
 				var price = availableShippingMethod.GetPriceForCurrency(basket.BillingCurrency);
-				var formattedprice = new Money((price == null ? 0 : price.Price), basket.BillingCurrency);
+				var formattedprice = new Money((price == null ? 0 : price.Price), basket.BillingCurrency.ISOCode);
 
 				shipmentPickerViewModel.AvailableShippingMethods.Add(new SelectListItem()
 				{
@@ -48,8 +49,8 @@ namespace AvenueClothing.Project.Transaction.Controllers
 		[HttpPost]
 		public ActionResult CreateShipment(ShippingPickerViewModel createShipmentViewModel)
 		{
-			_transactionLibraryInternal.CreateShipment(createShipmentViewModel.SelectedShippingMethodId, Constants.DefaultShipmentAddressName, true);
-			_transactionLibraryInternal.ExecuteBasketPipeline();
+			_transactionLibrary.CreateShipment(createShipmentViewModel.SelectedShippingMethodId, Constants.DefaultShipmentAddressName, true);
+			_transactionLibrary.ExecuteBasketPipeline();
 
 			return Redirect("/payment");
 		}

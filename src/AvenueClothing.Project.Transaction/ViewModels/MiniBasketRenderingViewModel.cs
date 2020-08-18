@@ -1,4 +1,4 @@
-﻿using UCommerce;
+﻿using Ucommerce;
 
 namespace AvenueClothing.Project.Transaction.ViewModels
 {

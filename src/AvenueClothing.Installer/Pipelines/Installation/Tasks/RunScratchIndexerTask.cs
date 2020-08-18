@@ -1,5 +1,5 @@
-﻿using UCommerce.Pipelines;
-using UCommerce.Search.Indexers;
+﻿using Ucommerce.Pipelines;
+using Ucommerce.Search.Indexers;
 
 namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
 {

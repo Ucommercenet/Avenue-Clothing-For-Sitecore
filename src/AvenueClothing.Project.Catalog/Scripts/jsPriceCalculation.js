@@ -35,8 +35,9 @@
 
     var requestPrice = function (classSelector, productVariantChanged, productSku, catalogGuid, categoryGuid, calculatePriceUrl, productId) {
         config.$rootSelector.find(classSelector)
-            .on("product-variant-changed", productVariantChanged)
             .ready(function () {
+
+                config.$triggerEventSelector.on("product-variant-changed", productVariantChanged);
 
                 $.ajax({
                     type: "POST",

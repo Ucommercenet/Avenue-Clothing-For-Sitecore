@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Transaction.ViewModels;
-using UCommerce;
-using UCommerce.EntitiesV2;
+using Ucommerce;
+using Ucommerce.EntitiesV2;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {
@@ -44,10 +44,10 @@ namespace AvenueClothing.Project.Transaction.Controllers
                     ProductName = orderLine.ProductName,
                     Sku = orderLine.Sku,
                     VariantSku = orderLine.VariantSku,
-                    Total = new Money(orderLine.Total.GetValueOrDefault(), orderLine.PurchaseOrder.BillingCurrency).ToString(),
-                    Tax = new Money(orderLine.VAT, purchaseOrder.BillingCurrency).ToString(),
-                    Price = new Money(orderLine.Price, purchaseOrder.BillingCurrency).ToString(),
-                    PriceWithDiscount = new Money(orderLine.Price - orderLine.Discount, purchaseOrder.BillingCurrency).ToString(),
+                    Total = new Money(orderLine.Total.GetValueOrDefault(), orderLine.PurchaseOrder.BillingCurrency.ISOCode).ToString(),
+                    Tax = new Money(orderLine.VAT, purchaseOrder.BillingCurrency.ISOCode).ToString(),
+                    Price = new Money(orderLine.Price, purchaseOrder.BillingCurrency.ISOCode).ToString(),
+                    PriceWithDiscount = new Money(orderLine.Price - orderLine.Discount, purchaseOrder.BillingCurrency.ISOCode).ToString(),
                     Quantity = orderLine.Quantity,
                     Discount = orderLine.Discount
                 };
@@ -55,13 +55,13 @@ namespace AvenueClothing.Project.Transaction.Controllers
                 confirmationEmailViewModel.OrderLines.Add(orderLineModel);
             }
 
-            confirmationEmailViewModel.DiscountTotal = new Money(purchaseOrder.DiscountTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency).ToString();
+            confirmationEmailViewModel.DiscountTotal = new Money(purchaseOrder.DiscountTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency.ISOCode).ToString();
             confirmationEmailViewModel.DiscountAmount = purchaseOrder.DiscountTotal.GetValueOrDefault();
-            confirmationEmailViewModel.SubTotal = new Money(purchaseOrder.SubTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency).ToString();
-            confirmationEmailViewModel.OrderTotal = new Money(purchaseOrder.OrderTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency).ToString();
-            confirmationEmailViewModel.TaxTotal = new Money(purchaseOrder.TaxTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency).ToString();
-            confirmationEmailViewModel.ShippingTotal = new Money(purchaseOrder.ShippingTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency).ToString();
-            confirmationEmailViewModel.PaymentTotal = new Money(purchaseOrder.PaymentTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency).ToString();
+            confirmationEmailViewModel.SubTotal = new Money(purchaseOrder.SubTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency.ISOCode).ToString();
+            confirmationEmailViewModel.OrderTotal = new Money(purchaseOrder.OrderTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency.ISOCode).ToString();
+            confirmationEmailViewModel.TaxTotal = new Money(purchaseOrder.TaxTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency.ISOCode).ToString();
+            confirmationEmailViewModel.ShippingTotal = new Money(purchaseOrder.ShippingTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency.ISOCode).ToString();
+            confirmationEmailViewModel.PaymentTotal = new Money(purchaseOrder.PaymentTotal.GetValueOrDefault(), purchaseOrder.BillingCurrency.ISOCode).ToString();
 
             confirmationEmailViewModel.OrderNumber = purchaseOrder.OrderNumber;
             confirmationEmailViewModel.CustomerName = purchaseOrder.Customer.FirstName;

@@ -9,26 +9,33 @@ using Sitecore.Commerce.Entities.Carts;
 using Sitecore.Commerce.Services.Carts;
 using Sitecore.Commerce.Services.Orders;
 using Sitecore.Commerce.Services.Payments;
-using UCommerce;
-using UCommerce.Api;
-using UCommerce.EntitiesV2;
-using UCommerce.Infrastructure;
-using UCommerce.Transactions.Payments;
-using Constants = UCommerce.Constants;
+using Ucommerce;
+using Ucommerce.Api;
+using Ucommerce.EntitiesV2;
+using Ucommerce.Infrastructure;
+using Ucommerce.Transactions.Payments;
+using Constants = Ucommerce.Constants;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {
 	public class CommerceConnectBasketPreviewController : BaseController
 	{
+		private readonly ITransactionLibrary _transactionLibrary;
+
+		public CommerceConnectBasketPreviewController(ITransactionLibrary transactionLibrary)
+		{
+			_transactionLibrary = transactionLibrary;
+		}
+
 		public ActionResult Rendering()
 		{
 			var basketPreviewViewModel = new BasketPreviewViewModel();
 
 			//used to grap addresses
-			var purchaseOrder = TransactionLibrary.GetBasket(false).PurchaseOrder;
-			
+			var purchaseOrder = _transactionLibrary.GetBasket();
+
 			var cart = GetCart();
-			
+
 			basketPreviewViewModel = MapPurchaseOrderToViewModel(purchaseOrder, cart, basketPreviewViewModel);
 
 			return View(basketPreviewViewModel);
@@ -40,7 +47,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 			// If you are OK with calling a uCommerce API at this point, you can simply call:
 
 			// --- BEGIN uCommerce API.
-			
+
 			// TransactionLibrary.RequestPayments();
 			// return Redirect("/confirmation"); // This line is only required when using the DefaultPaymentMethod for the demo store.
 
@@ -62,7 +69,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 			// 3. In an IFrame set the url to the url from step 2.
 			// Because this is a demo store, there is no actual payment gateway involved
 			// Therefore at this point we need to manually set the status of the payment to Authorized.
-			
+
 			// ONLY CALLED FOR DEMO PURPOSES
 			SetPaymentStatusToAuthorized(paymentInfo.ExternalId);
 			// You should redirect the IFrame to the "completeUrl".
@@ -91,7 +98,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
 				var orderService = new OrderServiceProvider();
 				var request = new SubmitVisitorOrderRequest(cart);
 				orderService.SubmitVisitorOrder(request);
-			} 
+			}
 
 			return Redirect("/confirmation");
 		}
@@ -100,12 +107,12 @@ namespace AvenueClothing.Project.Transaction.Controllers
 		{
 			basketPreviewViewModel.BillingAddress = purchaseOrder.BillingAddress ?? new OrderAddress();
 			basketPreviewViewModel.ShipmentAddress = purchaseOrder.GetShippingAddress(Constants.DefaultShipmentAddressName) ?? new OrderAddress();
-			
+
 			var currency = new Currency()
 			{
 				ISOCode = cart.CurrencyCode
 			};
-			
+
 			foreach (var cartLine in cart.Lines)
 			{
 				var orderLineViewModel = new PreviewOrderLine
@@ -113,28 +120,28 @@ namespace AvenueClothing.Project.Transaction.Controllers
 					Quantity = (int)cartLine.Quantity,
 					ProductName = cartLine.Product.ProductName,
 					Sku = cartLine.Product.ProductId,
-					Total = new Money(cartLine.Total.Amount, currency).ToString(),
-					Discount = new Money(cartLine.Adjustments.Sum(x => x.Amount), currency).Value,
-					Price = new Money(cartLine.Product.Price.Amount, currency).ToString(),
-					PriceWithDiscount = new Money((cartLine.Product.Price.Amount - cartLine.Adjustments.Sum(x => x.Amount)), currency).ToString(),
+					Total = new Money(cartLine.Total.Amount, currency.ISOCode).ToString(),
+					Discount = new Money(cartLine.Adjustments.Sum(x => x.Amount), currency.ISOCode).Value,
+					Price = new Money(cartLine.Product.Price.Amount, currency.ISOCode).ToString(),
+					PriceWithDiscount = new Money((cartLine.Product.Price.Amount - cartLine.Adjustments.Sum(x => x.Amount)), currency.ISOCode).ToString(),
 				};
 
 				if (cartLine.GetPropertyValue("VariantSku") != null)
 					orderLineViewModel.VariantSku = cartLine.GetPropertyValue("VariantSku").ToString();
 				if (cartLine.Total.TaxTotal != null)
-					orderLineViewModel.Tax = new Money(cartLine.Total.TaxTotal.Amount, currency).ToString();
+					orderLineViewModel.Tax = new Money(cartLine.Total.TaxTotal.Amount, currency.ISOCode).ToString();
 
 				basketPreviewViewModel.OrderLines.Add(orderLineViewModel);
 			}
 
-			basketPreviewViewModel.DiscountTotal = new Money(cart.Adjustments.Sum(x => x.Amount), currency).ToString();
+			basketPreviewViewModel.DiscountTotal = new Money(cart.Adjustments.Sum(x => x.Amount), currency.ISOCode).ToString();
 			basketPreviewViewModel.DiscountAmount = cart.Adjustments.Sum(x => x.Amount);
-			basketPreviewViewModel.SubTotal = new Money((cart.Total.Amount - cart.Total.TaxTotal.Amount), currency).ToString();
-			basketPreviewViewModel.OrderTotal = new Money(cart.Total.Amount, currency).ToString();
+			basketPreviewViewModel.SubTotal = new Money((cart.Total.Amount - cart.Total.TaxTotal.Amount), currency.ISOCode).ToString();
+			basketPreviewViewModel.OrderTotal = new Money(cart.Total.Amount, currency.ISOCode).ToString();
 			if (cart.Total.TaxTotal != null)
-				basketPreviewViewModel.TaxTotal = new Money(cart.Total.TaxTotal.Amount, currency).ToString();
-			basketPreviewViewModel.ShippingTotal = new Money(purchaseOrder.ShippingTotal.GetValueOrDefault(), currency).ToString();
-			basketPreviewViewModel.PaymentTotal = new Money(purchaseOrder.PaymentTotal.GetValueOrDefault(), currency).ToString();
+				basketPreviewViewModel.TaxTotal = new Money(cart.Total.TaxTotal.Amount, currency.ISOCode).ToString();
+			basketPreviewViewModel.ShippingTotal = new Money(purchaseOrder.ShippingTotal.GetValueOrDefault(), currency.ISOCode).ToString();
+			basketPreviewViewModel.PaymentTotal = new Money(purchaseOrder.PaymentTotal.GetValueOrDefault(), currency.ISOCode).ToString();
 
 
 			var shipment = purchaseOrder.Shipments.FirstOrDefault();

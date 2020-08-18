@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using UCommerce.EntitiesV2;
-using UCommerce.EntitiesV2.Factories;
-using UCommerce.Infrastructure;
-using UCommerce.Security;
+using Ucommerce.EntitiesV2;
+using Ucommerce.EntitiesV2.Factories;
+using Ucommerce.Infrastructure;
+using Ucommerce.Security;
 
 namespace AvenueClothing.Installer.Helpers
 {
@@ -61,7 +58,9 @@ namespace AvenueClothing.Installer.Helpers
 
         private ProductCatalogGroup CreateCatalogGroup()
         {
-            var group = ProductCatalogGroup.SingleOrDefault(c => c.Name == _catalogGroupName) ?? new ProductCatalogGroupFactory().NewWithDefaults(_catalogGroupName);
+            var catalogGroupDefinitionType = DefinitionType.SingleOrDefault(x => x.Name == "Product Catalog Groups");
+            var catalogGroupDefinitionGuid = Definition.SingleOrDefault(x => x.DefinitionType == catalogGroupDefinitionType).Guid;
+            var group = ProductCatalogGroup.SingleOrDefault(c => c.Name == _catalogGroupName) ?? new ProductCatalogGroupFactory().NewWithDefaults(_catalogGroupName, catalogGroupDefinitionGuid);
             group.ProductReviewsRequireApproval = true;
             group.Deleted = false;
             group.CreateCustomersAsMembers = false;
@@ -93,7 +92,10 @@ namespace AvenueClothing.Installer.Helpers
 
         private ProductCatalog CreateProductCatalog(ProductCatalogGroup catalogGroup)
         {
-            var catalog = catalogGroup.ProductCatalogs.SingleOrDefault(c => c.Name == _catalogName) ?? new ProductCatalogFactory().NewWithDefaults(catalogGroup, _catalogName);
+            var catalogDefinitionType = DefinitionType.SingleOrDefault(x => x.Name == "Product Catalogs");
+            var catalogDefinition = Definition.SingleOrDefault(x => x.DefinitionType == catalogDefinitionType);
+            var catalog = catalogGroup.ProductCatalogs.SingleOrDefault(c => c.Name == _catalogName)
+                          ?? new ProductCatalogFactory().NewWithDefaults(catalogGroup, _catalogName, catalogDefinition.Guid);
 
             catalog.DisplayOnWebSite = true;
             catalog.Deleted = false;
@@ -101,7 +103,7 @@ namespace AvenueClothing.Installer.Helpers
 
             // Versions of CatalogFactory prior to 3.6 did not
             // add catalog to catalog group. Need to do it
-            // if not already done to make sure roles and 
+            // if not already done to make sure roles and
             // permissions are created properly.
             if (!catalogGroup.ProductCatalogs.Contains(catalog))
                 catalogGroup.ProductCatalogs.Add(catalog);
@@ -382,7 +384,7 @@ namespace AvenueClothing.Installer.Helpers
                         });
                 });
 
-         
+
             CreateProductPricesForProduct(category, price, product);
 
             // uCommerce checks whether the product already exists in the create

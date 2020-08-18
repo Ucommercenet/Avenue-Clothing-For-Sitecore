@@ -8,26 +8,25 @@ using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Catalog.Services;
 using Sitecore.Mvc.Presentation;
 using Sitecore.Web.UI.WebControls;
-using UCommerce.Catalog;
-using UCommerce.EntitiesV2;
-using UCommerce.Extensions;
-using UCommerce.Runtime;
-using UCommerce.Search;
-using UCommerce.Search.Facets;
+using Ucommerce.Api;
+using Ucommerce.Search;
+using Ucommerce.Search.Extensions;
+using Ucommerce.Search.Facets;
+using Ucommerce.Search.Models;
 
 namespace AvenueClothing.Project.Catalog.Controllers
 {
 	public class CategoryController : BaseController
     {
 		private readonly ICatalogContext _catalogContext;
-		private readonly CatalogLibraryInternal _catalogLibraryInternal;
-		private readonly SearchLibraryInternal _searchLibraryInternal;
+		private readonly ICatalogLibrary _catalogLibrary;
+		private readonly IIndex<Product> _productIndex;
 
-		public CategoryController(ICatalogContext catalogContext, CatalogLibraryInternal catalogLibraryInternal, SearchLibraryInternal searchLibraryInternal)
+		public CategoryController(ICatalogContext catalogContext, ICatalogLibrary catalogLibrary, IIndex<Product> productIndex)
 		{
 			_catalogContext = catalogContext;
-			_catalogLibraryInternal = catalogLibraryInternal;
-			_searchLibraryInternal = searchLibraryInternal;
+			_catalogLibrary = catalogLibrary;
+			_productIndex = productIndex;
 		}
 
 		public ActionResult Rendering()
@@ -44,23 +43,24 @@ namespace AvenueClothing.Project.Catalog.Controllers
 
 			return View(categoryViewModel);
 		}
-		
+
 		private List<Guid> GetProductGuidsInFacetsAndSelectedProductOnSitecoreItem(Category category)
 		{
 
-            FacetModelBinder FacetBinder = new FacetModelBinder();
-            IList<Facet> facetsForQuerying = (IList<Facet>)FacetBinder.BindModel(new ControllerContext(), new ModelBindingContext());
+            FacetModelBinder facetBinder = new FacetModelBinder();
+            IList<Facet> facetsForQuerying = (IList<Facet>)facetBinder.BindModel(new ControllerContext(), new ModelBindingContext());
 
 			var productGuidsInCategory = new List<Guid>();
+			var subCategories = _catalogLibrary.GetCategories(category.Categories);
 
-			foreach (var subcategory in category.Categories)
+			foreach (var subcategory in subCategories)
 			{
 				productGuidsInCategory.AddRange(GetProductGuidsInFacetsAndSelectedProductOnSitecoreItem(subcategory));
 			}
 
 		    if (RenderingContext.Current.ContextItem.Fields["Products"].ToString() != "")
 		    {
-		        var productIds = _searchLibraryInternal.GetProductsFor(category, facetsForQuerying).Select(x => x.Id);
+			    var productsInCategory = _catalogLibrary.GetProducts(category.Guid, facetsForQuerying.ToFacetDictionary()).Select(x=>x.Guid);
 
 		        var selectedProductItems =
 		            RenderingContext.Current.ContextItem.Fields["Products"].ToString()
@@ -68,9 +68,9 @@ namespace AvenueClothing.Project.Catalog.Controllers
 		                .Select(x => new Guid(x))
 		                .ToList();
 
-		        var productGuids = _catalogLibraryInternal.GetProductsInCategory(category)
+		        var productGuids = _catalogLibrary.GetProducts(category.Guid)
 		            .Where(x => selectedProductItems.Contains(x.Guid))
-		            .Where(x => productIds.Contains(x.ProductId))
+		            .Where(x => productsInCategory.Contains(x.Guid))
 		            .Select(x => x.Guid)
 		            .ToList();
 

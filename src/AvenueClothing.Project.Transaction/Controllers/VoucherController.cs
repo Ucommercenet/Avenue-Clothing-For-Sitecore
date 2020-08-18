@@ -2,21 +2,19 @@
 using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Transaction.ViewModels;
-using UCommerce.Api;
-using UCommerce.Marketing;
-using UCommerce.Transactions;
+using Ucommerce.Api;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {
 	public class VoucherController : BaseController
 	{
-		private readonly MarketingLibraryInternal _marketingLibraryInternal;
-		private readonly TransactionLibraryInternal _transactionLibraryInternal;
+		private readonly IMarketingLibrary _marketingLibrary;
+		private readonly ITransactionLibrary _transactionLibrary;
 
-		public VoucherController(TransactionLibraryInternal transactionLibraryInternal, MarketingLibraryInternal marketingLibraryInternal)
+		public VoucherController(ITransactionLibrary transactionLibrary, IMarketingLibrary marketingLibrary)
 		{
-		    _transactionLibraryInternal = transactionLibraryInternal;
-		    _marketingLibraryInternal = marketingLibraryInternal;
+		    _transactionLibrary = transactionLibrary;
+		    _marketingLibrary = marketingLibrary;
 		}
 
 		public ActionResult Rendering()
@@ -34,8 +32,8 @@ namespace AvenueClothing.Project.Transaction.Controllers
 		[HttpPost]
 		public ActionResult AddVoucher(string voucher)
 		{
-            bool success = _marketingLibraryInternal.AddVoucher(voucher);
-			_transactionLibraryInternal.ExecuteBasketPipeline();
+            bool success = _marketingLibrary.AddVoucher(voucher);
+			_transactionLibrary.ExecuteBasketPipeline();
 
 			return Json(new { voucher, success });
 		}

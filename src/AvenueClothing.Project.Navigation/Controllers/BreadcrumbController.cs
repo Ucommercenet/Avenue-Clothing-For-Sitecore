@@ -5,15 +5,23 @@ using AvenueClothing.Project.Navigation.ViewModels;
 using AvenueClothing.Foundation.MvcExtensions;
 using Sitecore.Data.Items;
 using Sitecore.Links;
-using UCommerce.Api;
-using UCommerce.EntitiesV2;
-using UCommerce.Extensions;
-using UCommerce.Runtime;
+using Ucommerce.Api;
+using Ucommerce.Extensions;
+using Ucommerce.Search.Slugs;
 
 namespace AvenueClothing.Project.Navigation.Controllers
 {
     public class BreadcrumbController : BaseController
     {
+        private readonly ICatalogContext _catalogContext;
+        private readonly IUrlService _urlService;
+
+        public BreadcrumbController(ICatalogContext catalogContext, IUrlService urlService)
+        {
+            _catalogContext = catalogContext;
+            _urlService = urlService;
+        }
+
         public ActionResult Rendering()
         {
             BreadcrumbWrapper breadcrumbs = new BreadcrumbWrapper();
@@ -30,15 +38,15 @@ namespace AvenueClothing.Project.Navigation.Controllers
                 }
             }
 
-            Product product = SiteContext.Current.CatalogContext.CurrentProduct;
+            var product = _catalogContext.CurrentProduct;
 
-            Category lastCategory = SiteContext.Current.CatalogContext.CurrentCategory;
-            foreach (var category in SiteContext.Current.CatalogContext.CurrentCategories)
+            var lastCategory = _catalogContext.CurrentCategory;
+            foreach (var category in _catalogContext.CurrentCategories)
             {
-                BreadcrumbViewModelUcommerce crumb = new BreadcrumbViewModelUcommerce()
+                BreadcrumbViewModelUcommerce crumb = new BreadcrumbViewModelUcommerce
                 {
-                    BreadcrumbNameUcommerce = category.DisplayName(),
-                    BreadcrumbUrlUcommerce = CatalogLibrary.GetNiceUrlForCategory(category)
+                    BreadcrumbNameUcommerce = category.DisplayName,
+                    BreadcrumbUrlUcommerce = _urlService.GetUrl(_catalogContext.CurrentCatalog, new []{category}.Compact().ToArray())
                 };
                 lastCategory = category;
                 breadcrumbs.UcommerceBreadcrumbs.Add(crumb);
@@ -46,10 +54,10 @@ namespace AvenueClothing.Project.Navigation.Controllers
 
             if (product != null)
             {
-                var breadcrumb = new BreadcrumbViewModelUcommerce()
+                var breadcrumb = new BreadcrumbViewModelUcommerce
                 {
-                    BreadcrumbNameUcommerce = product.DisplayName(),
-                    BreadcrumbUrlUcommerce = CatalogLibrary.GetNiceUrlForProduct(product, lastCategory)
+                    BreadcrumbNameUcommerce = product.DisplayName,
+                    BreadcrumbUrlUcommerce = _urlService.GetUrl(_catalogContext.CurrentCatalog, new []{ lastCategory }.Compact().ToArray(), product)
                 };
                 breadcrumbs.UcommerceBreadcrumbs.Add(breadcrumb);
             }
@@ -68,7 +76,7 @@ namespace AvenueClothing.Project.Navigation.Controllers
 
         private bool IsTemplateWhitelisted(string templateName)
         {
-            if(templateName.Equals("Content Page") || 
+            if(templateName.Equals("Content Page") ||
                templateName.Equals("Confirmation"))
             {
                 return true;
@@ -94,7 +102,7 @@ namespace AvenueClothing.Project.Navigation.Controllers
         {
             string homePath = Sitecore.Context.Site.StartPath;
             Item homeItem = Sitecore.Context.Database.GetItem(homePath);
-            //but what if we have a mixture of these?
+
             List<Item> items = Sitecore.Context.Item.Axes.GetAncestors()
               .SkipWhile(item => item.ID != homeItem.ID).Where(x => x.ID != homeItem.ID)
               .ToList();

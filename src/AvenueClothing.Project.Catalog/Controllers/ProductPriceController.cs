@@ -1,27 +1,32 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 using System.Web.Mvc;
 using AvenueClothing.Project.Catalog.ViewModels;
 using AvenueClothing.Foundation.MvcExtensions;
-using UCommerce.Api;
-using UCommerce.Catalog;
-using UCommerce.EntitiesV2;
-using UCommerce.Runtime;
+using Ucommerce;
+using Ucommerce.Api;
+using Ucommerce.Catalog;
+using Ucommerce.Catalog.Models;
+using Ucommerce.Search;
+using Ucommerce.Search.Models;
 
 namespace AvenueClothing.Project.Catalog.Controllers
 {
 	public class ProductPriceController : BaseController
     {
-        private readonly IRepository<Product> _productRepository;
-        private readonly CatalogLibraryInternal _catalogLibraryInternal;
         private readonly ICatalogContext _catalogContext;
+        private readonly IIndex<Product> _productIndex;
+        private readonly IProductPriceCalculationService _productPriceCalculationService;
 
-        public ProductPriceController(IRepository<Product> productRepository, CatalogLibraryInternal catalogLibraryInternal, ICatalogContext catalogContext)
+        public ProductPriceController(ICatalogContext catalogContext, IIndex<Product> productIndex, IProductPriceCalculationService productPriceCalculationService)
         {
-            _productRepository = productRepository;
-            _catalogLibraryInternal = catalogLibraryInternal;
             _catalogContext = catalogContext;
+            _productIndex = productIndex;
+            _productPriceCalculationService = productPriceCalculationService;
         }
-        
+
         public ActionResult Rendering()
         {
             var currentProduct = _catalogContext.CurrentProduct;
@@ -32,43 +37,57 @@ namespace AvenueClothing.Project.Catalog.Controllers
             {
                 CalculatePriceUrl = Url.Action("CalculatePrice"),
                 CalculateVariantPriceUrl = Url.Action("CalculatePriceForVariant"),
-                CatalogGuid = currentCatalog.Id,
+                CatalogGuid = currentCatalog.Guid,
                 Sku = currentProduct.Sku,
-				ProductId = currentProduct.Id
+				ProductGuid = currentProduct.Guid
             };
             if (currentCategory != null)
             {
                 productPriceRenderingViewModelModel.CategoryGuid = currentCategory.Guid;
             }
-            
+
             return View(productPriceRenderingViewModelModel);
         }
 
         [HttpPost]
 		public ActionResult CalculatePrice(ProductCardRenderingViewModel priceCalculationDetails)
         {
-            var product = _productRepository.Select(x => x.Sku == priceCalculationDetails.ProductSku && x.ParentProduct == null).FirstOrDefault();
-            var catalog = _catalogLibraryInternal.GetCatalog(priceCalculationDetails.CatalogId);
-            PriceCalculation priceCalculation = new PriceCalculation(product, catalog);
+            var product = _productIndex.Find().Where(x => x.Sku == priceCalculationDetails.ProductSku && x.VariantSku == null).SingleOrDefault();
 
-            var yourPrice = priceCalculation.YourPrice.Amount.ToString();
-            var yourTax = priceCalculation.YourTax.ToString();
-			var discount = priceCalculation.Discount.Amount.ToString();
+            var price = _productPriceCalculationService.GetPrices(new ProductPriceCalculationArgs
+            {
+                ProductGuids = new List<Guid>{product.Guid},
+                PriceGroupGuids = new List<Guid>{_catalogContext.CurrentPriceGroup.Guid},
 
-            return Json(new {YourPrice = yourPrice, Tax = yourTax, Discount = discount});
+            }).Items.SingleOrDefault();
+            string currencyIsoCode = _catalogContext.CurrentPriceGroup.CurrencyISOCode;
+
+            var yourPrice = new Money(price.PriceInclTax, currencyIsoCode).ToString();
+            var yourTax = new Money(price.PriceTax, currencyIsoCode).ToString();
+
+            return Json(new {YourPrice = yourPrice, Tax = yourTax, Discount = 0});
         }
 
         [HttpPost]
 		public ActionResult CalculatePriceForVariant(ProductPriceCalculatePriceForVariantViewModel variantPriceCalculationDetails)
         {
-            Product variant = _productRepository.Select(x => x.VariantSku == variantPriceCalculationDetails.ProductVariantSku && x.Sku == variantPriceCalculationDetails.ProductSku).FirstOrDefault();
-            var catalog = _catalogLibraryInternal.GetCatalog(variantPriceCalculationDetails.CatalogId);
-            PriceCalculation priceCalculation = new PriceCalculation(variant, catalog);
+            var product = _productIndex.Find().Where(x =>
+                x.Sku == variantPriceCalculationDetails.ProductSku &&
+                x.VariantSku == variantPriceCalculationDetails.ProductVariantSku).SingleOrDefault();
 
-            var yourPrice = priceCalculation.YourPrice.Amount.ToString();
-            var yourTax = priceCalculation.YourTax.ToString();
+            var price = _productPriceCalculationService.GetPrices(new ProductPriceCalculationArgs
+            {
+                ProductGuids = new List<Guid>{product.Guid},
+                PriceGroupGuids = new List<Guid>{_catalogContext.CurrentPriceGroup.Guid},
 
-            return Json(new {YourPrice = yourPrice, Tax = yourTax});
+            }).Items.SingleOrDefault();
+
+            string currencyIsoCode = _catalogContext.CurrentPriceGroup.CurrencyISOCode;
+
+            var yourPrice = new Money(price.PriceInclTax, currencyIsoCode).ToString();
+            var yourTax = new Money(price.PriceTax, currencyIsoCode).ToString();
+
+             return Json(new {YourPrice = yourPrice, Tax = yourTax});
         }
     }
 }

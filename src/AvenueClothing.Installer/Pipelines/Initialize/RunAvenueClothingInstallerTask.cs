@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using AvenueClothing.Installer.Pipelines.Installation;
-using UCommerce.EntitiesV2;
-using UCommerce.Pipelines;
-using UCommerce.Pipelines.Initialization;
+using Ucommerce.EntitiesV2;
+using Ucommerce.Pipelines;
+using Ucommerce.Pipelines.Initialization;
 
 namespace AvenueClothing.Installer.Pipelines.Initialize
 {
@@ -10,7 +10,7 @@ namespace AvenueClothing.Installer.Pipelines.Initialize
     {
         private readonly IRepository<ProductCatalogGroup> _productCatalogGroupRepository;
         private readonly IPipeline<InstallationPipelineArgs> _installationPipeline;
-     
+
         public RunAvenueClothingInstallerTask(IRepository<ProductCatalogGroup> productCatalogGroupRepository, IPipeline<InstallationPipelineArgs> installationPipeline)
         {
             _productCatalogGroupRepository = productCatalogGroupRepository;

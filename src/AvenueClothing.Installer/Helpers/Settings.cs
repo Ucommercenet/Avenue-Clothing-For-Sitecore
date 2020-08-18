@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UCommerce.EntitiesV2;
-using UCommerce.EntitiesV2.Factories;
-using UCommerce.Infrastructure;
-using UCommerce.Infrastructure.Globalization;
-using UCommerce.Security;
+using Ucommerce.EntitiesV2;
+using Ucommerce.EntitiesV2.Factories;
+using Ucommerce.Infrastructure;
+using Ucommerce.Infrastructure.Globalization;
+using Ucommerce.Security;
 
 namespace AvenueClothing.Installer.Helpers
 {
@@ -248,9 +248,9 @@ namespace AvenueClothing.Installer.Helpers
             dataTypeEnum.AddDataTypeEnum(GenerateColourDataTypeEnum("White/Red", dataTypeEnum));
         }
 
-        private UCommerce.EntitiesV2.DataType CreateDataType(string name, string dataType)
+        private DataType CreateDataType(string name, string dataType)
         {
-            var dataTypeEnum = UCommerce.EntitiesV2.DataType.SingleOrDefault(x => x.TypeName == name) ?? new DataTypeFactory().NewWithDefaults(name);
+            var dataTypeEnum = DataType.SingleOrDefault(x => x.TypeName == name) ?? new DataTypeFactory().NewWithDefaults(name);
 
             dataTypeEnum.TypeName = "Colour";
             dataTypeEnum.DefinitionName = dataType;

@@ -3,20 +3,20 @@ using System.Web.Mvc;
 using AvenueClothing.Project.Transaction.Services;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Transaction.ViewModels;
-using UCommerce.Runtime;
-using UCommerce.Transactions;
+using Ucommerce.Api;
+using Ucommerce.Search.Models;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {
 	public class AddToBasketButtonController : BaseController
     {
-        private readonly TransactionLibraryInternal _transactionLibraryInternal;
+        private readonly ITransactionLibrary _transactionLibrary;
         private readonly ICatalogContext _catalogContext;
 	    private readonly IMiniBasketService _miniBasketService;
 
-	    public AddToBasketButtonController(TransactionLibraryInternal transactionLibraryInternal, ICatalogContext catalogContext, IMiniBasketService miniBasketService)
+	    public AddToBasketButtonController(ITransactionLibrary transactionLibrary, ICatalogContext catalogContext, IMiniBasketService miniBasketService)
         {
-            _transactionLibraryInternal = transactionLibraryInternal;
+            _transactionLibrary = transactionLibrary;
             _catalogContext = catalogContext;
 		    _miniBasketService = miniBasketService;
         }
@@ -33,7 +33,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
                 ConfirmationMessageTimeoutInMillisecs = (int)TimeSpan.FromSeconds(5).TotalMilliseconds,
                 ConfirmationMessageClientId = "js-add-to-basket-button-confirmation-message-" + Guid.NewGuid(),
                 ProductSku = product.Sku,
-                IsProductFamily = product.ProductDefinition.IsProductFamily()
+                IsProductFamily = product.ProductType == ProductType.ProductFamily
             };
             return View(viewModel);
         }
@@ -41,7 +41,7 @@ namespace AvenueClothing.Project.Transaction.Controllers
         [HttpPost]
         public ActionResult AddToBasket(AddToBasketButtonAddToBasketViewModel viewModel)
         {
-            _transactionLibraryInternal.AddToBasket(viewModel.Quantity, viewModel.ProductSku, viewModel.VariantSku);
+            _transactionLibrary.AddToBasket(viewModel.Quantity, viewModel.ProductSku, viewModel.VariantSku);
 
 	        return Json(_miniBasketService.Refresh(), JsonRequestBehavior.AllowGet);
         }
