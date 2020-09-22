@@ -60,11 +60,13 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
       <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.2.1.1\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
       <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.1.1\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -81,13 +83,11 @@
     <Reference Include="Rainbow.Storage.Yaml, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Rainbow.Storage.Yaml.2.1.1\lib\net452\Rainbow.Storage.Yaml.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.Kernel, Version=10.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Sitecore\Sitecore.Kernel.dll</HintPath>
+    <Reference Include="Sitecore.Kernel, Version=11.1.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\lib\Sitecore\Sitecore.Kernel.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Sitecore\Sitecore.Mvc.dll</HintPath>
+    <Reference Include="Sitecore.Mvc, Version=2.1.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\lib\Sitecore\Sitecore.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Linq, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -132,8 +132,9 @@
     <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.0\lib\net40\System.Web.Optimization.dll</HintPath>
@@ -155,41 +156,42 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="UCommerce, Version=8.4.0.19337, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.8.4.0.19337\lib\net45\UCommerce.dll</HintPath>
+    <Reference Include="Ucommerce, Version=9.3.0.20253, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.9.3.0.20253\lib\net45\Ucommerce.dll</HintPath>
+    </Reference>
+    <Reference Include="Ucommerce.Admin, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.3.0.20253\lib\net45\Ucommerce.Admin.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Admin, Version=8.4.0.19337, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.8.4.0.19337\lib\net45\UCommerce.Admin.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Ucommerce.Api, Version=9.3.0.20253, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.9.3.0.20253\lib\net45\Ucommerce.Api.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Infrastructure, Version=8.4.0.19337, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.8.4.0.19337\lib\net45\UCommerce.Infrastructure.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Ucommerce.Infrastructure, Version=9.3.0.20253, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.9.3.0.20253\lib\net45\Ucommerce.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Installer, Version=8.4.0.19337, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.8.4.0.19337\lib\net45\UCommerce.Installer.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Ucommerce.Installer, Version=9.3.0.20253, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.9.3.0.20253\lib\net45\Ucommerce.Installer.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.NHibernate, Version=8.4.0.19337, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.8.4.0.19337\lib\net45\UCommerce.NHibernate.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Ucommerce.NHibernate, Version=9.3.0.20253, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.9.3.0.20253\lib\net45\Ucommerce.NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Pipelines, Version=8.4.0.19337, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.8.4.0.19337\lib\net45\UCommerce.Pipelines.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Ucommerce.Pipelines, Version=9.3.0.20253, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.9.3.0.20253\lib\net45\Ucommerce.Pipelines.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Presentation, Version=8.4.0.19337, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.8.4.0.19337\lib\net45\UCommerce.Presentation.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Ucommerce.Presentation, Version=9.3.0.20253, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.9.3.0.20253\lib\net45\Ucommerce.Presentation.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.SystemHttp, Version=8.4.0.19337, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.8.4.0.19337\lib\net45\UCommerce.SystemHttp.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Ucommerce.Search, Version=9.3.0.20253, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.9.3.0.20253\lib\net45\Ucommerce.Search.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.SystemWeb, Version=8.4.0.19337, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.8.4.0.19337\lib\net45\UCommerce.SystemWeb.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Ucommerce.SqlMultiReaderConnector, Version=9.3.0.20253, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.9.3.0.20253\lib\net45\Ucommerce.SqlMultiReaderConnector.dll</HintPath>
+    </Reference>
+    <Reference Include="Ucommerce.SystemHttp, Version=9.3.0.20253, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.9.3.0.20253\lib\net45\Ucommerce.SystemHttp.dll</HintPath>
+    </Reference>
+    <Reference Include="Ucommerce.SystemWeb, Version=9.3.0.20253, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.9.3.0.20253\lib\net45\Ucommerce.SystemWeb.dll</HintPath>
     </Reference>
     <Reference Include="Unicorn, Version=4.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Unicorn.Core.4.1.1\lib\net452\Unicorn.dll</HintPath>
@@ -268,6 +270,7 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
+    <None Include="sitecore modules\Shell\Ucommerce\Apps\Ucommerce.Search.Lucene.Avenue\Configuration\AvenueProductsIndexDefinition.config" />
     <None Include="Views\Web.config.default" />
   </ItemGroup>
   <ItemGroup>
@@ -275,6 +278,7 @@
     <Compile Include="App_Start\AvenueClothingStartup.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\FooterController.cs" />
+    <Compile Include="Extensions\AvenueProductIndexDefinition.cs" />
     <Compile Include="Extensions\ServiceProviderDependencyResolver.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -292,7 +296,6 @@
       <Name>AvenueClothing.Project.Transaction</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

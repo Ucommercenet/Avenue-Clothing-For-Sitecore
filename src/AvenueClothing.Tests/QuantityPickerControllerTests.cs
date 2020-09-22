@@ -3,9 +3,9 @@ using System.Web.Mvc;
 using AvenueClothing.Project.Transaction.Controllers;
 using AvenueClothing.Project.Transaction.ViewModels;
 using NSubstitute;
-using UCommerce.EntitiesV2;
-using UCommerce.Runtime;
+using Ucommerce.Api;
 using Xunit;
+using Product = Ucommerce.Search.Models.Product;
 
 namespace AvenueClothing.Tests
 {
@@ -24,7 +24,7 @@ namespace AvenueClothing.Tests
         public void Rendering_Returns_View_With_Valid_ViewModel()
         {
             // Arrange
-            _catalogContext.CurrentProduct = new Product()
+            _catalogContext.CurrentProduct = new Product
             {
                 Guid = new Guid(),
                 Name = "Product",
@@ -40,7 +40,7 @@ namespace AvenueClothing.Tests
             Assert.NotNull(viewResult);
             Assert.NotNull(model);
             Assert.True(model.ProductSku == _catalogContext.CurrentProduct.Sku);
-            
+
         }
     }
 }

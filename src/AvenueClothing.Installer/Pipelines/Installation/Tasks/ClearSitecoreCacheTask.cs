@@ -1,8 +1,6 @@
-﻿using System.Collections.Specialized;
-using Sitecore.Caching;
+﻿using Sitecore.Caching;
 using Sitecore.Configuration;
-using Sitecore.Install.Framework;
-using UCommerce.Pipelines;
+using Ucommerce.Pipelines;
 
 namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
 {

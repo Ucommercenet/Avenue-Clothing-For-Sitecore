@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
-using UCommerce.EntitiesV2;
-using UCommerce.Pipelines;
+using Ucommerce.EntitiesV2;
+using Ucommerce.Pipelines;
 
 namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
 {

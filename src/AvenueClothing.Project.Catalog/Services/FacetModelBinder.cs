@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using AvenueClothing.Project.Catalog.ViewModels;
 using Sitecore.Data;
-using UCommerce.Search.Facets;
+using Ucommerce.Search.Facets;
 using DefaultModelBinder = System.Web.ModelBinding.DefaultModelBinder;
 
 namespace AvenueClothing.Project.Catalog.Services
@@ -15,9 +15,9 @@ namespace AvenueClothing.Project.Catalog.Services
         public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {
             var parameters = new Dictionary<string, string>();
-             
+
             foreach (var queryString in HttpContext.Current.Request.QueryString.AllKeys)
-            { 
+            {
                 parameters[queryString] = HttpContext.Current.Request.QueryString[queryString];
             }
             if (parameters.ContainsKey("umbDebugShowTrace"))
@@ -53,6 +53,6 @@ namespace AvenueClothing.Project.Catalog.Services
             return facetsForQuerying;
         }
 
-       
+
     }
 }

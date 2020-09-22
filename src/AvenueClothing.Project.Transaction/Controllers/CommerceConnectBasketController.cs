@@ -7,17 +7,28 @@ using Sitecore;
 using Sitecore.Commerce.Contacts;
 using Sitecore.Commerce.Entities.Carts;
 using Sitecore.Commerce.Services.Carts;
-using UCommerce;
-using UCommerce.Api;
-using UCommerce.EntitiesV2;
+using Ucommerce;
+using Ucommerce.Api;
+using Ucommerce.EntitiesV2;
+using Ucommerce.Search.Slugs;
 using Convert = System.Convert;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {
 	public class CommerceConnectBasketController : BaseController
 	{
+		private readonly IUrlService _urlService;
+		private readonly ICatalogContext _catalogContext;
+		private readonly ICatalogLibrary _catalogLibrary;
 
-		public ActionResult Rendering()         
+		public CommerceConnectBasketController(IUrlService urlService, ICatalogContext catalogContext, ICatalogLibrary catalogLibrary)
+		{
+			_urlService = urlService;
+			_catalogContext = catalogContext;
+			_catalogLibrary = catalogLibrary;
+		}
+
+		public ActionResult Rendering()
 		{
 			var cart = GetCart();
 			var basketModel = new BasketRenderingViewModel();
@@ -38,23 +49,24 @@ namespace AvenueClothing.Project.Transaction.Controllers
 				{
 					orderLineViewModel.VariantSku = cartLine.GetPropertyValue("VariantSku").ToString();
 				}
-				orderLineViewModel.Total = new Money(cartLine.Total.Amount, currency).ToString();
-				orderLineViewModel.Discount = new Money(cartLine.Adjustments.Sum(x => x.Amount), currency).Value;
+				orderLineViewModel.Total = new Money(cartLine.Total.Amount, currency.ISOCode).ToString();
+				orderLineViewModel.Discount = new Money(cartLine.Adjustments.Sum(x => x.Amount), currency.ISOCode).Value;
 				if (cartLine.Total.TaxTotal != null)
-					orderLineViewModel.Tax = new Money(cartLine.Total.TaxTotal.Amount, currency).ToString();
-				orderLineViewModel.Price = new Money(cartLine.Product.Price.Amount, currency).ToString();
-				orderLineViewModel.ProductUrl = CatalogLibrary.GetNiceUrlForProduct(CatalogLibrary.GetProduct(cartLine.Product.ProductId));
-				orderLineViewModel.PriceWithDiscount = new Money((cartLine.Product.Price.Amount - cartLine.Adjustments.Sum(x => x.Amount)), currency).ToString();
+					orderLineViewModel.Tax = new Money(cartLine.Total.TaxTotal.Amount, currency.ISOCode).ToString();
+				orderLineViewModel.Price = new Money(cartLine.Product.Price.Amount, currency.ISOCode).ToString();
+				orderLineViewModel.ProductUrl = _urlService.GetUrl(_catalogContext.CurrentCatalog,
+					_catalogLibrary.GetProduct(cartLine.Product.ProductId));
+				orderLineViewModel.PriceWithDiscount = new Money((cartLine.Product.Price.Amount - cartLine.Adjustments.Sum(x => x.Amount)), currency.ISOCode).ToString();
 				orderLineViewModel.OrderLineId = Convert.ToInt32(cartLine.ExternalCartLineId);
 
 				basketModel.OrderLines.Add(orderLineViewModel);
 			}
 
-			basketModel.OrderTotal = new Money(cart.Total.Amount, currency).ToString();
-			basketModel.DiscountTotal = new Money(cart.Adjustments.Sum(x => x.Amount), currency).ToString();
+			basketModel.OrderTotal = new Money(cart.Total.Amount, currency.ISOCode).ToString();
+			basketModel.DiscountTotal = new Money(cart.Adjustments.Sum(x => x.Amount), currency.ISOCode).ToString();
 			if (cart.Total.TaxTotal != null)
-				basketModel.TaxTotal = new Money(cart.Total.TaxTotal.Amount, currency).ToString();
-			basketModel.SubTotal = new Money((cart.Total.Amount - cart.Total.TaxTotal.Amount), currency).ToString();
+				basketModel.TaxTotal = new Money(cart.Total.TaxTotal.Amount, currency.ISOCode).ToString();
+			basketModel.SubTotal = new Money((cart.Total.Amount - cart.Total.TaxTotal.Amount), currency.ISOCode).ToString();
 
 			return View(basketModel);
 		}

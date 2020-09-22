@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
-using NSubstitute;
-using UCommerce.Runtime;
-using UCommerce.Search;
 using AvenueClothing.Project.Catalog.Controllers;
 using AvenueClothing.Project.Catalog.ViewModels;
-using UCommerce.EntitiesV2;
-using UCommerce.Search.Facets;
+using NSubstitute;
+using Ucommerce.Api;
+using Ucommerce.Search.Facets;
+using Ucommerce.Search.Models;
 using Xunit;
 
 namespace AvenueClothing.Tests
@@ -14,15 +14,14 @@ namespace AvenueClothing.Tests
     public class FacetsControllerTests
     {
         private readonly ICatalogContext _catalogContext;
-        private readonly SearchLibraryInternal _searchLibraryInternal;
         private readonly FacetsController _controller;
-        private readonly IFacetedSearch _facetedSearch;
+        private readonly ICatalogLibrary _catalogLibrary;
 
         public FacetsControllerTests()
         {
             _catalogContext = Substitute.For<ICatalogContext>();
-            _searchLibraryInternal = Substitute.For<SearchLibraryInternal>(_facetedSearch);
-            _controller = new FacetsController(_catalogContext, _searchLibraryInternal);
+            _catalogLibrary = Substitute.For<ICatalogLibrary>();
+            _controller = new FacetsController(_catalogContext, _catalogLibrary);
         }
 
         [Fact]
@@ -32,44 +31,42 @@ namespace AvenueClothing.Tests
             IList<Facet> facetsForQuerying = new List<Facet>();
 
             var facetValues = new List<FacetValue>();
-            facetValues.Add(new FacetValue()
+            facetValues.Add(new FacetValue
             {
                 Value = "122",
-                Hits = 2
+                Count = 2
             });
-            facetValues.Add(new FacetValue()
+            facetValues.Add(new FacetValue
             {
                 Value = "127",
-                Hits = 0
+                Count = 0
             });
 
-            facetsForQuerying.Add(new Facet()
+            facetsForQuerying.Add(new Facet
             {
                 Name = "Price",
                 DisplayName = "Price",
-                CultureCode = "en-GB",
                 FacetValues = facetValues
             });
 
             _catalogContext.CurrentCategory = Substitute.For<Category>();
             var returnedFacets = new List<Facet>();
-            var facetValue = new FacetValue()
+            var facetValue = new FacetValue
             {
                 Value = "177",
-                Hits = 4
+                Count = 4
             };
             var facetValueList = new List<FacetValue>();
             facetValueList.Add(facetValue);
 
-            returnedFacets.Add(new Facet()
+            returnedFacets.Add(new Facet
             {
                 Name = "Price",
                 DisplayName = "Price",
-                CultureCode = "en-GB",
                 FacetValues = facetValueList
             });
 
-            _searchLibraryInternal.GetFacetsFor(_catalogContext.CurrentCategory, facetsForQuerying).Returns(returnedFacets);
+            _catalogLibrary.GetFacets(Guid.Empty, new FacetDictionary()).ReturnsForAnyArgs(returnedFacets);
 
             // Act
             var result = _controller.Rendering(facetsForQuerying);
@@ -89,44 +86,40 @@ namespace AvenueClothing.Tests
             IList<Facet> facetsForQuerying = new List<Facet>();
 
             var facetValues = new List<FacetValue>();
-            facetValues.Add(new FacetValue()
+            facetValues.Add(new FacetValue
             {
                 Value = "122",
-                Hits = 2
+                Count = 2
             });
-            facetValues.Add(new FacetValue()
+            facetValues.Add(new FacetValue
             {
                 Value = "127",
-                Hits = 0
+                Count = 0
             });
 
-            facetsForQuerying.Add(new Facet()
+            facetsForQuerying.Add(new Facet
             {
                 Name = "Price",
                 DisplayName = "Price",
-                CultureCode = "en-GB",
                 FacetValues = facetValues
             });
 
             _catalogContext.CurrentCategory = Substitute.For<Category>();
             var returnedFacets = new List<Facet>();
-            var facetValue = new FacetValue()
+            var facetValue = new FacetValue
             {
                 Value = "177",
-                Hits = 4
+                Count = 4
             };
             var facetValueList = new List<FacetValue>();
             facetValueList.Add(facetValue);
 
-            returnedFacets.Add(new Facet()
+            returnedFacets.Add(new Facet
             {
                 Name = "Price",
                 DisplayName = "Price",
-                CultureCode = "en-GB",
                 FacetValues = facetValueList
             });
-
-            _searchLibraryInternal.GetFacetsFor(_catalogContext.CurrentCategory, facetsForQuerying).Returns(new List<Facet>());
 
             // Act
             var result = _controller.Rendering(facetsForQuerying);

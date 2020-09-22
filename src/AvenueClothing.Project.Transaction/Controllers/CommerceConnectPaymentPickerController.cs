@@ -14,19 +14,20 @@ using Sitecore.Commerce.Services.Carts;
 using Sitecore.Commerce.Services.Payments;
 using Sitecore.Commerce.Services.Shipping;
 using Sitecore.Configuration;
-using UCommerce;
-using UCommerce.Transactions;
-using Constants = UCommerce.Constants;
+using Ucommerce;
+using Ucommerce.Api;
+using Ucommerce.Transactions;
+using Constants = Ucommerce.Constants;
 
 namespace AvenueClothing.Project.Transaction.Controllers
 {
     public class CommerceConnectPaymentPickerController : BaseController
     {
-        private readonly TransactionLibraryInternal _transactionLibraryInternal;
+        private readonly ITransactionLibrary _transactionLibrary;
 
-        public CommerceConnectPaymentPickerController(TransactionLibraryInternal transactionLibraryInternal)
+        public CommerceConnectPaymentPickerController(ITransactionLibrary transactionLibrary)
         {
-            _transactionLibraryInternal = transactionLibraryInternal;
+            _transactionLibrary = transactionLibrary;
         }
 
         public ActionResult Rendering()

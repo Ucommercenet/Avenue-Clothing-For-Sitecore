@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UCommerce.Infrastructure.Logging;
-using UCommerce.Pipelines;
+﻿using Ucommerce.Infrastructure.Logging;
+using Ucommerce.Pipelines;
 
 namespace AvenueClothing.Installer.Pipelines.Installation
 {
     public class InstallationPipelineArgs
     {
-        
+
     }
 
     public class InstallationPipeline : Pipeline<InstallationPipelineArgs>

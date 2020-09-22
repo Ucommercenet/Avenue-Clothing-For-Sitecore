@@ -1,26 +1,26 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using AvenueClothing.Project.Transaction.Controllers;
 using AvenueClothing.Project.Transaction.Services.Impl;
 using AvenueClothing.Project.Transaction.ViewModels;
 using NSubstitute;
-using UCommerce.EntitiesV2;
-using UCommerce.Runtime;
-using UCommerce.Transactions;
+using Ucommerce.Api;
 using Xunit;
+using Product = Ucommerce.Search.Models.Product;
 
 namespace AvenueClothing.Tests
 {
     public class AddToBasketControllerTests
     {
         private readonly AddToBasketButtonController _controller;
-        private readonly TransactionLibraryInternal _transactionLibraryInternal;
+        private readonly ITransactionLibrary _transactionLibraryInternal;
         private readonly ICatalogContext _catalogContext;
 	    private MiniBasketService _miniBasketService;
 
 	    public AddToBasketControllerTests()
         {
             //Create
-            _transactionLibraryInternal = Substitute.For<TransactionLibraryInternal>(null, null, null, null, null, null, null, null, null, null, null);
+            _transactionLibraryInternal = Substitute.For<ITransactionLibrary>();
             _catalogContext = Substitute.For<ICatalogContext>();
 			_miniBasketService = Substitute.For<MiniBasketService>(_transactionLibraryInternal);
 
@@ -37,10 +37,10 @@ namespace AvenueClothing.Tests
             var product = new Product
             {
                 Sku = "testsku",
-                ProductDefinition = new ProductDefinition()
+                ProductDefinition = Guid.NewGuid()
             };
             _catalogContext.CurrentProduct.Returns(product);
-            
+
             //Act
             var result = _controller.Rendering();
 
@@ -67,7 +67,7 @@ namespace AvenueClothing.Tests
                 ProductSku = "testsku123",
                 VariantSku = "variantsku123"
             };
-            
+
             //Act
             var result = _controller.AddToBasket(viewModel);
 

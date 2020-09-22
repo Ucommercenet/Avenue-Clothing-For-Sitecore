@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Specialized;
 using Sitecore.Configuration;
 using Sitecore.Data;
 using Sitecore.Data.Items;
-using Sitecore.Install.Framework;
 using Sitecore.Publishing;
-using UCommerce.Infrastructure;
-using UCommerce.Infrastructure.Logging;
-using UCommerce.Pipelines;
+using Ucommerce.Infrastructure;
+using Ucommerce.Infrastructure.Logging;
+using Ucommerce.Pipelines;
 
 namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
 {

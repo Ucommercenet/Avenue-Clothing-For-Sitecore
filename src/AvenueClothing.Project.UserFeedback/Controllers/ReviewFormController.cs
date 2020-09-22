@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Linq;
-using System.Security.Policy;
 using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.UserFeedback.ViewModels;
 using Sitecore.Mvc.Presentation;
-using UCommerce.EntitiesV2;
-using UCommerce.Pipelines;
-using UCommerce.Runtime;
+using Ucommerce.Api;
+using Ucommerce.EntitiesV2;
+using Ucommerce.Pipelines;
 
 namespace AvenueClothing.Project.UserFeedback.Controllers
 {
@@ -19,7 +17,7 @@ namespace AvenueClothing.Project.UserFeedback.Controllers
 	    private readonly IOrderContext _orderContext;
 	    private readonly IPipeline<ProductReview> _productReviewPipeline;
 
-	    public ReviewFormController(ICatalogContext catalogContext, IRepository<Product> productRepository, IRepository<ProductReviewStatus> productReviewStatusRepository, 
+	    public ReviewFormController(ICatalogContext catalogContext, IRepository<Product> productRepository, IRepository<ProductReviewStatus> productReviewStatusRepository,
 			IOrderContext orderContext, IPipeline<ProductReview> productReviewPipeline )
 	    {
 		    _catalogContext = catalogContext;
@@ -49,15 +47,11 @@ namespace AvenueClothing.Project.UserFeedback.Controllers
         {
             var product = _productRepository.SingleOrDefault(x => x.Guid.ToString() == viewModel.ProductGuid);
 
+            var catalogGroup = _catalogContext.CurrentCatalogGroup;
+            var catalogGroupV2 = ProductCatalogGroup.FirstOrDefault(x => x.Guid == catalogGroup.Guid);
+
             var request = System.Web.HttpContext.Current.Request;
             var basket = _orderContext.GetBasket();
-
-            //if (request.Form.AllKeys.All(x => x != "review-product"))
-            //{
-            //    Response.StatusCode = 400;
-            //    Response.TrySkipIisCustomErrors = true;
-            //    return Json(new { });
-            //}
 
             var name = viewModel.Name;
             var email = viewModel.Email;
@@ -87,7 +81,7 @@ namespace AvenueClothing.Project.UserFeedback.Controllers
             basket.PurchaseOrder.Customer.Save();
 
             var review = new ProductReview();
-            review.ProductCatalogGroup = _catalogContext.CurrentCatalogGroup;
+            review.ProductCatalogGroup = catalogGroupV2;
             review.ProductReviewStatus = _productReviewStatusRepository.SingleOrDefault(s => s.Name == "New");
             review.CreatedOn = DateTime.Now;
             review.CreatedBy = "System";
