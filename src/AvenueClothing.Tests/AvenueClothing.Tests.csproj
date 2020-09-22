@@ -48,11 +48,11 @@
     <Reference Include="NSubstitute, Version=1.10.0.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
       <HintPath>..\packages\NSubstitute.1.10.0.0\lib\net45\NSubstitute.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.Kernel">
-      <HintPath>..\..\lib\Sitecore\Sitecore.Kernel.dll</HintPath>
+    <Reference Include="Sitecore.Kernel, Version=11.1.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\..\Ucommerce.Sitecore\lib\Sitecore\Sitecore.Kernel.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.Mvc">
-      <HintPath>..\..\lib\Sitecore\Sitecore.Mvc.dll</HintPath>
+    <Reference Include="Sitecore.Mvc, Version=2.1.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\..\Ucommerce.Sitecore\lib\Sitecore\Sitecore.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -86,41 +86,53 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Ucommerce, Version=9.3.0.20253, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.9.3.0.20253\lib\net45\Ucommerce.dll</HintPath>
+    <Reference Include="Ucommerce, Version=9.3.0.20261, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.3.0.20261\lib\net45\Ucommerce.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.Admin, Version=9.3.0.20253, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.9.3.0.20253\lib\net45\Ucommerce.Admin.dll</HintPath>
+    <Reference Include="Ucommerce.Admin, Version=9.3.0.20261, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.3.0.20261\lib\net45\Ucommerce.Admin.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.Api, Version=9.3.0.20253, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.9.3.0.20253\lib\net45\Ucommerce.Api.dll</HintPath>
+    <Reference Include="Ucommerce.Api, Version=9.3.0.20261, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.3.0.20261\lib\net45\Ucommerce.Api.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.Infrastructure, Version=9.3.0.20253, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.9.3.0.20253\lib\net45\Ucommerce.Infrastructure.dll</HintPath>
+    <Reference Include="Ucommerce.Infrastructure, Version=9.3.0.20261, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.3.0.20261\lib\net45\Ucommerce.Infrastructure.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.Installer, Version=9.3.0.20253, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.9.3.0.20253\lib\net45\Ucommerce.Installer.dll</HintPath>
+    <Reference Include="Ucommerce.Installer, Version=9.3.0.20261, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.3.0.20261\lib\net45\Ucommerce.Installer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.NHibernate, Version=9.3.0.20253, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.9.3.0.20253\lib\net45\Ucommerce.NHibernate.dll</HintPath>
+    <Reference Include="Ucommerce.NHibernate, Version=9.3.0.20261, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.3.0.20261\lib\net45\Ucommerce.NHibernate.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.Pipelines, Version=9.3.0.20253, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.9.3.0.20253\lib\net45\Ucommerce.Pipelines.dll</HintPath>
+    <Reference Include="Ucommerce.Pipelines, Version=9.3.0.20261, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.3.0.20261\lib\net45\Ucommerce.Pipelines.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.Presentation, Version=9.3.0.20253, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.9.3.0.20253\lib\net45\Ucommerce.Presentation.dll</HintPath>
+    <Reference Include="Ucommerce.Presentation, Version=9.3.0.20261, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.3.0.20261\lib\net45\Ucommerce.Presentation.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.Search, Version=9.3.0.20253, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.9.3.0.20253\lib\net45\Ucommerce.Search.dll</HintPath>
+    <Reference Include="Ucommerce.Search, Version=9.3.0.20261, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.3.0.20261\lib\net45\Ucommerce.Search.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.SqlMultiReaderConnector, Version=9.3.0.20253, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.9.3.0.20253\lib\net45\Ucommerce.SqlMultiReaderConnector.dll</HintPath>
+    <Reference Include="Ucommerce.SqlMultiReaderConnector, Version=9.3.0.20261, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.3.0.20261\lib\net45\Ucommerce.SqlMultiReaderConnector.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.SystemHttp, Version=9.3.0.20253, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.9.3.0.20253\lib\net45\Ucommerce.SystemHttp.dll</HintPath>
+    <Reference Include="Ucommerce.SystemHttp, Version=9.3.0.20261, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.3.0.20261\lib\net45\Ucommerce.SystemHttp.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.SystemWeb, Version=9.3.0.20253, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.9.3.0.20253\lib\net45\Ucommerce.SystemWeb.dll</HintPath>
+    <Reference Include="Ucommerce.SystemWeb, Version=9.3.0.20261, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.3.0.20261\lib\net45\Ucommerce.SystemWeb.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
       <HintPath>..\packages\xunit.abstractions.2.0.0\lib\net35\xunit.abstractions.dll</HintPath>
