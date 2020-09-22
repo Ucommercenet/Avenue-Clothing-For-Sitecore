@@ -36,3 +36,5 @@ src/scripts/Serialization/App_Config/Include/z.AvenueClothing.DevSettings.config
 src/gulp-config.js
 src/publishsettings.targets
 src/.vs/*
+/lib/Sitecore/
+/src/.idea/
