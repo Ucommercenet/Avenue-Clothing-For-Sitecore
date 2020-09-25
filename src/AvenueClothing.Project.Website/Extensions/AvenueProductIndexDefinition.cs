@@ -1,5 +1,6 @@
 using Ucommerce.Search.Definitions;
 using Ucommerce.Search.Extensions;
+using Ucommerce.Search.Facets;
 
 namespace AvenueClothing.Project.Website.Extensions
 {
@@ -11,7 +12,12 @@ namespace AvenueClothing.Project.Website.Extensions
             this.Field(p => p["CollarSize"], typeof(string));
             this.Field(p => p["ShoeSize"], typeof(string));
             this.Field(p => p["Colour"], typeof(string));
-            this.PricesField(p => p.UnitPrices);
+            
+            this.Field(p => p.Taxes);
+            this.Field(p => p.PricesInclTax);
+            this.Field(p => p.UnitPrices);
+            this.Facet(p => p.PricesInclTax["EUR 15 pct"], new FacetOptions { AutomaticRanges = true });
+            
             this.Facet("Colour");
             this.Facet("CollarSize");
             this.Facet("ShoeSize");
