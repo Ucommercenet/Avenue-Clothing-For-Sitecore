@@ -11,7 +11,6 @@ Param(
     [ValidateSet("True", "False")]
     [string]$UpdateAssemblyInfo = "True"
 )
-
 function Get-ScriptDirectory { 
     Split-Path -parent $PSCommandPath 
 }
