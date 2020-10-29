@@ -5,6 +5,7 @@ using AvenueClothing.Project.Transaction.Controllers;
 using AvenueClothing.Project.Transaction.ViewModels;
 using NSubstitute;
 using Ucommerce.Api;
+using Ucommerce.Infrastructure.Globalization;
 using Ucommerce.Pipelines;
 using Ucommerce.Pipelines.GetProduct;
 using Ucommerce.Search;
@@ -20,6 +21,7 @@ namespace AvenueClothing.Tests
         private readonly ICatalogLibrary _catalogLibrary;
         private readonly VariantPickerController _controller;
         private readonly IIndex<Product> _productIndex;
+        private readonly ILocalizationContext _localizationContext;
 
         public VariantPickerControllerTests()
         {
@@ -27,8 +29,9 @@ namespace AvenueClothing.Tests
             _catalogContext = Substitute.For<ICatalogContext>();
             _catalogLibrary = Substitute.For<ICatalogLibrary>();
             _productIndex = Substitute.For<IIndex<Product>>();
+            _localizationContext = Substitute.For<ILocalizationContext>();
 
-            _controller = new VariantPickerController(_getProductPipeline, _catalogContext, _catalogLibrary, _productIndex);
+            _controller = new VariantPickerController(_getProductPipeline, _catalogContext, _catalogLibrary, _productIndex, _localizationContext);
 
             _controller.Url = Substitute.For<UrlHelper>();
             _controller.Url.Action(Arg.Any<string>()).Returns("ControllerUrl");

@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using AvenueClothing.Foundation.MvcExtensions;
 using AvenueClothing.Project.Transaction.ViewModels;
 using Ucommerce.Api;
+using Ucommerce.Infrastructure.Globalization;
 using Ucommerce.Pipelines;
 using Ucommerce.Pipelines.GetProduct;
 using Ucommerce.Search;
@@ -18,18 +19,22 @@ namespace AvenueClothing.Project.Transaction.Controllers
         private readonly ICatalogContext _catalogContext;
         private readonly ICatalogLibrary _catalogLibrary;
         private readonly IIndex<Ucommerce.Search.Models.Product> _productIndex;
+        private ILocalizationContext _localizationContext;
+
 
         public VariantPickerController(
             IPipeline<IPipelineArgs<GetProductRequest,
             GetProductResponse>> getProductPipeline,
             ICatalogContext catalogContext,
             ICatalogLibrary catalogLibrary,
-            IIndex<Ucommerce.Search.Models.Product> productIndex)
+            IIndex<Product> productIndex,
+            ILocalizationContext localizationContext)
         {
             _getProductPipeline = getProductPipeline;
             _catalogContext = catalogContext;
             _catalogLibrary = catalogLibrary;
             _productIndex = productIndex;
+            _localizationContext = localizationContext;
         }
 
         public ActionResult Rendering()
@@ -60,7 +65,8 @@ namespace AvenueClothing.Project.Transaction.Controllers
                 var productPropertiesViewModel = new VariantPickerRenderingViewModel.Variant
                 {
                     Name =  variantProperty.Key,
-                    DisplayName = variantProperty.Key
+                    DisplayName = _productIndex.Definition.FieldDefinitions[variantProperty.Key]
+                        .GetDisplayName(_localizationContext.CurrentCulture.Name)
                 };
 
                 foreach (var value in variantProperty.Select(p => p.Value).Distinct())
