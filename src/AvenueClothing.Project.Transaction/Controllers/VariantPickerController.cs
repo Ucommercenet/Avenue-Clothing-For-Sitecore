@@ -65,8 +65,8 @@ namespace AvenueClothing.Project.Transaction.Controllers
                 var productPropertiesViewModel = new VariantPickerRenderingViewModel.Variant
                 {
                     Name =  variantProperty.Key,
-                    DisplayName = _productIndex.Definition.FieldDefinitions[variantProperty.Key]
-                        .GetDisplayName(_localizationContext.CurrentCulture.Name)
+                    DisplayName = _productIndex.Definition.FieldDefinitions.TryGetValue(variantProperty.Key, out var field) ? 
+                        field.GetDisplayName(_localizationContext.CurrentCulture.Name) : variantProperty.Key
                 };
 
                 foreach (var value in variantProperty.Select(p => p.Value).Distinct())

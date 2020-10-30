@@ -18,7 +18,6 @@ namespace AvenueClothing.Project.Website.Extensions
                 .DisplayName("en-US", "Color")
                 .DisplayName("Colour")
                 .Facet();
-            this.PricesField(p => p.UnitPrices);
         }
     }
 }
