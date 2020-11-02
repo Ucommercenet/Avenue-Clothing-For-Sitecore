@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Web.Mvc;
 using AvenueClothing.Project.Transaction.Controllers;
 using AvenueClothing.Project.Transaction.ViewModels;
+using AvenueClothing.Project.Website.Extensions;
 using NSubstitute;
 using Ucommerce.Api;
+using Ucommerce.Infrastructure.Globalization;
 using Ucommerce.Pipelines;
 using Ucommerce.Pipelines.GetProduct;
 using Ucommerce.Search;
+using Ucommerce.Search.Definitions;
 using Ucommerce.Search.Models;
 using Xunit;
 
@@ -20,6 +24,7 @@ namespace AvenueClothing.Tests
         private readonly ICatalogLibrary _catalogLibrary;
         private readonly VariantPickerController _controller;
         private readonly IIndex<Product> _productIndex;
+        private readonly ILocalizationContext _localizationContext;
 
         public VariantPickerControllerTests()
         {
@@ -27,8 +32,11 @@ namespace AvenueClothing.Tests
             _catalogContext = Substitute.For<ICatalogContext>();
             _catalogLibrary = Substitute.For<ICatalogLibrary>();
             _productIndex = Substitute.For<IIndex<Product>>();
+            _productIndex.Definition.Returns(new AvenueProductIndexDefinition());
+            _localizationContext = Substitute.For<ILocalizationContext>();
+            _localizationContext.CurrentCulture.Returns(CultureInfo.GetCultureInfo("en-US"));
 
-            _controller = new VariantPickerController(_getProductPipeline, _catalogContext, _catalogLibrary, _productIndex);
+            _controller = new VariantPickerController(_getProductPipeline, _catalogContext, _catalogLibrary, _productIndex, _localizationContext);
 
             _controller.Url = Substitute.For<UrlHelper>();
             _controller.Url.Action(Arg.Any<string>()).Returns("ControllerUrl");
