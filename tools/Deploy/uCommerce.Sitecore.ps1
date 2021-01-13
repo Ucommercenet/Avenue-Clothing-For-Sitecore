@@ -9,7 +9,11 @@ task SetSitecoreVars -description "Set paths for Deploy.To.Package." {
 }
 
 task DeleteTempPackage {
-	Remove-Item "c:\tmp\package.zip"
+    $packageZipFullName = "$zipDestinationFolder\package.zip"
+    if(Test-Path $packageZipFullName)
+    {
+        Remove-Item $packageZipFullName
+    }
 }
 
 task CleanSitecoreWorkingDirectory -description "Cleans the sitecore working directory. This should NOT be used when using Deploy.To.Local" -depends SetSitecoreVars{
