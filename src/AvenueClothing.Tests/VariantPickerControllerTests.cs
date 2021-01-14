@@ -4,7 +4,6 @@ using System.Globalization;
 using System.Web.Mvc;
 using AvenueClothing.Project.Transaction.Controllers;
 using AvenueClothing.Project.Transaction.ViewModels;
-using AvenueClothing.Project.Website.Extensions;
 using NSubstitute;
 using Ucommerce.Api;
 using Ucommerce.Infrastructure.Globalization;
@@ -32,7 +31,7 @@ namespace AvenueClothing.Tests
             _catalogContext = Substitute.For<ICatalogContext>();
             _catalogLibrary = Substitute.For<ICatalogLibrary>();
             _productIndex = Substitute.For<IIndex<Product>>();
-            _productIndex.Definition.Returns(new AvenueProductIndexDefinition());
+            // _productIndex.Definition.Returns(new AvenueProductIndexDefinition());
             _localizationContext = Substitute.For<ILocalizationContext>();
             _localizationContext.CurrentCulture.Returns(CultureInfo.GetCultureInfo("en-US"));
 

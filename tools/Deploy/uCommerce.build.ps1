@@ -2,7 +2,7 @@ properties {
     $configuration = 'Debug'
     $src = "."
     $zipFileName = "uCommerce-Demo-Store-for-{0}-{1}.zip"
-    $zipDestinationFolder = "C:\tmp"
+    $zipDestinationFolder = $null
     $solution_file = "AvenueClothing.sln"
     $working_dir = $null
     $version = $null

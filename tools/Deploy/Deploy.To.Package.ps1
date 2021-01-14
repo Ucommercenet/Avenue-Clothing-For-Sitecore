@@ -9,8 +9,12 @@ Param(
 
     [Parameter(Mandatory=$False)]
     [ValidateSet("True", "False")]
-    [string]$UpdateAssemblyInfo = "True"
+    [string]$UpdateAssemblyInfo = "True",
+
+    [Parameter(Mandatory=$False)]
+    [string]$outputDir = "c:\tmp"
 )
+
 function Get-ScriptDirectory { 
     Split-Path -parent $PSCommandPath 
 }
@@ -26,6 +30,13 @@ function Run-It () {
         $base_dir = Resolve-Path "$scriptPath\..\.."
 
 	    Import-Module "$scriptPath\..\psake\4.9.0\psake.psm1"
+
+        If(!(test-path $outputDir))
+        {
+            New-Item -ItemType Directory -Force -Path $outputDir
+        }
+        $outputDirPathInfo = Resolve-Path $outputDir
+        $outputDir = $outputDirPathInfo.Path
     
         $properties = @{
                 "UpdateAssemblyInfo"="$UpdateAssemblyInfo";
@@ -35,6 +46,7 @@ function Run-It () {
                 "src"=$src;
                 "working_dir"=$working_directories["Sitecore"];
                 "target"="Sitecore";
+                "zipDestinationFolder"=$outputDir;
 				"projects" = @("AvenueClothing.Project.Website", "AvenueClothing.Project.Catalog", "AvenueClothing.Project.Header", "AvenueClothing.Project.Navigation", "AvenueClothing.Project.Transaction", "AvenueClothing.Project.UserFeedback");
             };
     
