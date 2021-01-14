@@ -22,7 +22,10 @@ namespace AvenueClothing.Project.Website.Extensions
             this.Field(p => p.Taxes);
             this.Field(p => p.PricesInclTax);
             this.Field(p => p.UnitPrices);
-            this.Field(p => p.PricesInclTax["EUR 15 pct"]).Facet();
+            this.Field(p => p.PricesInclTax["EUR 15 pct"])
+                .DisplayName("Price")
+                .Facet()
+                .AutoRanges(5, 10);
         }
     }
 }
