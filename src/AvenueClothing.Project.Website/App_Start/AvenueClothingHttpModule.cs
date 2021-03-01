@@ -16,6 +16,7 @@ using Ucommerce.Api;
 using Ucommerce.Catalog;
 using Ucommerce.Content;
 using Ucommerce.EntitiesV2;
+using Ucommerce.Infrastructure.Globalization;
 using Ucommerce.Pipelines;
 using Ucommerce.Pipelines.GetProduct;
 using Ucommerce.Search;
@@ -81,6 +82,7 @@ namespace AvenueClothing.Project.Website
 	        services.AddTransient(p => ObjectFactory.Instance.Resolve<IRepository<Country>>());
             services.AddTransient(p => ObjectFactory.Instance.Resolve<IIndex<Ucommerce.Search.Models.Product>>());
             services.AddTransient(p => ObjectFactory.Instance.Resolve<IUrlService>());
+            services.AddTransient(p => ObjectFactory.Instance.Resolve<ILocalizationContext>());
             services.AddTransient(p => ObjectFactory.Instance.Resolve<IProductPriceCalculationService>());
         }
 
