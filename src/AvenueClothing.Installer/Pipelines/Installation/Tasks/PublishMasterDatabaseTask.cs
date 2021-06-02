@@ -26,7 +26,7 @@ namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
             }
             catch (Exception ex)
             {
-                loggingService.Log<PublishMasterDatabaseTask>(ex);
+                loggingService.Error<PublishMasterDatabaseTask>(ex);
                 throw;
             }
         }
@@ -35,11 +35,11 @@ namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
         {
             if (item == null)
             {
-                loggingService.Log<PublishMasterDatabaseTask>("Could not publish to targetDatbase. Item is null");
+                loggingService.Information<PublishMasterDatabaseTask>("Could not publish to targetDatbase. Item is null");
                 return;
             }
 
-            loggingService.Log<PublishMasterDatabaseTask>("Publishing to web from demo store installer.");
+            loggingService.Information<PublishMasterDatabaseTask>("Publishing to web from demo store installer.");
 
             var publishOptions = new PublishOptions(masterDatabase,
                 Database.GetDatabase("web"),
@@ -53,7 +53,7 @@ namespace AvenueClothing.Installer.Pipelines.Installation.Tasks
 
             publisher.Publish();
 
-            loggingService.Log<PublishMasterDatabaseTask>("Publishing done from demo store installer.");
+            loggingService.Information<PublishMasterDatabaseTask>("Publishing done from demo store installer.");
         }
 
         public PipelineExecutionResult Execute(InstallationPipelineArgs subject)
