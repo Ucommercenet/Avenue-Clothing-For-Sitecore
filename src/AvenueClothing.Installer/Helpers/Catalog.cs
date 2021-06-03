@@ -430,7 +430,6 @@ namespace AvenueClothing.Installer.Helpers
             product.Name = name;
             product.ProductDefinition = productDefinition;
             product.DisplayOnSite = true;
-            product.AllowOrdering = true;
             product.PrimaryImageMediaId = imageId;
             product.ThumbnailImageMediaId = imageId;
             product.Save();
