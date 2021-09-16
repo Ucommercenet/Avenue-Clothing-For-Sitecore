@@ -71,14 +71,17 @@
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Rainbow, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Rainbow.Core.2.1.1\lib\net452\Rainbow.dll</HintPath>
+    <Reference Include="Rainbow, Version=2.1.4.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Rainbow.Core.2.1.4\lib\net452\Rainbow.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Rainbow.Storage.Sc, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Rainbow.Storage.Sc.2.1.1\lib\net452\Rainbow.Storage.Sc.dll</HintPath>
+    <Reference Include="Rainbow.Storage.Sc, Version=2.1.4.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Rainbow.Storage.Sc.2.1.4\lib\net452\Rainbow.Storage.Sc.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Rainbow.Storage.Yaml, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Rainbow.Storage.Yaml.2.1.1\lib\net452\Rainbow.Storage.Yaml.dll</HintPath>
+    <Reference Include="Rainbow.Storage.Yaml, Version=2.1.4.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Rainbow.Storage.Yaml.2.1.4\lib\net452\Rainbow.Storage.Yaml.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Sitecore.Kernel, Version=16.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\..\lib\Sitecore\Sitecore.Kernel.dll</HintPath>
@@ -201,8 +204,9 @@
       <HintPath>..\packages\uCommerce.Core.9.5.0.21245\lib\net45\Ucommerce.SystemWeb.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Unicorn, Version=4.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unicorn.Core.4.1.1\lib\net452\Unicorn.dll</HintPath>
+    <Reference Include="Unicorn, Version=4.1.5.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Unicorn.Core.4.1.5\lib\net452\Unicorn.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
