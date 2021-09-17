@@ -50,8 +50,6 @@ task CopyBinariesToLocalFolder {
     }
 
     Copy-Item "$src\..\lib\WebGrease\System.Web.Optimization.dll" "$working_dir\bin\System.Web.Optimization.dll" -Force
-    Copy-Item "$src\..\lib\WebGrease\WebGrease.dll" "$working_dir\bin\WebGrease.dll" -Force
-
 }
 
 task CopyConfigurationLocal {
