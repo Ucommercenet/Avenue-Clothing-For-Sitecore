@@ -57,7 +57,6 @@ task CopyUnicornDependenciesToFilesFolder {
     Copy-Item "$src\AvenueClothing.Project.Website\bin\Rainbow.Storage.Yaml.dll" "$working_dir\files\bin\Rainbow.Storage.Yaml.dll" -Force 
     Copy-Item "$src\AvenueClothing.Project.Website\bin\\Rainbow.Storage.Sc.dll" "$working_dir\files\bin\Rainbow.Storage.Sc.dll" -Force 
     
-    Copy-Item "$src\..\lib\WebGrease\WebGrease.dll" "$working_dir\files\bin\WebGrease.dll" -Force 
     Copy-Item "$src\..\lib\WebGrease\System.Web.Optimization.dll" "$working_dir\files\bin\System.Web.Optimization.dll" -Force 
 }
 

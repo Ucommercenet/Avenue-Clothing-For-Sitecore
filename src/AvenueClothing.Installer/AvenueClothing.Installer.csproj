@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AvenueClothing.Installer</RootNamespace>
     <AssemblyName>AvenueClothing.Installer</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -40,14 +40,17 @@
     <Reference Include="MicroCHAP, Version=1.2.2.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MicroCHAP.1.2.2.2\lib\net45\MicroCHAP.dll</HintPath>
     </Reference>
-    <Reference Include="Rainbow, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Rainbow.Core.2.1.1\lib\net452\Rainbow.dll</HintPath>
+    <Reference Include="Rainbow, Version=2.1.4.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Rainbow.Core.2.1.4\lib\net452\Rainbow.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Rainbow.Storage.Sc, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Rainbow.Storage.Sc.2.1.1\lib\net452\Rainbow.Storage.Sc.dll</HintPath>
+    <Reference Include="Rainbow.Storage.Sc, Version=2.1.4.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Rainbow.Storage.Sc.2.1.4\lib\net452\Rainbow.Storage.Sc.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Rainbow.Storage.Yaml, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Rainbow.Storage.Yaml.2.1.1\lib\net452\Rainbow.Storage.Yaml.dll</HintPath>
+    <Reference Include="Rainbow.Storage.Yaml, Version=2.1.4.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Rainbow.Storage.Yaml.2.1.4\lib\net452\Rainbow.Storage.Yaml.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Sitecore.Kernel, Version=10.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -63,59 +66,60 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Ucommerce, Version=9.3.1.20275, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.9.3.1.20275\lib\net45\Ucommerce.dll</HintPath>
+    <Reference Include="Ucommerce, Version=9.5.0.21245, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.5.0.21245\lib\net45\Ucommerce.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.Admin, Version=9.3.1.20275, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.9.3.1.20275\lib\net45\Ucommerce.Admin.dll</HintPath>
+    <Reference Include="Ucommerce.Admin, Version=9.5.0.21245, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.5.0.21245\lib\net45\Ucommerce.Admin.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.Api, Version=9.3.1.20275, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.9.3.1.20275\lib\net45\Ucommerce.Api.dll</HintPath>
+    <Reference Include="Ucommerce.Api, Version=9.5.0.21245, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.5.0.21245\lib\net45\Ucommerce.Api.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.Infrastructure, Version=9.3.1.20275, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.9.3.1.20275\lib\net45\Ucommerce.Infrastructure.dll</HintPath>
+    <Reference Include="Ucommerce.Infrastructure, Version=9.5.0.21245, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.5.0.21245\lib\net45\Ucommerce.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.Installer, Version=9.3.1.20275, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.9.3.1.20275\lib\net45\Ucommerce.Installer.dll</HintPath>
+    <Reference Include="Ucommerce.Installer, Version=9.5.0.21245, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.5.0.21245\lib\net45\Ucommerce.Installer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.NHibernate, Version=9.3.1.20275, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.9.3.1.20275\lib\net45\Ucommerce.NHibernate.dll</HintPath>
+    <Reference Include="Ucommerce.NHibernate, Version=9.5.0.21245, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.5.0.21245\lib\net45\Ucommerce.NHibernate.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.Pipelines, Version=9.3.1.20275, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.9.3.1.20275\lib\net45\Ucommerce.Pipelines.dll</HintPath>
+    <Reference Include="Ucommerce.Pipelines, Version=9.5.0.21245, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.5.0.21245\lib\net45\Ucommerce.Pipelines.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.Presentation, Version=9.3.1.20275, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.9.3.1.20275\lib\net45\Ucommerce.Presentation.dll</HintPath>
+    <Reference Include="Ucommerce.Presentation, Version=9.5.0.21245, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.5.0.21245\lib\net45\Ucommerce.Presentation.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.Search, Version=9.3.1.20275, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.9.3.1.20275\lib\net45\Ucommerce.Search.dll</HintPath>
+    <Reference Include="Ucommerce.Search, Version=9.5.0.21245, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.5.0.21245\lib\net45\Ucommerce.Search.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Ucommerce.Sitecore">
       <HintPath>..\..\lib\Ucommerce\Ucommerce.Sitecore.dll</HintPath>
     </Reference>
-    <Reference Include="Ucommerce.SqlMultiReaderConnector, Version=9.3.1.20275, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.9.3.1.20275\lib\net45\Ucommerce.SqlMultiReaderConnector.dll</HintPath>
+    <Reference Include="Ucommerce.SqlMultiReaderConnector, Version=9.5.0.21245, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.5.0.21245\lib\net45\Ucommerce.SqlMultiReaderConnector.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.SystemHttp, Version=9.3.1.20275, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.9.3.1.20275\lib\net45\Ucommerce.SystemHttp.dll</HintPath>
+    <Reference Include="Ucommerce.SystemHttp, Version=9.5.0.21245, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.5.0.21245\lib\net45\Ucommerce.SystemHttp.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.SystemWeb, Version=9.3.1.20275, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.9.3.1.20275\lib\net45\Ucommerce.SystemWeb.dll</HintPath>
+    <Reference Include="Ucommerce.SystemWeb, Version=9.5.0.21245, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.5.0.21245\lib\net45\Ucommerce.SystemWeb.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Unicorn, Version=4.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unicorn.Core.4.1.1\lib\net452\Unicorn.dll</HintPath>
+    <Reference Include="Unicorn, Version=4.1.5.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Unicorn.Core.4.1.5\lib\net452\Unicorn.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -144,18 +148,10 @@
     <None Include="App_Config\Include\Rainbow.config" />
     <None Include="App_Config\Include\Unicorn\Unicorn.AutoPublish.config" />
     <None Include="App_Config\Include\Unicorn\Unicorn.config" />
-    <None Include="App_Config\Include\Unicorn\Unicorn.Configs.Default.example" />
-    <None Include="App_Config\Include\Unicorn\Unicorn.Configs.Dependency.config.example" />
-    <None Include="App_Config\Include\Unicorn\Unicorn.Configs.NewItemsOnly.example" />
-    <None Include="App_Config\Include\Unicorn\Unicorn.CustomSerializationFolder.config.example" />
-    <None Include="App_Config\Include\Unicorn\Unicorn.DataProvider.config" />
-    <None Include="App_Config\Include\Unicorn\Unicorn.Dilithium.config.example" />
+    <None Include="App_Config\Include\Unicorn\Unicorn.DataProvider.config.disabled" />
     <None Include="App_Config\Include\Unicorn\Unicorn.PowerShell.config" />
-    <None Include="App_Config\Include\Unicorn\Unicorn.Remote.config.disabled" />
     <None Include="App_Config\Include\Unicorn\Unicorn.UI.config" />
-    <None Include="App_Config\Include\Unicorn\Unicorn.UI.DeployedContentEditorWarnings.config.disabled" />
     <None Include="App_Config\Include\Unicorn\Unicorn.UI.IdentityServer.config" />
-    <None Include="App_Config\Include\Unicorn\Unicorn.zSharedSecret.config.example" />
     <None Include="packages.config" />
     <None Include="package\installer\project" />
     <None Include="package\installer\version" />
@@ -167,6 +163,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Config\Include\Unicorn\Unicorn.Configs.Default.example" />
+    <Content Include="App_Config\Include\Unicorn\Unicorn.Configs.Dependency.config.example" />
+    <Content Include="App_Config\Include\Unicorn\Unicorn.Configs.NewItemsOnly.example" />
+    <Content Include="App_Config\Include\Unicorn\Unicorn.CustomSerializationFolder.config.example" />
+    <Content Include="App_Config\Include\Unicorn\Unicorn.DataProvider.10.1.config" />
+    <Content Include="App_Config\Include\Unicorn\Unicorn.Dilithium.config.example" />
+    <Content Include="App_Config\Include\Unicorn\Unicorn.Remote.config.disabled" />
+    <Content Include="App_Config\Include\Unicorn\Unicorn.UI.DeployedContentEditorWarnings.config.disabled" />
+    <Content Include="App_Config\Include\Unicorn\Unicorn.UI.IdentityServer.config.disabled" />
+    <Content Include="App_Config\Include\Unicorn\Unicorn.zSharedSecret.config.example" />
     <Content Include="PackageInformation\Readme.txt" />
     <Content Include="package\metadata\sc_author.txt" />
     <Content Include="package\metadata\sc_comment.txt" />
